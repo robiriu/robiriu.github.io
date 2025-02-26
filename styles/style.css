@@ -124,14 +124,21 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 p {
   color: #555;
   font-size: 1.1em;
   line-height: 1.8;
+  text-align: justify;
+}
+
+/* footer alignment */
+footer p {
+  text-align: center;
 }
 
 /* Home Page */
@@ -141,13 +148,36 @@ p {
 }
 
 #home h1 {
-  font-size: 4em;
+  font-size: 2.5em;
   margin-bottom: 10px;
 }
 
 #home p {
   font-size: 1.2em;
   color: #666;
+}
+
+/* Separator */
+.separator {
+  border: 1px solid #ddd; 
+  margin: 30px 0;
+}
+
+.photo-about {
+  display: block;
+  width: 500px; /* Adjust size */
+  height: auto;
+  margin: 20px auto; /* Centers the image */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.profile-photo {
+  display: block;
+  width: 200px; /* Adjust size */
+  height: auto;
+  border-radius: 50%; /* Makes it circular */
+  margin: 20px auto; /* Centers the image */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 /* Projects Page */
