@@ -233,29 +233,63 @@ footer p {
   background-color: #555;
 }
 
-/* Project Details Page */
-#project-details {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-#project-details img {
-  width: 100%;
-  height: auto;
+/* AI Fundamentals Page */
+.topic-group {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
   border-radius: 8px;
+}
+
+.topic-group h2 {
+  text-align: center;
+  font-size: 2em;
   margin-bottom: 20px;
 }
 
-#project-details h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
 }
 
-#project-details p {
-  font-size: 1.1em;
-  line-height: 1.8;
-  color: #555;
+.topic-item {
+  text-align: center;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topic-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.topic-item h3 {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.topic-item p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #007BFF;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #0056b3;
 }
 
 /* Responsive Design */
