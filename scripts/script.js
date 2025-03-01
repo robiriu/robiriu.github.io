@@ -1,9 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('header nav');
-  
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector("header nav");
+
+  hamburger.addEventListener("click", function() {
+    nav.classList.toggle("active");
   });
+});
