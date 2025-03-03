@@ -118,7 +118,9 @@ footer .icons a:hover {
 }
 
 /* Typography */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Playfair Display', serif;
   color: #000;
 }
@@ -159,25 +161,32 @@ footer p {
 
 /* Separator */
 .separator {
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   margin: 30px 0;
 }
 
 .photo-about {
   display: block;
-  max-width: 100%; /* Make it responsive */
+  max-width: 100%;
+  /* Make it responsive */
   height: auto;
-  margin: 20px auto; /* Centers the image */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  margin: 20px auto;
+  /* Centers the image */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
 }
 
 .profile-photo {
   display: block;
-  width: 200px; /* Adjust size */
+  width: 200px;
+  /* Adjust size */
   height: auto;
-  border-radius: 50%; /* Makes it circular */
-  margin: 20px auto; /* Centers the image */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 50%;
+  /* Makes it circular */
+  margin: 20px auto;
+  /* Centers the image */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
 }
 
 /* Projects Page */
@@ -232,6 +241,15 @@ footer p {
 .btn:hover {
   background-color: #555;
 }
+
+/* Figure Caption */
+figcaption {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  margin-top: 5px;
+}
+
 
 /* AI Fundamentals Page */
 .topic-group {
