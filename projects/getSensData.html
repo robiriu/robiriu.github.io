@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getSensData - Robiriu Labs</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">Robiriu Labs</a>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../projects.html">Projects</a></li>
+                    <li><a href="/AI.html">AI (Fundamentals)</a></li>
+                    <li><a href="activity.html">Activity</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="project-details">
+            <h1>getSensData</h1>
+            <img src="../images/getSensData.jpg" alt="getSensData" class="photo-about">
+            <p>getSensData is a web application designed to real time collect data from sensors, display, and visualize
+                medical data such as oxygen
+                saturation and heart rate. The application uses a form to gather user information and displays the data
+                in
+                real-time using Chart.js. The backend is built with Node.js and Express, and it stores data in a MongoDB
+                database.</p>
+            <p>This project features user data collection by capturing information such as name, age, height, and
+                weight, while also integrating real-time sensor data to display oxygen saturation and heart rate. It
+                includes data visualization using bar charts for better insights, along with data management functions
+                that allow users to submit and clear entries. Additionally, it supports serial port communication to
+                receive data from an Arduino, enabling seamless interaction between hardware and software.</p>
+            <p>Explore the code:</p>
+            <a href="https://github.com/robiriu/getSensData" target="_blank">Github</a>
+            <p></p>
+            <a href="../projects.html" class="btn">Back to Projects</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2022 Robiriu Labs. All rights reserved.</p>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>
