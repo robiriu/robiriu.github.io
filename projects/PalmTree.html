@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palm Tree Detection Web App - Robiriu Labs</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="../index.html" class="logo">Robiriu Labs</a>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="/blogs.html">Blogs</a></li>
+          <li><a href="activity.html">Activity</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="project-details">
+      <h1>🌴 Palm Tree Detection Web App</h1>
+      <img src="../images/PalmTrees.jpg" alt="Palm Tree Detection" class="photo-about">
+      <p>This is a simple web application that detects and counts the number of palm trees in an uploaded image. The app
+        uses a custom-trained object detection model hosted on <a href="https://roboflow.com"
+          target="_blank">Roboflow</a> and serves predictions through a FastAPI
+        backend. The result is a bounding-box-annotated image along with a count of detected palm trees.</p>
+
+      <h2>🚀 Demo</h2>
+      <a href="https://drive.google.com/file/d/1m_rFfdxZLuelY04jafenI_HtCzsEu-Iw/view?usp=sharing" target="_blank">👉
+        Watch the Demo Video</a>
+
+      <h2>🧠 Tech Stack</h2>
+      <ul>
+        <li><strong>Frontend</strong>: HTML, CSS, JavaScript</li>
+        <li><strong>Backend</strong>: Python, FastAPI</li>
+        <li><strong>Model Inference</strong>: Roboflow API</li>
+        <li><strong>Image Processing</strong>: Pillow (PIL)</li>
+        <li><strong>Communication</strong>: Fetch API with CORS enabled</li>
+      </ul>
+
+      <h2>📦 Features</h2>
+      <ul>
+        <li>Upload an image from your device</li>
+        <li>Sends image to backend and Roboflow model</li>
+        <li>Detects and counts palm trees</li>
+        <li>Displays the total count and the image with bounding boxes</li>
+      </ul>
+
+      <h2>⚙️ Requirements</h2>
+      <h3>✅ Backend Setup (FastAPI + Roboflow)</h3>
+      <ol>
+        <li>Python 3.8 or higher</li>
+        <li>Install required Python packages:
+          <pre><code>pip install fastapi uvicorn pillow python-multipart inference-sdk</code></pre>
+        </li>
+        <li>Run the backend server:
+          <pre><code>uvicorn main:app --reload</code></pre>
+        </li>
+      </ol>
+      <p><strong>Note:</strong> Make sure to replace the <code>api_key</code> and <code>model_id</code> in
+        <code>main.py</code> with your own Roboflow credentials if you fork this project.
+      </p>
+
+      <h3>✅ Frontend Setup</h3>
+      <p>No build tools required. Just open <code>index.html</code> in your browser, or use a local server (e.g. <a
+          href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank">Live
+          Server</a> extension in VS Code).</p>
+      <p>Make sure the backend server is running locally at: <code>http://localhost:8000/detect/</code></p>
+
+      <h2>🙌 Credits</h2>
+      <ul>
+        <li><a href="https://roboflow.com" target="_blank">Roboflow</a> for hosted model and API</li>
+        <li><a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a> for the web backend</li>
+        <li><a href="https://pillow.readthedocs.io/en/stable/" target="_blank">Pillow</a> for image handling</li>
+      </ul>
+
+      <h2>Explore the code:</h2>
+      <a href="https://github.com/robiriu/AI-RTIA" target="_blank">Github</a>
+      <p></p>
+      <a href="../projects.html" class="btn">Back to Projects</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy;2022 Robiriu Labs. All rights reserved.</p>
+  </footer>
+
+  <script src="../scripts/script.js"></script>
+</body>
+
+</html>
