@@ -259,6 +259,11 @@ p {
   background: var(--bg-gradient-primary);
   border-radius: var(--border-radius-lg);
   margin: clamp(10px, 3vw, 20px) 0;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #home h1 {
@@ -927,6 +932,7 @@ figcaption {
   #home {
     padding: clamp(40px, 6vw, 60px) clamp(20px, 4vw, 30px);
     margin: 10px 0;
+    min-height: calc(100vh - 100px);
   }
 
   h2::before {
@@ -961,6 +967,7 @@ figcaption {
 
   #home {
     padding: clamp(30px, 5vw, 50px) clamp(15px, 3vw, 25px);
+    min-height: calc(100vh - 80px);
   }
 
   h2::before {
@@ -2353,6 +2360,10 @@ header nav a.active::after {
 @media (max-width: 480px) {
   .content-section {
     padding: clamp(2rem, 6vw, 4rem) 0;
+  }
+  
+  #home {
+    min-height: calc(100vh - 80px);
   }
   
   .activity-date {
