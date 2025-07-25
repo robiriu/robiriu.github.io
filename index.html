@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robiriu Labs</title>
+  <title>Robi Dany Riupassa - AI Researcher & Developer | Robiriu Labs</title>
   <link rel="stylesheet" href="styles/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap"
     rel="stylesheet">
@@ -22,32 +22,334 @@
       </button>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="blogs.html">Blogs</a></li>
-          <li><a href="activity.html">Activity</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#activity">Activity</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section id="home">
-      <img src="images/fotoProfil.jfif" alt="Dr. Robi Dany Riupassa" class="profile-photo">
+      <img src="images/fotoProfil.jfif" alt="Robi Dany Riupassa" class="profile-photo">
       <h1>Welcome to Robiriu Labs</h1>
       <p>This is my lab where I experiment with data, AI models, and their applications; explore and write about
         computer programming, microcontrollers, and also computer vision; stay updated with the latest tools and
         technologies; and share all the projects I have worked on.</p>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <div class="container">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <div class="about-preview">
+          <img src="images/DrRobi.jpg" alt="Robi Dany Riupassa" class="photo-about-small">
+          <div class="about-content">
+            <p>Hello! I'm Robi Dany Riupassa, a scientist and technology enthusiast with expertise in AI, machine learning, and data science.</p>
+            
+            <div class="credentials-grid">
+              <div class="credential-item">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <p><strong>Doctor of Science</strong><br>
+                Doctor of Physics, Physics Department, Bandung Institute of Technology, Indonesia</p>
+                <p><strong>Master of Science</strong><br>
+                Master of Physics, Physics Department, Bandung Institute of Technology, Indonesia</p>
+              </div>
+              
+              <div class="credential-item">
+                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                <p><strong>Developer and Researcher at ForceX AI</strong><br>
+                Develop AI products and conduct research on AI models and their applications.</p>
+                <p><strong>Training Instructor</strong><br>
+                Delivered Fundamentals of Data Science for Government Transformation Academy, BPPTIK KOMINFO, Indonesia.</p>
+              </div>
+            </div>
+            
+            <div class="publications-preview">
+              <h3><i class="fas fa-book"></i> Publications</h3>
+              <p>Check out my scientific publications:</p>
+              <div class="publication-links">
+                <a href="https://scholar.google.com/citations?user=3EyaaoUAAAAJ&sortby=pubdate" target="_blank" class="btn btn-outline">
+                  <i class="fas fa-external-link-alt"></i> Google Scholar
+                </a>
+                <a href="https://www.scopus.com/authid/detail.uri?authorId=57190936273" target="_blank" class="btn btn-outline">
+                  <i class="fas fa-external-link-alt"></i> Scopus
+                </a>
+              </div>
+            </div>
+            
+            <a href="about.html" class="btn">
+              <i class="fas fa-arrow-right"></i> Read Full Bio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section">
+      <div class="container">
+        <h2><i class="fas fa-code"></i> Featured Projects</h2>
+        <div class="project-grid">
+          <div class="project-item">
+            <img src="images/PalmTrees.JPG" alt="Palm Tree Detection">
+            <h3>Palm Tree Detection Web App</h3>
+            <p>A web application that detects and counts palm trees in uploaded images using a custom-trained object detection model hosted on Roboflow with FastAPI backend.</p>
+            <a href="projects/PalmTree.html" class="btn">Learn More</a>
+          </div>
+          
+          <div class="project-item">
+            <img src="images/forceXAIchat.jfif" alt="AI Chatbot">
+            <h3>ForceX AI Chat</h3>
+            <p>An AI chatbot application exploring free models on Hugging Face, ultimately implementing the Mistral 7B model for speed and open-access capabilities.</p>
+            <a href="projects/forceXAIchat.html" class="btn">Learn More</a>
+          </div>
+          
+          <div class="project-item">
+            <img src="images/pneumonia.jfif" alt="Pneumonia Detection">
+            <h3>Pneumonia Detection System</h3>
+            <p>A deep learning model using CNNs to detect pneumonia from chest X-ray images, assisting healthcare professionals with automated diagnosis.</p>
+            <a href="projects/pneumonia.html" class="btn">Learn More</a>
+          </div>
+          
+          <div class="project-item">
+            <img src="images/getSensData.jpg" alt="getSensData">
+            <h3>getSensData</h3>
+            <p>A real-time web application for collecting, displaying, and visualizing medical sensor data like oxygen saturation and heart rate using Node.js and MongoDB.</p>
+            <a href="projects/getSensData.html" class="btn">Learn More</a>
+          </div>
+          
+          <div class="project-item">
+            <img src="images/doseRateSimulator.PNG" alt="OCR IT-09">
+            <h3>OCR - IT09 Data Panel</h3>
+            <p>An automated system using OCR technology to read and record radiation dose data from IT-09 Data Panel, processing real-time webcam images with Tesseract OCR.</p>
+            <a href="projects/OCR-IT09.html" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="section-footer">
+          <a href="projects.html" class="btn btn-outline">
+            <i class="fas fa-folder-open"></i> View All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="content-section">
+      <div class="container">
+        <h2><i class="fas fa-blog"></i> Latest Blog Posts</h2>
+        <div class="blog-preview-grid">
+          <div class="topic-group">
+            <h3>Computer Programming</h3>
+            <div class="topic-grid">
+              <div class="topic-item">
+                <img src="images/python.png" alt="Python Programming">
+                <h4>Python for Data Science</h4>
+                <p>Essential Python techniques and libraries for data analysis and machine learning applications.</p>
+              </div>
+              
+              <div class="topic-item">
+                <img src="images/javascript.png" alt="JavaScript Development">
+                <h4>Modern JavaScript</h4>
+                <p>Exploring ES6+ features, async programming, and modern web development frameworks.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="topic-group">
+            <h3>Computer Vision</h3>
+            <div class="topic-grid">
+              <div class="topic-item">
+                <img src="images/openCV.png" alt="OpenCV Tutorials">
+                <h4>OpenCV Fundamentals</h4>
+                <p>Step-by-step tutorials on image processing, object detection, and computer vision applications.</p>
+              </div>
+              
+              <div class="topic-item">
+                <img src="images/deepLearning.png" alt="Deep Learning for Vision">
+                <h4>Deep Learning for Vision</h4>
+                <p>Implementing neural networks for image recognition, classification, and advanced vision tasks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-footer">
+          <a href="blogs.html" class="btn btn-outline">
+            <i class="fas fa-newspaper"></i> Read All Articles
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Section -->
+    <section id="activity" class="content-section">
+      <div class="container">
+        <h2><i class="fas fa-calendar-alt"></i> Recent Activities & Events</h2>
+        <div class="activity-grid">
+          <div class="activity-item">
+            <div class="activity-date">
+              <span class="month">Nov</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="activity-content">
+              <h3>Webinar: Deep Learning for Medical Image Analysis</h3>
+              <p>Presented advanced techniques in medical image analysis using deep learning, focusing on diagnostic applications and healthcare innovation.</p>
+              <a href="pdf/Webinar - Deep Learning MIA.pdf" target="_blank" class="btn-link">
+                <i class="fas fa-file-pdf"></i> View Presentation
+              </a>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-date">
+              <span class="month">Oct</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="activity-content">
+              <h3>Workshop: FSKoM Day 2024</h3>
+              <p>At FSKoM Day 2024, held by Matana University, I presented about oxygen saturation and heart rate monitoring using computer vision techniques.</p>
+              <a href="pdf/Workshop FSKOM Day 2024.pdf" target="_blank" class="btn-link">
+                <i class="fas fa-file-pdf"></i> View Materials
+              </a>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-date">
+              <span class="month">Sep</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="activity-content">
+              <h3>Workshop: Arduino Programming for High School Students</h3>
+              <p>Conducted a hands-on workshop introducing Arduino programming and instrumentation fundamentals to high school students.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-footer">
+          <a href="activity.html" class="btn btn-outline">
+            <i class="fas fa-calendar"></i> View All Activities
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+      <div class="container">
+        <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
+        <div class="contact-content">
+          <p>Feel free to reach out to me for collaborations, consultations, or any inquiries about AI, machine learning, and technology solutions.</p>
+          
+          <div class="contact-grid">
+            <div class="contact-item">
+              <i class="fas fa-envelope-open"></i>
+              <h3>Email</h3>
+              <a href="mailto:robiriu@gmail.com">robiriu@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <a href="https://github.com/robiriu" target="_blank">View Projects</a>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fab fa-linkedin"></i>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/robi-dany-riupassa-48946086/" target="_blank">Connect</a>
+            </div>
+          </div>
+          
+          <div class="section-footer">
+            <a href="contact.html" class="btn">
+              <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy;2022 Robiriu Labs. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Robiriu Labs</h3>
+          <p>Experimenting with AI, data science, and innovative technology solutions.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#activity">Activities</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://github.com/robiriu" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/robi-dany-riupassa-48946086/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:robiriu@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy;2022 Robiriu Labs. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script src="scripts/script.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Update active navigation based on scroll position
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+      
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
