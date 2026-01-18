@@ -1,0 +1,63 @@
+/* Mermaid Diagram Styling */
+.mermaid {
+    text-align: center;
+    margin: 2em 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-width: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Make diagrams larger but not too big */
+.mermaid svg {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 500px !important;
+}
+
+/* Ensure text is very readable with larger fonts */
+.mermaid .nodeLabel {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+/* Make subgraph titles much more prominent */
+.mermaid .cluster-label {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    fill: #333 !important;
+}
+
+/* Improve node sizing - make them bigger */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon {
+    stroke-width: 2px !important;
+    fill: #f8f9fa !important;
+}
+
+/* Make edge labels readable */
+.mermaid .edgeLabel {
+    font-size: 13px !important;
+    background-color: white !important;
+    padding: 4px !important;
+}
+
+/* Optional scroll hint - only show if needed */
+.mermaid.has-scroll::after {
+    content: "← Scroll to see full diagram →";
+    display: block;
+    text-align: center;
+    color: #666;
+    font-size: 11px;
+    margin-top: 8px;
+    font-style: italic;
+}

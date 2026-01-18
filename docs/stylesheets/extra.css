@@ -1,0 +1,45 @@
+/* Custom styles for Robiriu Labs */
+
+:root {
+  --md-primary-fg-color: #3f51b5;
+  --md-accent-fg-color: #3f51b5;
+}
+
+/* Improve readability */
+.md-typeset {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Card styling */
+.md-typeset .grid.cards > * {
+  border-radius: 0.2rem;
+  transition: transform 0.2s;
+}
+
+.md-typeset .grid.cards > *:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Button styling */
+.md-button {
+  border-radius: 0.2rem;
+}
+
+.md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+  border-color: var(--md-primary-fg-color);
+}
+
+/* Image styling */
+.md-typeset img {
+  border-radius: 0.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Admonition styling */
+.md-typeset .admonition {
+  border-radius: 0.2rem;
+}
