@@ -1,0 +1,74 @@
+site_name: Robiriu Labs
+site_description: AI Research & Development Portfolio of Robi Dany Riupassa
+site_author: Robi Dany Riupassa
+site_url: https://robiriu.github.io/
+
+# Repository
+repo_name: robiriu/robiriu.github.io
+repo_url: https://github.com/robiriu/robiriu.github.io
+
+# Copyright
+copyright: Copyright &copy; 2022 - 2026 Robi Dany Riupassa
+
+# Theme Configuration
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - python
+    - javascript
+    - bash
+
+# Navigation
+nav:
+  - Home: index.md
+  - About:
+      - Overview: about/index.md
+      - Education: about/education.md
+      - Experience: about/experience.md
+      - Publications: about/publications.md
+  - Projects:
+      - Overview: projects/index.md
+      - Personal Projects:
+          - Palm Tree Detection: projects/palm-tree-detection.md
+          - ForceX AI Chat: projects/forcex-ai-chat.md
+          - Pneumonia Detection: projects/pneumonia-detection.md
+          - getSensData: projects/getsensdata.md
+          - OCR IT-09: projects/ocr-it09.md
+  - Blog:
+      - Overview: blog/index.md
+      - Computer Programming: blog/programming.md
+      - Computer Vision: blog/computer-vision.md
+  - Activities:
+      - Overview: activities/index.md
+      - Workshops & Webinars: activities/events.md
+  - Contact: contact.md
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+  - sane_lists
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# Plugins
+plugins:
+  - search
+
+# Extra CSS for Mermaid styling
+extra_css:
+  - stylesheets/mermaid-custom.css
+
+# Extra JavaScript for Mermaid
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js

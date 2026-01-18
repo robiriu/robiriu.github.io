@@ -35,6 +35,10 @@ build/
 *.min.js
 *.min.css
 
+# MkDocs
+site/
+venv/
+
 # Cache directories
 .cache/
 .parcel-cache/
