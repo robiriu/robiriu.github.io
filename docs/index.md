@@ -383,36 +383,38 @@ A **comprehensive research project** implementing and comparing YouTube Two-Towe
 **System Architectures Compared:**
 
 ```mermaid
-flowchart TB
-    subgraph YouTube["YouTube Two-Tower"]
-        YT1["User Tower"] <--> YT2["Item Tower"]
-        YT1 --> YT3["Embedding Space"]
-        YT2 --> YT3
-        YT3 --> YT4["ANN Retrieval"]
-        YT4 --> YT5["Watch Time Ranking"]
+flowchart LR
+    subgraph YT["YOUTUBE TWO-TOWER"]
+        direction LR
+        YT1["User Tower"] --> YT3["Embeddings"]
+        YT2["Item Tower"] --> YT3
+        YT3 --> YT4["ANN Search"] --> YT5["Ranking"]
     end
 
-    subgraph Netflix["Netflix Foundation"]
-        NF1["User History<br/>'sentence'"] --> NF2["Transformer"]
-        NF2 --> NF3["Multi-Task Heads"]
-        NF3 --> NF4["Homepage"]
-        NF3 --> NF5["Search"]
-        NF3 --> NF6["Similar"]
+    classDef ytStyle fill:#FF6B6B,stroke:#C92A2A,stroke-width:2px
+    class YT1,YT2,YT3,YT4,YT5 ytStyle
+```
+
+```mermaid
+flowchart LR
+    subgraph NF["NETFLIX FOUNDATION"]
+        direction LR
+        NF1["History Sequence"] --> NF2["Transformer"] --> NF3["Multi-Task Heads"] --> NF4["Recommendations"]
     end
 
-    subgraph Hybrid["Hybrid System"]
-        HY1["Two-Tower<br/>Retrieval"] --> HY2["Transformer<br/>Re-rank"]
-        HY2 --> HY3["Multi-Task<br/>Score"]
-        HY3 --> HY4["CF Ensemble"]
+    classDef nfStyle fill:#E50914,stroke:#B20710,stroke-width:2px
+    class NF1,NF2,NF3,NF4 nfStyle
+```
+
+```mermaid
+flowchart LR
+    subgraph HY["HYBRID SYSTEM"]
+        direction LR
+        HY1["Two-Tower"] --> HY2["Transformer"] --> HY3["CF Ensemble"] --> HY4["Final Ranking"]
     end
 
-    classDef youtubeStyle fill:#FF6B6B,stroke:#C92A2A,stroke-width:2px
-    classDef netflixStyle fill:#E50914,stroke:#B20710,stroke-width:2px
-    classDef hybridStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
-
-    class YT1,YT2,YT3,YT4,YT5 youtubeStyle
-    class NF1,NF2,NF3,NF4,NF5,NF6 netflixStyle
-    class HY1,HY2,HY3,HY4 hybridStyle
+    classDef hyStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
+    class HY1,HY2,HY3,HY4 hyStyle
 ```
 
 **Grid Search Optimization Results:**
