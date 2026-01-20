@@ -384,36 +384,22 @@ A **comprehensive research project** implementing and comparing YouTube Two-Towe
 
 ```mermaid
 flowchart LR
-    subgraph YT["YOUTUBE TWO-TOWER"]
-        direction LR
-        YT1["User Tower"] --> YT3["Embeddings"]
-        YT2["Item Tower"] --> YT3
-        YT3 --> YT4["ANN Search"] --> YT5["Ranking"]
+    subgraph YT["YOUTUBE: Two-Tower"]
+        YT1[User] & YT2[Item] --> YT3[Embed] --> YT4[ANN] --> YT5[Rank]
+    end
+    subgraph NF["NETFLIX: Foundation"]
+        NF1[History] --> NF2[Transformer] --> NF3[Multi-Task] --> NF4[Recs]
+    end
+    subgraph HY["HYBRID: Combined"]
+        HY1[Two-Tower] --> HY2[Transformer] --> HY3[CF] --> HY4[Rank]
     end
 
-    classDef ytStyle fill:#FF6B6B,stroke:#C92A2A,stroke-width:2px
+    classDef ytStyle fill:#FF6B6B,stroke:#C92A2A
+    classDef nfStyle fill:#E50914,stroke:#B20710
+    classDef hyStyle fill:#4CAF50,stroke:#2E7D32
+
     class YT1,YT2,YT3,YT4,YT5 ytStyle
-```
-
-```mermaid
-flowchart LR
-    subgraph NF["NETFLIX FOUNDATION"]
-        direction LR
-        NF1["History Sequence"] --> NF2["Transformer"] --> NF3["Multi-Task Heads"] --> NF4["Recommendations"]
-    end
-
-    classDef nfStyle fill:#E50914,stroke:#B20710,stroke-width:2px
     class NF1,NF2,NF3,NF4 nfStyle
-```
-
-```mermaid
-flowchart LR
-    subgraph HY["HYBRID SYSTEM"]
-        direction LR
-        HY1["Two-Tower"] --> HY2["Transformer"] --> HY3["CF Ensemble"] --> HY4["Final Ranking"]
-    end
-
-    classDef hyStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
     class HY1,HY2,HY3,HY4 hyStyle
 ```
 
