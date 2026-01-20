@@ -56,6 +56,18 @@ A real-time web application for collecting, displaying, and visualizing medical 
 
 ## Enterprise & Media Solutions
 
+### Recommendation Systems Research & Exploration
+
+A comprehensive research project implementing and comparing YouTube Two-Tower, Netflix Foundation, and Hybrid recommendation architectures. Includes interactive exploration apps and systematic Grid Search optimization achieving 0.744 combined score.
+
+**Technologies:** PyTorch, FAISS, Transformers, Gradio, Python
+
+**Highlights:** 108 configurations tested, 3 recommendation systems, enterprise-grade data models
+
+[Learn More](recommendation-systems-research.md)
+
+---
+
 ### Media Platform - Ad Campaign Management
 
 An enterprise platform for managing advertising campaigns in media and broadcast industry with advanced content delivery and analytics capabilities.

@@ -25,6 +25,8 @@ nav:
       - Publications: about/publications.md
   - Projects:
       - Overview: projects/index.md
+      - Research & ML:
+          - Recommendation Systems: projects/recommendation-systems-research.md
       - Personal Projects:
           - Palm Tree Detection: projects/palm-tree-detection.md
           - ForceX AI Chat: projects/forcex-ai-chat.md
