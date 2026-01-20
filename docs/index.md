@@ -376,6 +376,82 @@ graph LR
 
 ---
 
+### Recommendation Systems Research & Exploration
+
+A **comprehensive research project** implementing and comparing YouTube Two-Tower, Netflix Foundation, and Hybrid recommendation architectures. Features interactive exploration apps and systematic Grid Search optimization.
+
+**System Architectures Compared:**
+
+```mermaid
+flowchart TB
+    subgraph YouTube["YouTube Two-Tower"]
+        YT1["User Tower"] <--> YT2["Item Tower"]
+        YT1 --> YT3["Embedding Space"]
+        YT2 --> YT3
+        YT3 --> YT4["ANN Retrieval"]
+        YT4 --> YT5["Watch Time Ranking"]
+    end
+
+    subgraph Netflix["Netflix Foundation"]
+        NF1["User History<br/>'sentence'"] --> NF2["Transformer"]
+        NF2 --> NF3["Multi-Task Heads"]
+        NF3 --> NF4["Homepage"]
+        NF3 --> NF5["Search"]
+        NF3 --> NF6["Similar"]
+    end
+
+    subgraph Hybrid["Hybrid System"]
+        HY1["Two-Tower<br/>Retrieval"] --> HY2["Transformer<br/>Re-rank"]
+        HY2 --> HY3["Multi-Task<br/>Score"]
+        HY3 --> HY4["CF Ensemble"]
+    end
+
+    classDef youtubeStyle fill:#FF6B6B,stroke:#C92A2A,stroke-width:2px
+    classDef netflixStyle fill:#E50914,stroke:#B20710,stroke-width:2px
+    classDef hybridStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
+
+    class YT1,YT2,YT3,YT4,YT5 youtubeStyle
+    class NF1,NF2,NF3,NF4,NF5,NF6 netflixStyle
+    class HY1,HY2,HY3,HY4 hybridStyle
+```
+
+**Grid Search Optimization Results:**
+
+| System | Combined Score | Precision | Diversity | Best Configuration |
+|--------|---------------|-----------|-----------|-------------------|
+| **YouTube** | **0.744** | 0.860 | 0.655 | Emb: 128, Candidates: 100, K: 5 |
+| Hybrid | 0.688 | 0.524 | **1.000** | Candidates: 50, K: 5, CF: 0.2 |
+| Netflix | 0.625 | 0.542 | 0.738 | Emb: 64, K: 5, Foundation: 0.3 |
+
+**Technology Stack:**
+
+| Category | Technologies |
+|----------|-------------|
+| **Deep Learning** | PyTorch, Transformers, Two-Tower Networks |
+| **Vector Search** | FAISS (Approximate Nearest Neighbor) |
+| **Embeddings** | Sentence Transformers, Custom Embeddings |
+| **Interactive UI** | Gradio Web Applications |
+| **Data Processing** | Pandas, NumPy, Scikit-learn |
+
+**Key Achievements:**
+
+- **108 Hyperparameter Configurations** tested via systematic Grid Search
+- **3 Complete Recommendation Systems** built from scratch (YouTube, Netflix, Hybrid)
+- **Perfect Diversity Score (1.000)** achieved with Hybrid system at K=5
+- **Enterprise-Grade Data Models** with 50,000+ synthetic interactions
+- **Interactive Exploration Apps** on ports 7860, 7861, 7862
+
+**Key Research Findings:**
+
+- K=5 consistently outperforms K=10 and K=20 across all systems
+- Candidate pool size (50 vs 200) has minimal impact on results
+- 128-dim embeddings provide best precision/diversity balance
+- Hybrid approach achieves maximum diversity through combined architecture
+
+[Learn More →](projects/recommendation-systems-research.md)
+
+---
+
 ## Core Competencies
 
 ### Infrastructure & DevOps
@@ -478,6 +554,7 @@ Bandung Institute of Technology, Indonesia
 
 In addition to enterprise projects, I maintain a portfolio of personal and research projects:
 
+- **NEW** [Recommendation Systems Research](projects/recommendation-systems-research.md) - YouTube, Netflix & Hybrid architectures with Grid Search optimization
 - [Palm Tree Detection Web App](projects/palm-tree-detection.md) - Computer vision for agricultural monitoring
 - [ForceX AI Chat](projects/forcex-ai-chat.md) - Chatbot using Mistral 7B
 - [Pneumonia Detection System](projects/pneumonia-detection.md) - Medical image analysis
