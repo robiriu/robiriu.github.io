@@ -45,7 +45,7 @@ Porto Agent is an innovative AI-powered blog and LinkedIn post generator that ex
 
 ### Architecture
 ```mermaid
-graph LR
+graph TB
     A[Git Commits] -->|extract| B(Git Analysis)
     B -->|analyze| C(Content Generation)
     C -->|generate| D(Blog Post)
