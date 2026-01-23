@@ -17,10 +17,10 @@ The system architecture consists of multiple components, including a machine lea
 
 ```mermaid
 graph LR
-    A[Machine Learning Service] -->|Trains Models|> B[Milvus Vector Database]
-    B -->|Stores Vector Embeddings|> C[Recommendation Service]
-    C -->|Generates Recommendations|> D[User Interface]
-    D -->|User Interactions|> C
+    A[Machine Learning Service] -->|Trains Models| B[Milvus Vector Database]
+    B -->|Stores Vector Embeddings| C[Recommendation Service]
+    C -->|Generates Recommendations| D[User Interface]
+    D -->|User Interactions| C
 ```
 
 The implementation involves creating Kubernetes manifests for the machine learning service and Milvus vector database, as well as updating the recommendation service deployment with environment variables for A/B testing. Additionally, GitHub Actions CI/CD workflows are created for automating testing and deployment of the recommendation and machine learning services.
