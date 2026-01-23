@@ -1,7 +1,12 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    Welcome to my portfolio! Check out my latest projects and blog posts.
+    **Implementing a Scalable Machine Learning Recommendation System in Kubernetes** - Implementing a Scalable Machine Learning Recommendation System in Kubernetes
+
+## Introduction
+The implementation of machine learning recommendation sy...
+    [Read more ->](blog/2026-01-23-implementing-a-scalable-machine-learning-recommend.md)
+
 
 ---
 
