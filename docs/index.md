@@ -1,7 +1,12 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Optimizing API Endpoints for User Information Retrieval** - Optimizing API Endpoints for User Information Retrieval
+    **Implementing a Secure and Configurable Blog Agent** - Implementing a Secure and Configurable Blog Agent
+
+## Introduction
+The development of a blog agent requires careful consideration of several key facto...
+    [Read more ->](blog/2026-01-23-implementing-a-secure-and-configurable-blog-agent.md)
+
 
 ## Introduction
 When developing applications that integrate with external APIs, it is crucial...
