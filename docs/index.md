@@ -1,8 +1,10 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Recommendation Systems Research** - A comprehensive research project comparing YouTube Two-Tower, Netflix Foundation, and Hybrid recommendation architectures with Grid Search optimization.
-    [Read more →](projects/recommendation-systems-research.md)
+    **The integration of machine learning (ML) models into production environments has become increasingly** - ## Deploying Machine Learning Recommendation Systems in Production Environments
+The integration of machine learning (ML) models into production enviro...
+    [Read more ->](blog/2026-01-23-the-integration-of-machine-learning-ml-models-into.md)
+
 
 ---
 
