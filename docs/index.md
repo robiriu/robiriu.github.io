@@ -1,7 +1,12 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Implementing Efficient Large Language Models for Content Generation** - Implementing Efficient Large Language Models for Content Generation
+    **Optimizing API Endpoints for User Information Retrieval** - Optimizing API Endpoints for User Information Retrieval
+
+## Introduction
+When developing applications that integrate with external APIs, it is crucial...
+    [Read more ->](blog/2026-01-23-optimizing-api-endpoints-for-user-information-retr.md)
+
 
 ## Introduction
 The increasing demand for high-quality content has led to the dev...
