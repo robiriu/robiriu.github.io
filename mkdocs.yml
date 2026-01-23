@@ -35,8 +35,6 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
-      - "ML Recommendation Systems in Production": blog/2026-01-23-the-increasing-demand-for-personalized-experiences.md
-      - "Deploying ML with Kubernetes and CI/CD": blog/2026-01-23-the-integration-of-machine-learning-ml-models-into.md
       - Computer Programming: blog/programming.md
       - Computer Vision: blog/computer-vision.md
   - Activities:

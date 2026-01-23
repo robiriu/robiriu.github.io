@@ -1,14 +1,7 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **The increasing demand for personalized experiences has led to a surge in the adoption of machine lea** - ## Creating a Scalable Production Infrastructure for Machine Learning Recommendation Systems
-### Introduction
-The increasing demand for personalized e...
-    [Read more ->](blog/2026-01-23-the-increasing-demand-for-personalized-experiences.md)
-
-The integration of machine learning (ML) models into production enviro...
-    [Read more ->](blog/2026-01-23-the-integration-of-machine-learning-ml-models-into.md)
-
+    Welcome to my portfolio! Check out my latest projects and blog posts.
 
 ---
 
