@@ -35,6 +35,7 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
+      - "Implementing a Scalable Machine Learning Recommendation S...": blog/2026-01-23-implementing-a-scalable-machine-learning-recommend.md
       - Computer Programming: blog/programming.md
       - Computer Vision: blog/computer-vision.md
   - Activities:
