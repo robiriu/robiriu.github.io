@@ -36,6 +36,7 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
+      - "Optimizing API Endpoints for User Information Retrieval": blog/2026-01-23-optimizing-api-endpoints-for-user-information-retr.md
       - "Implementing Efficient Large Language Models for Content ...": blog/2026-01-23-implementing-efficient-large-language-models-for-c.md
       - "Implementing Orchestration and Workflow Management in Mod...": blog/2026-01-23-implementing-orchestration-and-workflow-management.md
       - "Implementing a Scalable Machine Learning Recommendation S...": blog/2026-01-23-implementing-a-scalable-machine-learning-recommend.md
