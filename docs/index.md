@@ -1,7 +1,11 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Implementing a Scalable Machine Learning Recommendation System in Kubernetes** - Implementing a Scalable Machine Learning Recommendation System in Kubernetes
+    **Porto Agent - AI-Powered Content Generation** - Porto Agent - AI-Powered Content Generation
+
+Porto Agent is an innovative AI-powered blog and LinkedIn post generator that extracts knowledge from git...
+    [Read more ->](blog/2026-01-23-porto-agent-ai-powered-content-generation.md)
+
 
 ## Introduction
 The implementation of machine learning recommendation sy...
