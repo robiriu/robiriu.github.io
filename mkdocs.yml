@@ -35,6 +35,7 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
+      - "The increasing demand for personalized experiences has led to a surge in the adoption of machine lea": docs/blog/2026-01-23-the-increasing-demand-for-personalized-experiences.md
       - "The integration of machine learning (ML) models into production environments has become increasingly": docs/blog/2026-01-23-the-integration-of-machine-learning-ml-models-into.md
       - Computer Programming: blog/programming.md
       - Computer Vision: blog/computer-vision.md
