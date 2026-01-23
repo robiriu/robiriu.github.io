@@ -1,7 +1,12 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Porto Agent - AI-Powered Content Generation** - Porto Agent - AI-Powered Content Generation
+    **Implementing Orchestration and Workflow Management in Modern Web Applications** - Implementing Orchestration and Workflow Management in Modern Web Applications
+
+## Introduction
+The development of modern web applications often requir...
+    [Read more ->](blog/2026-01-23-implementing-orchestration-and-workflow-management.md)
+
 
 Porto Agent is an innovative AI-powered blog and LinkedIn post generator that extracts knowledge from git...
     [Read more ->](blog/2026-01-23-porto-agent-ai-powered-content-generation.md)
