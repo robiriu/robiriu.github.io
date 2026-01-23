@@ -46,14 +46,14 @@ Porto Agent is an innovative AI-powered blog and LinkedIn post generator that ex
 ### Architecture
 ```mermaid
 graph LR
-    A[Git Commits] -->|extract|> B(Git Analysis)
-    B -->|analyze|> C(Content Generation)
-    C -->|generate|> D(Blog Post)
-    D -->|sanitize|> E(Knowledge Sanitization)
-    E -->|approve|> F(Human Approval)
-    F -->|publish|> G(GitHub Pages)
-    G -->|post|> H(LinkedIn)
-    H -->|notify|> I(Notifications)
+    A[Git Commits] -->|extract| B(Git Analysis)
+    B -->|analyze| C(Content Generation)
+    C -->|generate| D(Blog Post)
+    D -->|sanitize| E(Knowledge Sanitization)
+    E -->|approve| F(Human Approval)
+    F -->|publish| G(GitHub Pages)
+    G -->|post| H(LinkedIn)
+    H -->|notify| I(Notifications)
 ```
 The architecture of Porto Agent is designed to facilitate a seamless content generation workflow. The system begins by analyzing git commits, extracting relevant knowledge topics, and generating high-quality blog posts. The posts are then sanitized to remove company-specific information and presented to a human approver for review. Once approved, the posts are published to GitHub Pages and LinkedIn.
 
