@@ -1,7 +1,12 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Implementing a Secure and Configurable Blog Agent** - Implementing a Secure and Configurable Blog Agent
+    **Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance** - Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance
+
+## Introduction
+The use of diagrams in technical documentation has become increasing...
+    [Read more ->](blog/2026-01-23-preventing-arrow-errors-in-diagrams-with-mermaid-s.md)
+
 
 ## Introduction
 The development of a blog agent requires careful consideration of several key facto...
