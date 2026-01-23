@@ -1,5 +1,11 @@
 # Production-Ready AI & Software Engineer
 
+!!! tip "What's New"
+    **Recommendation Systems Research** - A comprehensive research project comparing YouTube Two-Tower, Netflix Foundation, and Hybrid recommendation architectures with Grid Search optimization.
+    [Read more →](projects/recommendation-systems-research.md)
+
+---
+
 ## Overview
 
 I am **Robi Dany Riupassa**, a software engineer and AI specialist with proven expertise in building and deploying **production-grade systems** with comprehensive documentation, scalable infrastructure, and advanced AI/ML capabilities.
