@@ -28,6 +28,7 @@ nav:
       - Research & ML:
           - Recommendation Systems: projects/recommendation-systems-research.md
       - Personal Projects:
+          - Porto Agent: blog/2026-01-23-porto-agent-ai-powered-content-generation.md
           - Palm Tree Detection: projects/palm-tree-detection.md
           - ForceX AI Chat: projects/forcex-ai-chat.md
           - Pneumonia Detection: projects/pneumonia-detection.md
@@ -35,7 +36,6 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
-      - "Porto Agent - AI-Powered Content Generation": blog/2026-01-23-porto-agent-ai-powered-content-generation.md
       - "Implementing a Scalable Machine Learning Recommendation S...": blog/2026-01-23-implementing-a-scalable-machine-learning-recommend.md
       - Computer Programming: blog/programming.md
       - Computer Vision: blog/computer-vision.md
