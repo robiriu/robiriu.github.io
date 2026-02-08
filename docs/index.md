@@ -1,41 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance** - Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance
+    Check out the latest articles on AI, software engineering, and technical insights.
 
-## Introduction
-The use of diagrams in technical documentation has become increasing...
-    [Read more ->](blog/2026-01-23-preventing-arrow-errors-in-diagrams-with-mermaid-s.md)
-
-
-## Introduction
-The development of a blog agent requires careful consideration of several key facto...
-    [Read more ->](blog/2026-01-23-implementing-a-secure-and-configurable-blog-agent.md)
-
-
-## Introduction
-When developing applications that integrate with external APIs, it is crucial...
-    [Read more ->](blog/2026-01-23-optimizing-api-endpoints-for-user-information-retr.md)
-
-
-## Introduction
-The increasing demand for high-quality content has led to the dev...
-    [Read more ->](blog/2026-01-23-implementing-efficient-large-language-models-for-c.md)
-
-
-## Introduction
-The development of modern web applications often requir...
-    [Read more ->](blog/2026-01-23-implementing-orchestration-and-workflow-management.md)
-
-
-Porto Agent is an innovative AI-powered blog and LinkedIn post generator that extracts knowledge from git...
-    [Read more ->](blog/2026-01-23-porto-agent-ai-powered-content-generation.md)
-
-
-## Introduction
-The implementation of machine learning recommendation sy...
-    [Read more ->](blog/2026-01-23-implementing-a-scalable-machine-learning-recommend.md)
-
+    [Browse all blog posts →](blog/index.md)
 
 ---
 
