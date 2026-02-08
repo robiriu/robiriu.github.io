@@ -2,6 +2,18 @@
 
 ## Academic Qualifications
 
+### Doctoral Research in Physics
+**Bandung Institute of Technology, Indonesia**
+
+- **Program**: Doctoral Program in Physics
+- **Institution**: Faculty of Mathematics and Natural Sciences, Bandung Institute of Technology
+- **Dissertation**: Optimasi Desain Freeze Valve untuk Sistem Keselamatan Pasif pada Molten Salt Reactor
+- **Advisors**: Prof. Drs. Abdul Waris, M.Eng., Ph.D. · Dr. Novitrian, S.Si., M.Si. · Dr. Khairul Basar, S.Si., M.Si.
+- **Research Focus**: Passive safety systems for Generation IV Molten Salt Reactors, combining CFD simulation with deep learning for freeze valve design optimization
+- **Link**: [ITB Digital Library](https://digilib.itb.ac.id/gdl/view_data/optimasi-desain-freeze-valve-untuk-sistem-keselamatan-pasif-pada-molten-salt-reactor/robi-dany-riupassa)
+
+---
+
 ### Master of Science (MSc) in Physics
 **Bandung Institute of Technology, Indonesia**
 
