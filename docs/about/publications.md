@@ -9,7 +9,6 @@
 Research on passive safety systems for Generation IV Molten Salt Reactors. The study investigates freeze valve designs that automatically open when core temperatures rise following reactor shutdown, preventing meltdown by draining fuel salt to emergency storage. The methodology combines computational fluid dynamics (CFD) simulation with deep learning models to optimize geometric variations using FLiNaK fuel salt and Hastelloy-N materials.
 
 - **Keywords**: MSR, freeze valve, CFD, deep learning
-- **Advisors**: Prof. Drs. Abdul Waris, M.Eng., Ph.D. · Dr. Novitrian, S.Si., M.Si. · Dr. Khairul Basar, S.Si., M.Si.
 - [View on ITB Digital Library](https://digilib.itb.ac.id/gdl/view_data/optimasi-desain-freeze-valve-untuk-sistem-keselamatan-pasif-pada-molten-salt-reactor/robi-dany-riupassa)
 
 ---
