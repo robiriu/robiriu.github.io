@@ -1,7 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    Check out the latest articles on AI, software engineering, and technical insights.
+    **Implementing Orchestrated Agent Workflows with Human-in-the-Loop and Web-Base...** - Implementing Orchestrated Agent Workflows with Human-in-the-Loop and Web-Base...
+    [Read more ->](blog/2026-04-20-implementing-orchestrated-agent-workflows-with-hum.md)
+
 
     [Browse all blog posts →](blog/index.md)
 
