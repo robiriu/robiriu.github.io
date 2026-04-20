@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Implementing Orchestrated Agent Workflows with Human-in-the-Loop and Web-Base...** - Implementing Orchestrated Agent Workflows with Human-in-the-Loop and Web-Base...
-    [Read more ->](blog/2026-04-20-implementing-orchestrated-agent-workflows-with-hum.md)
+    **Crafting Agent-Based Systems with Graph Orchestration and Human Oversight** - Crafting Agent-Based Systems with Graph Orchestration and Human Oversight
+    [Read more ->](blog/2026-04-20-crafting-agent-based-systems-with-graph-orchestrat.md)
+
 
 
     [Browse all blog posts →](blog/index.md)
