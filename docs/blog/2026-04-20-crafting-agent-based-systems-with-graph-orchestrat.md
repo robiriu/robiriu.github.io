@@ -121,18 +121,19 @@ The following Mermaid diagram illustrates the conceptual architecture and data f
 
 ```mermaid
 graph TD
-    User[User Interface (Frontend)] -->|1. Initiate Workflow| API(Backend API Service)
-    User -->|5. Submit Decision (Approve/Reject/Regenerate)| API
+    User[User Interface (Frontend)] -->|1. Initiate Workflow| API[Backend API Service]
+    User -->|5. Submit Decision| API
     API -->|2. Start Agent Workflow| AgentOrch[Agent Orchestration Layer]
-    AgentOrch -->|3. Request Content Generation| ExtGen(External AI Generation Service)
+    AgentOrch -->|3. Request Content Generation| ExtGen[External AI Generation Service]
     ExtGen -->|4. Return Generated Content| AgentOrch
     AgentOrch -->|A. Workflow Paused for Human Review| API
     API -->|B. Notify Frontend / Fetch State| User
     AgentOrch -->|C. Resume Workflow with Decision| API
     API -->|D. Update Workflow Status| User
-    AgentOrch -- If Reject/Regenerate -->|3. Request Content Generation (Reiteration)| ExtGen
-    AgentOrch -- If Approved -->|6. Final Output| DB(Data Storage / Final Destination)
+    AgentOrch -->|If Reject/Regenerate||3. Request Content Generation| ExtGen
+    AgentOrch -->|If Approved||6. Final Output| DB[Data Storage / Final Destination]
     API -->|7. Persist Workflow State| DB
+
 ```
 
 ## Deployment Strategies for Multi-Component Applications
