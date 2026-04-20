@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Crafting Agent-Based Systems with Graph Orchestration and Human Oversight** - Crafting Agent-Based Systems with Graph Orchestration and Human Oversight
-    [Read more ->](blog/2026-04-20-crafting-agent-based-systems-with-graph-orchestrat.md)
+    **Strategic Integration of Multiple Large Language Model Providers for System R...** - Strategic Integration of Multiple Large Language Model Providers for System R...
+    [Read more ->](blog/2026-04-20-strategic-integration-of-multiple-large-language-m.md)
+
 
 
 
