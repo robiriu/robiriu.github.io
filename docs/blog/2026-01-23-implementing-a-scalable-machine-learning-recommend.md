@@ -4,6 +4,8 @@ date: 2026-01-23T14:23:00.014472
 category: technical
 ---
 
+![Implementing a Scalable Machine Learning Recommendation System in Kubernetes](assets/images/2026-01-23-implementing-a-scalable-machine-learning-recommend.jpg)
+
 Implementing a Scalable Machine Learning Recommendation System in Kubernetes
 
 ## Introduction
