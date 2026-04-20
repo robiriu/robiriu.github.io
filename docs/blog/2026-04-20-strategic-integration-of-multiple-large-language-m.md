@@ -160,12 +160,12 @@ The following Mermaid diagram illustrates the conceptual flow for LLM provider s
 
 ```mermaid
 graph TD
-    A[Application Request] --> B{Service Manager};
-    B --> C{Attempt Primary Provider};
-    C -->|Success| D[Return Primary Response];
-    C -->|Failure (e.g., Error, Timeout, Rate Limit)| E{Attempt Fallback Provider};
-    E -->|Success| F[Return Fallback Response];
-    E -->|Failure| G[Log Error & Handle System Failure];
+    A[Application Request] --> B{Service Manager}
+    B --> C{Attempt Primary Provider}
+    C -->|Success| D[Return Primary Response]
+    C -->|On Failure| E{Attempt Fallback Provider}
+    E -->|Success| F[Return Fallback Response]
+    E -->|Failure| G[Log Error & Handle System Failure]
 ```
 
 ## Key Takeaways
