@@ -19,10 +19,11 @@ LLMs are a class of artificial intelligence models trained on vast datasets of t
 
 ### External Service Dependency Management
 When an application relies on an external service, several challenges must be addressed:
-*   **Availability:** External services may experience outages or degradation, impacting application functionality.
-*   **Latency:** Network overhead and provider-specific processing times can introduce delays in responses.
-*   **Rate Limiting:** Providers often impose restrictions on the number of requests within a given timeframe, requiring applications to manage request velocity.
-*   **Cost:** Different providers offer varying pricing models, including free tiers, pay-per-token, or subscription-based access, necessitating cost-aware selection.
+
+-   **Availability:** External services may experience outages or degradation, impacting application functionality.
+-   **Latency:** Network overhead and provider-specific processing times can introduce delays in responses.
+-   **Rate Limiting:** Providers often impose restrictions on the number of requests within a given timeframe, requiring applications to manage request velocity.
+-   **Cost:** Different providers offer varying pricing models, including free tiers, pay-per-token, or subscription-based access, necessitating cost-aware selection.
 
 ### Multi-Provider Strategy
 A multi-provider strategy involves configuring an application to interact with more than one external service offering similar functionality. This approach typically designates a primary provider and one or more fallback providers. The primary provider is selected based on criteria such as performance characteristics, cost efficiency, or feature set. Fallback providers are utilized when the primary provider experiences issues or when specific operational thresholds are met.
@@ -67,10 +68,11 @@ To ensure that the application logic remains decoupled from specific provider AP
 The application incorporates logic to determine which provider to use for a given request. This logic typically prioritizes the primary provider. If the primary provider becomes unavailable, exceeds its rate limits, or responds with a specific error code, the system can automatically switch to a configured fallback provider. This failover mechanism is critical for maintaining service continuity and user experience.
 
 Conditions triggering a failover might include:
-*   **Connection Errors:** Network issues or service unavailability.
-*   **HTTP Status Codes:** Specific error codes (e.g., 5xx series indicating server errors, 429 indicating rate limits).
-*   **Response Latency:** If the primary provider's response time exceeds a predefined threshold.
-*   **Explicit Configuration:** Manual override or scheduled shifts between providers.
+
+-   **Connection Errors:** Network issues or service unavailability.
+-   **HTTP Status Codes:** Specific error codes (e.g., 5xx series indicating server errors, 429 indicating rate limits).
+-   **Response Latency:** If the primary provider's response time exceeds a predefined threshold.
+-   **Explicit Configuration:** Manual override or scheduled shifts between providers.
 
 The selection process is often managed by a dedicated service component, which encapsulates the provider configuration and decision logic.
 
@@ -171,10 +173,11 @@ graph TD
 ## Key Takeaways
 
 The adoption of a multi-provider strategy for LLM integration yields several distinct advantages:
-*   **Enhanced Reliability:** By providing redundant pathways for LLM access, the system becomes more resilient to individual provider outages or performance degradations.
-*   **Optimized Performance:** The ability to select a primary provider based on specific performance characteristics, such as inference speed, can lead to overall application responsiveness improvements.
-*   **Improved Cost Efficiency:** Strategic utilization of free tiers or cost-effective primary providers, coupled with higher-cost but reliable fallback options, allows for optimized operational expenditures.
-*   **Increased Flexibility:** The abstraction layer and configuration-driven approach facilitate easier switching between providers or the addition of new ones, supporting adaptability to evolving service offerings.
+
+-   **Enhanced Reliability:** By providing redundant pathways for LLM access, the system becomes more resilient to individual provider outages or performance degradations.
+-   **Optimized Performance:** The ability to select a primary provider based on specific performance characteristics, such as inference speed, can lead to overall application responsiveness improvements.
+-   **Improved Cost Efficiency:** Strategic utilization of free tiers or cost-effective primary providers, coupled with higher-cost but reliable fallback options, allows for optimized operational expenditures.
+-   **Increased Flexibility:** The abstraction layer and configuration-driven approach facilitate easier switching between providers or the addition of new ones, supporting adaptability to evolving service offerings.
 
 ## Conclusion
 
