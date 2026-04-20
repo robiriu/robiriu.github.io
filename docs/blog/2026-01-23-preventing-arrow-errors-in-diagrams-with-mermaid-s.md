@@ -4,6 +4,8 @@ date: 2026-01-23T17:04:45.174213
 category: technical
 ---
 
+![Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance](assets/images/2026-01-23-preventing-arrow-errors-in-diagrams-with-mermaid-s.jpg)
+
 Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance
 
 ## Introduction
