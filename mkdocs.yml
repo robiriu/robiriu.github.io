@@ -36,6 +36,7 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
+      - "Strategic Integration of Multiple Large Language Model Pr...": blog/2026-04-20-strategic-integration-of-multiple-large-language-m.md
       - "Crafting Agent-Based Systems with Graph Orchestration and...": blog/2026-04-20-crafting-agent-based-systems-with-graph-orchestrat.md
       - "Implementing Orchestrated Agent Workflows with Human-in-t...": blog/2026-04-20-implementing-orchestrated-agent-workflows-with-hum.md
       - "Preventing Arrow Errors in Diagrams with Mermaid Syntax G...": blog/2026-01-23-preventing-arrow-errors-in-diagrams-with-mermaid-s.md
