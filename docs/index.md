@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Crafting Agent-Based Systems with Graph Orchestration and Human Oversight** - Crafting Agent-Based Systems with Graph Orchestration and Human Oversight
-    [Read more ->](blog/2026-04-20-crafting-agent-based-systems-with-graph-orchestrat.md)
+    **Maintaining AI Model Versions and Integrating Human-in-the-Loop Approval Work...** - Maintaining AI Model Versions and Integrating Human-in-the-Loop Approval Work...
+    [Read more ->](blog/2026-04-20-maintaining-ai-model-versions-and-integrating-huma.md)
+
 
 
 
