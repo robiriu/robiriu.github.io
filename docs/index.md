@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Maintaining Data Model Consistency Across API Boundaries** - Maintaining Data Model Consistency Across API Boundaries
-    [Read more ->](blog/2026-04-21-maintaining-data-model-consistency-across-api-boun.md)
+    **Mitigating Uninitialized Job Store References in Distributed Scheduling Systems** - Mitigating Uninitialized Job Store References in Distributed Scheduling Systems
+    [Read more ->](blog/2026-04-21-mitigating-uninitialized-job-store-references-in-d.md)
+
 
 
 
