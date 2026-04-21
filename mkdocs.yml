@@ -36,6 +36,7 @@ nav:
           - OCR IT-09: projects/ocr-it09.md
   - Blog:
       - Overview: blog/index.md
+      - "Maintaining Data Model Consistency Across API Boundaries": blog/2026-04-21-maintaining-data-model-consistency-across-api-boun.md
       - "Maintaining AI Model Versions and Integrating Human-in-th...": blog/2026-04-20-maintaining-ai-model-versions-and-integrating-huma.md
       - "Crafting Agent-Based Systems with Graph Orchestration and...": blog/2026-04-20-crafting-agent-based-systems-with-graph-orchestrat.md
       - "Strategic Integration of Multiple Large Language Model Pr...": blog/2026-04-20-strategic-integration-of-multiple-large-language-m.md
