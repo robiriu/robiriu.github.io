@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Maintaining AI Model Versions and Integrating Human-in-the-Loop Approval Work...** - Maintaining AI Model Versions and Integrating Human-in-the-Loop Approval Work...
-    [Read more ->](blog/2026-04-20-maintaining-ai-model-versions-and-integrating-huma.md)
+    **Maintaining Data Model Consistency Across API Boundaries** - Maintaining Data Model Consistency Across API Boundaries
+    [Read more ->](blog/2026-04-21-maintaining-data-model-consistency-across-api-boun.md)
+
 
 
 
