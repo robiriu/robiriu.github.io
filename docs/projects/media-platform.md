@@ -1,7 +1,7 @@
 # Media Platform - Advertising Context Protocol (AdCP)
 
 **Status:** Production-Ready | In Development
-**Repository:** [github.com/robi-infotech/AdCP-media-platform](https://github.com/robi-infotech/AdCP-media-platform.git)
+**Repository:** Private Company Repository
 
 ## Executive Summary
 
@@ -432,9 +432,7 @@ The OTT streaming platform is deployed on **Google Cloud Platform** in a product
 
 ## Links
 
-- **GitHub Repository**: [robi-infotech/AdCP-media-platform](https://github.com/robi-infotech/AdCP-media-platform.git)
-- **Documentation**: See `docs/` directory in repository
-- **Architecture**: `docs/COMPREHENSIVE_MEDIA_PLATFORM_ARCHITECTURE.md`
-- **Metadata Layer**: `docs/METADATA_EXTRACTION_INGESTION_LAYER.md`
+- **Repository**: Private Company Repository
+- **Documentation**: 350+ pages including architecture, service specs, and deployment guides
 
-[← Back to Projects](index.md) | [View Repository →](https://github.com/robi-infotech/AdCP-media-platform.git)
+[← Back to Projects](index.md)

@@ -1,7 +1,7 @@
 # AI-Powered Help & QnA System
 
 **Status:** Production-Ready
-**Repository:** [github.com/robi-infotech/Gen21AIHelpAndQNA-Exploration](https://github.com/robi-infotech/Gen21AIHelpAndQNA-Exploration.git)
+**Repository:** Private Company Repository
 
 ## Executive Summary
 
@@ -504,9 +504,7 @@ The project includes comprehensive documentation:
 
 ## Links
 
-- **GitHub Repository**: [robi-infotech/Gen21AIHelpAndQNA-Exploration](https://github.com/robi-infotech/Gen21AIHelpAndQNA-Exploration.git)
-- **Documentation**: See `docs/` directory in repository
-- **Project Plan**: `PROJECT_PLAN_GEN21_HELP_QNA.md`
-- **Implementation Summary**: `IMPLEMENTATION_SUMMARY.md`
+- **Repository**: Private Company Repository
+- **Documentation**: Project plan, implementation summary, and API documentation
 
-[← Back to Projects](index.md) | [View Repository →](https://github.com/robi-infotech/Gen21AIHelpAndQNA-Exploration.git)
+[← Back to Projects](index.md)
