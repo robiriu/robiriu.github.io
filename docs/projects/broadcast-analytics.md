@@ -1,7 +1,7 @@
 # Broadcast Analytics System - MLOps Platform
 
 **Status:** Production-Ready (All 6 Phases Complete)
-**Repository:** [github.com/robi-infotech/v2](https://github.com/robi-infotech/v2.git)
+**Repository:** Private Company Repository
 **Version:** 2.0
 
 ## Executive Summary
@@ -724,9 +724,7 @@ locust -f tests/load/locustfile.py
 
 ## Links
 
-- **GitHub Repository**: [robi-infotech/v2](https://github.com/robi-infotech/v2.git)
-- **Documentation**: See `docs/` directory in repository
-- **Documentation Index**: `docs/DOCUMENTATION_INDEX.md`
-- **Final Summary**: `docs/FINAL_SUMMARY.md`
+- **Repository**: Private Company Repository
+- **Documentation**: Comprehensive guides for development, production, and MLOps
 
-[← Back to Projects](index.md) | [View Repository →](https://github.com/robi-infotech/v2.git)
+[← Back to Projects](index.md)
