@@ -116,19 +116,20 @@ graph LR
 | **Media Processing** | FFmpeg (video frame extraction, audio extraction, metadata) |
 | **Containerization** | Docker Compose, multi-stage builds |
 | **Orchestration** | Kubernetes manifests (deployments, services, ingress) |
+| **Cloud (GCP)** | Cloud Run (5 services), Cloud SQL (PG 16), Artifact Registry, Secret Manager, Compute Engine |
 | **IaC** | Terraform configurations |
 | **CI/CD** | GitHub Actions workflows |
 | **Monitoring** | Prometheus + Grafana |
 
 **Key Features:**
 
+- **Cloud-Native Deployment:** OTT platform live on Google Cloud Platform — 5 Cloud Run microservices, managed PostgreSQL (Cloud SQL), and MediaMTX streaming on Compute Engine
 - **Event-Driven Architecture:** S3 events trigger automatic metadata extraction pipeline via Kafka
 - **Multimodal AI Enrichment:** Every uploaded content automatically enriched with NLP, vision, and audio features
 - **Feature Store:** Centralized repository with pgvector for semantic similarity search across all content
 - **Semantic Search:** AI-powered content discovery using vector embeddings
 - **Real-time Streaming:** OTT platform with adaptive bitrate streaming
-- **Scalable Infrastructure:** Microservices architecture with independent scaling
-- **Production Deployment:** Complete Docker Compose setup, Kubernetes-ready
+- **Scalable Infrastructure:** Serverless auto-scaling microservices with private database networking
 
 **Documentation:**
 
@@ -453,12 +454,13 @@ flowchart LR
 
 ## Core Competencies
 
-### Infrastructure & DevOps
+### Infrastructure & Cloud
 
+- **Cloud Platform:** Google Cloud Platform (Cloud Run, Cloud SQL, Artifact Registry, Secret Manager, Compute Engine)
 - **Container Orchestration:** Docker Compose, Kubernetes (StatefulSets, Deployments, Services, Ingress)
 - **Event Streaming:** Apache Kafka for event-driven architectures
 - **Storage Solutions:** MinIO S3-compatible storage, CDN integration
-- **Monitoring & Observability:** Prometheus, Grafana, Alertmanager, Loki + Promtail
+- **Monitoring & Observability:** Prometheus, Grafana, Alertmanager, Loki + Promtail, Langfuse
 - **CI/CD Pipelines:** GitHub Actions workflows for automated testing and deployment
 - **Infrastructure as Code:** Terraform configurations
 
