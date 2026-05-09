@@ -62,7 +62,7 @@ AI-powered platform that generates technical blog posts and LinkedIn content fro
 
 **Technologies:** Gemini 2.5 Flash, LangGraph, FastAPI, Next.js, PostgreSQL, Telegram Bot API
 
-**Highlights:** Auto-generates blog + LinkedIn posts from commits, human approval workflow, powers this portfolio's blog
+**Highlights:** Auto-generates blog + LinkedIn posts from commits, human-in-the-loop approval workflow
 
 [View Project →](porto-agent.md)
 
