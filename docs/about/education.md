@@ -5,6 +5,8 @@
 ### Doctoral Research in Physics
 **Bandung Institute of Technology, Indonesia**
 
+![Doctoral Defense](../images/doctoral-defense.jpg)
+
 - **Program**: Doctoral Program in Physics
 - **Institution**: Faculty of Mathematics and Natural Sciences, Bandung Institute of Technology
 - **Dissertation**: Optimasi Desain Freeze Valve untuk Sistem Keselamatan Pasif pada Molten Salt Reactor
