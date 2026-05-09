@@ -7,6 +7,78 @@
 
 A production-ready RAG (Retrieval-Augmented Generation) system designed for enterprise documentation Q&A. Features hybrid retrieval, multi-provider LLM fallback, voice assistant capabilities, and comprehensive evaluation metrics. Built with 100% free-tier components achieving 75%+ cost reduction through intelligent caching.
 
+## System Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        WebUI["React Web Interface"]
+        VoiceUI["GenTalk Voice Assistant"]
+    end
+
+    subgraph "API Layer - FastAPI"
+        API["REST API"]
+        Session["Session Management"]
+    end
+
+    subgraph "RAG Orchestration"
+        RAG["RAG Orchestrator"]
+        Router["Query Router - BMS or CMS"]
+    end
+
+    subgraph "Retrieval Layer"
+        Dense["Dense Vector Search - pgvector HNSW"]
+        Sparse["Sparse BM25 Search - pg_trgm"]
+        RRF["RRF Fusion - Hybrid retrieval"]
+        Rerank["BGE Reranker Large - Cross-encoder"]
+    end
+
+    subgraph "LLM Layer"
+        Primary["Cerebras Llama 70B"]
+        Secondary["Gemini 2 Flash"]
+        Tertiary["DeepSeek R1"]
+        Fallback["Groq or OpenRouter"]
+    end
+
+    subgraph "Storage Layer"
+        PG["PostgreSQL 16 + pgvector"]
+        Redis["Redis 7 - Response cache"]
+        Embed["BGE-large-en - 1024-dim"]
+    end
+
+    WebUI --> API
+    VoiceUI --> API
+    API --> Session
+    Session --> RAG
+    RAG --> Router
+    Router --> Dense
+    Router --> Sparse
+    Dense --> RRF
+    Sparse --> RRF
+    RRF --> Rerank
+    Rerank --> Primary
+    Primary -.->|Fallback| Secondary
+    Secondary -.->|Fallback| Tertiary
+    Tertiary -.->|Fallback| Fallback
+
+    Primary --> Redis
+    Dense --> PG
+    Sparse --> PG
+    PG --> Embed
+
+    classDef clientStyle fill:#E1F5FE,stroke:#01579B,stroke-width:2px
+    classDef apiStyle fill:#FFF9C4,stroke:#F57F17,stroke-width:2px
+    classDef retrievalStyle fill:#F3E5F5,stroke:#4A148C,stroke-width:2px
+    classDef llmStyle fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px
+    classDef storageStyle fill:#FFE0B2,stroke:#E65100,stroke-width:2px
+
+    class WebUI,VoiceUI clientStyle
+    class API,Session,RAG,Router apiStyle
+    class Dense,Sparse,RRF,Rerank retrievalStyle
+    class Primary,Secondary,Tertiary,Fallback llmStyle
+    class PG,Redis,Embed storageStyle
+```
+
 ## System Overview
 
 The system provides intelligent question-answering for enterprise Broadcast Management System (BMS) and Content Management System (CMS) documentation using state-of-the-art RAG techniques.

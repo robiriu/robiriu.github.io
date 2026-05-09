@@ -9,6 +9,74 @@ A comprehensive media platform with AdCP integration for OTT streaming, broadcas
 
 ## System Architecture
 
+```mermaid
+graph LR
+    subgraph Storage["Storage and Delivery"]
+        MinIO["MinIO S3<br/>Multi-bucket"]
+        CDN["CDN<br/>Global delivery"]
+        Kafka["Kafka<br/>Event streaming"]
+    end
+
+    subgraph AI["Multimodal AI Extraction"]
+        MetaOrch["Metadata<br/>Orchestrator"]
+        NLPSvc["NLP Service<br/>Text analysis"]
+        VisionSvc["Vision Service<br/>CLIP + Detection"]
+        AudioSvc["Audio Service<br/>Whisper + Diarization"]
+        FeatureStore["Feature Store<br/>pgvector"]
+    end
+
+    subgraph Core["Core Services - NestJS"]
+        OTT["OTT Platform<br/>Next.js + Video.js"]
+        BMS["Broadcast Mgmt<br/>Enterprise BMS"]
+        CMS["Content Mgmt<br/>Strapi v4"]
+        MAM["Media Assets<br/>AI search"]
+        Recommendation["Recommendations<br/>3 ML strategies"]
+    end
+
+    subgraph AdCP["AdCP Integration"]
+        Gateway["AdCP<br/>Gateway"]
+        MediaBuy["Media Buy<br/>Protocol"]
+        Creative["Creative<br/>Protocol"]
+        Signals["Signals<br/>Protocol"]
+    end
+
+    CDN --> MinIO
+    MinIO -->|S3 Events| Kafka
+    Kafka --> MetaOrch
+    MetaOrch --> NLPSvc
+    MetaOrch --> VisionSvc
+    MetaOrch --> AudioSvc
+    NLPSvc --> FeatureStore
+    VisionSvc --> FeatureStore
+    AudioSvc --> FeatureStore
+
+    FeatureStore --> OTT
+    FeatureStore --> MAM
+    FeatureStore --> Gateway
+
+    CMS --> OTT
+    CMS --> BMS
+    CMS --> MAM
+
+    OTT --> Gateway
+    BMS --> Gateway
+    MAM --> Gateway
+
+    Gateway --> MediaBuy
+    Gateway --> Creative
+    Gateway --> Signals
+
+    classDef infraStyle fill:#FF9800,stroke:#E65100,stroke-width:2px
+    classDef aiStyle fill:#9C27B0,stroke:#6A1B9A,stroke-width:2px
+    classDef coreStyle fill:#2196F3,stroke:#1565C0,stroke-width:2px
+    classDef adcpStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
+
+    class MinIO,CDN,Kafka infraStyle
+    class MetaOrch,NLPSvc,VisionSvc,AudioSvc,FeatureStore aiStyle
+    class OTT,BMS,CMS,MAM,Recommendation coreStyle
+    class Gateway,MediaBuy,Creative,Signals adcpStyle
+```
+
 The platform consists of multiple integrated systems:
 
 - **OTT Streaming Platform**: Full-featured Netflix-like streaming application
