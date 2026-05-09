@@ -1,45 +1,50 @@
 # Professional Experience
 
-## Current Position
+## Current Positions
+
+### Developer & Researcher
+**[ForceX AI](https://forcex-ai.com)** — Indonesia's first AI-for-energy platform
+
+Building physics-informed AI agents for nuclear reactors, geothermal reservoirs, oil & gas operations, power grids, and renewable energy — designed for Southeast Asia's energy transition.
+
+**Responsibilities:**
+
+- Architect and develop the ForceX AI platform with 12 AI products
+- Design physics-informed ML models (PINNs, GNNs, FNOs, CNN surrogates)
+- Build multi-agent orchestration systems with LangGraph
+- Deploy and maintain production infrastructure (VPS, Cloudflare, Docker)
+- Publish models and datasets on HuggingFace
+
+**Key Achievements:**
+
+- Deployed GeoForce CNN surrogate — R²=0.997 accuracy with 57K parameters, replacing hours of TOUGH2 simulation with sub-second inference
+- Built 12 product MVPs across nuclear, geothermal, oil & gas, and renewables with 484 passing tests
+- Published model weights and geothermal reservoir dataset on HuggingFace
+- Shipped production platform at [platform.forcex-ai.com](https://platform.forcex-ai.com)
+- Built AI Testing Framework (ATP) — published on npm as [@robi-atp/cli](https://www.npmjs.com/package/@robi-atp/cli)
+
+---
 
 ### Software Developer & AI Specialist
 **A Leading ICT Solutions Provider**
 
-**Company Overview:**
-
-Specializing in software products and solutions that empower media convergence in Media & Broadcast Industry, E-commerce, and other ICT-related services with a focus on enhancing enterprise efficiency and profitability.
+Specializing in software products and solutions that empower media convergence in Media & Broadcast Industry, E-commerce, and other ICT-related services.
 
 **Responsibilities:**
 
-- Develop and implement AI-powered software solutions
-- Work on media convergence technologies and broadcast systems
-- Create innovative solutions for E-commerce platforms
-- Collaborate with cross-functional teams on enterprise solutions
-- Optimize software performance and efficiency
-- Stay current with latest technology trends and best practices
+- Architect and deploy production-grade AI systems for enterprise clients
+- Build agentic RAG systems with LangGraph for enterprise documentation
+- Design and implement MLOps pipelines with automated model training and deployment
+- Develop multimodal AI extraction layers (NLP, Vision, Audio)
+- Create comprehensive system documentation and architectural diagrams
 
----
+**Key Achievements:**
 
-## Previous Experience
-
-### Developer and Researcher
-**ForceX AI**
-
-**Responsibilities:**
-
-- Develop AI products from concept to deployment
-- Conduct research on AI models and their applications
-- Implement machine learning solutions for real-world problems
-- Evaluate and optimize model performance
-- Stay current with latest AI/ML technologies and methodologies
-- Collaborate with cross-functional teams on AI initiatives
-
-**Key Projects:**
-
-- ForceX AI Chat: AI chatbot implementation using Mistral 7B model
-- Medical image analysis applications
-- Computer vision solutions for various domains
-- Custom AI model development and fine-tuning
+- Architected production-grade media platform with multimodal AI and AdCP integration (350+ pages documentation)
+- Built enterprise Agentic RAG chatbot with LangGraph self-reflection, hybrid retrieval, and Langfuse observability
+- Deployed MLOps platform with 24 trained models, genetic algorithm optimization, and Prometheus/Grafana monitoring
+- Built enterprise RAG system with 75%+ cost reduction through intelligent multi-level caching
+- Implemented multimodal AI extraction layer processing 40K+ documents with NLP, vision, and audio analysis
 
 ---
 
