@@ -30,7 +30,7 @@ The platform provides:
 - **Framework**: React 18
 - **Visualization**: Chart.js for interactive charts
 - **HTTP Client**: Axios
-- **Theme**: Custom GEN21 professional theme
+- **Theme**: Custom enterprise professional theme
 - **Build**: Create React App
 
 ### Databases

@@ -9,7 +9,7 @@ A production-ready RAG (Retrieval-Augmented Generation) system designed for ente
 
 ## System Overview
 
-The system provides intelligent question-answering for GEN21 Broadcast Management System (BMS) and Content Management System (CMS) documentation using state-of-the-art RAG techniques.
+The system provides intelligent question-answering for enterprise Broadcast Management System (BMS) and Content Management System (CMS) documentation using state-of-the-art RAG techniques.
 
 **Key Metrics:**
 - 40K+ lines of documentation indexed
@@ -257,7 +257,7 @@ Ask a question and get an AI-generated answer.
 ```json
 {
   "question": "How do I create a new advertiser?",
-  "answer": "To create a new advertiser in GEN21 BMS...",
+  "answer": "To create a new advertiser in BMS...",
   "system": "BMS",
   "citations": [...],
   "context": [...],
@@ -404,7 +404,7 @@ docker-compose up -d
 ### Kubernetes (Production)
 
 **Resources:**
-- Namespace: gen21-ai-help
+- Namespace: enterprise-ai-help
 - StatefulSet for PostgreSQL
 - Deployment for API (3+ replicas)
 - Deployment for frontend

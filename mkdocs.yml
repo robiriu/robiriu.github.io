@@ -25,15 +25,24 @@ nav:
       - Publications: about/publications.md
   - Projects:
       - Overview: projects/index.md
-      - Research & ML:
-          - Recommendation Systems: projects/recommendation-systems-research.md
-      - Personal Projects:
-          - Porto Agent: blog/2026-01-23-porto-agent-ai-powered-content-generation.md
-          - Palm Tree Detection: projects/palm-tree-detection.md
+      - "Flagship — ForceX AI":
+          - ForceX AI Platform: projects/forcex-ai.md
+          - GeoForce (CNN Surrogate): projects/geoforce.md
+      - GenAI & LLM Systems:
+          - Enterprise Agentic RAG: projects/enterprise-agentic-rag.md
+          - AI Help & QnA (RAG): projects/ai-help-qna.md
+          - Porto Agent: projects/porto-agent.md
           - ForceX AI Chat: projects/forcex-ai-chat.md
+      - MLOps & Infrastructure:
+          - Broadcast Analytics (MLOps): projects/broadcast-analytics.md
+          - Media Platform (AdCP): projects/media-platform.md
+      - Developer Tools:
+          - AI Testing Framework (ATP): projects/ai-testing-framework.md
+      - Computer Vision:
+          - Palm Tree Detection: projects/palm-tree-detection.md
           - Pneumonia Detection: projects/pneumonia-detection.md
-          - getSensData: projects/getsensdata.md
-          - OCR IT-09: projects/ocr-it09.md
+      - Research:
+          - Recommendation Systems: projects/recommendation-systems-research.md
   - Blog:
       - Overview: blog/index.md
       - "Mitigating Uninitialized Job Store References in Distribu...": blog/2026-04-21-mitigating-uninitialized-job-store-references-in-d.md
