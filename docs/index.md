@@ -507,22 +507,31 @@ flowchart LR
 
 ## Professional Experience
 
-### Software Developer & AI Specialist
+### Developer & Researcher — ForceX AI
 
-**A Leading ICT Solutions Provider** | Current Position
+**[ForceX AI](https://forcex-ai.com)** | Current
 
-Working at a leading ICT solutions provider specializing in:
-- Media convergence technologies for Media & Broadcast Industry
-- E-commerce solutions and enterprise applications
-- AI-powered systems for enhanced enterprise efficiency
+Building Indonesia's first AI-for-energy platform — 12 physics-informed AI products spanning nuclear, geothermal, oil & gas, and renewable energy.
 
 **Key Achievements:**
 
-- Architected and deployed production-grade media platform with comprehensive AdCP integration
-- Implemented multimodal AI extraction layer processing 40K+ documents with NLP, vision, and audio analysis
+- Designed and deployed GeoForce CNN surrogate (R²=0.997, 57K params) replacing hours of reservoir simulation
+- Built multi-agent orchestration with LangGraph for physics simulation workflows
+- Published model weights and geothermal dataset on HuggingFace
+- Shipped unified product platform at [platform.forcex-ai.com](https://platform.forcex-ai.com) with 12 product MVPs and 484 passing tests
+
+### Software Developer & AI Specialist
+
+**A Leading ICT Solutions Provider** | Current
+
+Working at a leading ICT solutions provider specializing in media convergence, broadcast, and enterprise AI systems.
+
+**Key Achievements:**
+
+- Architected production-grade media platform with multimodal AI (NLP, Vision, Audio) and AdCP integration
+- Built enterprise Agentic RAG chatbot with LangGraph self-reflection and hybrid retrieval
+- Deployed MLOps platform with 24 trained models, CI/CD pipelines, and Prometheus/Grafana monitoring
 - Built enterprise RAG system with 75%+ cost reduction through intelligent caching
-- Deployed MLOps platform with automated model training, registry, and CI/CD pipelines
-- Created comprehensive documentation (350+ pages) with architectural diagrams and deployment guides
 
 [View Full Experience →](about/experience.md)
 
