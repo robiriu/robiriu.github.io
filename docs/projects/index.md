@@ -68,16 +68,6 @@ AI-powered platform that generates technical blog posts and LinkedIn content fro
 
 ---
 
-### [ForceX AI Chat](forcex-ai-chat.md)
-
-Conversational AI chatbot using Mistral 7B open-source model from Hugging Face.
-
-**Technologies:** Mistral 7B, Hugging Face, NLP, Python
-
-[View Project →](forcex-ai-chat.md)
-
----
-
 ## MLOps & Infrastructure
 
 ### [Broadcast Analytics — MLOps Platform](broadcast-analytics.md)
@@ -118,28 +108,6 @@ Playwright-like testing framework specialized for AI platforms — LLM APIs, AI 
 
 ---
 
-## Computer Vision
-
-### [Palm Tree Detection Web App](palm-tree-detection.md)
-
-Custom YOLOv8 model for automated palm tree detection and counting in aerial/satellite images.
-
-**Technologies:** YOLOv8, Roboflow, FastAPI, OpenCV
-
-[View Project →](palm-tree-detection.md)
-
----
-
-### [Pneumonia Detection System](pneumonia-detection.md)
-
-CNN-based chest X-ray analysis for automated pneumonia diagnosis.
-
-**Technologies:** TensorFlow/Keras, CNN, Medical Imaging
-
-[View Project →](pneumonia-detection.md)
-
----
-
 ## Research
 
 ### [Recommendation Systems Research](recommendation-systems-research.md)
@@ -158,9 +126,9 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 
 | Category | Projects | Key Skills |
 |----------|----------|------------|
-| **GenAI & LLM** | ForceX AI, Agentic RAG, Help QnA, Porto Agent, ForceX Chat | LangGraph, RAG, multi-agent, LLM fallback chains |
+| **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
+| **GenAI & LLM** | Agentic RAG, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, LLM fallback chains |
 | **MLOps** | Broadcast Analytics, Media Platform | ML pipelines, model registry, CI/CD, monitoring |
-| **Computer Vision** | Palm Tree Detection, Pneumonia Detection, Media Platform (CLIP) | YOLOv8, CNN, CLIP, medical imaging |
 | **Developer Tools** | ATP | npm publishing, TypeScript frameworks, AI testing |
-| **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation |
+| **Cloud & Infrastructure** | Media Platform | GCP Cloud Run, Cloud SQL, Kubernetes, Terraform |
 | **Research** | Recommendation Systems | PyTorch, FAISS, Transformers |
