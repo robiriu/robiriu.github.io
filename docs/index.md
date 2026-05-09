@@ -1,11 +1,7 @@
 # Production-Ready AI & Software Engineer
 
-!!! tip "What's New"
-    **Mitigating Uninitialized Job Store References in Distributed Scheduling Systems** - Mitigating Uninitialized Job Store References in Distributed Scheduling Systems
-    [Read more ->](blog/2026-04-21-mitigating-uninitialized-job-store-references-in-d.md)
-
-
-
+!!! tip "Currently Building"
+    **[ForceX AI](https://forcex-ai.com)** — Indonesia's first AI-for-energy platform. 12 physics-informed AI products for nuclear, geothermal, oil & gas, and renewables. GeoForce v1.1 deployed with R²=0.997 accuracy. [Explore the platform →](https://platform.forcex-ai.com)
 
 
 
@@ -56,7 +52,7 @@ graph LR
 
     subgraph Core["Core Services - NestJS"]
         OTT["OTT Platform<br/>Next.js + Video.js"]
-        BMS["Broadcast Mgmt<br/>GEN21 BMS"]
+        BMS["Broadcast Mgmt<br/>Enterprise BMS"]
         CMS["Content Mgmt<br/>Strapi v4"]
         MAM["Media Assets<br/>AI search"]
         Recommendation["Recommendations<br/>3 ML strategies"]
@@ -356,7 +352,7 @@ graph LR
 | Category | Technologies |
 |----------|-------------|
 | **Backend** | FastAPI, Python 3.12+, SQLAlchemy, Motor (async MongoDB) |
-| **Frontend** | React 18, Chart.js, Axios, GEN21 theme |
+| **Frontend** | React 18, Chart.js, Axios, custom enterprise theme |
 | **Databases** | PostgreSQL 16 (ML registry), MongoDB 7.0 (sessions), Redis 7.0 (caching) |
 | **ML Frameworks** | Scikit-learn, XGBoost, CatBoost, Gradient Boosting, MLP, ElasticNet |
 | **LLM Framework** | LangChain agents with 7 specialized tools |
@@ -553,16 +549,17 @@ Bandung Institute of Technology, Indonesia
 
 ---
 
-## Personal & Research Projects
+## Independent & Research Projects
 
-In addition to enterprise projects, I maintain a portfolio of personal and research projects:
+Beyond enterprise work, I am actively building and shipping:
 
-- **NEW** [Recommendation Systems Research](projects/recommendation-systems-research.md) - YouTube, Netflix & Hybrid architectures with Grid Search optimization
-- [Palm Tree Detection Web App](projects/palm-tree-detection.md) - Computer vision for agricultural monitoring
-- [ForceX AI Chat](projects/forcex-ai-chat.md) - Chatbot using Mistral 7B
-- [Pneumonia Detection System](projects/pneumonia-detection.md) - Medical image analysis
-- [getSensData](projects/getsensdata.md) - Real-time health monitoring
-- [OCR IT-09](projects/ocr-it09.md) - Automated data reading
+- **[ForceX AI](projects/forcex-ai.md)** — AI-for-energy platform with 12 physics-informed products | [forcex-ai.com](https://forcex-ai.com)
+- **[GeoForce](projects/geoforce.md)** — CNN geothermal reservoir surrogate (R²=0.997) | Published on HuggingFace
+- **[Porto Agent](projects/porto-agent.md)** — AI content marketing platform with LangGraph orchestration
+- **[AI Testing Framework (ATP)](projects/ai-testing-framework.md)** — Playwright-like testing for AI apps | Published on npm
+- [Recommendation Systems Research](projects/recommendation-systems-research.md) — YouTube, Netflix & Hybrid architectures
+- [Palm Tree Detection](projects/palm-tree-detection.md) — YOLOv8 computer vision
+- [Pneumonia Detection](projects/pneumonia-detection.md) — CNN medical imaging
 
 [Browse all projects →](projects/index.md)
 
