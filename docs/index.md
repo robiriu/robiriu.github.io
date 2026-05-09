@@ -3,26 +3,20 @@
 !!! tip "Currently Building"
     **[ForceX AI](https://forcex-ai.com)** — Indonesia's first AI-for-energy platform. 12 physics-informed AI products for nuclear, geothermal, oil & gas, and renewables. GeoForce v1.1 deployed with R²=0.997 accuracy. [Explore the platform →](https://platform.forcex-ai.com)
 
-
-
-
-
-    [Browse all blog posts →](blog/index.md)
-
 ---
 
 ## Overview
 
-I am **Robi Dany Riupassa**, a software engineer and AI specialist with proven expertise in building and deploying **production-grade systems** with comprehensive documentation, scalable infrastructure, and advanced AI/ML capabilities.
+I am **Robi Dany Riupassa**, a software engineer and AI specialist building production-grade AI systems — from physics-informed energy platforms to agentic RAG chatbots and enterprise MLOps pipelines.
 
-My work demonstrates:
+My work spans:
 
-- Production deployment expertise (Docker, Kubernetes, CI/CD)
-- Multimodal AI capabilities (text, audio, video, image processing)
-- Infrastructure orchestration (MinIO, Kafka, PostgreSQL, Redis, MongoDB)
-- Comprehensive system documentation with architectural diagrams
-- MLOps pipelines and automated model deployment
-- Event-driven architectures and real-time data processing
+- **Agentic AI & RAG** — LangGraph multi-agent orchestration, self-reflective retrieval, hybrid search, multi-provider LLM fallback chains
+- **Physics-Informed ML** — PINNs, CNN surrogates, GNNs for energy sector simulation (ForceX AI, 12 products)
+- **MLOps & Model Deployment** — Automated training pipelines, model registry, 24 production models, CI/CD with GitHub Actions
+- **Cloud & Infrastructure** — Google Cloud Platform (Cloud Run, Cloud SQL, Secret Manager), Docker, Kubernetes, Kafka, Terraform
+- **Multimodal AI** — NLP (spaCy, Transformers), Vision (CLIP, YOLOv8), Audio (Whisper), Vector Search (pgvector)
+- **Published Work** — Models and datasets on HuggingFace, AI testing framework on npm (@robi-atp/cli)
 
 ---
 
