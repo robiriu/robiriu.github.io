@@ -100,35 +100,21 @@ Empowered government officials with data science skills to support digital trans
 
 ## Skills & Technologies
 
-### Programming Languages
-- Python
-- JavaScript/Node.js
-- C/C++ (for embedded systems)
+### AI & Machine Learning
+- **Agentic AI**: LangGraph, LangChain, multi-agent orchestration, self-reflective RAG
+- **LLM Systems**: RAG pipelines, hybrid retrieval (dense + BM25 + RRF), cross-encoder reranking, multi-provider fallback chains
+- **Physics-Informed ML**: PINNs, CNN surrogates, GNNs, FNOs, LSTM for time-series
+- **Multimodal AI**: NLP (spaCy, Transformers), Vision (CLIP, YOLOv8), Audio (Whisper, pyannote)
+- **ML Training**: PyTorch, scikit-learn, XGBoost, CatBoost, genetic algorithms
 
-### AI/ML Frameworks
-- TensorFlow
-- PyTorch
-- Keras
-- Scikit-learn
-- OpenCV
+### MLOps & Infrastructure
+- **Deployment**: Docker, Kubernetes, GitHub Actions CI/CD, model registry
+- **Cloud**: Google Cloud Platform (Cloud Run, Cloud SQL, Artifact Registry, Secret Manager, Compute Engine)
+- **Monitoring**: Prometheus, Grafana, Alertmanager, Loki, Langfuse
+- **Databases**: PostgreSQL + pgvector, Redis, Kafka event streaming
 
-### Tools & Platforms
-- Jupyter Notebooks
-- Git/GitHub
-- Docker
-- Cloud platforms (various)
-- Roboflow
-- FastAPI
-
-### Specializations
-- Computer Vision
-- Natural Language Processing
-- Medical Image Analysis
-- Deep Learning
-- Model Optimization
-- Data Analysis
-
----
-
-!!! success "Professional Philosophy"
-    I believe in bridging the gap between research and practical applications, making AI accessible and useful for solving real-world problems.
+### Development
+- **Backend**: Python (FastAPI), TypeScript (NestJS, Node.js)
+- **Frontend**: React, Next.js 14, Video.js
+- **Storage**: MinIO S3, HuggingFace Hub, npm registry
+- **Testing**: Playwright, pytest, custom AI evaluation frameworks
