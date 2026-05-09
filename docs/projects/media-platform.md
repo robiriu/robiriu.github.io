@@ -293,6 +293,98 @@ terraform apply
 - **Search Query**: <500ms for vector similarity search
 - **Concurrent Users**: Tested up to 100+ simultaneous streams
 
+## Cloud Deployment (Google Cloud Platform)
+
+The OTT streaming platform is deployed on **Google Cloud Platform** in a production microservices architecture across multiple GCP services:
+
+### Cloud Run — Serverless Microservices
+
+5 containerized services deployed as Cloud Run instances in `asia-southeast1` (Singapore):
+
+| Service | Role | Resources | Auto-scaling |
+|---------|------|-----------|--------------|
+| **ott-web** | Next.js OTT frontend with SSR | 1 vCPU, 1Gi RAM | Up to 3 instances |
+| **auth-service** | JWT authentication and user management | 1 vCPU, 512Mi RAM | Auto |
+| **rec-service** | ML recommendation engine | 1 vCPU, 1Gi RAM | Auto |
+| **mam-service** | Media asset management API | 1 vCPU, 512Mi RAM | Auto |
+| **ml-service** | ML inference and content analysis | 2 vCPU, 2Gi RAM | Auto |
+
+### Cloud SQL — Managed PostgreSQL
+
+- **Engine**: PostgreSQL 16
+- **Networking**: Private IP (VPC peering) for secure service-to-service communication
+- **Access**: Only reachable from Cloud Run via VPC connector
+
+### Compute Engine — Media Streaming Server
+
+- **Instance**: `e2-small` VM running MediaMTX
+- **Purpose**: Live media streaming and transcoding
+- **Public IP**: Directly accessible for stream ingest
+
+### Artifact Registry — Container Management
+
+- **Repository**: Docker registry in `asia-southeast1`
+- **Images**: 5 production container images (~3.3GB total)
+- **Pipeline**: Build locally → Push to Artifact Registry → Deploy to Cloud Run
+
+### Secret Manager
+
+10 managed secrets for secure credential handling:
+
+- Database passwords (auth, MAM, ML, recommendation, Strapi)
+- JWT and playback secrets
+- Payment gateway keys (Midtrans)
+- Email service credentials (Resend API, SMTP)
+
+### GCP Architecture Diagram
+
+```
+                        ┌─────────────────────┐
+                        │   Custom Domain      │
+                        │   (Cloud Run Mapping) │
+                        └─────────┬───────────┘
+                                  │
+                    ┌─────────────▼─────────────┐
+                    │     Cloud Run (5 svc)      │
+                    │  ┌───────┐  ┌───────────┐  │
+                    │  │ott-web│  │auth-service│  │
+                    │  └───┬───┘  └─────┬─────┘  │
+                    │  ┌───┴───┐  ┌─────┴─────┐  │
+                    │  │rec-svc│  │ mam-service│  │
+                    │  └───────┘  └───────────┘  │
+                    │  ┌──────────┐               │
+                    │  │ml-service│               │
+                    │  └──────────┘               │
+                    └─────────────┬──────────────┘
+                                  │ VPC Connector
+                    ┌─────────────▼──────────────┐
+                    │      Cloud SQL (PG 16)      │
+                    │      Private IP only        │
+                    └────────────────────────────┘
+
+    ┌────────────────┐    ┌─────────────────────┐
+    │ Compute Engine │    │  Artifact Registry   │
+    │   MediaMTX     │    │  Docker images (5)   │
+    │  (streaming)   │    │  ~3.3GB total        │
+    └────────────────┘    └─────────────────────┘
+
+    ┌─────────────────────────────────────────┐
+    │         Secret Manager (10 secrets)      │
+    │  DB passwords, JWT, API keys, SMTP       │
+    └─────────────────────────────────────────┘
+```
+
+### Cloud Skills Demonstrated
+
+- Serverless container deployment (Cloud Run)
+- Managed database with private networking (Cloud SQL + VPC)
+- Container registry management (Artifact Registry)
+- Secret management (Secret Manager)
+- Domain mapping with managed SSL
+- Cost-optimized architecture (serverless auto-scaling)
+
+---
+
 ## Current Implementation Status
 
 **Phase 0**: Documentation & Architecture ✅
@@ -304,7 +396,7 @@ terraform apply
 **Phase 6**: MAM Integration ✅
 **Phase 7**: Advanced AI/ML 🚧
 **Phase 8**: AdCP Full Integration 🚧
-**Phase 9**: Production Deployment 🚧
+**Phase 9**: Cloud Deployment (GCP) ✅
 
 ## Security Features
 

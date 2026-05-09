@@ -94,11 +94,11 @@ Enterprise MLOps platform with 24 trained models (6 algorithms × 4 targets), LL
 
 ### [Media Platform — Ad Campaign Management](media-platform.md)
 
-Comprehensive enterprise media platform with OTT streaming, broadcast management, media asset management, and multimodal AI (NLP + Vision + Audio). Microservices architecture with event-driven design.
+Comprehensive enterprise media platform with OTT streaming, broadcast management, media asset management, and multimodal AI (NLP + Vision + Audio). Microservices architecture deployed on **Google Cloud Platform**.
 
-**Technologies:** NestJS, Next.js 14, Kafka, PostgreSQL + pgvector, MinIO, CLIP, Whisper, spaCy, Docker, Kubernetes, Terraform
+**Technologies:** NestJS, Next.js 14, Kafka, PostgreSQL + pgvector, MinIO, CLIP, Whisper, spaCy, Docker, Kubernetes, **GCP (Cloud Run, Cloud SQL, Artifact Registry, Secret Manager)**
 
-**Highlights:** 8+ microservices, multimodal AI pipeline, 350+ pages documentation, event-driven architecture
+**Highlights:** 5 Cloud Run microservices in production, managed PostgreSQL with private networking, MediaMTX streaming on Compute Engine, 350+ pages documentation
 
 [View Project →](media-platform.md)
 
