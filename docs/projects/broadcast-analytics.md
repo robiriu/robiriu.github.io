@@ -8,6 +8,93 @@
 
 A production-grade enterprise MLOps platform for broadcast analytics combining machine learning, LLM-powered chat, and automated deployment infrastructure. Features 24 trained models, intelligent caching, schedule optimization, and comprehensive monitoring.
 
+## System Architecture
+
+```mermaid
+graph LR
+    subgraph Data["Data Layer"]
+        PG["PostgreSQL 16<br/>ML Registry"]
+        Mongo["MongoDB 7<br/>Chat History"]
+        Redis["Redis 7<br/>LLM Cache"]
+    end
+
+    subgraph ML["ML Pipeline"]
+        Loader["Data<br/>Loader"]
+        Preprocess["Feature<br/>Engineering"]
+        Training["Model<br/>Training"]
+        Evaluation["Model<br/>Evaluation"]
+        Registry["ML<br/>Registry"]
+    end
+
+    subgraph LLM["LLM Agent"]
+        Agent["LangChain<br/>Agent"]
+        LLMPrimary["Groq<br/>Llama 70B"]
+        LLMSecondary["Gemini<br/>2 Flash"]
+        LLMFallback["OpenRouter<br/>Fallback"]
+        Cache["Response<br/>Cache"]
+    end
+
+    subgraph API["API Layer"]
+        APINode["REST API<br/>OpenAPI"]
+        Predictor["Prediction<br/>Service"]
+        Optimizer["Schedule<br/>Optimizer"]
+        Export["Data<br/>Export"]
+    end
+
+    subgraph UI["Frontend"]
+        Dashboard["Monitoring<br/>Dashboard"]
+        Chat["LLM Chat<br/>Interface"]
+        Charts["Interactive<br/>Charts"]
+    end
+
+    subgraph Monitor["CI/CD and Monitoring"]
+        GHA["GitHub<br/>Actions"]
+        Prometheus["Prometheus<br/>Metrics"]
+        Grafana["Grafana<br/>Dashboards"]
+        Alertmanager["Alert<br/>Manager"]
+    end
+
+    Loader --> Preprocess
+    Preprocess --> Training
+    Training --> Evaluation
+    Evaluation --> Registry
+    Registry --> PG
+
+    APINode --> Predictor
+    APINode --> Optimizer
+    APINode --> Export
+    Predictor --> Registry
+
+    Agent --> LLMPrimary
+    LLMPrimary -.->|Fallback| LLMSecondary
+    LLMSecondary -.->|Fallback| LLMFallback
+    Agent --> Cache
+    Cache --> Redis
+    Agent --> Mongo
+
+    Dashboard --> APINode
+    Chat --> Agent
+    Charts --> APINode
+
+    APINode --> Prometheus
+    Prometheus --> Grafana
+    Prometheus --> Alertmanager
+
+    classDef dataStyle fill:#FFE0B2,stroke:#E65100,stroke-width:2px
+    classDef mlStyle fill:#E1BEE7,stroke:#4A148C,stroke-width:2px
+    classDef llmStyle fill:#C8E6C9,stroke:#1B5E20,stroke-width:2px
+    classDef apiStyle fill:#BBDEFB,stroke:#0D47A1,stroke-width:2px
+    classDef frontendStyle fill:#F8BBD0,stroke:#880E4F,stroke-width:2px
+    classDef cicdStyle fill:#FFF9C4,stroke:#F57F17,stroke-width:2px
+
+    class PG,Mongo,Redis dataStyle
+    class Loader,Preprocess,Training,Evaluation,Registry mlStyle
+    class Agent,LLMPrimary,LLMSecondary,LLMFallback,Cache llmStyle
+    class API,Predictor,Optimizer,Export apiStyle
+    class Dashboard,Chat,Charts frontendStyle
+    class GHA,Prometheus,Grafana,Alertmanager cicdStyle
+```
+
 ## System Overview
 
 The platform provides:
