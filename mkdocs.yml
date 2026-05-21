@@ -30,6 +30,7 @@ nav:
           - GeoForce (CNN Surrogate): projects/geoforce.md
       - GenAI & LLM Systems:
           - Enterprise Agentic RAG: projects/enterprise-agentic-rag.md
+          - Agentic HR Intelligence: projects/agentic-hr-platform.md
           - AI Help & QnA (RAG): projects/ai-help-qna.md
           - Porto Agent: projects/porto-agent.md
       - MLOps & Infrastructure:
