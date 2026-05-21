@@ -28,6 +28,16 @@ My work spans:
 
 12 physics-informed AI products (PINNs, CNN, GNN, LSTM, RL) with LangGraph agent orchestration. GeoForce CNN surrogate deployed at R²=0.997. Model and dataset published on HuggingFace. 484 passing tests.
 
+### Latest — Agentic HR Intelligence Platform
+
+**[Agentic HR Intelligence Platform](projects/agentic-hr-platform.md)**
+
+Full-stack AI-powered HR platform that turns raw employee and attendance data into workforce intelligence. Gemini 2.5 Flash agentic chat with **5 specialized tools** and up to **10-iteration tool calling**, 6 interactive analytics dashboards, multi-factor turnover risk scoring (0-100), automated anomaly detection, and AI-driven contract renewal recommendations with PDF report generation.
+
+**Stack:** Next.js 16 · React 19 · FastAPI · PostgreSQL · Gemini 2.5 Flash · Recharts · Tailwind CSS 4
+
+[View Project →](projects/agentic-hr-platform.md)
+
 ### Enterprise Systems (Private Company)
 
 **[Enterprise Agentic RAG Chatbot](projects/enterprise-agentic-rag.md)** — LangGraph multi-agent RAG with self-reflection, hybrid search (dense + BM25 + RRF), multilingual, Langfuse observability. Production-deployed.
@@ -37,8 +47,6 @@ My work spans:
 **[Broadcast Analytics — MLOps Platform](projects/broadcast-analytics.md)** — 24 trained models (6 algorithms x 4 targets), LangChain agent with 7 tools, genetic algorithm optimizer, Prometheus/Grafana/Alertmanager monitoring stack.
 
 **[AI-Powered Help & QnA System](projects/ai-help-qna.md)** — Production RAG with hybrid retrieval, 5-provider LLM fallback chain, cross-encoder reranking, voice assistant. 75%+ cache hit rate, ≤5% hallucination rate.
-
-**[Agentic HR Intelligence Platform](projects/agentic-hr-platform.md)** — Full-stack AI-powered HR platform with Gemini 2.5 Flash agentic chat (5 tools, 10-iteration tool calling), analytics dashboards, turnover risk scoring, anomaly detection, and contract renewal recommendations. Next.js 16 + FastAPI.
 
 ### Independent Projects
 
