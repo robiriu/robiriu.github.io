@@ -44,6 +44,18 @@ Agentic RAG system with LangGraph multi-agent orchestration, self-reflective ret
 
 ---
 
+### [Agentic HR Intelligence Platform](agentic-hr-platform.md)
+
+Full-stack AI-powered HR platform that transforms raw employee and attendance data into workforce intelligence. Features an agentic AI chat with 5 specialized tools (Gemini 2.5 Flash), interactive analytics dashboards, turnover risk scoring, anomaly detection, and AI-driven contract renewal recommendations.
+
+**Technologies:** Next.js 16, React 19, FastAPI, PostgreSQL, Google Gemini 2.5 Flash, Recharts, Tailwind CSS 4
+
+**Highlights:** 5 agent tools with 10-iteration tool calling, 5-factor risk scoring (0-100), 5-type anomaly detection, bilingual (ID + EN), PDF report generation
+
+[View Project →](agentic-hr-platform.md)
+
+---
+
 ### [AI-Powered Help & QnA System](ai-help-qna.md)
 
 Production-ready RAG system with hybrid retrieval (dense + BM25 + RRF fusion), multi-provider LLM fallback chain (5 providers), cross-encoder reranking, and voice assistant.
@@ -127,7 +139,7 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 | Category | Projects | Key Skills |
 |----------|----------|------------|
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
-| **GenAI & LLM** | Agentic RAG, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, LLM fallback chains |
+| **GenAI & LLM** | Agentic RAG, HR Intelligence, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, agentic tool calling, LLM fallback chains |
 | **MLOps** | Broadcast Analytics, Media Platform | ML pipelines, model registry, CI/CD, monitoring |
 | **Developer Tools** | ATP | npm publishing, TypeScript frameworks, AI testing |
 | **Cloud & Infrastructure** | Media Platform | GCP Cloud Run, Cloud SQL, Kubernetes, Terraform |

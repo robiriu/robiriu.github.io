@@ -38,6 +38,8 @@ My work spans:
 
 **[AI-Powered Help & QnA System](projects/ai-help-qna.md)** — Production RAG with hybrid retrieval, 5-provider LLM fallback chain, cross-encoder reranking, voice assistant. 75%+ cache hit rate, ≤5% hallucination rate.
 
+**[Agentic HR Intelligence Platform](projects/agentic-hr-platform.md)** — Full-stack AI-powered HR platform with Gemini 2.5 Flash agentic chat (5 tools, 10-iteration tool calling), analytics dashboards, turnover risk scoring, anomaly detection, and contract renewal recommendations. Next.js 16 + FastAPI.
+
 ### Independent Projects
 
 **[GeoForce — CNN Reservoir Surrogate](projects/geoforce.md)** — Standalone production model replacing TOUGH2 simulation. R²=0.997, 57K params. Published on HuggingFace.
