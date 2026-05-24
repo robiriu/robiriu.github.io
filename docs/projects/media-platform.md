@@ -353,44 +353,11 @@ terraform apply
 - AdCP Context Builder
 - AdCP Gateway
 
-## GPU Migration: RTX 5060 Acceleration
-
-The AI extraction services (Whisper, CLIP, YOLO) were migrated from CPU-only VMs to a dedicated **NVIDIA RTX 5060 (8 GB VRAM)** server using a zero-downtime rolling cutover strategy.
-
-### Production Benchmarks (51-min Indonesian documentary)
-
-| Metric | CPU (EPYC 7542) | GPU (RTX 5060) | Speedup |
-|--------|-----------------|---------------|---------|
-| Whisper transcription | 49.0 min | **9.1 min** | **5.4x** |
-| Full extraction pipeline | 81.1 min | **9.4 min** | **8.7x** |
-| CLIP embedding per frame | 138 ms | **53 ms** | **2.7x** |
-
-On CPU, transcription was **slower than real-time** (0.6x). On GPU, it completes **5.4x faster than real-time**.
-
-### GPU Infrastructure
-
-- **Docker GPU passthrough** via `nvidia-container-toolkit` with CUDA 12.6.3 runtime images
-- **Blackwell sm_120 compatibility** resolved: PyTorch cu124 silently fell back to CPU kernels on RTX 5060. Fixed with PyTorch 2.11.0+cu128 (CUDA 12.8 wheels with sm_120 support)
-- **VRAM management**: Audio (3.8 GB) + Vision (4.2 GB) = 5.5 GB / 8 GB (67%), serialized via Bull queue
-- **Rolling cutover**: GPU services deployed alongside CPU, switched one-at-a-time via URL config. Rollback under 1 minute per service
-- **Cross-subnet deployment**: GPU server on 192.168.22.x, application VMs on 192.168.12.x, with CPU fallback always running
-
-### GPU Skills Demonstrated
-
-- NVIDIA driver and container toolkit setup on bare metal
-- GPU-accelerated Docker image builds (CUDA runtime base, model pre-baking)
-- PyTorch CUDA architecture compatibility debugging (sm_120/Blackwell)
-- VRAM budgeting and conflict resolution across shared GPU workloads
-- Production GPU benchmarking with real-world media content
-- Zero-downtime migration with instant rollback capability
-
-[Read the full GPU migration deep-dive on the blog →](../blog/2026-05-24-gpu-migration-rtx5060-ai-extraction-pipeline.md)
-
 ## Performance Characteristics
 
 - **API Response Time**: <100ms for cached requests
 - **Video Playback Start**: <2s time to first frame
-- **Metadata Extraction**: ~13 minutes per 51-min video (GPU), 90-120 min (CPU)
+- **Metadata Extraction**: 2-5 minutes per video (depending on length)
 - **Search Query**: <500ms for vector similarity search
 - **Concurrent Users**: Tested up to 100+ simultaneous streams
 
