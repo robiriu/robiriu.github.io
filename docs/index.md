@@ -1,5 +1,10 @@
 # Production-Ready AI & Software Engineer
 
+!!! tip "What's New"
+    **Managing Asynchronous Database Sessions and Module Dependencies** - Managing Asynchronous Database Sessions and Module Dependencies
+    [Read more ->](blog/2026-05-24-managing-asynchronous-database-sessions-and-module.md)
+
+
 !!! tip "In Progress"
     **[EnergyLM-7B — LLM Fine-Tuning & Alignment](projects/energylm-finetune.md)** — End-to-end LLM fine-tuning pipeline: QLoRA SFT on Qwen2.5-7B, DPO vs ORPO alignment comparison, CoT distillation, 10-benchmark evaluation, AWQ/GGUF quantization. 20K synthetic energy-domain dataset. $0 budget — 100% free compute. [View project →](projects/energylm-finetune.md)
 
