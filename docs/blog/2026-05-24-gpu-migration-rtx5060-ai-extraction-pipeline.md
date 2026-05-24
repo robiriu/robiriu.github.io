@@ -8,13 +8,13 @@
 
 ## The Problem: CPU Inference Too Slow for Production
 
-Our AdCP Media Platform runs a multimodal AI extraction pipeline — Whisper for audio transcription, CLIP for visual embeddings, and YOLO for object detection. On our production VM (AMD EPYC 7542, 32 GB RAM), a 51-minute Indonesian documentary took **75+ minutes** to transcribe. That's slower than real-time — the system took longer to process the video than to watch it.
+Our media platform runs a multimodal AI extraction pipeline — Whisper for audio transcription, CLIP for visual embeddings, and YOLO for object detection. On our production VM (AMD EPYC 7542, 32 GB RAM), a 51-minute video took **75+ minutes** to transcribe. That's slower than real-time — the system took longer to process the video than to watch it.
 
-For a Media Asset Management workflow where editors are waiting on metadata before they can work, this was a blocker.
+For a content management workflow where editors are waiting on metadata before they can work, this was a blocker.
 
 ## The Hardware: RTX 5060 on a Dedicated AI Server
 
-We identified a dedicated machine (`gen21ai`) with an **NVIDIA GeForce RTX 5060 (8 GB VRAM)** running Ubuntu 22.04. The challenge: it was already hosting 18 Docker containers for other projects, plus a systemd-managed GPU worker service consuming up to 3.6 GB VRAM.
+We identified a dedicated machine with an **NVIDIA GeForce RTX 5060 (8 GB VRAM)** running Ubuntu 22.04. The challenge: it was already hosting 18 Docker containers for other projects, plus a systemd-managed GPU worker service consuming up to 3.6 GB VRAM.
 
 | Component | Specification |
 |-----------|--------------|
@@ -73,11 +73,11 @@ services:
       - WHISPER_MODEL=large-v3
 ```
 
-The key configuration change: `DEVICE=cuda` and `COMPUTE_TYPE=float16` instead of the CPU defaults (`cpu` / `int8`). Our Python services already had auto-detection — if CUDA is available, they use it. The Whisper service uses faster-whisper with CTranslate2, while vision uses PyTorch with CLIP and YOLO.
+The key configuration change: `DEVICE=cuda` and `COMPUTE_TYPE=float16` instead of the CPU defaults (`cpu` / `int8`). The Python services already had auto-detection — if CUDA is available, they use it. The Whisper service uses faster-whisper with CTranslate2, while vision uses PyTorch with CLIP and YOLO.
 
 ## Step 3: Solving the Blackwell sm_120 Compatibility Issue
 
-This was the trickiest problem. The RTX 5060 uses NVIDIA's **Blackwell architecture (sm_120)** — a brand-new compute capability. Our initial vision-extraction image used PyTorch with CUDA 12.4 wheels (`cu124`), which only supports up to sm_90 (Ada Lovelace).
+This was the trickiest problem. The RTX 5060 uses NVIDIA's **Blackwell architecture (sm_120)** — a brand-new compute capability. The initial vision-extraction image used PyTorch with CUDA 12.4 wheels (`cu124`), which only supports up to sm_90 (Ada Lovelace).
 
 **Symptoms:** CLIP and YOLO models loaded without errors, but all CUDA kernels silently failed. The models fell back to CPU-like performance inside the GPU container. VRAM showed only model weights loaded (806 MiB) instead of full CUDA context.
 
@@ -96,7 +96,7 @@ After this fix, VRAM usage jumped from 806 MiB to 4,170 MiB — confirming that 
 
 With only 8 GB VRAM, every megabyte counts. We discovered a pre-existing `gpu_worker.service` (Whisper, BLIP, BART, NLLB, Gemma models) that consumed up to **3,600 MiB** when fully loaded.
 
-**The conflict:** Our extraction services needed ~5,368 MiB. Combined with the gpu_worker: 8,968 MiB — exceeding the 8,151 MiB available.
+**The conflict:** The extraction services needed ~5,368 MiB. Combined with the gpu_worker: 8,968 MiB — exceeding the 8,151 MiB available.
 
 **Resolution:** Stopped `gpu_worker.service` by team agreement. Final VRAM allocation:
 
@@ -106,19 +106,19 @@ With only 8 GB VRAM, every megabyte counts. We discovered a pre-existing `gpu_wo
 | CLIP ViT-B/32 + YOLO v8 | 746-4,170 MiB | During visual analysis |
 | **Combined peak** | **5,470 MiB / 8,151 MiB (67%)** | Concurrent audio + vision |
 
-The metadata-layer's Bull queue serializes jobs, naturally preventing VRAM overflow from concurrent heavy inference.
+A Bull/Redis task queue serializes jobs, naturally preventing VRAM overflow from concurrent heavy inference.
 
 ## Step 5: Rolling Migration Strategy
 
-We never stopped the CPU services. The migration was a **rolling cutover** — deploy GPU version alongside, test, then switch one URL at a time:
+The CPU services were never stopped. The migration was a **rolling cutover** — deploy GPU version alongside, test, then switch one URL at a time:
 
 ```
-metadata-layer (VM2) ─── audio ── VM2 CPU (fallback)
-    switches one URL     │
-    at a time           └── gen21ai GPU (active)  <- switch first
+orchestrator (VM2) ─── audio ── VM2 CPU (fallback)
+    switches one URL     |
+    at a time           └── GPU server (active)  <- switch first
                         ── vision ── VM2 CPU (fallback)
-                            │
-                            └── gen21ai GPU (active)  <- switch second
+                            |
+                            └── GPU server (active)  <- switch second
                         ── nlp ──── VM2 CPU (stays, no GPU benefit)
 ```
 
@@ -138,25 +138,25 @@ AUDIO_SERVICE_URL=http://192.168.22.111:3008
 
 ### Audio Transcription (Whisper large-v3)
 
-Tested on a 51-minute Indonesian documentary ("Perang Pasifik"), end-to-end through the .NET MAM consumer path:
+Tested on a 51-minute video, end-to-end through the full consumer pipeline:
 
-| Phase | GPU (RTX 5060) | CPU (EPYC 7542) | Speedup |
-|-------|---------------|-----------------|---------|
-| Audio load + VAD | 8.4s | 18.5s | 2.2x |
-| Language detection | 6.0s | 29.3s | 4.9x |
-| Whisper transcription | **546.8s (9.1 min)** | **2,940.8s (49.0 min)** | **5.4x** |
-| **Total pipeline** | **561.4s (9.4 min)** | **4,866.0s (81.1 min)** | **8.7x** |
+| Phase | CPU (EPYC 7542) | GPU (RTX 5060) | Speedup |
+|-------|-----------------|---------------|---------|
+| Audio load + VAD | 18.5s | 8.4s | 2.2x |
+| Language detection | 29.3s | 6.0s | 4.9x |
+| Whisper transcription | **2,940.8s (49.0 min)** | **546.8s (9.1 min)** | **5.4x** |
+| **Total pipeline** | **4,866.0s (81.1 min)** | **561.4s (9.4 min)** | **8.7x** |
 
-On CPU, the video took longer to transcribe than to watch (0.6x real-time). On GPU, it finishes **5.4x faster than real-time** — extraction completes while the editor is still reviewing the previous asset.
+On CPU, the video took longer to transcribe than to watch (0.6x real-time). On GPU, it finishes **5.4x faster than real-time**.
 
 ### Vision Analysis (CLIP + YOLO)
 
 Tested on 10 frames of 1920x1080 video:
 
-| Metric | GPU (RTX 5060) | CPU (EPYC 7542) | Speedup |
-|--------|---------------|-----------------|---------|
-| CLIP embedding (pure inference) | **53 ms** | 138 ms | **2.7x** |
-| Full vision pipeline | 1,924 ms | 1,588 ms | 0.8x (CPU-bound OpenCV) |
+| Metric | CPU (EPYC 7542) | GPU (RTX 5060) | Speedup |
+|--------|-----------------|---------------|---------|
+| CLIP embedding (pure inference) | 138 ms | **53 ms** | **2.7x** |
+| Full vision pipeline | 1,588 ms | 1,924 ms | 0.8x (CPU-bound OpenCV) |
 
 The full vision pipeline is actually slower on the GPU server because it's dominated by CPU-bound OpenCV operations (color analysis, brightness, sharpness). The i7-6700 is slower than the EPYC for these tasks. But CLIP inference — the AI part — is 2.7x faster. At scale across a content library, this matters.
 
@@ -166,40 +166,33 @@ The full vision pipeline is actually slower on the GPU server because it's domin
 |-----------|-------|------|------------|
 | Audio (GPU) | Whisper large-v3 | 11 min 47 sec | 0.93 |
 | Vision (GPU) | CLIP ViT-B/32 | 18.7 sec | 0.84 |
-| NLP (CPU, VM2) | DistilBERT | 2.6 sec | 0.78 |
+| NLP (CPU) | DistilBERT | 2.6 sec | 0.78 |
 | Media | FFmpeg | <1 sec | 1.00 |
-| **Total** | | **13 min 32 sec** | |
+| **Total** | | **~13 min** | |
 
 Down from 90-120 minutes on CPU. A **7-9x improvement**.
 
 ## Architecture: Before and After
 
 ```
-       192.168.12.x (VM subnet)              192.168.22.x (AI subnet)
+    Application VMs (192.168.12.x)           GPU Server (192.168.22.x)
 
-       VM1 (adcp-db) :94                     gen21ai :111
-       +-----------------+                   +------------------------+
-       | PostgreSQL      |                   | audio-extraction (GPU) |
-       | Redis           |<--- network --->  | vision-extraction (GPU)|
-       | MinIO / Kafka   |                   | +18 other containers   |
-       +--------+--------+                   +-----------+------------+
-                |                                        |
-       VM2 (adcp-service) :95                            |
-       +--------+--------+                              |
-       | metadata-layer --+--- HTTP extraction calls ---+
-       | mam-api         |
-       | auth, content   |
-       | recommendation  |
-       | audio (CPU)     | <- still running as fallback
-       | vision (CPU)    | <- still running as fallback
-       | nlp (CPU)       | <- active (no GPU benefit)
-       +-----------------+
-
-       .NET MAM Consumer
-       +-----------------+
-       | Calls :3005     |--> metadata-layer /api/v1/*
-       | (never changes) |    (frozen contract)
-       +-----------------+
+    VM1 (Database)                           AI Server
+    +-----------------+                      +------------------------+
+    | PostgreSQL      |                      | audio-extraction (GPU) |
+    | Redis           |<---- network ---->   | vision-extraction (GPU)|
+    | MinIO / Kafka   |                      | NVIDIA RTX 5060        |
+    +--------+--------+                      +-----------+------------+
+             |                                           |
+    VM2 (Services)                                       |
+    +--------+--------+                                  |
+    | orchestrator  --+---- HTTP extraction calls ------+
+    | api-gateway     |
+    | auth, content   |
+    | audio (CPU)     | <- fallback, still running
+    | vision (CPU)    | <- fallback, still running
+    | nlp (CPU)       | <- stays here (no GPU benefit)
+    +-----------------+
 ```
 
 ## Key Takeaways
@@ -218,6 +211,6 @@ Down from 90-120 minutes on CPU. A **7-9x improvement**.
 
 ---
 
-*This migration was executed on production infrastructure for PT Infotech Solutions' AdCP Media Platform, handling real broadcast content for Gen21 media operations.*
+*This migration was executed on production enterprise infrastructure, processing real media content.*
 
-[Back to Blog](index.md)
+[View the full project page →](../projects/gpu-migration.md) | [Back to Blog](index.md)

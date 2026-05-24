@@ -14,6 +14,7 @@ My work spans:
 - **Agentic AI & RAG** — LangGraph multi-agent orchestration, self-reflective retrieval, hybrid search, multi-provider LLM fallback chains
 - **Physics-Informed ML** — PINNs, CNN surrogates, GNNs for energy sector simulation (ForceX AI, 12 products)
 - **MLOps & Model Deployment** — Automated training pipelines, model registry, 24 production models, CI/CD with GitHub Actions
+- **GPU Computing** — NVIDIA CUDA, PyTorch cu128, Docker GPU passthrough, VRAM budgeting, Blackwell sm_120 compatibility
 - **Cloud & Infrastructure** — Google Cloud Platform (Cloud Run, Cloud SQL, Secret Manager), Docker, Kubernetes, Kafka, Terraform
 - **Multimodal AI** — NLP (spaCy, Transformers), Vision (CLIP, YOLOv8), Audio (Whisper), Vector Search (pgvector)
 - **Published Work** — Models and datasets on HuggingFace, AI testing framework on npm (@robi-atp/cli)
@@ -37,6 +38,16 @@ Full-stack AI-powered HR platform that turns raw employee and attendance data in
 **Stack:** Next.js 16 · React 19 · FastAPI · PostgreSQL · Gemini 2.5 Flash · Recharts · Tailwind CSS 4
 
 [View Project →](projects/agentic-hr-platform.md)
+
+### Latest — AI Service Migration: CPU to GPU
+
+**[AI Service Migration: CPU to GPU (RTX 5060)](projects/gpu-migration.md)**
+
+Migrated multimodal AI inference (Whisper, CLIP, YOLO) from CPU to **NVIDIA RTX 5060 GPU** — achieving **8.7x pipeline speedup**. Solved Blackwell sm_120 silent kernel fallback in PyTorch, managed VRAM on 8 GB, zero-downtime rolling cutover with instant rollback.
+
+**Stack:** NVIDIA CUDA 12.8 · PyTorch 2.11.0+cu128 · faster-whisper · CLIP · YOLOv8 · Docker + nvidia-container-toolkit
+
+[View Project →](projects/gpu-migration.md)
 
 ### Enterprise Systems (Private Company)
 
