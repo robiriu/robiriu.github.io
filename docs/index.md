@@ -1,5 +1,8 @@
 # Production-Ready AI & Software Engineer
 
+!!! tip "In Progress"
+    **[EnergyLM-7B — LLM Fine-Tuning & Alignment](projects/energylm-finetune.md)** — End-to-end LLM fine-tuning pipeline: QLoRA SFT on Qwen2.5-7B, DPO vs ORPO alignment comparison, CoT distillation, 10-benchmark evaluation, AWQ/GGUF quantization. 20K synthetic energy-domain dataset. $0 budget — 100% free compute. [View project →](projects/energylm-finetune.md)
+
 !!! tip "Currently Building"
     **[ForceX AI](https://forcex-ai.com)** — Indonesia's first AI-for-energy platform. 12 physics-informed AI products for nuclear, geothermal, oil & gas, and renewables. GeoForce v1.1 deployed with R²=0.997 accuracy. [Explore the platform →](https://platform.forcex-ai.com)
 
@@ -11,6 +14,7 @@ I am **Robi Dany Riupassa**, a software engineer and AI specialist building prod
 
 My work spans:
 
+- **LLM Fine-Tuning & Alignment** — QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, synthetic data generation, AWQ/GGUF quantization, lm-evaluation-harness
 - **Agentic AI & RAG** — LangGraph multi-agent orchestration, self-reflective retrieval, hybrid search, multi-provider LLM fallback chains
 - **Physics-Informed ML** — PINNs, CNN surrogates, GNNs for energy sector simulation (ForceX AI, 12 products)
 - **MLOps & Model Deployment** — Automated training pipelines, model registry, 24 production models, CI/CD with GitHub Actions
@@ -28,6 +32,16 @@ My work spans:
 **[ForceX AI — AI-for-Energy Platform](projects/forcex-ai.md)** | [forcex-ai.com](https://forcex-ai.com)
 
 12 physics-informed AI products (PINNs, CNN, GNN, LSTM, RL) with LangGraph agent orchestration. GeoForce CNN surrogate deployed at R²=0.997. Model and dataset published on HuggingFace. 484 passing tests.
+
+### In Progress — EnergyLM-7B: LLM Fine-Tuning & Alignment
+
+**[EnergyLM-7B — LLM Fine-Tuning & Alignment Pipeline](projects/energylm-finetune.md)**
+
+End-to-end LLM training pipeline: fine-tunes **Qwen2.5-7B** on 20K synthetic energy-domain instructions using **QLoRA SFT**, aligns with **DPO vs ORPO** comparison study, trains a reward model, and benchmarks across **10 evaluation dimensions**. Multi-teacher data generation (Gemini + Groq + OpenRouter), MinHash + semantic dedup, LLM-as-judge quality filtering, AWQ/GGUF quantization, vLLM serving. **$0 budget** — entirely on free-tier compute.
+
+**Stack:** PyTorch · Transformers · TRL · PEFT · QLoRA · DPO · ORPO · lm-eval-harness · vLLM · Kaggle T4
+
+[View Project →](projects/energylm-finetune.md) | [ForceX-AI on HuggingFace →](https://huggingface.co/ForceX-AI)
 
 ### Latest — Agentic HR Intelligence Platform
 

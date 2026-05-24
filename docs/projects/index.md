@@ -30,6 +30,20 @@ Standalone production version of the GeoForce CNN surrogate model. Replaces hour
 
 ---
 
+## LLM Fine-Tuning & Alignment
+
+### [EnergyLM-7B — LLM Fine-Tuning & Alignment Pipeline](energylm-finetune.md) `IN PROGRESS`
+
+End-to-end LLM training pipeline for a domain-adapted energy model. Fine-tunes Qwen2.5-7B using QLoRA SFT on 20K synthetic instructions, compares DPO vs ORPO alignment, trains a reward model, and evaluates across 10 benchmarks. Multi-teacher data generation, dedup/filter pipeline, AWQ/GGUF quantization, vLLM serving. $0 budget — 100% free compute.
+
+**Technologies:** PyTorch, Transformers, TRL, PEFT, QLoRA, DPO, ORPO, lm-eval-harness, vLLM, AutoAWQ, llama.cpp, Kaggle T4
+
+**Highlights:** 20K synthetic dataset, DPO vs ORPO comparison, 10-benchmark evaluation, CoT distillation, reward modeling, AWQ + GGUF quantization, $0 compute cost
+
+[View Project →](energylm-finetune.md) | [ForceX-AI on HuggingFace →](https://huggingface.co/ForceX-AI)
+
+---
+
 ## GenAI & LLM Systems
 
 ### [Enterprise Agentic RAG Chatbot](enterprise-agentic-rag.md)
@@ -152,6 +166,7 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 
 | Category | Projects | Key Skills |
 |----------|----------|------------|
+| **LLM Fine-Tuning** | EnergyLM-7B | QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, quantization |
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
 | **GenAI & LLM** | Agentic RAG, HR Intelligence, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, agentic tool calling, LLM fallback chains |
 | **MLOps** | Broadcast Analytics, Media Platform | ML pipelines, model registry, CI/CD, monitoring |

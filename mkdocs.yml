@@ -25,6 +25,8 @@ nav:
       - Publications: about/publications.md
   - Projects:
       - Overview: projects/index.md
+      - "LLM Fine-Tuning & Alignment":
+          - "EnergyLM-7B (In Progress)": projects/energylm-finetune.md
       - "Flagship — ForceX AI":
           - ForceX AI Platform: projects/forcex-ai.md
           - GeoForce (CNN Surrogate): projects/geoforce.md
