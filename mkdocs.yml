@@ -35,7 +35,7 @@ nav:
           - Porto Agent: projects/porto-agent.md
       - MLOps & Infrastructure:
           - Broadcast Analytics (MLOps): projects/broadcast-analytics.md
-          - Media Platform (AdCP): projects/media-platform.md
+          - Media Platform (AdCP + GPU): projects/media-platform.md
       - Developer Tools:
           - AI Testing Framework (ATP): projects/ai-testing-framework.md
       - Research:

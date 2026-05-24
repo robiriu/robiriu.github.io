@@ -94,13 +94,13 @@ Enterprise MLOps platform with 24 trained models (6 algorithms × 4 targets), LL
 
 ---
 
-### [Media Platform — Ad Campaign Management](media-platform.md)
+### [Media Platform — Ad Campaign Management + GPU Migration](media-platform.md)
 
-Comprehensive enterprise media platform with OTT streaming, broadcast management, media asset management, and multimodal AI (NLP + Vision + Audio). Microservices architecture deployed on **Google Cloud Platform**.
+Comprehensive enterprise media platform with OTT streaming, broadcast management, media asset management, and multimodal AI (NLP + Vision + Audio). Microservices architecture deployed on **Google Cloud Platform**. AI extraction pipeline migrated to **NVIDIA RTX 5060 GPU** with 8.7x speedup.
 
-**Technologies:** NestJS, Next.js 14, Kafka, PostgreSQL + pgvector, MinIO, CLIP, Whisper, spaCy, Docker, Kubernetes, **GCP (Cloud Run, Cloud SQL, Artifact Registry, Secret Manager)**
+**Technologies:** NestJS, Next.js 14, Kafka, PostgreSQL + pgvector, MinIO, CLIP, Whisper, YOLO, spaCy, Docker, **NVIDIA CUDA, PyTorch, nvidia-container-toolkit**, GCP (Cloud Run, Cloud SQL)
 
-**Highlights:** 5 Cloud Run microservices in production, managed PostgreSQL with private networking, MediaMTX streaming on Compute Engine, 350+ pages documentation
+**Highlights:** GPU migration with 8.7x pipeline speedup, Blackwell sm_120 compatibility fix (PyTorch cu128), VRAM budgeting on 8 GB GPU, zero-downtime rolling cutover, 350+ pages documentation
 
 [View Project →](media-platform.md)
 
@@ -141,6 +141,7 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
 | **GenAI & LLM** | Agentic RAG, HR Intelligence, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, agentic tool calling, LLM fallback chains |
 | **MLOps** | Broadcast Analytics, Media Platform | ML pipelines, model registry, CI/CD, monitoring |
+| **GPU & Infrastructure** | Media Platform | NVIDIA CUDA, PyTorch cu128, Docker GPU, VRAM budgeting, rolling migration |
 | **Developer Tools** | ATP | npm publishing, TypeScript frameworks, AI testing |
-| **Cloud & Infrastructure** | Media Platform | GCP Cloud Run, Cloud SQL, Kubernetes, Terraform |
+| **Cloud** | Media Platform | GCP Cloud Run, Cloud SQL, Kubernetes, Terraform |
 | **Research** | Recommendation Systems | PyTorch, FAISS, Transformers |

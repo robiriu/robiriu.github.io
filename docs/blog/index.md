@@ -6,6 +6,7 @@ Welcome to my technical blog where I share insights, tutorials, and thoughts on 
 
 ## Recent Posts
 
+- [GPU Migration: Accelerating AI Extraction Pipeline with RTX 5060](2026-05-24-gpu-migration-rtx5060-ai-extraction-pipeline.md)
 - [Preventing Arrow Errors in Diagrams with Mermaid Syntax Guidance](2026-01-23-preventing-arrow-errors-in-diagrams-with-mermaid-s.md)
 - [Implementing a Secure and Configurable Blog Agent](2026-01-23-implementing-a-secure-and-configurable-blog-agent.md)
 - [Optimizing API Endpoints for User Information Retrieval](2026-01-23-optimizing-api-endpoints-for-user-information-retr.md)
