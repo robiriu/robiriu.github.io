@@ -39,17 +39,9 @@ Full-stack AI-powered HR platform that turns raw employee and attendance data in
 
 [View Project →](projects/agentic-hr-platform.md)
 
-### Latest — AI Service Migration: CPU to GPU
-
-**[AI Service Migration: CPU to GPU (RTX 5060)](projects/gpu-migration.md)**
-
-Migrated multimodal AI inference (Whisper, CLIP, YOLO) from CPU to **NVIDIA RTX 5060 GPU** — achieving **8.7x pipeline speedup**. Solved Blackwell sm_120 silent kernel fallback in PyTorch, managed VRAM on 8 GB, zero-downtime rolling cutover with instant rollback.
-
-**Stack:** NVIDIA CUDA 12.8 · PyTorch 2.11.0+cu128 · faster-whisper · CLIP · YOLOv8 · Docker + nvidia-container-toolkit
-
-[View Project →](projects/gpu-migration.md)
-
 ### Enterprise Systems (Private Company)
+
+**[AI Service Migration: CPU to GPU (RTX 5060)](projects/gpu-migration.md)** — Migrated multimodal AI inference (Whisper, CLIP, YOLO) to NVIDIA RTX 5060 GPU. **8.7x pipeline speedup**, Blackwell sm_120 CUDA fix, VRAM budgeting on 8 GB, zero-downtime rolling cutover.
 
 **[Enterprise Agentic RAG Chatbot](projects/enterprise-agentic-rag.md)** — LangGraph multi-agent RAG with self-reflection, hybrid search (dense + BM25 + RRF), multilingual, Langfuse observability. Production-deployed.
 
