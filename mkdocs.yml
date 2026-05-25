@@ -44,7 +44,8 @@ nav:
           - AI Testing Framework (ATP): projects/ai-testing-framework.md
       - Research:
           - Recommendation Systems: projects/recommendation-systems-research.md
-  - Blog: blog/index.md
+  - Blog:
+      - Overview: blog/index.md
       - "Managing Asynchronous Database Sessions and Module Depend...": blog/2026-05-24-managing-asynchronous-database-sessions-and-module.md
   - Activities:
       - Overview: activities/index.md
