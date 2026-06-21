@@ -182,6 +182,20 @@ Upload a CSV and the workspace auto-builds a dashboard: KPIs, anomaly detection 
 
 ---
 
+## Web & Business Systems
+
+### [LeadFlow -- Sales & Lead Management System](leadflow-crm.md)
+
+A full-stack CRM: multi-source lead capture, a visual deal pipeline (New -> Contacted -> Quoted -> Won/Lost) with per-stage value totals, overdue follow-up reminders, and conversion analytics. REST API with a swappable data store.
+
+**Technologies:** Next.js, TypeScript, Tailwind, Recharts, REST API, file/Airtable/Supabase/MySQL store
+
+**Highlights:** Kanban pipeline, multi-source capture form, follow-up reminders, funnel + value-by-stage analytics
+
+[View Project →](leadflow-crm.md) | [Live demo →](https://crm.robiriu-dev.my.id)
+
+---
+
 ## MLOps & Infrastructure
 
 ### [Broadcast Analytics — MLOps Platform](broadcast-analytics.md)
