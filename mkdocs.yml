@@ -35,6 +35,13 @@ nav:
           - Agentic HR Intelligence: projects/agentic-hr-platform.md
           - AI Help & QnA (RAG): projects/ai-help-qna.md
           - Porto Agent: projects/porto-agent.md
+      - AI Applications:
+          - AI Sales & Lead-Gen Chatbot: projects/ai-sales-chatbot.md
+          - LinkedIn Carousel RAG: projects/linkedin-carousel-rag.md
+          - Agentic Doc Pipeline (LangGraph): projects/agentic-doc-pipeline.md
+          - Portfolio AI Assistant: projects/portfolio-assistant.md
+          - WhatsApp Real-Estate Bot: projects/whatsapp-realestate-bot.md
+          - Automotive Chatbot: projects/automotive-chatbot.md
       - MLOps & Infrastructure:
           - Broadcast Analytics (MLOps): projects/broadcast-analytics.md
           - Media Platform (AdCP): projects/media-platform.md
