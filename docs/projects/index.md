@@ -170,6 +170,18 @@ A WhatsApp chatbot for an automotive electronics business: KB-grounded answers, 
 
 ---
 
+### [InsightFlow -- AI Analytics Workspace](ai-analytics.md)
+
+Upload a CSV and the workspace auto-builds a dashboard: KPIs, anomaly detection across every metric, a trend chart, AI-written insights, and a natural-language layer to ask questions about the data. Deterministic stats in code, LLM for narration only.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, Recharts, PapaParse, TypeScript analytics engine
+
+**Highlights:** IQR anomaly detection, grounded AI insights and Q&A (no hallucinated numbers), BI-style workspace UI
+
+[View Project →](ai-analytics.md) | [Live demo →](https://analytics.robiriu-dev.my.id)
+
+---
+
 ## MLOps & Infrastructure
 
 ### [Broadcast Analytics — MLOps Platform](broadcast-analytics.md)
