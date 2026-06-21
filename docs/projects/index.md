@@ -182,6 +182,18 @@ Upload a CSV and the workspace auto-builds a dashboard: KPIs, anomaly detection 
 
 ---
 
+### [MarketMind -- AI Crypto & Stock Market Intelligence](marketmind.md)
+
+A market-intelligence SaaS: live crypto prices, technical indicators (SMA, RSI, volatility), a Bullish/Bearish/Neutral signal, AI-written analysis grounded on the indicators, and a chat to ask about any asset. Polished dark trading terminal.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, Recharts, CoinGecko, TypeScript indicators engine
+
+**Highlights:** Live data, technical analysis in code, grounded AI analysis + Q&A (no hallucinated numbers), signal generation
+
+[View Project →](marketmind.md) | [Live demo →](https://market.robiriu-dev.my.id)
+
+---
+
 ## Web & Business Systems
 
 ### [LeadFlow -- Sales & Lead Management System](leadflow-crm.md)
