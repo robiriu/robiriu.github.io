@@ -94,6 +94,82 @@ AI-powered platform that generates technical blog posts and LinkedIn content fro
 
 ---
 
+## AI Applications
+
+Deployable AI product builds, each a live, working demo grounded on Gemini 2.5 Flash (Vertex AI), built with Next.js and deployed on a VPS with automatic HTTPS.
+
+### [AI Sales & Lead-Gen Chatbot (WhatsApp / Instagram)](ai-sales-chatbot.md)
+
+A 24/7 sales assistant that answers pricing/schedule questions, handles objections, captures every lead, classifies status, and saves to a CRM with hot-lead alerts. Web chat plus WhatsApp/Instagram channels.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, JSON-mode extraction, file CRM, Telegram alerts
+
+**Highlights:** Two-call architecture (reply + structured lead extraction), status classification, live admin dashboard
+
+[View Project →](ai-sales-chatbot.md) | [Live demo →](https://mathbot.robiriu-dev.my.id)
+
+---
+
+### [Automated LinkedIn Carousel Generator (RAG)](linkedin-carousel-rag.md)
+
+Upload documents and a RAG pipeline writes a fresh 8-10 slide LinkedIn carousel grounded in the content, with a topic-dedup log, exportable as a LinkedIn-ready PDF.
+
+**Technologies:** Gemini 2.5 Flash, Vertex `text-embedding-004`, vector retrieval, jsPDF + html-to-image, Next.js
+
+**Highlights:** Grounded slide generation, topic dedup, native carousel rendering (no Canva API), isolated PDF parsing
+
+[View Project →](linkedin-carousel-rag.md) | [Live demo →](https://linkedin.robiriu-dev.my.id)
+
+---
+
+### [Self-Correcting Document Pipeline (LangGraph)](agentic-doc-pipeline.md)
+
+A supervisor-worker LangGraph agent that extracts invoice data, validates the arithmetic deterministically, self-corrects on mismatches (capped retries), and writes a report — with a live graph, streamed steps, and an eval panel.
+
+**Technologies:** LangGraph (`@langchain/langgraph`), Gemini 2.5 Flash, React Flow, SSE, Next.js
+
+**Highlights:** Real StateGraph with conditional self-correction loop, deterministic validation, per-run token/latency/loop evaluation
+
+[View Project →](agentic-doc-pipeline.md) | [Live demo →](https://agentic.robiriu-dev.my.id)
+
+---
+
+### [AI Assistant Embedded on a Portfolio Site](portfolio-assistant.md)
+
+A floating AI chatbot embedded on a personal site that answers visitors' free-form questions about skills, projects and availability, grounded in the site content so it never invents facts.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, knowledge-base grounding, embeddable widget
+
+**Highlights:** Anti-hallucination grounding, hire-intent nudging, drops into any existing site
+
+[View Project →](portfolio-assistant.md) | [Live demo →](https://portfolio.robiriu-dev.my.id)
+
+---
+
+### [WhatsApp Lead Bot with Photo-on-Demand (Real Estate)](whatsapp-realestate-bot.md)
+
+An always-on WhatsApp assistant for studio rentals that answers questions, sends a property photo gallery on request, captures leads, and books viewings, with editable galleries.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, token-driven photo delivery, file CRM
+
+**Highlights:** Text-plus-photos via model-emitted tokens, grounded answers, lead capture and status
+
+[View Project →](whatsapp-realestate-bot.md) | [Live demo →](https://studiobot.robiriu-dev.my.id)
+
+---
+
+### [WhatsApp AI Chatbot with Product Compatibility (Automotive)](automotive-chatbot.md)
+
+A WhatsApp chatbot for an automotive electronics business: KB-grounded answers, product compatibility by car model with upgrade suggestions, rule-based human handoff, and lead capture.
+
+**Technologies:** Gemini 2.5 Flash, Next.js, compatibility rules + KB grounding, file CRM
+
+**Highlights:** Model-aware product recommendation, deterministic premium-brand handoff, editable knowledge base and rules
+
+[View Project →](automotive-chatbot.md) | [Live demo →](https://autobot.robiriu-dev.my.id)
+
+---
+
 ## MLOps & Infrastructure
 
 ### [Broadcast Analytics — MLOps Platform](broadcast-analytics.md)
