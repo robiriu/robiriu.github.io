@@ -39,6 +39,11 @@ facts, so the analysis never hallucinates a statistic.
   column (aggregated per day when a date column exists), each flagged with a
   severity. On the sample it catches an orders spike, a revenue spike, and a
   large refund outlier.
+- **Relationships (scatter + correlation)** - pick any two numeric parameters
+  and the workspace plots their scatter chart with the Pearson correlation
+  (r value and strength); it auto-selects the most-correlated pair. Works on
+  domain data such as engine-calibration logs (rpm, load, temperature,
+  pressure, fuel consumption).
 - **AI insights** - specific, number-citing insight bullets plus a recommended
   action, grounded only on the computed statistics.
 - **Ask your data** - a chat layer answers questions like "what is the revenue
@@ -68,7 +73,7 @@ isolation, deployed to the client's cloud.
 ## Skills Demonstrated
 
 - Combining deterministic analytics with LLM narration for trustworthy figures
-- Anomaly detection (IQR) and automatic dashboard generation
+- Anomaly detection (IQR), correlation analysis, and automatic dashboard generation
 - Grounded LLM Q&A over computed statistics (no hallucinated numbers)
 - Data-product UX design (workspace shell, charts, designed components)
 - Vertex AI integration via a GCP service account
