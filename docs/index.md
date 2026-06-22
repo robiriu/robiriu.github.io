@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Numbers decide the signal, the LLM only explains: a market-intelligence experiment** - Numbers decide the signal, the LLM only explains: a market-intelligence experiment
-    [Read more ->](blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-.md)
+    **Exploring an LLM sales assistant that captures and classifies its own leads** - Exploring an LLM sales assistant that captures and classifies its own leads
+    [Read more ->](blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and.md)
+
 
 
 
