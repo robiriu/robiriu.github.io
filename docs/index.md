@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **A RAG experiment: can a knowledge base write its own LinkedIn carousels?** - A RAG experiment: can a knowledge base write its own LinkedIn carousels?
-    [Read more ->](blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow.md)
+    **What 'agentic' actually means: a self-correcting LangGraph document pipeline** - What 'agentic' actually means: a self-correcting LangGraph document pipeline
+    [Read more ->](blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang.md)
+
 
 
 
