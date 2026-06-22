@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **A strictly-grounded portfolio assistant that won't invent facts** - A strictly-grounded portfolio assistant that won't invent facts
-    [Read more ->](blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-.md)
+    **From raw CSV to a dashboard with no configuration: an analytics experiment** - From raw CSV to a dashboard with no configuration: an analytics experiment
+    [Read more ->](blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-.md)
+
 
 
 
