@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **From raw CSV to a dashboard with no configuration: an analytics experiment** - From raw CSV to a dashboard with no configuration: an analytics experiment
-    [Read more ->](blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-.md)
+    **A privacy-first code interpreter for data analysis (local-model experiment)** - A privacy-first code interpreter for data analysis (local-model experiment)
+    [Read more ->](blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis.md)
+
 
 
 
