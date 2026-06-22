@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Exploring product-compatibility reasoning in a WhatsApp chatbot** - Exploring product-compatibility reasoning in a WhatsApp chatbot
-    [Read more ->](blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha.md)
+    **A WhatsApp assistant that sends property photos at the right moment** - A WhatsApp assistant that sends property photos at the right moment
+    [Read more ->](blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at.md)
+
 
 
 
