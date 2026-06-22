@@ -58,6 +58,7 @@ nav:
           - Recommendation Systems: projects/recommendation-systems-research.md
   - Blog:
       - Overview: blog/index.md
+      - "A strictly-grounded portfolio assistant that won't invent...": blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-.md
       - "A WhatsApp assistant that sends property photos at the ri...": blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at.md
       - "Exploring product-compatibility reasoning in a WhatsApp c...": blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha.md
       - "Exploring an LLM sales assistant that captures and classi...": blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and.md
