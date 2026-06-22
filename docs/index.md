@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **What 'agentic' actually means: a self-correcting LangGraph document pipeline** - What 'agentic' actually means: a self-correcting LangGraph document pipeline
-    [Read more ->](blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang.md)
+    **Numbers decide the signal, the LLM only explains: a market-intelligence experiment** - Numbers decide the signal, the LLM only explains: a market-intelligence experiment
+    [Read more ->](blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-.md)
+
 
 
 
