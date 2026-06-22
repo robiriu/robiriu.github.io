@@ -58,6 +58,7 @@ nav:
           - Recommendation Systems: projects/recommendation-systems-research.md
   - Blog:
       - Overview: blog/index.md
+      - "Numbers decide the signal, the LLM only explains: a marke...": blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-.md
       - "What 'agentic' actually means: a self-correcting LangGrap...": blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang.md
       - "A RAG experiment: can a knowledge base write its own Link...": blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow.md
       - "Managing Asynchronous Database Sessions and Module Depend...": blog/2026-05-24-managing-asynchronous-database-sessions-and-module.md
