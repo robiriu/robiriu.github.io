@@ -206,6 +206,18 @@ A self-hostable "code interpreter": describe an analysis in plain English, the A
 
 ---
 
+### [HealthPredict -- Clinical Risk Prediction](healthpredict.md)
+
+A self-hostable web app that turns routine clinical values into an explained ML risk estimate for common conditions (diabetes, heart, kidney, liver, thyroid). Each condition is scored by a Logistic Regression + Random Forest ensemble, with the contributing factors ranked on every result.
+
+**Technologies:** Python, Flask, scikit-learn (LogReg + Random Forest), SQLAlchemy (SQLite/MySQL), gunicorn + nginx
+
+**Highlights:** Two-model ensemble per condition, explainable factor breakdown, history dashboard, admin console, light/dark, production-deployed
+
+[View Project →](healthpredict.md) | [Live demo →](https://health.robiriu-dev.my.id)
+
+---
+
 ## Web & Business Systems
 
 ### [LeadFlow -- Sales & Lead Management System](leadflow-crm.md)

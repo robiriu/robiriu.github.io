@@ -45,6 +45,7 @@ nav:
           - AI Analytics Workspace: projects/ai-analytics.md
           - MarketMind (Crypto & Stocks): projects/marketmind.md
           - DataPilot (Private AI Analyst): projects/datapilot.md
+          - HealthPredict (Clinical Risk ML): projects/healthpredict.md
       - Web & Business Systems:
           - LeadFlow (Sales & Lead CRM): projects/leadflow-crm.md
       - MLOps & Infrastructure:
