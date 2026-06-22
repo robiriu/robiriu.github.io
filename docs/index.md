@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **A WhatsApp assistant that sends property photos at the right moment** - A WhatsApp assistant that sends property photos at the right moment
-    [Read more ->](blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at.md)
+    **A strictly-grounded portfolio assistant that won't invent facts** - A strictly-grounded portfolio assistant that won't invent facts
+    [Read more ->](blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-.md)
+
 
 
 
