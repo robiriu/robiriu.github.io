@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Managing Asynchronous Database Sessions and Module Dependencies** - Managing Asynchronous Database Sessions and Module Dependencies
-    [Read more ->](blog/2026-05-24-managing-asynchronous-database-sessions-and-module.md)
+    **A RAG experiment: can a knowledge base write its own LinkedIn carousels?** - A RAG experiment: can a knowledge base write its own LinkedIn carousels?
+    [Read more ->](blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow.md)
+
 
 
 !!! tip "In Progress"
