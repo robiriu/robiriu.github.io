@@ -194,6 +194,18 @@ A market-intelligence SaaS: live crypto prices, technical indicators (SMA, RSI, 
 
 ---
 
+### [DataPilot -- Private AI Data Analyst](datapilot.md)
+
+A self-hostable "code interpreter": describe an analysis in plain English, the AI writes the Python, runs it in a sandbox, and returns a report (charts + results + the code), refined by prompting. Privacy-first -- the model only sees the schema, and it runs on a local model (Ollama) so data never leaves the machine.
+
+**Technologies:** Next.js, Gemini / local Ollama (Qwen2.5-Coder), Python sandbox (pandas, matplotlib, scikit-learn), Docker
+
+**Highlights:** Live streaming code-gen, self-correction loop, switchable cloud/local model, sandboxed execution, fully on-premise/air-gappable
+
+[View Project →](datapilot.md) | [Live demo →](https://datapilot.robiriu-dev.my.id)
+
+---
+
 ## Web & Business Systems
 
 ### [LeadFlow -- Sales & Lead Management System](leadflow-crm.md)
