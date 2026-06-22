@@ -1,8 +1,9 @@
 # Production-Ready AI & Software Engineer
 
 !!! tip "What's New"
-    **Exploring an LLM sales assistant that captures and classifies its own leads** - Exploring an LLM sales assistant that captures and classifies its own leads
-    [Read more ->](blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and.md)
+    **Exploring product-compatibility reasoning in a WhatsApp chatbot** - Exploring product-compatibility reasoning in a WhatsApp chatbot
+    [Read more ->](blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha.md)
+
 
 
 
