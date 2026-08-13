@@ -99,6 +99,7 @@ plugins:
 # Extra CSS for Mermaid styling
 extra_css:
   - stylesheets/mermaid-custom.css
+  - stylesheets/embeds.css
 
 # Extra JavaScript for Mermaid
 extra_javascript:
