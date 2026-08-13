@@ -35,7 +35,7 @@ The hard engineering problem is not the AI. It is doing this **against a live pr
 
 ## The Problem
 
-The company runs a Central Kitchen that supplies several subsidiary restaurant and cloud-kitchen entities. Its back office ran on a rented cloud ERP plus a sprawl of hand-maintained Google Sheets workbooks. Every day, people were:
+The company runs a central production kitchen that supplies several subsidiary restaurant and cloud-kitchen entities. Its back office ran on a rented cloud ERP plus a sprawl of hand-maintained Google Sheets workbooks. Every day, people were:
 
 - Re-keying vendor invoices into the ERP by hand, field by field, line by line
 - Deciding what to reorder by eyeballing stock against buffer levels kept in a spreadsheet
@@ -138,21 +138,14 @@ That last pair killed the obvious design. Amount matching is not a reliable key,
 ## End-to-End: how a purchase becomes a paid invoice
 
 ```mermaid
-flowchart LR
-    A["Stock below buffer<br/>+ production demand"] --> B["Reorder proposal<br/>vendor + qty + price"]
-    B --> C{"Human review"}
-    C --> D["Purchase Order<br/>written to ERP"]
-    D --> E["PO document<br/>emailed to team"]
-    E --> F["Goods received<br/>receipt in ERP"]
-    F --> G["Vendor invoice arrives<br/>photo / PDF / scan"]
-    G --> H["AI vision extraction<br/>structured JSON"]
-    H --> I["Auto-matched to<br/>its goods receipt"]
-    I --> J{"Human confirms<br/>match + prices"}
-    J --> K["Purchase Invoice<br/>created in ERP"]
-    K --> L["Payment batch<br/>3 gates, 3 people"]
-    L --> M["Bank transfer executed"]
-    M --> N["Bank statement<br/>reconciled"]
-    N --> O["Payment written back<br/>ERP: unpaid to paid"]
+flowchart TB
+    S1["1. Reorder proposal<br/>buffer shortfall + production demand, human picks the vendor"]
+    S2["2. Purchase Order<br/>written into the ERP, document emailed out"]
+    S3["3. Invoice intake<br/>upload, camera or network scan, then AI vision extraction"]
+    S4["4. Match and create<br/>invoice matched to its goods receipt, Purchase Invoice created in the ERP"]
+    S5["5. Pay and reconcile<br/>three gates, bank transfer, statement reconciled"]
+    S6["6. Write back<br/>the ERP flips the invoice from unpaid to paid"]
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6
 ```
 
 ### Stage 1: Reorder proposal
@@ -184,12 +177,13 @@ A human confirms the match and the draft. Only then is the purchase invoice crea
 This is where real money moves, so the flow is deliberately slow and deliberately human.
 
 ```mermaid
-flowchart LR
-    S["Finance selects invoices<br/>+ assigns funding entity"] --> G1["Gate 1<br/>approve + upload<br/>bank transfer file"]
-    G1 -->|"relay email"| G2["Gate 2<br/>approve"]
-    G2 -->|"relay email"| G3["Gate 3<br/>release = execute"]
-    G3 --> R["Reconcile<br/>bank statement"]
-    R --> W["Write back to ERP<br/>unpaid to paid"]
+flowchart TB
+    S["Finance selects invoices<br/>and assigns each a funding entity"]
+    S --> G1["Gate 1: approve<br/>and upload the bank transfer file"]
+    G1 -->|"relay email"| G2["Gate 2: approve<br/>(a different person)"]
+    G2 -->|"relay email"| G3["Gate 3: release<br/>this executes the transfer"]
+    G3 --> R["Reconcile against the bank statement<br/>(a third person, not either gate)"]
+    R --> W["Write back to the ERP<br/>unpaid becomes paid"]
 ```
 
 - **Three distinct gates, three distinct people.** Separation of duties is enforced in code, not policy. The person who confirms a transfer must differ from both gate deciders on that batch, so a releaser can never also confirm a transfer nobody made.
