@@ -27,6 +27,9 @@ nav:
       - Overview: projects/index.md
       - "Ongoing: Enterprise AI Automation":
           - "Agentic ERP Automation Platform (Live)": projects/erp-automation-platform.md
+      - "Ongoing: AI-Native Applications":
+          - "TransForce (Particle Transport)": projects/transforce.md
+          - "CutForce (Video Editor)": projects/cutforce.md
       - "LLM Fine-Tuning & Alignment":
           - "EnergyLM-7B (In Progress)": projects/energylm-finetune.md
       - "Flagship — ForceX AI":
