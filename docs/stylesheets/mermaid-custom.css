@@ -12,12 +12,19 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Make diagrams larger but not too big */
+/* Size the SVG to its own content.
+
+   Mermaid renders with useMaxWidth, which puts an inline max-width of the
+   diagram's natural width on the <svg>. Leaving that inline value to win means
+   a diagram shrinks to fit a narrow container but is never stretched past its
+   natural size. height:auto then derives the height from the viewBox aspect
+   ratio, so the box hugs the diagram instead of letterboxing it. */
 .mermaid svg {
-    max-width: 100% !important;
-    width: 100% !important;
+    max-width: 100%;
     height: auto !important;
-    min-height: 500px !important;
+    min-height: 0 !important;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Ensure text is very readable with larger fonts */
