@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/blog/2026-05-24-gpu-migration-rtx5060-ai-extraction-pipeline/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>GPU Migration: Accelerating AI Extraction Pipeline with RTX 5060 - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "GPU Migration: Accelerating AI Extraction Pipeline with RTX 5060";
+        var mkdocs_page_input_path = "blog/2026-05-24-gpu-migration-rtx5060-ai-extraction-pipeline.md";
+        var mkdocs_page_url = "/blog/2026-05-24-gpu-migration-rtx5060-ai-extraction-pipeline/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../projects/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">GPU Migration: Accelerating AI Extraction Pipeline with RTX 5060</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gpu-migration-accelerating-ai-extraction-pipeline-with-rtx-5060">GPU Migration: Accelerating AI Extraction Pipeline with RTX 5060<a class="headerlink" href="#gpu-migration-accelerating-ai-extraction-pipeline-with-rtx-5060" title="Permanent link">&para;</a></h1>
+<p><strong>Date:</strong> 2026-05-24
+<strong>Category:</strong> Infrastructure, GPU Computing, MLOps
+<strong>Tags:</strong> NVIDIA, CUDA, Docker, Whisper, CLIP, YOLO, PyTorch</p>
+<hr />
+<h2 id="the-problem-cpu-inference-too-slow-for-production">The Problem: CPU Inference Too Slow for Production<a class="headerlink" href="#the-problem-cpu-inference-too-slow-for-production" title="Permanent link">&para;</a></h2>
+<p>Our media platform runs a multimodal AI extraction pipeline — Whisper for audio transcription, CLIP for visual embeddings, and YOLO for object detection. On our production VM (AMD EPYC 7542, 32 GB RAM), a 51-minute video took <strong>75+ minutes</strong> to transcribe. That's slower than real-time — the system took longer to process the video than to watch it.</p>
+<p>For a content management workflow where editors are waiting on metadata before they can work, this was a blocker.</p>
+<h2 id="the-hardware-rtx-5060-on-a-dedicated-ai-server">The Hardware: RTX 5060 on a Dedicated AI Server<a class="headerlink" href="#the-hardware-rtx-5060-on-a-dedicated-ai-server" title="Permanent link">&para;</a></h2>
+<p>We identified a dedicated machine with an <strong>NVIDIA GeForce RTX 5060 (8 GB VRAM)</strong> running Ubuntu 22.04. The challenge: it was already hosting 18 Docker containers for other projects, plus a systemd-managed GPU worker service consuming up to 3.6 GB VRAM.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Intel Core i7-6700 @ 3.40 GHz (4C/8T)</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>16 GB DDR4</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>NVIDIA GeForce RTX 5060 (8 GB VRAM)</td>
+</tr>
+<tr>
+<td>NVIDIA Driver</td>
+<td>595.71.05</td>
+</tr>
+<tr>
+<td>CUDA</td>
+<td>13.2 (driver-level)</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>29.4.3 with Compose 5.1.3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-1-enabling-docker-gpu-access">Step 1: Enabling Docker GPU Access<a class="headerlink" href="#step-1-enabling-docker-gpu-access" title="Permanent link">&para;</a></h2>
+<p>By default, Docker containers can't see the host GPU. The <code>nvidia-container-toolkit</code> bridges this gap:</p>
+<pre class="highlight"><code class="language-bash"># Add NVIDIA package repository
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+  | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+
+# Configure Docker runtime
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+
+# Verify GPU passthrough
+docker run --rm --gpus all nvidia/cuda:12.6.3-base-ubuntu22.04 nvidia-smi</code></pre>
+<p><strong>Lesson learned:</strong> Installing the toolkit updated NVIDIA userspace libraries (595.58.03 to 595.71.05) but the kernel module stayed at the old version. <code>nvidia-smi</code> failed with "Driver/library version mismatch". A <strong>full server reboot</strong> was required. After reboot, all 18+ containers plus the GPU worker restarted simultaneously, spiking the load average to 27 on 8 threads.</p>
+<h2 id="step-2-building-gpu-accelerated-docker-images">Step 2: Building GPU-Accelerated Docker Images<a class="headerlink" href="#step-2-building-gpu-accelerated-docker-images" title="Permanent link">&para;</a></h2>
+<p>We used <code>nvidia/cuda:12.6.3-runtime-ubuntu22.04</code> as our base image — the <strong>runtime</strong> variant, not <code>devel</code>, because we run pre-compiled models (no CUDA compilation needed).</p>
+<p>Docker Compose requests GPU access through the <code>deploy</code> section:</p>
+<pre class="highlight"><code class="language-yaml">services:
+  audio-extraction:
+    image: audio-extraction-gpu
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - DEVICE=cuda
+      - COMPUTE_TYPE=float16
+      - WHISPER_MODEL=large-v3</code></pre>
+<p>The key configuration change: <code>DEVICE=cuda</code> and <code>COMPUTE_TYPE=float16</code> instead of the CPU defaults (<code>cpu</code> / <code>int8</code>). The Python services already had auto-detection — if CUDA is available, they use it. The Whisper service uses faster-whisper with CTranslate2, while vision uses PyTorch with CLIP and YOLO.</p>
+<h2 id="step-3-solving-the-blackwell-sm_120-compatibility-issue">Step 3: Solving the Blackwell sm_120 Compatibility Issue<a class="headerlink" href="#step-3-solving-the-blackwell-sm_120-compatibility-issue" title="Permanent link">&para;</a></h2>
+<p>This was the trickiest problem. The RTX 5060 uses NVIDIA's <strong>Blackwell architecture (sm_120)</strong> — a brand-new compute capability. The initial vision-extraction image used PyTorch with CUDA 12.4 wheels (<code>cu124</code>), which only supports up to sm_90 (Ada Lovelace).</p>
+<p><strong>Symptoms:</strong> CLIP and YOLO models loaded without errors, but all CUDA kernels silently failed. The models fell back to CPU-like performance inside the GPU container. VRAM showed only model weights loaded (806 MiB) instead of full CUDA context.</p>
+<p><strong>The fix:</strong> Upgrade to PyTorch 2.11.0 with <strong>CUDA 12.8 wheels (<code>cu128</code>)</strong>, which includes sm_120 Blackwell kernels:</p>
+<pre class="highlight"><code class="language-dockerfile">RUN pip install torch==2.11.0+cu128 torchvision==0.22.0+cu128 \
+    --index-url https://download.pytorch.org/whl/cu128</code></pre>
+<p>After this fix, VRAM usage jumped from 806 MiB to 4,170 MiB — confirming that CUDA kernels were now running properly. CLIP embeddings dropped from 138 ms to <strong>53 ms per frame</strong>.</p>
+<p><strong>Why audio-extraction wasn't affected:</strong> The Whisper service uses faster-whisper built on CTranslate2, which has its own CUDA backend independent of PyTorch. It worked with cu124 out of the box.</p>
+<h2 id="step-4-managing-vram-constraints-8-gb-budget">Step 4: Managing VRAM Constraints (8 GB Budget)<a class="headerlink" href="#step-4-managing-vram-constraints-8-gb-budget" title="Permanent link">&para;</a></h2>
+<p>With only 8 GB VRAM, every megabyte counts. We discovered a pre-existing <code>gpu_worker.service</code> (Whisper, BLIP, BART, NLLB, Gemma models) that consumed up to <strong>3,600 MiB</strong> when fully loaded.</p>
+<p><strong>The conflict:</strong> The extraction services needed ~5,368 MiB. Combined with the gpu_worker: 8,968 MiB — exceeding the 8,151 MiB available.</p>
+<p><strong>Resolution:</strong> Stopped <code>gpu_worker.service</code> by team agreement. Final VRAM allocation:</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>VRAM Usage</th>
+<th>When Active</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Whisper large-v3 (float16)</td>
+<td>3,856 MiB</td>
+<td>During audio transcription</td>
+</tr>
+<tr>
+<td>CLIP ViT-B/32 + YOLO v8</td>
+<td>746-4,170 MiB</td>
+<td>During visual analysis</td>
+</tr>
+<tr>
+<td><strong>Combined peak</strong></td>
+<td><strong>5,470 MiB / 8,151 MiB (67%)</strong></td>
+<td>Concurrent audio + vision</td>
+</tr>
+</tbody>
+</table>
+<p>A Bull/Redis task queue serializes jobs, naturally preventing VRAM overflow from concurrent heavy inference.</p>
+<h2 id="step-5-rolling-migration-strategy">Step 5: Rolling Migration Strategy<a class="headerlink" href="#step-5-rolling-migration-strategy" title="Permanent link">&para;</a></h2>
+<p>The CPU services were never stopped. The migration was a <strong>rolling cutover</strong> — deploy GPU version alongside, test, then switch one URL at a time:</p>
+<pre class="highlight"><code>orchestrator (VM2) ─── audio ── VM2 CPU (fallback)
+    switches one URL     |
+    at a time           └── GPU server (active)  &lt;- switch first
+                        ── vision ── VM2 CPU (fallback)
+                            |
+                            └── GPU server (active)  &lt;- switch second
+                        ── nlp ──── VM2 CPU (stays, no GPU benefit)</code></pre>
+<p>Each cutover was a single environment variable change:</p>
+<pre class="highlight"><code class="language-env"># Before (CPU)
+AUDIO_SERVICE_URL=http://audio-extraction:3008
+
+# After (GPU)
+AUDIO_SERVICE_URL=http://192.168.22.111:3008</code></pre>
+<p><strong>Rollback:</strong> Change the URL back. Under 1 minute per service. The CPU version is still running.</p>
+<h2 id="results-production-benchmarks">Results: Production Benchmarks<a class="headerlink" href="#results-production-benchmarks" title="Permanent link">&para;</a></h2>
+<h3 id="audio-transcription-whisper-large-v3">Audio Transcription (Whisper large-v3)<a class="headerlink" href="#audio-transcription-whisper-large-v3" title="Permanent link">&para;</a></h3>
+<p>Tested on a 51-minute video, end-to-end through the full consumer pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>CPU (EPYC 7542)</th>
+<th>GPU (RTX 5060)</th>
+<th>Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio load + VAD</td>
+<td>18.5s</td>
+<td>8.4s</td>
+<td>2.2x</td>
+</tr>
+<tr>
+<td>Language detection</td>
+<td>29.3s</td>
+<td>6.0s</td>
+<td>4.9x</td>
+</tr>
+<tr>
+<td>Whisper transcription</td>
+<td><strong>2,940.8s (49.0 min)</strong></td>
+<td><strong>546.8s (9.1 min)</strong></td>
+<td><strong>5.4x</strong></td>
+</tr>
+<tr>
+<td><strong>Total pipeline</strong></td>
+<td><strong>4,866.0s (81.1 min)</strong></td>
+<td><strong>561.4s (9.4 min)</strong></td>
+<td><strong>8.7x</strong></td>
+</tr>
+</tbody>
+</table>
+<p>On CPU, the video took longer to transcribe than to watch (0.6x real-time). On GPU, it finishes <strong>5.4x faster than real-time</strong>.</p>
+<h3 id="vision-analysis-clip-yolo">Vision Analysis (CLIP + YOLO)<a class="headerlink" href="#vision-analysis-clip-yolo" title="Permanent link">&para;</a></h3>
+<p>Tested on 10 frames of 1920x1080 video:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>CPU (EPYC 7542)</th>
+<th>GPU (RTX 5060)</th>
+<th>Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIP embedding (pure inference)</td>
+<td>138 ms</td>
+<td><strong>53 ms</strong></td>
+<td><strong>2.7x</strong></td>
+</tr>
+<tr>
+<td>Full vision pipeline</td>
+<td>1,588 ms</td>
+<td>1,924 ms</td>
+<td>0.8x (CPU-bound OpenCV)</td>
+</tr>
+</tbody>
+</table>
+<p>The full vision pipeline is actually slower on the GPU server because it's dominated by CPU-bound OpenCV operations (color analysis, brightness, sharpness). The i7-6700 is slower than the EPYC for these tasks. But CLIP inference — the AI part — is 2.7x faster. At scale across a content library, this matters.</p>
+<h3 id="full-extraction-pipeline">Full Extraction Pipeline<a class="headerlink" href="#full-extraction-pipeline" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Extractor</th>
+<th>Model</th>
+<th>Time</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audio (GPU)</td>
+<td>Whisper large-v3</td>
+<td>11 min 47 sec</td>
+<td>0.93</td>
+</tr>
+<tr>
+<td>Vision (GPU)</td>
+<td>CLIP ViT-B/32</td>
+<td>18.7 sec</td>
+<td>0.84</td>
+</tr>
+<tr>
+<td>NLP (CPU)</td>
+<td>DistilBERT</td>
+<td>2.6 sec</td>
+<td>0.78</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>FFmpeg</td>
+<td>&lt;1 sec</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>~13 min</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Down from 90-120 minutes on CPU. A <strong>7-9x improvement</strong>.</p>
+<h2 id="architecture-before-and-after">Architecture: Before and After<a class="headerlink" href="#architecture-before-and-after" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>    Application VMs (192.168.12.x)           GPU Server (192.168.22.x)
+
+    VM1 (Database)                           AI Server
+    +-----------------+                      +------------------------+
+    | PostgreSQL      |                      | audio-extraction (GPU) |
+    | Redis           |&lt;---- network ----&gt;   | vision-extraction (GPU)|
+    | MinIO / Kafka   |                      | NVIDIA RTX 5060        |
+    +--------+--------+                      +-----------+------------+
+             |                                           |
+    VM2 (Services)                                       |
+    +--------+--------+                                  |
+    | orchestrator  --+---- HTTP extraction calls ------+
+    | api-gateway     |
+    | auth, content   |
+    | audio (CPU)     | &lt;- fallback, still running
+    | vision (CPU)    | &lt;- fallback, still running
+    | nlp (CPU)       | &lt;- stays here (no GPU benefit)
+    +-----------------+</code></pre>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Match CUDA wheels to your GPU architecture.</strong> The RTX 5060 (Blackwell, sm_120) needs PyTorch cu128. cu124 loads models but silently falls back to non-accelerated kernels. Check <code>torch.cuda.get_device_capability()</code> — it should return <code>(12, 0)</code> for Blackwell.</p>
+</li>
+<li>
+<p><strong>VRAM is the bottleneck, not compute.</strong> With 8 GB, you can run Whisper large-v3 (3.8 GB) and CLIP+YOLO (4.2 GB) concurrently at 67% utilization. Serialize heavy jobs via a task queue to prevent OOM.</p>
+</li>
+<li>
+<p><strong>Rolling migration beats big-bang.</strong> Deploy GPU alongside CPU, test through the full consumer path, switch one service at a time. Rollback is a 1-minute URL change.</p>
+</li>
+<li>
+<p><strong>Not everything benefits from GPU.</strong> NLP (spaCy, DistilBERT) at our scale uses 0.13% CPU and 1.19 GB RAM — moving it to GPU adds complexity with zero benefit. Vision's OpenCV pipeline is CPU-bound. Know where your bottleneck actually is.</p>
+</li>
+<li>
+<p><strong>nvidia-container-toolkit installation may require a reboot.</strong> Driver/library version mismatches after install are common. Plan for downtime.</p>
+</li>
+<li>
+<p><strong>Pre-bake models in Docker images.</strong> Whisper large-v3 is 3+ GB. Downloading on first container start means a 3+ minute cold start on HDD. Bake it into the image during build.</p>
+</li>
+</ol>
+<hr />
+<p><em>This migration was executed on production enterprise infrastructure, processing real media content.</em></p>
+<p><a href="../../projects/gpu-migration/">View the full project page →</a> | <a href="../">Back to Blog</a></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

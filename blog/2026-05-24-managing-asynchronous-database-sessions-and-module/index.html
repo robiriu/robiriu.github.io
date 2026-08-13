@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/blog/2026-05-24-managing-asynchronous-database-sessions-and-module/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Managing Asynchronous Database Sessions and Module Depend... - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Managing Asynchronous Database Sessions and Module Depend...";
+        var mkdocs_page_input_path = "blog/2026-05-24-managing-asynchronous-database-sessions-and-module.md";
+        var mkdocs_page_url = "/blog/2026-05-24-managing-asynchronous-database-sessions-and-module/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../projects/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Managing Asynchronous Database Sessions and Module Depend...</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Blog</li>
+      <li class="breadcrumb-item active">Managing Asynchronous Database Sessions and Module Depend...</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Managing Asynchronous Database Sessions and Module Dependencies</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>In modern software systems, particularly those designed for high concurrency and responsiveness, asynchronous programming paradigms are widely adopted. A common challenge arises when integrating asynchronous operations with relational databases, which often require careful management of session lifecycles. Concurrently, maintaining a coherent and error-free module import structure is fundamental for application stability and maintainability. This post addresses typical issues encountered in these areas, specifically focusing on resolving import-related errors in scheduler components and implementing effective asynchronous database session management.</p>
+<h2 id="technical-concepts-and-challenges">Technical Concepts and Challenges<a class="headerlink" href="#technical-concepts-and-challenges" title="Permanent link">&para;</a></h2>
+<h3 id="asynchronous-database-operations">Asynchronous Database Operations<a class="headerlink" href="#asynchronous-database-operations" title="Permanent link">&para;</a></h3>
+<p>Traditional synchronous database interactions block the execution thread until an operation completes. In asynchronous applications, this blocking behavior can negate the benefits of concurrency, as the thread cannot process other tasks while waiting for I/O. Asynchronous database drivers and Object-Relational Mappers (ORMs) address this by allowing non-blocking database access, enabling a single thread to manage multiple concurrent database operations.</p>
+<p>A core component in asynchronous database interaction is the <code>AsyncSession</code>. This object represents a conversation with the database, managing a transaction and holding objects loaded from the database. Proper management of <code>AsyncSession</code> instances is critical to prevent resource leaks, ensure transactional integrity, and optimize connection pooling. Common challenges include:</p>
+<ul>
+<li><strong>Session Lifespan</strong>: Determining when to acquire and release a session. Overlapping or improperly closed sessions can lead to deadlocks or stale data.</li>
+<li><strong>Concurrency</strong>: Ensuring that each concurrent request or task operates with its own isolated session to maintain transactional boundaries.</li>
+<li><strong>Error Handling</strong>: Rolling back transactions and closing sessions gracefully in the event of an error.</li>
+</ul>
+<h3 id="module-import-resolution">Module Import Resolution<a class="headerlink" href="#module-import-resolution" title="Permanent link">&para;</a></h3>
+<p>Python's module system allows code to be organized into reusable files and directories. However, improper import statements can lead to various issues:</p>
+<ul>
+<li><strong><code>ImportError</code></strong>: Occurs when a module or a name within a module cannot be found. This can be due to incorrect paths, typos, or the module not being installed.</li>
+<li><strong>Circular Dependencies</strong>: Two or more modules attempting to import each other can create deadlocks during module loading, leading to <code>ImportError</code> or <code>AttributeError</code>.</li>
+<li><strong>Initialization Order</strong>: Modules might rely on other modules being fully initialized before their own definitions are complete. Incorrect import order can cause references to uninitialized objects.</li>
+</ul>
+<p>In scheduler components, which often run independently or as background tasks, these import issues can manifest as critical failures, preventing tasks from executing or causing the scheduler itself to crash.</p>
+<h2 id="approach-and-implementation-patterns">Approach and Implementation Patterns<a class="headerlink" href="#approach-and-implementation-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="asynchronous-session-helper-for-database-operations">Asynchronous Session Helper for Database Operations<a class="headerlink" href="#asynchronous-session-helper-for-database-operations" title="Permanent link">&para;</a></h3>
+<p>To manage <code>AsyncSession</code> instances effectively and consistently across an asynchronous application, an <code>async_session</code> helper pattern is frequently employed. This pattern typically encapsulates the logic for acquiring and releasing a database session, often using a context manager or a dependency injection mechanism.</p>
+<p>The core idea is to provide a function or a context manager that yields a database session for use within an <code>async</code> function. This helper ensures that:</p>
+<ul>
+<li>A new <code>AsyncSession</code> is created for each distinct operational context (e.g., per web request, per background task).</li>
+<li>The session is automatically closed upon completion of the operation, regardless of whether it succeeded or failed, thereby releasing database connection resources.</li>
+<li>Transactional boundaries can be explicitly defined around the session's usage.</li>
+</ul>
+<p>An example implementation often involves a session factory and an asynchronous generator function. The session factory (<code>async_sessionmaker</code>) is configured once during application startup, while the helper function provides a transient session.</p>
+<h3 id="resolving-scheduler-import-errors">Resolving Scheduler Import Errors<a class="headerlink" href="#resolving-scheduler-import-errors" title="Permanent link">&para;</a></h3>
+<p>Addressing scheduler import errors primarily involves reviewing the module structure and import statements. Common solutions include:</p>
+<ul>
+<li><strong>Absolute Imports</strong>: Preferring absolute imports (<code>from project.module import ...</code>) over relative imports (<code>from .module import ...</code>) to make import paths explicit and less prone to ambiguity when modules are moved or the application's execution context changes.</li>
+<li><strong>Refactoring Module Dependencies</strong>: Identifying and breaking circular dependencies by extracting common logic into a new, independent module that both dependents can import.</li>
+<li><strong>Environment Configuration</strong>: Ensuring that the Python <code>sys.path</code> correctly includes the application's root directory or necessary package directories, especially when running scripts from different locations or within specialized environments like those used by task schedulers.</li>
+</ul>
+<p>These measures contribute to a clearer and more predictable module loading process, which is essential for components like schedulers that might operate in different contexts or have specific initialization requirements.</p>
+<h3 id="data-flow-for-asynchronous-session-management">Data Flow for Asynchronous Session Management<a class="headerlink" href="#data-flow-for-asynchronous-session-management" title="Permanent link">&para;</a></h3>
+<p>The following diagram illustrates the typical data flow when an asynchronous session helper is utilized within an application's request-response cycle or background task execution.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant AppEndpoint
+    participant ServiceLayer
+    participant AsyncSessionHelper
+    participant Database
+
+    Client-&gt;&gt;AppEndpoint: Initiates Request
+    AppEndpoint-&gt;&gt;ServiceLayer: Delegates Task
+    ServiceLayer-&gt;&gt;AsyncSessionHelper: Requests Session
+    AsyncSessionHelper-&gt;&gt;Database: Opens Connection
+    Database--&gt;&gt;AsyncSessionHelper: Provides Connection
+    AsyncSessionHelper--&gt;&gt;ServiceLayer: Returns AsyncSession
+    ServiceLayer-&gt;&gt;Database: Executes Query / Operation
+    Database--&gt;&gt;ServiceLayer: Returns Results
+    ServiceLayer-&gt;&gt;AsyncSessionHelper: Signals Session End
+    AsyncSessionHelper-&gt;&gt;Database: Closes Connection
+    ServiceLayer--&gt;&gt;AppEndpoint: Returns Processed Data
+    AppEndpoint--&gt;&gt;Client: Sends Response
+</code></pre>
+<h3 id="generalised-code-examples">Generalised Code Examples<a class="headerlink" href="#generalised-code-examples" title="Permanent link">&para;</a></h3>
+<h4 id="asynchronous-session-helper">Asynchronous Session Helper<a class="headerlink" href="#asynchronous-session-helper" title="Permanent link">&para;</a></h4>
+<pre class="highlight"><code class="language-python">from typing import AsyncGenerator
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.future import select
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base # For example model
+
+# Configuration for the asynchronous database engine
+# In a real application, connection details would be loaded from configuration.
+ASYNC_DB_URL = "postgresql+asyncpg://user:password@host/dbname"
+async_engine = create_async_engine(ASYNC_DB_URL, echo=False) # echo=True for SQL logging
+
+# Create a factory for new AsyncSession objects
+# expire_on_commit=False prevents objects from being detached after commit,
+# which can simplify usage in some ORM patterns.
+AsyncSessionLocal = async_sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=async_engine,
+    expire_on_commit=False
+)
+
+async def get_async_session() -&gt; AsyncGenerator[AsyncSession, None]:
+    """
+    Provides an asynchronous database session as a context-managed resource.
+    Ensures the session is closed after use, releasing database connections.
+    """
+    session: AsyncSession = AsyncSessionLocal()
+    try:
+        yield session
+    finally:
+        await session.close()
+
+# Example usage within an asynchronous function:
+# Imagine this function is part of a service layer or an API endpoint handler.
+
+Base = declarative_base() # Example Base for ORM models
+
+class Item(Base):
+    __tablename__ = "items"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    description = Column(String)
+
+async def create_item(item_name: str, item_description: str) -&gt; Item:
+    """
+    Demonstrates creating an item using the async_session helper.
+    """
+    async for session in get_async_session(): # Using async for to mimic context manager
+        new_item = Item(name=item_name, description=item_description)
+        session.add(new_item)
+        await session.commit()
+        await session.refresh(new_item) # Refresh to load default values like id
+        return new_item
+
+async def fetch_all_items() -&gt; list[Item]:
+    """
+    Demonstrates fetching all items using the async_session helper.
+    """
+    async for session in get_async_session():
+        result = await session.execute(select(Item))
+        items = result.scalars().all()
+        return list(items)
+
+# To run these examples, one would typically set up an event loop and call them.
+# For instance, if using an ASGI framework, the get_async_session could be a
+# dependency injected into a request handler.</code></pre>
+<p>The <code>get_async_session</code> generator function ensures that a session is always closed, even if exceptions occur during its use, thereby preventing resource leaks.</p>
+<h4 id="module-structure-best-practices-for-import-management">Module Structure Best Practices for Import Management<a class="headerlink" href="#module-structure-best-practices-for-import-management" title="Permanent link">&para;</a></h4>
+<p>Consider a project structure designed to minimize import errors:</p>
+<pre class="highlight"><code>project_root/
+├── src/
+│   ├── __init__.py
+│   ├── database.py         # Contains engine, sessionmaker, and get_async_session helper
+│   ├── models.py           # Defines ORM models (imports from database)
+│   ├── services/
+│   │   ├── __init__.py
+│   │   └── item_service.py # Imports get_async_session from database.py, models from models.py
+│   └── scheduler/
+│       ├── __init__.py
+│       └── tasks.py        # Imports services, database helper to run background tasks
+└── main.py                 # Application entry point, initializes components</code></pre>
+<p>In this structure:</p>
+<ul>
+<li><code>src/database.py</code> defines the core database connection and session management logic.</li>
+<li><code>src/models.py</code> defines the ORM models, which may depend on <code>Base</code> from <code>database.py</code>.</li>
+<li><code>src/services/item_service.py</code> consumes the <code>get_async_session</code> helper and uses models.</li>
+<li><code>src/scheduler/tasks.py</code> imports functions or classes from <code>services</code> and <code>database</code> to perform background operations.</li>
+</ul>
+<p>This hierarchy reduces the likelihood of circular imports because dependencies flow downwards or across well-defined layers. For example, <code>tasks.py</code> imports from <code>services.item_service</code>, and <code>item_service.py</code> imports from <code>database.py</code> and <code>models.py</code>. There are no upward or cyclic imports that could cause issues.</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Asynchronous Session Management is Critical</strong>: Implementing an <code>async_session</code> helper or similar pattern significantly improves resource management and application stability in asynchronous database interactions. This approach ensures proper session acquisition, transactional integrity, and timely release of database connections.</li>
+<li><strong>Structured Module Organization Prevents Import Errors</strong>: Adhering to clear module dependencies, favoring absolute imports, and refactoring to eliminate circular references are fundamental practices for preventing common <code>ImportError</code> issues, particularly in background task components or schedulers.</li>
+<li><strong>Dependency Injection Simplifies Session Provision</strong>: Integrating <code>async_session</code> helpers with dependency injection frameworks (if applicable) can abstract database session management from business logic, making the codebase cleaner and more testable.</li>
+<li><strong>Graceful Resource Handling is Essential</strong>: The use of <code>try...finally</code> blocks or asynchronous context managers around database sessions ensures that resources are consistently closed, irrespective of operation success or failure, which is vital for application reliability and performance.</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>The successful operation of concurrent applications hinges on meticulous attention to resource management and module interdependencies. The implementation of a dedicated asynchronous session helper addresses the complexities of database session lifecycles in an asynchronous context, promoting efficient connection utilization and transactional correctness. Simultaneously, a disciplined approach to module structure and import resolution is paramount for preventing runtime errors and maintaining a predictable execution environment for all application components, including critical background schedulers. Adopting these patterns contributes to the development of more stable, performant, and maintainable software systems.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/" class="btn btn-neutral float-left" title="A RAG experiment: can a knowledge base write its own Link..."><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../activities/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../activities/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

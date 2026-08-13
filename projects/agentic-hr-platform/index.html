@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/agentic-hr-platform/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Agentic HR Intelligence - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Agentic HR Intelligence";
+        var mkdocs_page_input_path = "projects/agentic-hr-platform.md";
+        var mkdocs_page_url = "/projects/agentic-hr-platform/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >GenAI & LLM Systems</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Agentic HR Intelligence</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-features">Core Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#phase-1-data-ingestion-management">Phase 1 — Data Ingestion &amp; Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#phase-2-agentic-ai-chat">Phase 2 — Agentic AI Chat</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#phase-3-analytics-dashboard">Phase 3 — Analytics Dashboard</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#phase-4-ai-powered-insights">Phase 4 — AI-Powered Insights</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technical-architecture">Technical Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#repository-structure">Repository Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#database-schema">Database Schema</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-technical-achievements">Key Technical Achievements</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">GenAI & LLM Systems</li>
+      <li class="breadcrumb-item active">Agentic HR Intelligence</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="agentic-hr-intelligence-platform">Agentic HR Intelligence Platform<a class="headerlink" href="#agentic-hr-intelligence-platform" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Completed | Deployed on VPS (Nginx + Ubuntu)</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A full-stack, AI-powered Human Resource management platform that transforms raw HR data into actionable workforce intelligence. The system ingests employee master data from PDF and attendance records from Excel, then provides an <strong>agentic AI chat interface</strong> with 5 specialized tools, interactive analytics dashboards, and AI-driven insights including turnover risk scoring, anomaly detection, and contract renewal recommendations.</p>
+<p>Built with <strong>Next.js 16 + React 19</strong> on the frontend and <strong>FastAPI</strong> on the backend, powered by <strong>Google Gemini 2.5 Flash</strong> for agentic AI capabilities with multi-turn tool calling.</p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Agent Tools</td>
+<td>5 specialized HR tools</td>
+</tr>
+<tr>
+<td>Tool-Calling Iterations</td>
+<td>Up to 10 per query</td>
+</tr>
+<tr>
+<td>Analytics Visualizations</td>
+<td>6 interactive dashboards</td>
+</tr>
+<tr>
+<td>API Endpoints</td>
+<td>17 RESTful endpoints</td>
+</tr>
+<tr>
+<td>Risk Scoring Dimensions</td>
+<td>5-factor model (0-100 scale)</td>
+</tr>
+<tr>
+<td>Anomaly Detection Types</td>
+<td>5 automated checks</td>
+</tr>
+<tr>
+<td>Language Support</td>
+<td>Bilingual (Indonesian &amp; English)</td>
+</tr>
+<tr>
+<td>Responsive Breakpoints</td>
+<td>Desktop, Tablet, Mobile</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-data-ingestion-management">Phase 1 — Data Ingestion &amp; Management<a class="headerlink" href="#phase-1-data-ingestion-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PDF Parser</strong> — Automatically extracts employee master data (ID, name, position, contract type, dates, business unit) from structured PDF documents using pdfplumber</li>
+<li><strong>Excel Parser</strong> — Ingests attendance records with clock-in/out timestamps, shift assignments, lateness, and overtime data using openpyxl</li>
+<li><strong>Dashboard KPIs</strong> — Real-time cards showing total employees, active contracts, resignations, and expiring contracts with business unit breakdown</li>
+</ul>
+<h3 id="phase-2-agentic-ai-chat">Phase 2 — Agentic AI Chat<a class="headerlink" href="#phase-2-agentic-ai-chat" title="Permanent link">&para;</a></h3>
+<p>An intelligent chat interface powered by Google Gemini 2.5 Flash with <strong>function calling</strong> and up to <strong>10 tool-calling iterations</strong> per query:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Capability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>query_employees</code></td>
+<td>Search and filter employee database with complex criteria</td>
+</tr>
+<tr>
+<td><code>query_attendance</code></td>
+<td>Query attendance records with date ranges, status filters</td>
+</tr>
+<tr>
+<td><code>contract_alerts</code></td>
+<td>Find contracts expiring within N days</td>
+</tr>
+<tr>
+<td><code>analyze_patterns</code></td>
+<td>Compute workforce metrics — lateness rate, overtime, turnover, attendance rate, headcount</td>
+</tr>
+<tr>
+<td><code>get_employee_detail</code></td>
+<td>Retrieve full employee profile with attendance history</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Bilingual support (Indonesian &amp; English)</li>
+<li>Real-time streaming responses with tool call transparency</li>
+<li>Context-aware multi-turn conversations</li>
+</ul>
+<h3 id="phase-3-analytics-dashboard">Phase 3 — Analytics Dashboard<a class="headerlink" href="#phase-3-analytics-dashboard" title="Permanent link">&para;</a></h3>
+<p>Six interactive visualization sections built with <strong>Recharts</strong>:</p>
+<ul>
+<li><strong>AI Daily Briefing</strong> — LLM-generated executive summary with 3-5 actionable items</li>
+<li><strong>Contract Expiry Timeline</strong> — 6-month interactive bar chart for workforce planning</li>
+<li><strong>Attendance by Day of Week</strong> — Composed chart with attendance status breakdown</li>
+<li><strong>Turnover Analysis</strong> — Dual visualization by business unit and role</li>
+<li><strong>Lateness Leaderboard</strong> — Top 20 employees ranked by lateness percentage</li>
+<li><strong>Overtime Monitor</strong> — Top 20 employees by overtime frequency, filterable by business unit</li>
+</ul>
+<h3 id="phase-4-ai-powered-insights">Phase 4 — AI-Powered Insights<a class="headerlink" href="#phase-4-ai-powered-insights" title="Permanent link">&para;</a></h3>
+<h4 id="turnover-risk-assessment">Turnover Risk Assessment<a class="headerlink" href="#turnover-risk-assessment" title="Permanent link">&para;</a></h4>
+<p>Multi-factor scoring engine (0-100) evaluating employees across 5 dimensions:</p>
+<ul>
+<li><strong>Contract Level</strong> (10-80 pts) — Contract type and stability</li>
+<li><strong>Lateness Rate</strong> (0-30 pts) — Punctuality patterns</li>
+<li><strong>Absence Rate</strong> (0-20 pts) — Attendance reliability</li>
+<li><strong>Contract Expiry</strong> (0-15 pts) — Proximity to contract end</li>
+<li><strong>Business Unit Turnover</strong> (0-10 pts) — Historical unit-level trends</li>
+</ul>
+<h4 id="anomaly-detection">Anomaly Detection<a class="headerlink" href="#anomaly-detection" title="Permanent link">&para;</a></h4>
+<p>Automated data quality checks across 5 anomaly types:</p>
+<ul>
+<li>Ghost Employees — Active contracts with zero attendance records</li>
+<li>Chronic Lateness — Employees exceeding 50% late rate threshold</li>
+<li>Clock-in Gaps — Present status but missing timestamps</li>
+<li>Orphaned Records — Attendance entries without matching employee records</li>
+<li>Data Inconsistencies — Cross-table validation failures</li>
+</ul>
+<h4 id="contract-renewal-recommendations">Contract Renewal Recommendations<a class="headerlink" href="#contract-renewal-recommendations" title="Permanent link">&para;</a></h4>
+<p>AI-driven renewal decisions for contracts expiring within 60 days, outputting actionable recommendations (Renew, Do Not Renew, Review, Promote to Permanent) with reasoning justification for each employee.</p>
+<h4 id="pdf-report-generator">PDF Report Generator<a class="headerlink" href="#pdf-report-generator" title="Permanent link">&para;</a></h4>
+<p>Downloadable monthly HR intelligence reports generated with fpdf2, consolidating all insights into a single document.</p>
+<hr />
+<h2 id="technical-architecture">Technical Architecture<a class="headerlink" href="#technical-architecture" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>                    +------------------+
+                    |   Next.js 16     |
+                    |   React 19       |
+                    |   Tailwind CSS 4 |
+                    +--------+---------+
+                             |
+                        REST API
+                             |
+                    +--------+---------+
+                    |    FastAPI        |
+                    |  (Async Python)   |
+                    +--------+---------+
+                             |
+              +--------------+--------------+
+              |              |              |
+     +--------+--+   +------+------+  +----+-------+
+     | PostgreSQL |   | Gemini 2.5  |  |  Parsers   |
+     | (5 tables) |   | Flash Agent |  | PDF + XLSX |
+     +------------+   +------+------+  +------------+
+                             |
+                    +--------+---------+
+                    |   5 Agent Tools   |
+                    | (Function Calling)|
+                    +-------------------+</code></pre>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend</strong></td>
+<td>Next.js 16, React 19, Tailwind CSS 4, Recharts 3.8, TanStack React Table 8, Zustand 5</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>FastAPI (Python), SQLAlchemy ORM, Uvicorn (ASGI)</td>
+</tr>
+<tr>
+<td><strong>AI/LLM</strong></td>
+<td>Google Gemini 2.5 Flash, Agentic tool calling (up to 10 iterations)</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>PostgreSQL (5 tables)</td>
+</tr>
+<tr>
+<td><strong>Data Parsing</strong></td>
+<td>pdfplumber (PDF), openpyxl (Excel)</td>
+</tr>
+<tr>
+<td><strong>Report Generation</strong></td>
+<td>fpdf2 (PDF export)</td>
+</tr>
+<tr>
+<td><strong>Infrastructure</strong></td>
+<td>Nginx (reverse proxy), Ubuntu VPS</td>
+</tr>
+<tr>
+<td><strong>UI/UX</strong></td>
+<td>Lucide React icons, Inter + JetBrains Mono fonts, fully responsive (mobile/tablet/desktop)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="repository-structure">Repository Structure<a class="headerlink" href="#repository-structure" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>agentic-hr-platform/
+├── backend/
+│   ├── main.py                  # FastAPI app with auto-ingest
+│   ├── config.py                # Environment configuration
+│   ├── database.py              # SQLAlchemy setup
+│   ├── models/                  # 5 database models
+│   ├── routers/
+│   │   ├── upload.py            # PDF &amp; Excel upload endpoints
+│   │   ├── data.py              # Data &amp; analytics endpoints
+│   │   ├── chat.py              # Agentic AI chat endpoint
+│   │   └── insights.py          # AI insights endpoints
+│   ├── agents/
+│   │   ├── hr_agent.py          # Gemini agent with 5 tools
+│   │   └── prompts.py           # System prompts
+│   ├── parsers/                 # PDF &amp; Excel parsers
+│   └── requirements.txt
+├── frontend/
+│   ├── app/
+│   │   ├── page.tsx             # Dashboard with KPIs
+│   │   ├── analytics/page.tsx   # 6-section analytics
+│   │   ├── chat/page.tsx        # AI chat interface
+│   │   ├── insights/page.tsx    # Risk, anomalies, recommendations
+│   │   └── data/                # Employee &amp; attendance browsing
+│   ├── components/              # Reusable UI components
+│   └── lib/api.ts               # API client
+└── data/                        # Source data files (PDF + XLSX)</code></pre>
+<hr />
+<h2 id="database-schema">Database Schema<a class="headerlink" href="#database-schema" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>employees</code></td>
+<td>Employee master data — ID, name, position, contract type, dates, business unit</td>
+</tr>
+<tr>
+<td><code>attendance</code></td>
+<td>Daily attendance — clock in/out, status, shift, lateness, overtime</td>
+</tr>
+<tr>
+<td><code>outlets</code></td>
+<td>Location/branch directory</td>
+</tr>
+<tr>
+<td><code>employee_outlet</code></td>
+<td>Employee-to-outlet assignment with supervisor mapping</td>
+</tr>
+<tr>
+<td><code>shifts</code></td>
+<td>Shift definitions with start/end times per business unit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-technical-achievements">Key Technical Achievements<a class="headerlink" href="#key-technical-achievements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Agentic AI with Tool Calling</strong> — Gemini 2.5 Flash agent autonomously selects and chains up to 5 specialized tools across 10 iterations to answer complex HR queries</li>
+<li><strong>Zero-Config Data Ingestion</strong> — Drop a PDF and Excel file, the system auto-parses and populates the entire database with structured records</li>
+<li><strong>Multi-Factor Risk Scoring</strong> — Deterministic 5-dimension scoring engine (0-100) for turnover risk, enabling proactive HR intervention</li>
+<li><strong>Automated Anomaly Detection</strong> — 5 types of data quality checks that surface ghost employees, chronic lateness, and data inconsistencies</li>
+<li><strong>AI-Driven Contract Decisions</strong> — LLM-powered renewal recommendations with transparent reasoning for each employee</li>
+<li><strong>Fully Responsive Design</strong> — Desktop sidebar, tablet collapsible nav, mobile hamburger menu with slide-out drawer</li>
+<li><strong>Bilingual AI</strong> — Seamless Indonesian and English language support in the agentic chat interface</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../enterprise-agentic-rag/" class="btn btn-neutral float-left" title="Enterprise Agentic RAG"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ai-help-qna/" class="btn btn-neutral float-right" title="AI Help & QnA (RAG)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../enterprise-agentic-rag/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ai-help-qna/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/energylm-finetune/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>EnergyLM-7B (In Progress) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "EnergyLM-7B (In Progress)";
+        var mkdocs_page_input_path = "projects/energylm-finetune.md";
+        var mkdocs_page_url = "/projects/energylm-finetune/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >LLM Fine-Tuning & Alignment</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">EnergyLM-7B (In Progress)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-capabilities">Key Capabilities</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pipeline-architecture">Pipeline Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#training-configuration">Training Configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#qlora-sft-setup">QLoRA SFT Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alignment-comparison">Alignment Comparison</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-engineering-pipeline">Data Engineering Pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#evaluation-framework">Evaluation Framework</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#model-variants">Model Variants</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#free-compute-strategy">Free Compute Strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-timeline">Project Timeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#planned-huggingface-artifacts">Planned HuggingFace Artifacts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#current-status">Current Status</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">LLM Fine-Tuning & Alignment</li>
+      <li class="breadcrumb-item active">EnergyLM-7B (In Progress)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="energylm-7b-llm-fine-tuning-alignment-pipeline">EnergyLM-7B — LLM Fine-Tuning &amp; Alignment Pipeline<a class="headerlink" href="#energylm-7b-llm-fine-tuning-alignment-pipeline" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> In Progress (Week 1 Complete)
+<strong>Organization:</strong> <a href="https://huggingface.co/ForceX-AI">ForceX-AI on HuggingFace</a>
+<strong>Budget:</strong> $0 — 100% free-tier compute</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>End-to-end LLM training, alignment, and serving pipeline for <strong>EnergyLM-7B</strong> — a domain-adapted language model for energy systems and scientific reasoning. Fine-tunes Qwen2.5-7B using QLoRA SFT on 20K synthetic instruction samples, aligns with both DPO and ORPO for a controlled comparison, and benchmarks across 10 evaluation dimensions including domain-specific physics calculations, safety, and bilingual (Indonesian) capability.</p>
+<p>The entire project runs on <strong>$0 budget</strong> — Kaggle T4 for training, free-tier LLM APIs for data generation, and HuggingFace Spaces for deployment.</p>
+<h2 id="key-capabilities">Key Capabilities<a class="headerlink" href="#key-capabilities" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLM Fine-Tuning</strong></td>
+<td>QLoRA SFT on Qwen2.5-7B (4-bit NF4, LoRA r=64)</td>
+</tr>
+<tr>
+<td><strong>Alignment Methods</strong></td>
+<td>DPO vs ORPO controlled comparison study</td>
+</tr>
+<tr>
+<td><strong>Chain-of-Thought</strong></td>
+<td>CoT distillation with <code>&lt;think&gt;</code> tag reasoning</td>
+</tr>
+<tr>
+<td><strong>Reward Modeling</strong></td>
+<td>DeBERTa-v3-base binary classifier on preference pairs</td>
+</tr>
+<tr>
+<td><strong>Synthetic Data</strong></td>
+<td>20K+ samples via multi-teacher round-robin (Gemini, Groq, OpenRouter)</td>
+</tr>
+<tr>
+<td><strong>Data Quality</strong></td>
+<td>MinHash + semantic dedup, LLM-as-judge filtering, n-gram contamination check</td>
+</tr>
+<tr>
+<td><strong>Evaluation</strong></td>
+<td>10-benchmark suite: MMLU, GPQA, MATH, MBPP, IFEval + 4 custom domain evals</td>
+</tr>
+<tr>
+<td><strong>Quantization</strong></td>
+<td>AWQ 4-bit + GGUF (Q3/Q4/Q5/Q8) with quality retention benchmarks</td>
+</tr>
+<tr>
+<td><strong>Serving</strong></td>
+<td>vLLM inference benchmarking, HuggingFace Spaces deployment</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>$0 — Kaggle T4, Colab Free, free API tiers only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipeline-architecture">Pipeline Architecture<a class="headerlink" href="#pipeline-architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph DATA["Data Engineering"]
+        T1["Gemini 2.5 Flash"]
+        T2["Groq Llama 3.3 70B"]
+        T3["OpenRouter gpt-oss-120b"]
+        T1 &amp; T2 &amp; T3 --&gt;|"Round-Robin"| GEN["Instruction Generator&lt;br/&gt;20K samples"]
+        GEN --&gt; MH["MinHash Dedup&lt;br/&gt;Jaccard 0.85"]
+        MH --&gt; SEM["Semantic Dedup&lt;br/&gt;Cosine 0.92"]
+        SEM --&gt; QF["LLM-as-Judge&lt;br/&gt;Quality Filter"]
+        QF --&gt; CC["Contamination Check&lt;br/&gt;13-gram vs MMLU/GPQA/MATH"]
+        CC --&gt; SPLIT["Stratified Split&lt;br/&gt;80/10/10"]
+    end
+
+    subgraph TRAIN["Training Pipeline"]
+        SPLIT --&gt;|"Train Set"| SFT["QLoRA SFT&lt;br/&gt;Qwen2.5-7B&lt;br/&gt;3 epochs, r=64"]
+        SFT --&gt; COT["CoT Distillation&lt;br/&gt;3K reasoning samples"]
+        SFT --&gt;|"+ Preference Pairs"| DPO["DPO Alignment&lt;br/&gt;beta=0.1, sigmoid"]
+        SFT --&gt;|"+ Preference Pairs"| ORPO["ORPO Alignment&lt;br/&gt;odds-ratio, lr=5e-6"]
+        SPLIT --&gt;|"Preferences"| RM["Reward Model&lt;br/&gt;DeBERTa-v3-base"]
+    end
+
+    subgraph EVAL["Evaluation &amp; Deployment"]
+        DPO &amp; ORPO &amp; COT --&gt; BENCH["10-Benchmark Suite&lt;br/&gt;+ Bootstrap CIs"]
+        BENCH --&gt; QUANT["AWQ + GGUF&lt;br/&gt;Quantization"]
+        QUANT --&gt; SERVE["vLLM Serving&lt;br/&gt;+ HF Spaces Demo"]
+    end
+
+    style DATA fill:#e3f2fd,stroke:#1565c0
+    style TRAIN fill:#e8f5e9,stroke:#2e7d32
+    style EVAL fill:#fff3e0,stroke:#e65100</code></pre>
+<h2 id="training-configuration">Training Configuration<a class="headerlink" href="#training-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="qlora-sft-setup">QLoRA SFT Setup<a class="headerlink" href="#qlora-sft-setup" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>Base Model:      Qwen/Qwen2.5-7B
+Quantization:    4-bit NF4 (double quantization)
+LoRA Rank:       64 (alpha=128)
+Target Modules:  q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj
+Effective Batch: 16 (4 x 4 gradient accumulation)
+Learning Rate:   2e-4 (cosine schedule)
+Max Seq Length:  2048
+Compute:         Kaggle T4 (16GB VRAM, free)</code></pre>
+<h3 id="alignment-comparison">Alignment Comparison<a class="headerlink" href="#alignment-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>DPO</th>
+<th>ORPO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Loss Function</strong></td>
+<td>Sigmoid</td>
+<td>Odds-Ratio</td>
+</tr>
+<tr>
+<td><strong>Learning Rate</strong></td>
+<td>5e-5</td>
+<td>5e-6</td>
+</tr>
+<tr>
+<td><strong>Beta</strong></td>
+<td>0.1</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td><strong>LoRA Rank</strong></td>
+<td>32</td>
+<td>32</td>
+</tr>
+<tr>
+<td><strong>Starting Point</strong></td>
+<td>SFT model</td>
+<td>Base model</td>
+</tr>
+<tr>
+<td><strong>Reference Model</strong></td>
+<td>Implicit (PEFT)</td>
+<td>Not needed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-engineering-pipeline">Data Engineering Pipeline<a class="headerlink" href="#data-engineering-pipeline" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    subgraph TEACHERS["Multi-Teacher Generation"]
+        direction TB
+        G["Gemini 2.5 Flash&lt;br/&gt;Free Tier"]
+        Q["Groq Llama 3.3 70B&lt;br/&gt;Free Tier"]
+        O["OpenRouter gpt-oss-120b&lt;br/&gt;Free Tier"]
+    end
+
+    subgraph QUALITY["Quality Pipeline"]
+        direction TB
+        D1["MinHash LSH&lt;br/&gt;128 permutations"]
+        D2["Semantic Dedup&lt;br/&gt;all-MiniLM-L6-v2"]
+        D3["LLM Judge&lt;br/&gt;4-criteria scoring"]
+        D4["N-gram Check&lt;br/&gt;vs benchmarks"]
+        D1 --&gt; D2 --&gt; D3 --&gt; D4
+    end
+
+    subgraph OUTPUT["Datasets"]
+        direction TB
+        I["energy-instruct-20k&lt;br/&gt;ChatML format"]
+        P["energy-preferences-5k&lt;br/&gt;chosen/rejected pairs"]
+        C["energy-cot-3k&lt;br/&gt;think tag reasoning"]
+    end
+
+    TEACHERS --&gt;|"20 energy topics&lt;br/&gt;4 prompt templates"| QUALITY
+    QUALITY --&gt; OUTPUT
+
+    style TEACHERS fill:#fce4ec,stroke:#c62828
+    style QUALITY fill:#f3e5f5,stroke:#6a1b9a
+    style OUTPUT fill:#e0f2f1,stroke:#00695c</code></pre>
+<p><strong>20 Domain Topics:</strong> Geothermal systems, nuclear reactor physics, solar PV engineering, wind turbine aerodynamics, reservoir engineering, thermodynamics, fluid dynamics, heat transfer, reactor safety, grid integration, molten salt reactors, well drilling, power plant optimization, energy storage, carbon capture, hydrogen fuel cells, thermal hydraulics, radiation shielding, seismic analysis, CFD for energy.</p>
+<h2 id="evaluation-framework">Evaluation Framework<a class="headerlink" href="#evaluation-framework" title="Permanent link">&para;</a></h2>
+<p>10-benchmark evaluation with bootstrap confidence intervals:</p>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>Type</th>
+<th>Metric</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Energy QA</strong></td>
+<td>Custom</td>
+<td>Accuracy</td>
+<td>Domain knowledge</td>
+</tr>
+<tr>
+<td><strong>Physics Calculations</strong></td>
+<td>Custom</td>
+<td>Numerical tolerance (5%)</td>
+<td>Quantitative reasoning</td>
+</tr>
+<tr>
+<td><strong>Indonesian Energy</strong></td>
+<td>Custom</td>
+<td>BLEU + Accuracy</td>
+<td>Bilingual capability</td>
+</tr>
+<tr>
+<td><strong>Safety Prompts</strong></td>
+<td>Custom</td>
+<td>Refusal rate</td>
+<td>Safety alignment</td>
+</tr>
+<tr>
+<td><strong>MMLU (STEM)</strong></td>
+<td>Standard</td>
+<td>5-shot accuracy</td>
+<td>General knowledge</td>
+</tr>
+<tr>
+<td><strong>GPQA Diamond</strong></td>
+<td>Standard</td>
+<td>0-shot accuracy</td>
+<td>Hard science reasoning</td>
+</tr>
+<tr>
+<td><strong>MATH</strong></td>
+<td>Standard</td>
+<td>4-shot accuracy</td>
+<td>Mathematical reasoning</td>
+</tr>
+<tr>
+<td><strong>MBPP</strong></td>
+<td>Standard</td>
+<td>pass@1</td>
+<td>Code generation</td>
+</tr>
+<tr>
+<td><strong>IFEval</strong></td>
+<td>Standard</td>
+<td>Strict accuracy</td>
+<td>Instruction following</td>
+</tr>
+<tr>
+<td><strong>LLM-as-Judge</strong></td>
+<td>Gemini</td>
+<td>4-criteria (1-5)</td>
+<td>Overall quality</td>
+</tr>
+</tbody>
+</table>
+<h2 id="model-variants">Model Variants<a class="headerlink" href="#model-variants" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    BASE["Qwen2.5-7B&lt;br/&gt;Base Model"] --&gt; SFT["EnergyLM-7B&lt;br/&gt;SFT"]
+    SFT --&gt; COT["EnergyLM-7B&lt;br/&gt;SFT + CoT"]
+    SFT --&gt; DPO["EnergyLM-7B&lt;br/&gt;DPO"]
+    BASE --&gt; ORPO["EnergyLM-7B&lt;br/&gt;ORPO"]
+
+    DPO &amp; ORPO --&gt; BEST{{"Best Variant"}}
+    BEST --&gt; AWQ["AWQ 4-bit"]
+    BEST --&gt; Q4["GGUF Q4_K_M"]
+    BEST --&gt; Q8["GGUF Q8_0"]
+
+    AWQ --&gt;|"vLLM"| API["API Endpoint"]
+    Q4 --&gt;|"llama.cpp"| SPACES["HF Spaces&lt;br/&gt;Demo"]
+
+    style BASE fill:#f5f5f5,stroke:#616161
+    style SFT fill:#c8e6c9,stroke:#2e7d32
+    style COT fill:#a5d6a7,stroke:#1b5e20
+    style DPO fill:#bbdefb,stroke:#1565c0
+    style ORPO fill:#b3e5fc,stroke:#0277bd
+    style BEST fill:#fff9c4,stroke:#f57f17
+    style AWQ fill:#ffe0b2,stroke:#e65100
+    style Q4 fill:#ffe0b2,stroke:#e65100
+    style Q8 fill:#ffe0b2,stroke:#e65100</code></pre>
+<h2 id="free-compute-strategy">Free Compute Strategy<a class="headerlink" href="#free-compute-strategy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Purpose</th>
+<th>Quota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kaggle T4</strong></td>
+<td>SFT, DPO, ORPO training</td>
+<td>30 GPU-hrs/week</td>
+</tr>
+<tr>
+<td><strong>Colab Free T4</strong></td>
+<td>Reward model, eval runs</td>
+<td>~4 hrs/session</td>
+</tr>
+<tr>
+<td><strong>Gemini Free</strong></td>
+<td>Data generation, quality judge</td>
+<td>1500 req/day</td>
+</tr>
+<tr>
+<td><strong>Groq Free</strong></td>
+<td>Data generation (Llama 3.3 70B)</td>
+<td>30 req/min</td>
+</tr>
+<tr>
+<td><strong>OpenRouter Free</strong></td>
+<td>Data generation (gpt-oss-120b)</td>
+<td>10 req/min</td>
+</tr>
+<tr>
+<td><strong>HuggingFace Spaces</strong></td>
+<td>Model demo deployment</td>
+<td>Free CPU/GPU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-timeline">Project Timeline<a class="headerlink" href="#project-timeline" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>gantt
+    title EnergyLM-7B Development Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+
+    section Data
+    Foundation &amp; Scripts        :done, w1, 2026-05-19, 7d
+    Data Generation (20K)       :active, w1b, 2026-05-24, 7d
+    CoT + Preferences           :w2b, after w1b, 5d
+    Dedup + Filter + Publish    :w2c, after w2b, 2d
+
+    section Training
+    SFT QLoRA (3 epochs)        :w3a, 2026-06-02, 3d
+    Ablation Studies (3 runs)   :w3b, after w3a, 3d
+    CoT Distillation            :w3c, after w3b, 1d
+    DPO Training                :w4a, 2026-06-09, 2d
+    ORPO Training               :w4b, after w4a, 2d
+    Reward Model (DeBERTa)      :w4c, after w4b, 1d
+
+    section Eval &amp; Deploy
+    Full Benchmark Suite        :w4d, after w4c, 2d
+    Quantization (AWQ + GGUF)   :w5a, 2026-06-16, 2d
+    vLLM Benchmarks             :w5b, after w5a, 2d
+    HF Spaces Deployment        :w5c, after w5b, 1d
+
+    section Documentation
+    Blog Post + Model Cards     :w6a, 2026-06-23, 3d
+    OSS Contribution            :w6b, after w6a, 2d
+    Public Release              :milestone, after w6b, 0d</code></pre>
+<h2 id="planned-huggingface-artifacts">Planned HuggingFace Artifacts<a class="headerlink" href="#planned-huggingface-artifacts" title="Permanent link">&para;</a></h2>
+<p>All published under the <a href="https://huggingface.co/ForceX-AI">ForceX-AI</a> organization:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ForceX-AI/energy-instruct-20k</code></td>
+<td>Dataset</td>
+<td>20K energy-domain instruction pairs (ChatML)</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/energy-preferences-5k</code></td>
+<td>Dataset</td>
+<td>5K chosen/rejected preference pairs for DPO</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/EnergyLM-7B-SFT</code></td>
+<td>Model</td>
+<td>QLoRA SFT adapter + merged model</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/EnergyLM-7B-DPO</code></td>
+<td>Model</td>
+<td>DPO-aligned variant</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/EnergyLM-7B-ORPO</code></td>
+<td>Model</td>
+<td>ORPO-aligned variant</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/EnergyLM-7B-GGUF</code></td>
+<td>Model</td>
+<td>Quantized GGUF files (Q3/Q4/Q5/Q8)</td>
+</tr>
+<tr>
+<td><code>ForceX-AI/EnergyLM-RewardModel</code></td>
+<td>Model</td>
+<td>DeBERTa-v3-base reward classifier</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base Model</strong></td>
+<td>Qwen/Qwen2.5-7B</td>
+</tr>
+<tr>
+<td><strong>Training</strong></td>
+<td>PyTorch, Transformers, TRL, PEFT, bitsandbytes</td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>datasketch, sentence-transformers, Gemini/Groq/OpenRouter APIs</td>
+</tr>
+<tr>
+<td><strong>Evaluation</strong></td>
+<td>lm-evaluation-harness, custom benchmarks, Gemini judge</td>
+</tr>
+<tr>
+<td><strong>Quantization</strong></td>
+<td>AutoAWQ, llama.cpp (GGUF)</td>
+</tr>
+<tr>
+<td><strong>Serving</strong></td>
+<td>vLLM, Gradio, HuggingFace Spaces</td>
+</tr>
+<tr>
+<td><strong>Tracking</strong></td>
+<td>Weights &amp; Biases, HuggingFace Hub</td>
+</tr>
+<tr>
+<td><strong>CI/CD</strong></td>
+<td>GitHub Actions (lint, test, data-validate)</td>
+</tr>
+<tr>
+<td><strong>Compute</strong></td>
+<td>Kaggle T4, Colab Free, free LLM API tiers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="current-status">Current Status<a class="headerlink" href="#current-status" title="Permanent link">&para;</a></h2>
+<p><strong>Week 1: COMPLETE</strong> — All foundation code, scripts, notebooks, eval framework, and infrastructure configured. Data generation running across 3 free-tier API backends.</p>
+<p>Next: Complete data generation, run quality pipeline, begin SFT training on Kaggle T4.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../cutforce/" class="btn btn-neutral float-left" title="CutForce (Video Editor)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../forcex-ai/" class="btn btn-neutral float-right" title="ForceX AI Platform">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../cutforce/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../forcex-ai/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

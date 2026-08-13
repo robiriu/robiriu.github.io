@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/ai-help-qna/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>AI Help & QnA (RAG) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "AI Help \u0026 QnA (RAG)";
+        var mkdocs_page_input_path = "projects/ai-help-qna.md";
+        var mkdocs_page_url = "/projects/ai-help-qna/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >GenAI & LLM Systems</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">AI Help & QnA (RAG)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-overview">System Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#backend-framework">Backend Framework</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#database-vector-store">Database &amp; Vector Store</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#embeddings-reranking">Embeddings &amp; Reranking</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#llm-providers-free-tier-cloud-apis">LLM Providers (Free-Tier Cloud APIs)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#caching-performance">Caching &amp; Performance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#frontend">Frontend</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#infrastructure">Infrastructure</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-features">Core Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#hybrid-retrieval-system">Hybrid Retrieval System</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multi-stage-reranking">Multi-Stage Reranking</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multi-provider-llm-fallback">Multi-Provider LLM Fallback</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#system-detection">System Detection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gentalk-voice-assistant">GenTalk Voice Assistant</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#citation-system">Citation System</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#architecture-components">Architecture Components</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#rag-orchestrator">RAG Orchestrator</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#document-ingestion-pipeline">Document Ingestion Pipeline</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#caching-strategy">Caching Strategy</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-endpoints">API Endpoints</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#core-endpoints">Core Endpoints</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#monitoring-endpoints">Monitoring Endpoints</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-optimization">Performance Optimization</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#database-optimization">Database Optimization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#embedding-optimization">Embedding Optimization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#llm-optimization">LLM Optimization</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#evaluation-quality-metrics">Evaluation &amp; Quality Metrics</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#gold-standard-dataset">Gold Standard Dataset</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#accuracy-metrics">Accuracy Metrics</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#performance-metrics">Performance Metrics</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quality-assurance">Quality Assurance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deployment-options">Deployment Options</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#docker-compose-developmentstaging">Docker Compose (Development/Staging)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#kubernetes-production">Kubernetes (Production)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#infrastructure-requirements">Infrastructure Requirements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#security-considerations">Security Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cost-analysis">Cost Analysis</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#development-free-tier">Development (Free Tier)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#production-small-scale">Production (Small Scale)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#savings-from-caching">Savings from Caching</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-enhancements">Future Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">GenAI & LLM Systems</li>
+      <li class="breadcrumb-item active">AI Help & QnA (RAG)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ai-powered-help-qna-system">AI-Powered Help &amp; QnA System<a class="headerlink" href="#ai-powered-help-qna-system" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Production-Ready
+<strong>Repository:</strong> Private Company Repository</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A production-ready RAG (Retrieval-Augmented Generation) system designed for enterprise documentation Q&amp;A. Features hybrid retrieval, multi-provider LLM fallback, voice assistant capabilities, and comprehensive evaluation metrics. Built with 100% free-tier components achieving 75%+ cost reduction through intelligent caching.</p>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TB
+    subgraph "Client Layer"
+        WebUI["React Web Interface"]
+        VoiceUI["GenTalk Voice Assistant"]
+    end
+
+    subgraph "API Layer - FastAPI"
+        API["REST API"]
+        Session["Session Management"]
+    end
+
+    subgraph "RAG Orchestration"
+        RAG["RAG Orchestrator"]
+        Router["Query Router - BMS or CMS"]
+    end
+
+    subgraph "Retrieval Layer"
+        Dense["Dense Vector Search - pgvector HNSW"]
+        Sparse["Sparse BM25 Search - pg_trgm"]
+        RRF["RRF Fusion - Hybrid retrieval"]
+        Rerank["BGE Reranker Large - Cross-encoder"]
+    end
+
+    subgraph "LLM Layer"
+        Primary["Cerebras Llama 70B"]
+        Secondary["Gemini 2 Flash"]
+        Tertiary["DeepSeek R1"]
+        Fallback["Groq or OpenRouter"]
+    end
+
+    subgraph "Storage Layer"
+        PG["PostgreSQL 16 + pgvector"]
+        Redis["Redis 7 - Response cache"]
+        Embed["BGE-large-en - 1024-dim"]
+    end
+
+    WebUI --&gt; API
+    VoiceUI --&gt; API
+    API --&gt; Session
+    Session --&gt; RAG
+    RAG --&gt; Router
+    Router --&gt; Dense
+    Router --&gt; Sparse
+    Dense --&gt; RRF
+    Sparse --&gt; RRF
+    RRF --&gt; Rerank
+    Rerank --&gt; Primary
+    Primary -.-&gt;|Fallback| Secondary
+    Secondary -.-&gt;|Fallback| Tertiary
+    Tertiary -.-&gt;|Fallback| Fallback
+
+    Primary --&gt; Redis
+    Dense --&gt; PG
+    Sparse --&gt; PG
+    PG --&gt; Embed
+
+    classDef clientStyle fill:#E1F5FE,stroke:#01579B,stroke-width:2px
+    classDef apiStyle fill:#FFF9C4,stroke:#F57F17,stroke-width:2px
+    classDef retrievalStyle fill:#F3E5F5,stroke:#4A148C,stroke-width:2px
+    classDef llmStyle fill:#E8F5E9,stroke:#1B5E20,stroke-width:2px
+    classDef storageStyle fill:#FFE0B2,stroke:#E65100,stroke-width:2px
+
+    class WebUI,VoiceUI clientStyle
+    class API,Session,RAG,Router apiStyle
+    class Dense,Sparse,RRF,Rerank retrievalStyle
+    class Primary,Secondary,Tertiary,Fallback llmStyle
+    class PG,Redis,Embed storageStyle</code></pre>
+<h2 id="system-overview">System Overview<a class="headerlink" href="#system-overview" title="Permanent link">&para;</a></h2>
+<p>The system provides intelligent question-answering for enterprise Broadcast Management System (BMS) and Content Management System (CMS) documentation using state-of-the-art RAG techniques.</p>
+<p><strong>Key Metrics:</strong>
+- 40K+ lines of documentation indexed
+- &lt;50ms health check response
+- 2-5s end-to-end RAG latency
+- 75%+ cache hit rate
+- Accuracy target: ≥75% top-1 correctness
+- Citation coverage: ≥90%
+- Hallucination rate: ≤5%</p>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<h3 id="backend-framework">Backend Framework<a class="headerlink" href="#backend-framework" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>API</strong>: FastAPI with async/await support</li>
+<li><strong>Server</strong>: Uvicorn ASGI server</li>
+<li><strong>Validation</strong>: Pydantic models for request/response</li>
+<li><strong>Python</strong>: 3.11+ for modern features</li>
+</ul>
+<h3 id="database-vector-store">Database &amp; Vector Store<a class="headerlink" href="#database-vector-store" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Database</strong>: PostgreSQL 16 with pgvector extension</li>
+<li><strong>Vector Indexing</strong>: HNSW (Hierarchical Navigable Small World)</li>
+<li><strong>Sparse Search</strong>: pg_trgm for BM25-style keyword matching</li>
+<li><strong>Schema</strong>: Optimized with indexes and partitioning</li>
+</ul>
+<h3 id="embeddings-reranking">Embeddings &amp; Reranking<a class="headerlink" href="#embeddings-reranking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Embeddings</strong>: BGE-large-en-v1.5 (1024-dim, MIT license)</li>
+<li><strong>MTEB Score</strong>: 63.5% (better than OpenAI)</li>
+<li><strong>Reranker</strong>: BGE-reranker-large (cross-encoder)</li>
+<li><strong>Reranking Score</strong>: 67.6% MTEB reranking</li>
+<li><strong>Model Size</strong>: 1.3GB embeddings + 560MB reranker</li>
+</ul>
+<h3 id="llm-providers-free-tier-cloud-apis">LLM Providers (Free-Tier Cloud APIs)<a class="headerlink" href="#llm-providers-free-tier-cloud-apis" title="Permanent link">&para;</a></h3>
+<h4 id="primary-cerebras">Primary: Cerebras<a class="headerlink" href="#primary-cerebras" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model</strong>: Llama 3.3 70B / Llama 3.1 8B</li>
+<li><strong>Free Tier</strong>: 1M tokens/day</li>
+<li><strong>Speed</strong>: Ultra-fast (1B tokens/minute)</li>
+<li><strong>Use Case</strong>: Primary generation</li>
+</ul>
+<h4 id="secondary-google-gemini">Secondary: Google Gemini<a class="headerlink" href="#secondary-google-gemini" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model</strong>: Gemini 2.0 Flash</li>
+<li><strong>Free Tier</strong>: 1.5M tokens/day</li>
+<li><strong>Speed</strong>: Excellent balance</li>
+<li><strong>Use Case</strong>: Secondary fallback</li>
+</ul>
+<h4 id="tertiary-deepseek">Tertiary: DeepSeek<a class="headerlink" href="#tertiary-deepseek" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model</strong>: DeepSeek R1 (Reasoner)</li>
+<li><strong>Features</strong>: GPT-4 level reasoning</li>
+<li><strong>Cost</strong>: 27x lower than GPT-4</li>
+<li><strong>Use Case</strong>: Complex reasoning tasks</li>
+</ul>
+<h4 id="quaternary-groq">Quaternary: Groq<a class="headerlink" href="#quaternary-groq" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model</strong>: Llama 70B / Gemma 9B</li>
+<li><strong>Free Tier</strong>: 14.4K TPM</li>
+<li><strong>Speed</strong>: Fastest inference</li>
+<li><strong>Use Case</strong>: Fast simple queries</li>
+</ul>
+<h4 id="final-fallback-openrouter">Final Fallback: OpenRouter<a class="headerlink" href="#final-fallback-openrouter" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Model</strong>: Llama 3.2 3B (free tier)</li>
+<li><strong>Use Case</strong>: Last resort fallback</li>
+</ul>
+<h3 id="caching-performance">Caching &amp; Performance<a class="headerlink" href="#caching-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cache</strong>: Redis 7 for response caching</li>
+<li><strong>Hit Rate</strong>: 75%+ cost reduction</li>
+<li><strong>TTL</strong>: Configurable per query type</li>
+<li><strong>Invalidation</strong>: Smart invalidation on document updates</li>
+</ul>
+<h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Framework</strong>: React 18</li>
+<li><strong>Build Tool</strong>: Vite for fast development</li>
+<li><strong>HTTP Client</strong>: Axios for API communication</li>
+<li><strong>Voice</strong>: GenTalk voice assistant with audio recording/playback</li>
+</ul>
+<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Containerization</strong>: Docker Compose for local/staging</li>
+<li><strong>Orchestration</strong>: Kubernetes manifests for production</li>
+<li><strong>CI/CD</strong>: GitHub Actions workflows (planned)</li>
+<li><strong>Monitoring</strong>: Health checks, metrics endpoints</li>
+</ul>
+<h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
+<h3 id="hybrid-retrieval-system">Hybrid Retrieval System<a class="headerlink" href="#hybrid-retrieval-system" title="Permanent link">&para;</a></h3>
+<p>The system combines two complementary search methods:</p>
+<h4 id="dense-vector-search-pgvector">Dense Vector Search (pgvector)<a class="headerlink" href="#dense-vector-search-pgvector" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Semantic similarity using BGE embeddings</li>
+<li>HNSW indexing for fast approximate nearest neighbors</li>
+<li>Captures meaning and context</li>
+<li>Best for conceptual queries</li>
+</ul>
+<h4 id="sparse-keyword-search-bm25-via-pg_trgm">Sparse Keyword Search (BM25 via pg_trgm)<a class="headerlink" href="#sparse-keyword-search-bm25-via-pg_trgm" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Traditional keyword matching</li>
+<li>Exact term matching with scoring</li>
+<li>Best for specific terminology</li>
+<li>Native PostgreSQL, no extra service</li>
+</ul>
+<h4 id="rrf-fusion-reciprocal-rank-fusion">RRF Fusion (Reciprocal Rank Fusion)<a class="headerlink" href="#rrf-fusion-reciprocal-rank-fusion" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Combines results from both methods</li>
+<li>Weighted scoring algorithm</li>
+<li>Balances semantic and keyword relevance</li>
+<li>Improves overall accuracy by 10-15%</li>
+</ul>
+<h3 id="multi-stage-reranking">Multi-Stage Reranking<a class="headerlink" href="#multi-stage-reranking" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Initial Retrieval</strong>: Fetch top-N candidates (typically 50-100)</li>
+<li><strong>RRF Fusion</strong>: Combine dense + sparse results</li>
+<li><strong>Cross-Encoder Reranking</strong>: BGE-reranker-large scores top-K (typically 20)</li>
+<li><strong>Final Selection</strong>: Top-8 most relevant chunks for context</li>
+</ol>
+<p>This multi-stage approach significantly improves precision while maintaining performance.</p>
+<h3 id="multi-provider-llm-fallback">Multi-Provider LLM Fallback<a class="headerlink" href="#multi-provider-llm-fallback" title="Permanent link">&para;</a></h3>
+<p>Automatic fallback chain ensures high availability:</p>
+<pre class="highlight"><code>Cerebras Llama 70B (primary)
+  ↓ [if fails or rate limited]
+Google Gemini 2.0 Flash
+  ↓ [if fails]
+DeepSeek R1 (for complex queries)
+  ↓ [if fails]
+Groq Gemma 9B (fast fallback)
+  ↓ [if fails]
+OpenRouter (final fallback)</code></pre>
+<p>Benefits:
+- Zero downtime from single provider outages
+- Cost optimization (use fastest/cheapest when possible)
+- Quality optimization (use best model for query type)
+- Rate limit protection</p>
+<h3 id="system-detection">System Detection<a class="headerlink" href="#system-detection" title="Permanent link">&para;</a></h3>
+<p>Automatically detects whether a query is about BMS or CMS:</p>
+<ul>
+<li><strong>Automatic Mode</strong>: Analyzes query keywords</li>
+<li><strong>Manual Override</strong>: User can specify system</li>
+<li><strong>Filtered Retrieval</strong>: Only searches relevant documentation</li>
+<li><strong>Improved Accuracy</strong>: Reduces cross-contamination</li>
+</ul>
+<h3 id="gentalk-voice-assistant">GenTalk Voice Assistant<a class="headerlink" href="#gentalk-voice-assistant" title="Permanent link">&para;</a></h3>
+<p>Full voice interaction capabilities:</p>
+<ul>
+<li><strong>Audio Recording</strong>: Browser-based audio capture</li>
+<li><strong>Device Diagnostics</strong>: Automatic microphone detection</li>
+<li><strong>Voice-to-Text</strong>: Speech recognition</li>
+<li><strong>Text-to-Speech</strong>: Natural audio playback</li>
+<li><strong>Session Management</strong>: Voice conversation history</li>
+<li><strong>Accessibility</strong>: Alternative input method for users</li>
+</ul>
+<h3 id="citation-system">Citation System<a class="headerlink" href="#citation-system" title="Permanent link">&para;</a></h3>
+<p>Every answer includes transparent source attribution:</p>
+<pre class="highlight"><code class="language-json">{
+  "answer": "To create an advertiser...",
+  "citations": [
+    {
+      "index": 1,
+      "chunk_id": "uuid-...",
+      "section_path": "BMS &gt; Advertiser Management &gt; Creating Advertiser",
+      "heading": "Creating a New Advertiser",
+      "similarity_score": 0.89
+    }
+  ]
+}</code></pre>
+<p>Benefits:
+- <strong>Transparency</strong>: Users see source of information
+- <strong>Trust</strong>: Verify answers against source documents
+- <strong>Navigation</strong>: Click to view full document section
+- <strong>Audit Trail</strong>: Track which docs are most useful</p>
+<h2 id="architecture-components">Architecture Components<a class="headerlink" href="#architecture-components" title="Permanent link">&para;</a></h2>
+<h3 id="rag-orchestrator">RAG Orchestrator<a class="headerlink" href="#rag-orchestrator" title="Permanent link">&para;</a></h3>
+<p>Central coordinator for the RAG pipeline:</p>
+<ol>
+<li><strong>Query Analysis</strong>: Detect system (BMS/CMS), extract intent</li>
+<li><strong>Cache Check</strong>: Look for cached response</li>
+<li><strong>Retrieval</strong>: Hybrid dense + sparse search</li>
+<li><strong>Reranking</strong>: Cross-encoder scoring</li>
+<li><strong>Context Assembly</strong>: Format top chunks for LLM</li>
+<li><strong>Generation</strong>: Call LLM with fallback chain</li>
+<li><strong>Citation Extraction</strong>: Parse and validate citations</li>
+<li><strong>Response Formatting</strong>: Structure final JSON response</li>
+<li><strong>Cache Store</strong>: Store response for future queries</li>
+</ol>
+<h3 id="document-ingestion-pipeline">Document Ingestion Pipeline<a class="headerlink" href="#document-ingestion-pipeline" title="Permanent link">&para;</a></h3>
+<p>Processes markdown documentation into searchable chunks:</p>
+<ol>
+<li><strong>Loading</strong>: Read markdown files with metadata</li>
+<li><strong>Cleaning</strong>: Remove artifacts, normalize formatting</li>
+<li><strong>Chunking</strong>: Header-aware recursive splitting (512 tokens, 50 overlap)</li>
+<li><strong>Embedding</strong>: Generate BGE embeddings (1024-dim vectors)</li>
+<li><strong>Metadata</strong>: Extract section paths, headings, source info</li>
+<li><strong>Storage</strong>: Insert into PostgreSQL with pgvector</li>
+<li><strong>Indexing</strong>: Create HNSW index for fast search</li>
+<li><strong>Validation</strong>: Verify anchor integrity (98%+ success rate)</li>
+</ol>
+<h3 id="caching-strategy">Caching Strategy<a class="headerlink" href="#caching-strategy" title="Permanent link">&para;</a></h3>
+<p>Multi-level caching for performance:</p>
+<p><strong>L1 Cache (Redis)</strong>
+- Full response caching
+- TTL: 1 hour for static docs, 5 minutes for dynamic
+- Key: hash(query + system + top_k)
+- Invalidation: On document updates</p>
+<p><strong>L2 Cache (In-Memory)</strong>
+- Embedding cache (query embeddings)
+- Model cache (loaded models in memory)
+- Frequently accessed chunks</p>
+<p><strong>L3 Cache (PostgreSQL)</strong>
+- Materialized views for statistics
+- Query result cache at database level</p>
+<h2 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="core-endpoints">Core Endpoints<a class="headerlink" href="#core-endpoints" title="Permanent link">&para;</a></h3>
+<h4 id="post-v1ask">POST /v1/ask<a class="headerlink" href="#post-v1ask" title="Permanent link">&para;</a></h4>
+<p>Ask a question and get an AI-generated answer.</p>
+<p><strong>Request:</strong>
+<pre class="highlight"><code class="language-json">{
+  "question": "How do I create a new advertiser?",
+  "top_k": 8,
+  "system": "BMS"
+}</code></pre></p>
+<p><strong>Response:</strong>
+<pre class="highlight"><code class="language-json">{
+  "question": "How do I create a new advertiser?",
+  "answer": "To create a new advertiser in BMS...",
+  "system": "BMS",
+  "citations": [...],
+  "context": [...],
+  "metadata": {
+    "retrieval_time_ms": 95,
+    "generation_time_ms": 1850,
+    "total_time_ms": 2100,
+    "cache_hit": false,
+    "model_used": "cerebras-llama-70b"
+  }
+}</code></pre></p>
+<h4 id="get-health">GET /health<a class="headerlink" href="#get-health" title="Permanent link">&para;</a></h4>
+<p>System health check.</p>
+<h4 id="get-apiv1llmcachestats">GET /api/v1/llm/cache/stats<a class="headerlink" href="#get-apiv1llmcachestats" title="Permanent link">&para;</a></h4>
+<p>Cache performance statistics.</p>
+<h4 id="post-apiv1sessionscreate">POST /api/v1/sessions/create<a class="headerlink" href="#post-apiv1sessionscreate" title="Permanent link">&para;</a></h4>
+<p>Create new chat session.</p>
+<h3 id="monitoring-endpoints">Monitoring Endpoints<a class="headerlink" href="#monitoring-endpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/metrics</code>: Prometheus-compatible metrics</li>
+<li><code>/health/deep</code>: Detailed system health</li>
+<li><code>/api/v1/llm/tokens/usage</code>: Token usage tracking</li>
+</ul>
+<h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="database-optimization">Database Optimization<a class="headerlink" href="#database-optimization" title="Permanent link">&para;</a></h3>
+<p><strong>Indexes:</strong>
+- pgvector HNSW index for vector search (&lt;100ms)
+- B-tree indexes on metadata fields
+- pg_trgm GIN index for keyword search</p>
+<p><strong>Connection Pooling:</strong>
+- Asyncpg pool with 10-50 connections
+- Connection reuse and health checks
+- Automatic retry on connection failures</p>
+<p><strong>Query Optimization:</strong>
+- Prepared statements for common queries
+- Efficient vector distance calculations
+- Limit result sets appropriately</p>
+<h3 id="embedding-optimization">Embedding Optimization<a class="headerlink" href="#embedding-optimization" title="Permanent link">&para;</a></h3>
+<p><strong>CPU-Based Inference:</strong>
+- No GPU required (uses sentence-transformers)
+- Batch processing for efficiency
+- Model quantization for speed (planned)</p>
+<p><strong>Caching:</strong>
+- Cache query embeddings
+- Pre-compute document embeddings
+- Store in memory for frequently used queries</p>
+<h3 id="llm-optimization">LLM Optimization<a class="headerlink" href="#llm-optimization" title="Permanent link">&para;</a></h3>
+<p><strong>Response Caching:</strong>
+- 75%+ cache hit rate in production
+- Significantly reduces API costs
+- Faster response times (&lt;100ms for cache hits)</p>
+<p><strong>Fallback Chain:</strong>
+- Start with fastest/cheapest provider
+- Escalate only when needed
+- Track success rates per provider</p>
+<p><strong>Prompt Engineering:</strong>
+- Optimized prompts for each provider
+- Token-efficient prompt design
+- Clear instructions reduce regeneration</p>
+<h2 id="evaluation-quality-metrics">Evaluation &amp; Quality Metrics<a class="headerlink" href="#evaluation-quality-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="gold-standard-dataset">Gold Standard Dataset<a class="headerlink" href="#gold-standard-dataset" title="Permanent link">&para;</a></h3>
+<ul>
+<li>200-300 curated Q&amp;A pairs</li>
+<li>Covers common user questions</li>
+<li>Includes edge cases and difficult queries</li>
+<li>Regularly updated based on production queries</li>
+</ul>
+<h3 id="accuracy-metrics">Accuracy Metrics<a class="headerlink" href="#accuracy-metrics" title="Permanent link">&para;</a></h3>
+<p><strong>Top-1 Correctness:</strong> ≥75% target
+- Is the top answer correct?
+- Measured against gold standard</p>
+<p><strong>Top-3 Correctness:</strong> ≥90% target
+- Is correct answer in top 3?
+- Allows for ranking improvements</p>
+<p><strong>Citation Coverage:</strong> ≥90% target
+- Does answer include proper citations?
+- Are citations valid and relevant?</p>
+<p><strong>Hallucination Rate:</strong> ≤5% target
+- Does answer contain unsupported claims?
+- Verified against source documents</p>
+<h3 id="performance-metrics">Performance Metrics<a class="headerlink" href="#performance-metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>P50 Latency:</strong> &lt;2s</li>
+<li><strong>P95 Latency:</strong> &lt;5s</li>
+<li><strong>P99 Latency:</strong> &lt;10s</li>
+<li><strong>Cache Hit Rate:</strong> &gt;50%</li>
+<li><strong>Uptime:</strong> &gt;99.5%</li>
+</ul>
+<h3 id="quality-assurance">Quality Assurance<a class="headerlink" href="#quality-assurance" title="Permanent link">&para;</a></h3>
+<p><strong>Automated Testing:</strong>
+- Regression tests on gold standard
+- Nightly evaluation runs
+- CI/CD gates on accuracy metrics</p>
+<p><strong>Human Evaluation:</strong>
+- Random sample review (10% of queries)
+- Thumbs up/down feedback
+- Support ticket analysis</p>
+<p><strong>Continuous Improvement:</strong>
+- Feedback loop from user interactions
+- Failed queries added to test set
+- Model and prompt iteration</p>
+<h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
+<h3 id="docker-compose-developmentstaging">Docker Compose (Development/Staging)<a class="headerlink" href="#docker-compose-developmentstaging" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Start all services
+docker-compose up -d
+
+# Services include:
+# - PostgreSQL 16 (with pgvector)
+# - Redis 7
+# - FastAPI backend
+# - React frontend</code></pre>
+<h3 id="kubernetes-production">Kubernetes (Production)<a class="headerlink" href="#kubernetes-production" title="Permanent link">&para;</a></h3>
+<p><strong>Resources:</strong>
+- Namespace: enterprise-ai-help
+- StatefulSet for PostgreSQL
+- Deployment for API (3+ replicas)
+- Deployment for frontend
+- Service for load balancing
+- Ingress for external access
+- ConfigMap for configuration
+- Secrets for credentials</p>
+<p><strong>High Availability:</strong>
+- Multi-replica API deployment
+- PostgreSQL replication (planned)
+- Redis Sentinel for HA (planned)
+- Health checks and automatic restart</p>
+<h3 id="infrastructure-requirements">Infrastructure Requirements<a class="headerlink" href="#infrastructure-requirements" title="Permanent link">&para;</a></h3>
+<p><strong>Minimum (Development):</strong>
+- 4GB RAM
+- 2 CPU cores
+- 10GB disk</p>
+<p><strong>Recommended (Production):</strong>
+- 16GB RAM
+- 8 CPU cores
+- 100GB SSD
+- 10Gbps network</p>
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<p><strong>API Security:</strong>
+- Input validation on all requests
+- Rate limiting per IP/user
+- SQL injection prevention (parameterized queries)
+- XSS protection in frontend</p>
+<p><strong>Data Security:</strong>
+- Encrypted database connections
+- Secrets in environment variables
+- No hardcoded credentials
+- Kubernetes secrets for production</p>
+<p><strong>LLM Security:</strong>
+- Prompt injection detection (regex + classifier)
+- Output filtering for sensitive data
+- API key rotation
+- Usage monitoring and alerts</p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>The project includes comprehensive documentation:</p>
+<ul>
+<li><strong>Project Plan</strong> (106KB): 5-week implementation plan with quality gates</li>
+<li><strong>Architecture</strong>: System design and component relationships</li>
+<li><strong>API Documentation</strong>: OpenAPI/Swagger specifications</li>
+<li><strong>Setup Guides</strong>: Development and production deployment</li>
+<li><strong>Feature Docs</strong>: GenTalk, evaluation, hybrid retrieval</li>
+<li><strong>Runbooks</strong>: Common operations and troubleshooting</li>
+</ul>
+<h2 id="cost-analysis">Cost Analysis<a class="headerlink" href="#cost-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="development-free-tier">Development (Free Tier)<a class="headerlink" href="#development-free-tier" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PostgreSQL: Free (Supabase 500MB or local)</li>
+<li>Redis: Free (Redis Cloud 30MB or local)</li>
+<li>LLMs: 100% free-tier APIs</li>
+<li>Hosting: Local development
+<strong>Total: $0/month</strong></li>
+</ul>
+<h3 id="production-small-scale">Production (Small Scale)<a class="headerlink" href="#production-small-scale" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Database: $25/month (managed PostgreSQL)</li>
+<li>Redis: $15/month (managed Redis)</li>
+<li>LLMs: $0 (free tier sufficient for &lt;1M queries/month)</li>
+<li>Hosting: $50/month (3 replicas on cloud)
+<strong>Total: $90/month</strong></li>
+</ul>
+<h3 id="savings-from-caching">Savings from Caching<a class="headerlink" href="#savings-from-caching" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Without cache: ~$500/month in LLM costs</li>
+<li>With cache (75% hit rate): ~$125/month
+<strong>Savings: $375/month (75% reduction)</strong></li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<p><strong>Planned Features:</strong>
+- Multi-language support (translation layer)
+- Advanced analytics dashboard
+- User feedback analysis
+- Automated retraining pipeline
+- Vector store optimization
+- GraphRAG for complex queries
+- Fine-tuned embeddings on domain data</p>
+<p><strong>Infrastructure Improvements:</strong>
+- Database replication for HA
+- Read replicas for scaling
+- Advanced monitoring (Prometheus/Grafana)
+- Distributed tracing
+- Log aggregation (ELK stack)</p>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Repository</strong>: Private Company Repository</li>
+<li><strong>Documentation</strong>: Project plan, implementation summary, and API documentation</li>
+</ul>
+<p><a href="../">← Back to Projects</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../agentic-hr-platform/" class="btn btn-neutral float-left" title="Agentic HR Intelligence"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../porto-agent/" class="btn btn-neutral float-right" title="Porto Agent">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../agentic-hr-platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../porto-agent/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

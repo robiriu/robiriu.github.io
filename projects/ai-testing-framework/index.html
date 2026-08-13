@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/ai-testing-framework/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>AI Testing Framework (ATP) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "AI Testing Framework (ATP)";
+        var mkdocs_page_input_path = "projects/ai-testing-framework.md";
+        var mkdocs_page_url = "/projects/ai-testing-framework/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Developer Tools</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">AI Testing Framework (ATP)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-differentiators">Key Differentiators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#package-architecture">Package Architecture</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#internal-packages-dashboard">Internal Packages (Dashboard)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick Start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#api-testing">API Testing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#llm-testing">LLM Testing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ai-validation-matchers">AI Validation Matchers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#browser-automation">Browser Automation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#reporting">Reporting</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cicd-integration">CI/CD Integration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skills-demonstrated">Skills Demonstrated</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Developer Tools</li>
+      <li class="breadcrumb-item active">AI Testing Framework (ATP)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="automation-testing-platform-atp">Automation Testing Platform (ATP)<a class="headerlink" href="#automation-testing-platform-atp" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Published on npm
+<strong>Package:</strong> <a href="https://www.npmjs.com/package/@robi-atp/cli">@robi-atp/cli</a>
+<strong>License:</strong> MIT</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A Playwright-like automation testing framework specialized for AI platforms — LLM APIs, AI chat interfaces, and intelligent applications. Published as a suite of npm packages with full TypeScript support, supporting API testing (REST, GraphQL, WebSocket, SSE), browser automation, and AI-specific validation including semantic similarity and hallucination detection.</p>
+<h2 id="key-differentiators">Key Differentiators<a class="headerlink" href="#key-differentiators" title="Permanent link">&para;</a></h2>
+<p>Unlike general-purpose testing tools, ATP is purpose-built for AI:</p>
+<ul>
+<li><strong>LLM Provider Testing</strong>: Native clients for OpenAI and Anthropic APIs</li>
+<li><strong>Streaming Support</strong>: First-class support for SSE and streaming responses</li>
+<li><strong>AI Validation</strong>: Semantic similarity scoring, hallucination detection, quality metrics</li>
+<li><strong>AI-Aware Selectors</strong>: Browser automation helpers for chat UIs and AI interfaces</li>
+</ul>
+<h2 id="package-architecture">Package Architecture<a class="headerlink" href="#package-architecture" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>@robi-atp (npm scope)
+├── @robi-atp/core       — Test runner, assertions, fixtures, config loader
+├── @robi-atp/api        — HTTP client (REST/GraphQL/WebSocket/SSE) + LLM clients
+├── @robi-atp/ai         — Semantic similarity, hallucination detection, quality scoring
+├── @robi-atp/browser    — Playwright wrapper with AI-UI helpers
+├── @robi-atp/reporter   — HTML, JUnit XML, JSON, console reporters
+└── @robi-atp/cli        — CLI tool (`atp` command)</code></pre>
+<h3 id="internal-packages-dashboard">Internal Packages (Dashboard)<a class="headerlink" href="#internal-packages-dashboard" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>├── @robidany/server     — Fastify backend (Prisma, Redis, BullMQ, JWT, WebSocket)
+└── @robidany/web        — Next.js 14 dashboard (App Router, React 18, Tailwind)</code></pre>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code class="language-bash"># Install
+npm install -g @robi-atp/cli
+
+# Initialize a test project
+atp init my-ai-tests
+cd my-ai-tests
+
+# Run tests
+atp run</code></pre>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h3 id="api-testing">API Testing<a class="headerlink" href="#api-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>REST, GraphQL, WebSocket, and Server-Sent Events (SSE)</li>
+<li>Request/response validation with JSON Schema</li>
+<li>Authentication helpers (JWT, API key, OAuth)</li>
+<li>Response time assertions</li>
+</ul>
+<h3 id="llm-testing">LLM Testing<a class="headerlink" href="#llm-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Native OpenAI and Anthropic SDK clients</li>
+<li>Streaming response validation</li>
+<li>Token usage tracking</li>
+<li>Model response quality assertions</li>
+</ul>
+<h3 id="ai-validation-matchers">AI Validation Matchers<a class="headerlink" href="#ai-validation-matchers" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-typescript">// Semantic similarity
+expect(response).toBeSemanticallySimilarTo(expected, { threshold: 0.85 });
+
+// Hallucination detection
+expect(response).not.toContainHallucinations(groundTruth);
+
+// Quality scoring
+expect(response).toHaveQualityScore({ min: 0.7 });</code></pre>
+<h3 id="browser-automation">Browser Automation<a class="headerlink" href="#browser-automation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Playwright-based browser testing</li>
+<li>AI-specific selectors for chat UIs</li>
+<li>Screenshot capture and comparison</li>
+<li>Network interception for API mocking</li>
+</ul>
+<h3 id="reporting">Reporting<a class="headerlink" href="#reporting" title="Permanent link">&para;</a></h3>
+<ul>
+<li>HTML reports with visual test results</li>
+<li>JUnit XML for CI/CD integration</li>
+<li>JSON output for programmatic analysis</li>
+<li>Console reporter for local development</li>
+</ul>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>TypeScript (strict mode, ESM-only)</td>
+</tr>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js 20+</td>
+</tr>
+<tr>
+<td><strong>Monorepo</strong></td>
+<td>pnpm + Turborepo</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Vitest (internal tests)</td>
+</tr>
+<tr>
+<td><strong>Browser</strong></td>
+<td>Playwright</td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Fastify, Prisma, BullMQ</td>
+</tr>
+<tr>
+<td><strong>Dashboard</strong></td>
+<td>Next.js 14, React 18, Tailwind CSS</td>
+</tr>
+<tr>
+<td><strong>Auth</strong></td>
+<td>JWT</td>
+</tr>
+<tr>
+<td><strong>Queue</strong></td>
+<td>Redis + BullMQ</td>
+</tr>
+<tr>
+<td><strong>CI/CD</strong></td>
+<td>GitHub Actions, Jenkins, GitLab CI compatible</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code class="language-yaml"># GitHub Actions example
+- name: Run AI Tests
+  run: |
+    npm install -g @robi-atp/cli
+    atp run --reporter junit --output results.xml</code></pre>
+<h2 id="skills-demonstrated">Skills Demonstrated<a class="headerlink" href="#skills-demonstrated" title="Permanent link">&para;</a></h2>
+<ul>
+<li>npm Package Publishing (monorepo, scoped packages)</li>
+<li>TypeScript Framework Design (strict ESM)</li>
+<li>AI/LLM Testing Methodology</li>
+<li>Semantic Similarity and NLP Evaluation</li>
+<li>Playwright Browser Automation</li>
+<li>Monorepo Management (pnpm + Turborepo)</li>
+<li>Developer Tooling and CLI Design</li>
+</ul>
+<p><a href="../">← Back to Projects</a> | <a href="https://www.npmjs.com/package/@robi-atp/cli">View on npm →</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../gpu-migration/" class="btn btn-neutral float-left" title="AI Service Migration (CPU to GPU)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../recommendation-systems-research/" class="btn btn-neutral float-right" title="Recommendation Systems">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../gpu-migration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../recommendation-systems-research/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

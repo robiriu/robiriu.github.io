@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/erp-automation-platform/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Agentic ERP Automation Platform (Live) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Agentic ERP Automation Platform (Live)";
+        var mkdocs_page_input_path = "projects/erp-automation-platform.md";
+        var mkdocs_page_url = "/projects/erp-automation-platform/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: Enterprise AI Automation</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Agentic ERP Automation Platform (Live)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem">The Problem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#the-three-design-principles-that-everything-follows">The three design principles that everything follows</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#erp-integration-the-part-that-was-genuinely-hard">ERP Integration: the part that was genuinely hard</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-a-readwrite-split-with-a-local-mirror">1. A read/write split with a local mirror</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-a-seven-layer-write-guard">2. A seven-layer write-guard</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-discovering-what-the-api-actually-does-not-what-the-docs-say">3. Discovering what the API actually does, not what the docs say</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-statistical-grounding-before-writing-any-code">4. Statistical grounding before writing any code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#end-to-end-how-a-purchase-becomes-a-paid-invoice">End-to-End: how a purchase becomes a paid invoice</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#stage-1-reorder-proposal">Stage 1: Reorder proposal</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stage-2-invoice-intake-and-ai-vision-extraction">Stage 2: Invoice intake and AI vision extraction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stage-3-matching-and-purchase-invoice-creation">Stage 3: Matching and purchase invoice creation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stage-4-three-gate-payment-with-enforced-separation-of-duties">Stage 4: Three-gate payment with enforced separation of duties</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stage-5-reconciliation-and-write-back">Stage 5: Reconciliation and write-back</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-ai-layer">The AI Layer</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-a-decision-agent-with-zero-tools">1. A decision agent with zero tools</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-a-read-only-conversational-data-layer">2. A read-only conversational data layer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-vision-extraction">3. Vision extraction</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vendor-communication">Vendor Communication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reliability-security-and-operations">Reliability, Security, and Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-made-this-genuinely-difficult">What Made This Genuinely Difficult</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#current-status-and-roadmap">Current Status and Roadmap</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: Enterprise AI Automation</li>
+      <li class="breadcrumb-item active">Agentic ERP Automation Platform (Live)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="agentic-erp-automation-platform">Agentic ERP Automation Platform<a class="headerlink" href="#agentic-erp-automation-platform" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | Live in production, moving real money and writing to a live ERP</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>An agentic automation platform that sits on top of a commercial cloud <strong>ERP platform</strong> rented by a multi-entity food manufacturing and hospitality group, and takes over the back-office work that a team of people previously did by hand across spreadsheets, email, and manual ERP data entry.</p>
+<p>The system automates one continuous supply chain, not four disconnected tools: <strong>buy</strong> raw materials from vendors, <strong>make</strong> finished goods, <strong>sell</strong> them to the group's subsidiaries, and <strong>pay</strong> the vendor invoices, with funding tracked per subsidiary. Every pillar reads from a single mirrored copy of the ERP, and every write back into the ERP passes through the same guarded, idempotent, read-back-verified safety stack.</p>
+<p>The hard engineering problem is not the AI. It is doing this <strong>against a live production ERP with no sandbox, no test tenant, and real company money on the other side of every POST</strong>. That constraint shaped the entire architecture.</p>
+<p><strong>What is live today:</strong> automated purchase orders, AI-extracted vendor invoices matched to their goods receipts, purchase invoices created in the ERP, a three-gate payment approval flow that executes real bank transfers, bank statement reconciliation, and payment write-back that flips invoices from unpaid to paid in the ERP.</p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operational pillars</td>
+<td>4 (purchasing, production, sales, budget/payment)</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>~33,600 lines of Python (FastAPI)</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>~19,300 lines of TypeScript (Next.js)</td>
+</tr>
+<tr>
+<td>REST endpoints</td>
+<td>87</td>
+</tr>
+<tr>
+<td>Database tables / migrations</td>
+<td>34 tables, 60 Alembic migrations</td>
+</tr>
+<tr>
+<td>Dashboard pages</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Containerized services</td>
+<td>15 (app, ERP mirror, 6 scheduled sidecars, backups, monitors)</td>
+</tr>
+<tr>
+<td>Read-only AI data tools</td>
+<td>43 (MCP)</td>
+</tr>
+<tr>
+<td>ERP write capabilities</td>
+<td>5 document types, each behind its own flag</td>
+</tr>
+<tr>
+<td>Independent write gates</td>
+<td>7 capability flags + global master switch + dry-run mode</td>
+</tr>
+<tr>
+<td>Commits</td>
+<td>736 since June 2026, single engineer</td>
+</tr>
+<tr>
+<td>Production status</td>
+<td>Live, executing real vendor payments</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>The company runs a central production kitchen that supplies several subsidiary restaurant and cloud-kitchen entities. Its back office ran on a rented cloud ERP plus a sprawl of hand-maintained Google Sheets workbooks. Every day, people were:</p>
+<ul>
+<li>Re-keying vendor invoices into the ERP by hand, field by field, line by line</li>
+<li>Deciding what to reorder by eyeballing stock against buffer levels kept in a spreadsheet</li>
+<li>Assembling payment batches in a workbook, emailing them around for approval, then re-typing them into the bank's corporate transfer portal</li>
+<li>Reconciling the bank statement against the payment list manually, if at all</li>
+</ul>
+<p>Two failure modes dominated: <strong>transcription errors</strong> (an invoice typed wrong is a wrong payment) and <strong>no audit trail</strong> (nobody could reconstruct who approved what, when, or whether a transfer actually cleared).</p>
+<hr />
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    U["Operations / Finance staff"]
+    U --&gt; DASH["Next.js Control Dashboard&lt;br/&gt;24 pages, role-scoped"]
+    DASH &lt;--&gt; API["FastAPI Backend&lt;br/&gt;87 endpoints, RBAC + audit"]
+
+    API --&gt; AGENT["Claude Agent Layer&lt;br/&gt;headless CLI, zero tools"]
+    API --&gt; DOC["Document Intake&lt;br/&gt;upload / camera / network scanner"]
+    API --&gt; ORCH["Flow Orchestrator + Scheduler"]
+    ORCH --&gt; FLOWS["4 Pillars&lt;br/&gt;purchasing / production / sales / payment"]
+
+    DOC --&gt; AGENT
+    FLOWS --&gt; INT["Integration Layer&lt;br/&gt;one common adapter interface"]
+    INT --&gt; ERPA["ERP Adapter&lt;br/&gt;+ write-guard"]
+    INT -. future .-&gt; ACC["Accounting-SaaS Adapter"]
+    INT -. future .-&gt; POS["POS Adapter"]
+
+    ERPA ==&gt;|"reads"| MIRROR[("Local ERP Mirror&lt;br/&gt;full nightly copy")]
+    ERPA -.-&gt;|"guarded writes only"| ERP[("Live ERP Platform")]
+    ERP ==&gt;|"GET-only pull"| MIRROR</code></pre>
+<h3 id="the-three-design-principles-that-everything-follows">The three design principles that everything follows<a class="headerlink" href="#the-three-design-principles-that-everything-follows" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>The ERP is the system of record. The platform orchestrates and writes back only where it is provably safe.</strong> Reads never hit the live ERP in a request path. Writes are guarded, idempotent, pre-checked, and read-back verified.</li>
+<li><strong>Human-in-the-loop wherever money moves or stock truth is uncertain.</strong> The AI proposes. A person commits. There is no path in the codebase where a model's output causes a payment.</li>
+<li><strong>Spreadsheets are a one-time source, never a runtime dependency.</strong> The team's workbooks were read once, read-only, to extract both the data and the business logic. The logic was then reimplemented natively and the data re-homed into the platform's own database with in-app editors. At runtime the system talks only to the ERP mirror and its own database.</li>
+</ol>
+<hr />
+<h2 id="erp-integration-the-part-that-was-genuinely-hard">ERP Integration: the part that was genuinely hard<a class="headerlink" href="#erp-integration-the-part-that-was-genuinely-hard" title="Permanent link">&para;</a></h2>
+<p>The ERP is a rented multi-tenant SaaS. There was no sandbox tenant, no staging instance, and no way to test a write without testing it on the company's real books. Everything below exists because of that.</p>
+<h3 id="1-a-readwrite-split-with-a-local-mirror">1. A read/write split with a local mirror<a class="headerlink" href="#1-a-readwrite-split-with-a-local-mirror" title="Permanent link">&para;</a></h3>
+<p>Reading the live ERP on every dashboard render was never an option. The API is rate limited hard enough that a full data pull costs roughly 600 authentication round-trips, and the login endpoint starts returning 429 well before that.</p>
+<p>So the platform runs a <strong>GET-only mirror service</strong>: a scheduled sidecar that pulls every resource the ERP tenant exposes (masters, purchasing, sales, manufacturing, finance, inventory, plus a ~203k-row journal) into a local store at a fixed quiet hour, then projects it into Postgres. The mirror is GET-only <em>by construction</em>: the only non-GET call it can make is the login itself.</p>
+<pre class="highlight"><code>Live ERP  --(GET-only, nightly + on demand)--&gt;  Local mirror  --&gt;  Postgres  --&gt;  Dashboard
+   ^                                                                                  |
+   +------------------ guarded, idempotent, single-document writes -------------------+</code></pre>
+<p>Reads come from the mirror. Writes go directly to the live ERP through a separate, explicitly configured production target. Splitting the two means a misconfigured read path can never become a write, and a write outage never blacks out the dashboard.</p>
+<p>Every mirrored resource syncs in isolation, so a single quirky endpoint cannot break the whole run, and each sync atomically replaces its rows while preserving locally-created test documents.</p>
+<h3 id="2-a-seven-layer-write-guard">2. A seven-layer write-guard<a class="headerlink" href="#2-a-seven-layer-write-guard" title="Permanent link">&para;</a></h3>
+<p>Any write into the live ERP has to survive all of these, in order:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Host guard</td>
+<td>The HTTP client refuses any POST/PUT/DELETE to a known production host unless a global master switch is explicitly on. GET is always allowed.</td>
+</tr>
+<tr>
+<td>2. Mirror-target refusal</td>
+<td>A write that would land on the read mirror is refused outright. The mirror must never be mutated.</td>
+</tr>
+<tr>
+<td>3. Per-capability flag</td>
+<td>Each writable document type (payment, purchase order, purchase invoice, goods receipt, vendor master, order cancellation) has its <strong>own</strong> independent flag, so each capability can be canaried and enabled alone.</td>
+</tr>
+<tr>
+<td>4. Dry-run shadow mode</td>
+<td>Builds the full payload and runs the pre-check read, but never POSTs. Default on. This was the substitute for the sandbox that did not exist.</td>
+</tr>
+<tr>
+<td>5. Idempotency claim</td>
+<td>Every document carries a deterministic client-generated code. The ERP rejects a repeat of the same code, so a retried request physically cannot double-pay or double-order. A duplicate error is treated as success.</td>
+</tr>
+<tr>
+<td>6. Pre-check and sanity caps</td>
+<td>Read-before-write to confirm the target document is still in the expected state, plus a per-transaction value ceiling that refuses anything above it.</td>
+</tr>
+<tr>
+<td>7. Read-back verification</td>
+<td>After the write, read the document back from the ERP and confirm it landed as intended. Per-row commit, so a partial batch failure never leaves an inconsistent local state.</td>
+</tr>
+</tbody>
+</table>
+<p>Every write capability was rolled out the same way: dry-run, then a <code>--limit 1</code> canary against a single real document, verified in the ERP's own UI by a human, then enabled. Purchase orders, goods receipts, and purchase invoices were each canary-proven separately before going live.</p>
+<h3 id="3-discovering-what-the-api-actually-does-not-what-the-docs-say">3. Discovering what the API actually does, not what the docs say<a class="headerlink" href="#3-discovering-what-the-api-actually-does-not-what-the-docs-say" title="Permanent link">&para;</a></h3>
+<p>The vendor documentation was incomplete and in places wrong. Findings that changed the design:</p>
+<ul>
+<li><strong>The API and the ERP's own stock report disagree</strong> on roughly 23% of item/warehouse pairs. Since the team trusts what they see in the ERP UI, on-hand stock is now read from the report path, not the API, so the platform matches what a human sees.</li>
+<li><strong>The reorder buffer field is report-only.</strong> It cannot be read live or written back through the API at all. That forced the buffer engine to be re-homed into the platform's own tables, which turned out better anyway: buffers are now derived automatically from actual consumption history, with manual per-item overrides.</li>
+<li><strong>Production orders are GET-only.</strong> There is no create endpoint. So the platform drafts the production order and a human enters it, and the design documents that constraint rather than pretending around it.</li>
+<li><strong>Two different authentication dialects</strong> between the mirror source and the write target, one persistent header token and one single-use query token, handled by an auth-mode switch in the client.</li>
+</ul>
+<h3 id="4-statistical-grounding-before-writing-any-code">4. Statistical grounding before writing any code<a class="headerlink" href="#4-statistical-grounding-before-writing-any-code" title="Permanent link">&para;</a></h3>
+<p>Before building the invoice-to-ERP path, the mirrored history was analysed to find out how documents actually flow in practice, not in theory:</p>
+<ul>
+<li>90.6% of purchase invoices are created <strong>from a goods receipt</strong>, not from a purchase order and not standalone</li>
+<li>Order to receipt is one-to-one 97.4% of the time</li>
+<li>The invoice total matches the order total only 48% of the time, and vendor plus total uniquely identifies an order only 23% of the time</li>
+</ul>
+<p>That last pair killed the obvious design. Amount matching is not a reliable key, so matching is <strong>proposed</strong> by the system with ranked candidates and confidence reasons, and <strong>confirmed</strong> by a human. And because the goods receipt is authoritative for item codes and quantities while the invoice is authoritative for prices, the created invoice is built from the receipt lines and enriched with invoice prices. That single decision removed the entire item-code mapping risk and made stock double-counting structurally impossible.</p>
+<hr />
+<h2 id="end-to-end-how-a-purchase-becomes-a-paid-invoice">End-to-End: how a purchase becomes a paid invoice<a class="headerlink" href="#end-to-end-how-a-purchase-becomes-a-paid-invoice" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    S1["1. Reorder proposal&lt;br/&gt;buffer shortfall + production demand, human picks the vendor"]
+    S2["2. Purchase Order&lt;br/&gt;written into the ERP, document emailed out"]
+    S3["3. Invoice intake&lt;br/&gt;upload, camera or network scan, then AI vision extraction"]
+    S4["4. Match and create&lt;br/&gt;invoice matched to its goods receipt, Purchase Invoice created in the ERP"]
+    S5["5. Pay and reconcile&lt;br/&gt;three gates, bank transfer, statement reconciled"]
+    S6["6. Write back&lt;br/&gt;the ERP flips the invoice from unpaid to paid"]
+    S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6</code></pre>
+<h3 id="stage-1-reorder-proposal">Stage 1: Reorder proposal<a class="headerlink" href="#stage-1-reorder-proposal" title="Permanent link">&para;</a></h3>
+<p>The reorder dashboard fuses two demand signals into one number per item: the <strong>buffer shortfall</strong> (what stock is missing against its reorder level) and the <strong>production demand</strong> (raw materials the planned production run will consume, exploded recursively through recipes derived from historical production orders). The formula is <code>max(0, buffer + planned_consumption - on_hand)</code>.</p>
+<p>Buffers themselves are computed from actual consumption (a rolling average over 60 days scaled to a cover period), with manual per-item overrides winning when set, and a global settings panel for the policy. Vendor suggestions come from the cheapest price observed within the last 12 months, not the cheapest price ever, so a stale quote from two years ago cannot drive a purchase.</p>
+<p>The team picks vendor, quantity, price, and reason. The purchase order is then written to the live ERP, with the raising employee mapped onto the ERP's document-owner field so the generated PDF shows who actually raised it. An admin can one-click cancel a platform-created order, which required discovering that a completed order must be reverted before it can be deleted.</p>
+<h3 id="stage-2-invoice-intake-and-ai-vision-extraction">Stage 2: Invoice intake and AI vision extraction<a class="headerlink" href="#stage-2-invoice-intake-and-ai-vision-extraction" title="Permanent link">&para;</a></h3>
+<p>Three ways in, all feeding one pipeline: <strong>upload files</strong>, <strong>photograph the invoice</strong> with a phone or tablet directly from the dashboard, or <strong>one-click scan</strong> on the office network scanner over eSCL/AirScan. Selecting several files or capturing several camera frames groups them as the <em>pages of one document</em>, so a long bill or a front-and-back invoice is extracted as a single unit.</p>
+<p>Extraction is Claude vision, prompted to mirror exactly the fields a human would otherwise type into the ERP's purchase invoice form: vendor, invoice number and reference, dates, payment term, line items with item/quantity/unit/price/discount/tax, subtotal, tax, other charges, grand total, and the vendor bank details if printed. The field schema was learned <strong>read-only from the ERP's API reference</strong>, never by touching live data.</p>
+<p>The intake request returns instantly and archives the file, while extraction runs in a background worker (1 to 3 minutes for a detailed line-item read, longer for handwriting or multi-page). Extractions stranded by a backend restart are automatically requeued at startup. A document moves <code>processing</code> to <code>extracted</code> to <code>verified</code> to <code>paid</code>, with <code>rejected</code> and <code>error</code> as terminal states. A human reviews the original image side by side with editable fields and the raw JSON. Only a <strong>verified</strong> invoice with both a resolved vendor and an amount becomes a payment candidate. A freshly extracted invoice is never automatically payable.</p>
+<h3 id="stage-3-matching-and-purchase-invoice-creation">Stage 3: Matching and purchase invoice creation<a class="headerlink" href="#stage-3-matching-and-purchase-invoice-creation" title="Permanent link">&para;</a></h3>
+<p>The matcher resolves the extracted vendor against the ERP vendor master, then finds candidate goods receipts: first via the purchase order number if the invoice printed one, otherwise by listing that vendor's open un-invoiced receipts within a date window around the invoice date. Candidates come back ranked, each with the reasons behind its confidence, so the reviewer can see <em>why</em> a match was proposed rather than being asked to trust a score.</p>
+<p>The draft builder then merges receipt lines with invoice prices, computes totals, and flags every discrepancy. Quantity and price differences between what was received and what was invoiced surface on a dedicated variance screen driven by a daily line-level snapshot of roughly 42,000 rows.</p>
+<p>A human confirms the match and the draft. Only then is the purchase invoice created in the ERP, through the full seven-layer guard, landing as a draft for a person to post.</p>
+<h3 id="stage-4-three-gate-payment-with-enforced-separation-of-duties">Stage 4: Three-gate payment with enforced separation of duties<a class="headerlink" href="#stage-4-three-gate-payment-with-enforced-separation-of-duties" title="Permanent link">&para;</a></h3>
+<p>This is where real money moves, so the flow is deliberately slow and deliberately human.</p>
+<pre class="mermaid"><code>flowchart TB
+    S["Finance selects invoices&lt;br/&gt;and assigns each a funding entity"]
+    S --&gt; G1["Gate 1: approve&lt;br/&gt;and upload the bank transfer file"]
+    G1 --&gt;|"relay email"| G2["Gate 2: approve&lt;br/&gt;(a different person)"]
+    G2 --&gt;|"relay email"| G3["Gate 3: release&lt;br/&gt;this executes the transfer"]
+    G3 --&gt; R["Reconcile against the bank statement&lt;br/&gt;(a third person, not either gate)"]
+    R --&gt; W["Write back to the ERP&lt;br/&gt;unpaid becomes paid"]</code></pre>
+<ul>
+<li><strong>Three distinct gates, three distinct people.</strong> Separation of duties is enforced in code, not policy. The person who confirms a transfer must differ from both gate deciders on that batch, so a releaser can never also confirm a transfer nobody made.</li>
+<li><strong>Sequential relay email, not broadcast.</strong> Each gate emails only the next approver, with magic-link approval that confirms back on the platform.</li>
+<li><strong>Funding is tracked per subsidiary.</strong> Each invoice carries which entity's budget pays for it, which ties the buy side to the pay side, and the payment file is split one per funding entity.</li>
+<li><strong><code>released</code> stays distinct from <code>paid</code>.</strong> The platform does not claim an invoice is paid because someone clicked a button. It waits for the bank's own record.</li>
+<li><strong>Partial payments</strong> return the remainder to the pool and require both gates again.</li>
+<li><strong>Budget per entity</strong> is maintained in-app by approvers and shown live against the current selection, so a batch that would breach budget is visible before it is submitted.</li>
+</ul>
+<p>The bank transfer file is generated as a multi-bank spreadsheet in the format the corporate cash-management portal expects, with globally unique per-prefix transaction identifiers to eliminate a collision class discovered in testing.</p>
+<h3 id="stage-5-reconciliation-and-write-back">Stage 5: Reconciliation and write-back<a class="headerlink" href="#stage-5-reconciliation-and-write-back" title="Permanent link">&para;</a></h3>
+<p>The bank statement CSV is uploaded and parsed. Debit lines auto-match to released payments on exact amount when the candidate is unique. A human queue resolves the rest: ambiguous amounts, bank fees (ignored), and partial payments (matched manually). Re-uploads deduplicate. Every match and every ignore is audit-logged.</p>
+<p>The page also surfaces the <strong>inverse exception</strong>, which is the one that actually catches problems: invoices marked paid that no bank statement has confirmed, flagged overdue past a configurable age. That is how a failed transfer gets noticed instead of silently sitting as "paid" forever.</p>
+<p>When reconciliation confirms the bank's own debit line, and only then, the platform posts the payment back to the ERP so the invoice flips from unpaid to paid there too, with no human double-entry. Each payment posts with a deterministic code, so a retry cannot double-pay.</p>
+<hr />
+<h2 id="the-ai-layer">The AI Layer<a class="headerlink" href="#the-ai-layer" title="Permanent link">&para;</a></h2>
+<p>Three distinct uses of AI, each scoped tightly to what it is allowed to touch.</p>
+<h3 id="1-a-decision-agent-with-zero-tools">1. A decision agent with zero tools<a class="headerlink" href="#1-a-decision-agent-with-zero-tools" title="Permanent link">&para;</a></h3>
+<p>The agent runs as a <strong>headless CLI on a subscription</strong>, not through an API key, with the API key environment variable deliberately unset so it can never silently fall back to metered billing.</p>
+<p>More importantly, <strong>every tool is disallowed</strong>. The agent cannot read files, cannot run commands, cannot reach the network, and cannot touch the ERP. It receives context assembled by Python and returns structured reasoning. Python stays in control of every side effect.</p>
+<p>That is the core safety argument of the whole system: <em>the model proposes, the execution layer disposes</em>, and the execution layer is where the approval queue, idempotency, append-only audit log, and read-back verification live. Command-execution escape hatches are blocklisted explicitly, not just the obvious shell tool, because a blocklist that misses one of them is not a boundary.</p>
+<p>For document extraction the agent is granted exactly one capability, reading the single uploaded file, scoped to that file's directory. Nothing else.</p>
+<h3 id="2-a-read-only-conversational-data-layer">2. A read-only conversational data layer<a class="headerlink" href="#2-a-read-only-conversational-data-layer" title="Permanent link">&para;</a></h3>
+<p><strong>43 MCP tools</strong>, every one of them read-only, spanning the full operational surface: payables and debt analysis, invoice and item lookup, payment history, approval status, budget, purchase tracking, price anomaly detection, savings opportunities, stock, receipt matching, production plans, material requirements, open orders, vendor search, and data-source provenance.</p>
+<p>The chat panel is available on <strong>every page</strong>, pinned as an edge tab that slides in <em>beside</em> the content rather than covering it, and stays mounted across navigation so a conversation survives moving between pages. Each question carries the active page context, including the current selection, so "this batch" resolves without the user retyping anything.</p>
+<p>It can also <strong>drive the UI</strong>: an allowlisted navigation intent lets it open a dashboard page with filters already applied. Allowlisted on both server and client, view control only, never actions.</p>
+<p>The design constraint that makes it trustworthy is simple. It can query everything and change nothing. A dedicated provenance tool means it can always answer "where did this number come from", and tools are scoped by the asking user's department.</p>
+<h3 id="3-vision-extraction">3. Vision extraction<a class="headerlink" href="#3-vision-extraction" title="Permanent link">&para;</a></h3>
+<p>Covered above. The point worth repeating is that the extraction schema was reverse-engineered from the ERP's <em>API reference documentation</em>, read-only, rather than by probing live company data.</p>
+<hr />
+<h2 id="vendor-communication">Vendor Communication<a class="headerlink" href="#vendor-communication" title="Permanent link">&para;</a></h2>
+<p>Purchase order documents are generated as both PDF and PNG and delivered by email through a self-hosted send-only relay with DKIM, SPF, DMARC, and a matching reverse DNS record, on the company's own domain.</p>
+<p><strong>On WhatsApp:</strong> the messaging path is architected and stubbed but deliberately <strong>dormant</strong>. There is a provider interface and message templates behind a feature flag, waiting on a WhatsApp Business API subscription that has not been procured. Until then the working path is a deliberate manual relay: the platform emails the purchase order to the purchasing team, including a PNG rendering specifically sized for forwarding into a chat, and the team forwards it to the vendor.</p>
+<p>This was a conscious call rather than an oversight. Building the abstraction now means the eventual swap is a flag flip and a provider implementation, not a redesign. Shipping the manual relay meant the purchasing loop closed weeks earlier than a paid API procurement cycle would have allowed. The interface is designed so a WhatsApp group broadcast, an individual vendor message, or another channel entirely all land on the same seam.</p>
+<hr />
+<h2 id="reliability-security-and-operations">Reliability, Security, and Operations<a class="headerlink" href="#reliability-security-and-operations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Append-only audit log</strong> across all pillars. Every approval, release, match, ignore, and ERP write records who, when, and what.</li>
+<li><strong>Role-based access control</strong> with a department plus tier model, so purchasing users and finance users see different surfaces, plus an in-app user administration page.</li>
+<li><strong>Idempotency everywhere a retry could duplicate something</strong>, using deterministic client-generated codes that the ERP itself rejects on repeat.</li>
+<li><strong>An isolated staging environment</strong> mirroring production, so changes are proven before promotion, with an explicit safe-promote ritual: preview the diff, back up the database, rebuild only changed services, verify row counts.</li>
+<li><strong>An independent integrity monitor</strong> running as its own service, continuously comparing platform state against the ERP on stock, buffers, and data freshness, and emailing on divergence. It is deliberately separate from the app so it can catch the app being wrong.</li>
+<li><strong>Automated database backups</strong>, both local and offsite.</li>
+<li><strong>Freshness guards and exponential backoff</strong> on the ERP client, because the rate limit is real and a retry storm would lock the team out of their own ERP.</li>
+<li><strong>Secrets never in the repository.</strong> All credentials in a git-ignored environment file, enforced by a git hook.</li>
+<li><strong>A self-service change-request board</strong> where the operations team submits requests directly, which are then worked end to end against staging.</li>
+<li>15 containerized services orchestrated with Docker Compose on a single VPS, a deliberate choice over Kubernetes for a team of one, recorded as an architecture decision record.</li>
+</ul>
+<hr />
+<h2 id="what-made-this-genuinely-difficult">What Made This Genuinely Difficult<a class="headerlink" href="#what-made-this-genuinely-difficult" title="Permanent link">&para;</a></h2>
+<p><strong>No sandbox.</strong> Standard practice is to develop against a test tenant. There was none, and the vendor would not provide one. The response was to build a local stand-in that speaks the same API surface, mirror real data into it read-only, and make dry-run mode the default so that every payload could be built and pre-checked without a single POST. Then canary one document at a time.</p>
+<p><strong>The ERP disagrees with itself.</strong> The API and the ERP's own reports return different stock figures for the same item. Resolving that meant tracing which surface the humans actually trust and matching it, then documenting the divergence rather than quietly picking one.</p>
+<p><strong>The data model had to be discovered statistically.</strong> How invoices actually relate to receipts and orders was not documented. It was measured across the mirrored history, and the measurements directly changed the architecture, most notably by ruling out amount-based matching entirely.</p>
+<p><strong>The users are not engineers.</strong> The dashboard is fully in the users' native language, and the interface is built around the way the team already works rather than the way the data is stored. The AI assistant exists precisely so that someone who would never write a query can still ask "which vendor did we overpay this month" and get a grounded answer with its source.</p>
+<p><strong>Money is unforgiving.</strong> There is no acceptable error rate. Which is why nothing in the payment path is autonomous, every gate is a different human, the platform refuses to call something paid until the bank says so, and the reconciliation screen is built to surface the <em>absence</em> of an expected confirmation, not just the presence of an unexpected one.</p>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend</td>
+<td>Python, FastAPI, SQLAlchemy, Alembic, Pydantic</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>Next.js, React, TypeScript</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>PostgreSQL (production), SQLite (local dev and mirror store)</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Claude via headless CLI on subscription, vision extraction, MCP tool server</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>REST adapters behind a common interface, guarded write client, GET-only mirror service</td>
+</tr>
+<tr>
+<td>Documents</td>
+<td>PDF and image generation, eSCL/AirScan network scanning, spreadsheet export</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Docker Compose (15 services), Nginx, Ubuntu VPS, isolated staging, automated backups</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>GitHub Actions CI, git hooks, Alembic migrations, per-service rebuild promotion</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="current-status-and-roadmap">Current Status and Roadmap<a class="headerlink" href="#current-status-and-roadmap" title="Permanent link">&para;</a></h2>
+<p><strong>Live in production:</strong></p>
+<ul>
+<li>Payment pillar: three-gate approval, real bank transfers, statement reconciliation, ERP payment write-back</li>
+<li>Purchasing pillar: reorder proposals, purchase order creation in the live ERP, order cancellation, vendor master creation</li>
+<li>Invoice pipeline: multi-channel intake, AI vision extraction, receipt matching, purchase invoice creation</li>
+<li>Buffer engine, warehouse and stock views, RBAC and audit, integrity monitoring, the read-only AI assistant</li>
+</ul>
+<p><strong>In progress:</strong></p>
+<ul>
+<li>Goods receipt write-back and receiving dashboard with warehouse filtering</li>
+<li>Production yield tracking (planned versus actual, with recipe anomaly surfacing) and recursive multi-level demand explosion</li>
+<li>Open-order and in-transit visibility so nothing is ordered twice</li>
+</ul>
+<p><strong>Planned:</strong></p>
+<ul>
+<li>The inter-company sales pillar, mirroring the purchasing machinery on the sell side</li>
+<li>WhatsApp vendor delivery, once the API subscription is procured, as a flag flip on the existing interface</li>
+<li>Additional entity adapters for the group's other operating systems, which is an adapter implementation rather than a platform change</li>
+</ul>
+<hr />
+<p><em>Built for a private client. Company name, ERP vendor, and internal identifiers are omitted deliberately. Architecture, engineering decisions, and metrics are described as built.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../transforce/" class="btn btn-neutral float-right" title="TransForce (Particle Transport)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../transforce/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

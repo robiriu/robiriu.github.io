@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/media-platform/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Media Platform (AdCP) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Media Platform (AdCP)";
+        var mkdocs_page_input_path = "projects/media-platform.md";
+        var mkdocs_page_url = "/projects/media-platform/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MLOps & Infrastructure</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Media Platform (AdCP)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#backend-services">Backend Services</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#frontend-applications">Frontend Applications</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#databases-caching">Databases &amp; Caching</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#content-management">Content Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#event-streaming-messaging">Event Streaming &amp; Messaging</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#storage-cdn">Storage &amp; CDN</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#multimodal-ai-machine-learning">Multimodal AI &amp; Machine Learning</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#infrastructure-deployment">Infrastructure &amp; Deployment</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-features">Key Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#event-driven-metadata-extraction">Event-Driven Metadata Extraction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#semantic-content-discovery">Semantic Content Discovery</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#recommendation-engine">Recommendation Engine</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#real-time-ott-streaming">Real-Time OTT Streaming</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#production-grade-infrastructure">Production-Grade Infrastructure</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#development-workflow">Development Workflow</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#local-development">Local Development</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#deployment">Deployment</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modules-services">Modules &amp; Services</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#module-0-ott-web-frontend-port-3100">Module 0: OTT Web Frontend (Port 3100)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#module-1-recommendation-service-port-3001">Module 1: Recommendation Service (Port 3001)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#module-2-auth-service-port-3002">Module 2: Auth Service (Port 3002)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#module-3-metadata-extraction-ports-3005-3008">Module 3: Metadata Extraction (Ports 3005-3008)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#module-4-mam-backend-port-4000">Module 4: MAM Backend (Port 4000)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#module-5-mam-frontend-port-3000">Module 5: MAM Frontend (Port 3000)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#modules-6-9-planned">Modules 6-9 (Planned)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-characteristics">Performance Characteristics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cloud-deployment-google-cloud-platform">Cloud Deployment (Google Cloud Platform)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#cloud-run-serverless-microservices">Cloud Run — Serverless Microservices</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cloud-sql-managed-postgresql">Cloud SQL — Managed PostgreSQL</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#compute-engine-media-streaming-server">Compute Engine — Media Streaming Server</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#artifact-registry-container-management">Artifact Registry — Container Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#secret-manager">Secret Manager</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gcp-architecture-diagram">GCP Architecture Diagram</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cloud-skills-demonstrated">Cloud Skills Demonstrated</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#security-features">Security Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scalability-considerations">Scalability Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-enhancements">Future Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">MLOps & Infrastructure</li>
+      <li class="breadcrumb-item active">Media Platform (AdCP)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="media-platform-advertising-context-protocol-adcp">Media Platform - Advertising Context Protocol (AdCP)<a class="headerlink" href="#media-platform-advertising-context-protocol-adcp" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Production-Ready | In Development
+<strong>Repository:</strong> Private Company Repository</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A comprehensive media platform with AdCP integration for OTT streaming, broadcast management, content management, media asset management, and out-of-home advertising systems. Built with a microservices architecture, event-driven design, and multimodal AI capabilities.</p>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph LR
+    subgraph Storage["Storage and Delivery"]
+        MinIO["MinIO S3&lt;br/&gt;Multi-bucket"]
+        CDN["CDN&lt;br/&gt;Global delivery"]
+        Kafka["Kafka&lt;br/&gt;Event streaming"]
+    end
+
+    subgraph AI["Multimodal AI Extraction"]
+        MetaOrch["Metadata&lt;br/&gt;Orchestrator"]
+        NLPSvc["NLP Service&lt;br/&gt;Text analysis"]
+        VisionSvc["Vision Service&lt;br/&gt;CLIP + Detection"]
+        AudioSvc["Audio Service&lt;br/&gt;Whisper + Diarization"]
+        FeatureStore["Feature Store&lt;br/&gt;pgvector"]
+    end
+
+    subgraph Core["Core Services - NestJS"]
+        OTT["OTT Platform&lt;br/&gt;Next.js + Video.js"]
+        BMS["Broadcast Mgmt&lt;br/&gt;Enterprise BMS"]
+        CMS["Content Mgmt&lt;br/&gt;Strapi v4"]
+        MAM["Media Assets&lt;br/&gt;AI search"]
+        Recommendation["Recommendations&lt;br/&gt;3 ML strategies"]
+    end
+
+    subgraph AdCP["AdCP Integration"]
+        Gateway["AdCP&lt;br/&gt;Gateway"]
+        MediaBuy["Media Buy&lt;br/&gt;Protocol"]
+        Creative["Creative&lt;br/&gt;Protocol"]
+        Signals["Signals&lt;br/&gt;Protocol"]
+    end
+
+    CDN --&gt; MinIO
+    MinIO --&gt;|S3 Events| Kafka
+    Kafka --&gt; MetaOrch
+    MetaOrch --&gt; NLPSvc
+    MetaOrch --&gt; VisionSvc
+    MetaOrch --&gt; AudioSvc
+    NLPSvc --&gt; FeatureStore
+    VisionSvc --&gt; FeatureStore
+    AudioSvc --&gt; FeatureStore
+
+    FeatureStore --&gt; OTT
+    FeatureStore --&gt; MAM
+    FeatureStore --&gt; Gateway
+
+    CMS --&gt; OTT
+    CMS --&gt; BMS
+    CMS --&gt; MAM
+
+    OTT --&gt; Gateway
+    BMS --&gt; Gateway
+    MAM --&gt; Gateway
+
+    Gateway --&gt; MediaBuy
+    Gateway --&gt; Creative
+    Gateway --&gt; Signals
+
+    classDef infraStyle fill:#FF9800,stroke:#E65100,stroke-width:2px
+    classDef aiStyle fill:#9C27B0,stroke:#6A1B9A,stroke-width:2px
+    classDef coreStyle fill:#2196F3,stroke:#1565C0,stroke-width:2px
+    classDef adcpStyle fill:#4CAF50,stroke:#2E7D32,stroke-width:2px
+
+    class MinIO,CDN,Kafka infraStyle
+    class MetaOrch,NLPSvc,VisionSvc,AudioSvc,FeatureStore aiStyle
+    class OTT,BMS,CMS,MAM,Recommendation coreStyle
+    class Gateway,MediaBuy,Creative,Signals adcpStyle</code></pre>
+<p>The platform consists of multiple integrated systems:</p>
+<ul>
+<li><strong>OTT Streaming Platform</strong>: Full-featured Netflix-like streaming application</li>
+<li><strong>Broadcast Management System (BMS)</strong>: Linear TV scheduling and ad placement</li>
+<li><strong>Content Management System (CMS)</strong>: Strapi v4 as single source of truth</li>
+<li><strong>Media Asset Management (MAM)</strong>: AI-powered semantic search for media assets</li>
+<li><strong>Out-of-Home (OOH)</strong>: Digital signage ad delivery</li>
+<li><strong>AdCP Integration</strong>: Unified advertising protocol layer</li>
+</ul>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<h3 id="backend-services">Backend Services<a class="headerlink" href="#backend-services" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Framework</strong>: NestJS with TypeScript</li>
+<li><strong>Runtime</strong>: Node.js 22+</li>
+<li><strong>Microservices</strong>: 8+ independent services</li>
+<li><strong>Communication</strong>: RESTful APIs + Kafka event streaming</li>
+<li><strong>Testing</strong>: Jest, E2E testing</li>
+</ul>
+<h3 id="frontend-applications">Frontend Applications<a class="headerlink" href="#frontend-applications" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>OTT Web App</strong>: Next.js 14 with Server-Side Rendering</li>
+<li><strong>Video Player</strong>: Video.js with adaptive bitrate streaming</li>
+<li><strong>UI Framework</strong>: React 18 with server components</li>
+<li><strong>Build Tool</strong>: Webpack with optimization</li>
+<li><strong>Responsive</strong>: Mobile-first design (2-6 column grids)</li>
+</ul>
+<h3 id="databases-caching">Databases &amp; Caching<a class="headerlink" href="#databases-caching" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Primary Database</strong>: PostgreSQL 16 with pgvector extension</li>
+<li><strong>Vector Search</strong>: pgvector for semantic similarity (1536-dim embeddings)</li>
+<li><strong>Caching Layer</strong>: Redis 7 for performance optimization</li>
+<li><strong>Connection Pooling</strong>: Optimized for high concurrency</li>
+</ul>
+<h3 id="content-management">Content Management<a class="headerlink" href="#content-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CMS</strong>: Strapi v4 (headless CMS)</li>
+<li><strong>API</strong>: RESTful API with JWT authentication</li>
+<li><strong>Content Types</strong>: Video, audio, images, text metadata</li>
+<li><strong>Workflows</strong>: Editorial approval and publishing pipelines</li>
+</ul>
+<h3 id="event-streaming-messaging">Event Streaming &amp; Messaging<a class="headerlink" href="#event-streaming-messaging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Event Bus</strong>: Apache Kafka</li>
+<li><strong>Topics</strong>: Content uploads, metadata extraction, system events</li>
+<li><strong>Management</strong>: Kafka UI for monitoring and debugging</li>
+<li><strong>Event Sourcing</strong>: Full audit trail of all events</li>
+</ul>
+<h3 id="storage-cdn">Storage &amp; CDN<a class="headerlink" href="#storage-cdn" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Origin Storage</strong>: MinIO S3-compatible storage</li>
+<li><strong>Buckets</strong>: content-originals, content-processed, extraction-artifacts, strapi-uploads</li>
+<li><strong>CDN</strong>: Cloudflare R2 / BunnyCDN for global delivery</li>
+<li><strong>Streaming</strong>: HLS/DASH adaptive bitrate protocols</li>
+</ul>
+<h3 id="multimodal-ai-machine-learning">Multimodal AI &amp; Machine Learning<a class="headerlink" href="#multimodal-ai-machine-learning" title="Permanent link">&para;</a></h3>
+<h4 id="nlp-service-text-analysis">NLP Service (Text Analysis)<a class="headerlink" href="#nlp-service-text-analysis" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Framework</strong>: spaCy, Hugging Face Transformers</li>
+<li><strong>Capabilities</strong>:</li>
+<li>Named Entity Recognition (NER)</li>
+<li>Topic modeling and classification</li>
+<li>Sentiment analysis</li>
+<li>Keyword extraction</li>
+<li>Text summarization</li>
+</ul>
+<h4 id="vision-service-imagevideo-analysis">Vision Service (Image/Video Analysis)<a class="headerlink" href="#vision-service-imagevideo-analysis" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Framework</strong>: OpenAI CLIP, OpenCV</li>
+<li><strong>Capabilities</strong>:</li>
+<li>CLIP embeddings for semantic image search</li>
+<li>Scene detection and segmentation</li>
+<li>Object recognition</li>
+<li>Logo and brand detection</li>
+<li>Frame-by-frame video analysis</li>
+<li>Visual similarity search</li>
+</ul>
+<h4 id="audio-service-audio-processing">Audio Service (Audio Processing)<a class="headerlink" href="#audio-service-audio-processing" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Framework</strong>: OpenAI Whisper, pyannote</li>
+<li><strong>Capabilities</strong>:</li>
+<li>Speech-to-text transcription (90+ languages)</li>
+<li>Speaker diarization (who spoke when)</li>
+<li>Audio feature extraction</li>
+<li>Music/speech classification</li>
+<li>Acoustic scene detection</li>
+</ul>
+<h4 id="media-processor">Media Processor<a class="headerlink" href="#media-processor" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tool</strong>: FFmpeg</li>
+<li><strong>Functions</strong>:</li>
+<li>Video frame extraction (1 frame/second, max 60 frames)</li>
+<li>Audio track extraction (16kHz mono WAV for Whisper)</li>
+<li>Metadata extraction (duration, resolution, codecs)</li>
+<li>Format conversion and transcoding</li>
+</ul>
+<h4 id="feature-store">Feature Store<a class="headerlink" href="#feature-store" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Database</strong>: PostgreSQL + pgvector</li>
+<li><strong>Storage</strong>: Centralized repository of all extracted features</li>
+<li><strong>Search</strong>: Semantic similarity search across all modalities</li>
+<li><strong>Versioning</strong>: Track extraction model versions for reproducibility</li>
+</ul>
+<h3 id="infrastructure-deployment">Infrastructure &amp; Deployment<a class="headerlink" href="#infrastructure-deployment" title="Permanent link">&para;</a></h3>
+<h4 id="containerization">Containerization<a class="headerlink" href="#containerization" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Docker</strong>: Multi-stage Dockerfile builds</li>
+<li><strong>Docker Compose</strong>: Full stack orchestration</li>
+<li><strong>Services</strong>: 10+ containerized services</li>
+<li><strong>Networking</strong>: Custom bridge networks</li>
+</ul>
+<h4 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Kubernetes</strong>: Production-ready manifests</li>
+<li><strong>Resources</strong>: Deployments, StatefulSets, Services, Ingress</li>
+<li><strong>Scaling</strong>: Horizontal Pod Autoscaling (HPA)</li>
+<li><strong>Secrets</strong>: Kubernetes Secrets management</li>
+</ul>
+<h4 id="infrastructure-as-code">Infrastructure as Code<a class="headerlink" href="#infrastructure-as-code" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Terraform</strong>: Cloud infrastructure provisioning</li>
+<li><strong>Modules</strong>: Reusable infrastructure components</li>
+<li><strong>State Management</strong>: Remote state backend</li>
+</ul>
+<h4 id="cicd-pipeline">CI/CD Pipeline<a class="headerlink" href="#cicd-pipeline" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Platform</strong>: GitHub Actions</li>
+<li><strong>Workflows</strong>: Build, test, deploy</li>
+<li><strong>Stages</strong>: Lint → Test → Build → Deploy</li>
+<li><strong>Environments</strong>: Development, staging, production</li>
+</ul>
+<h4 id="monitoring-observability-planned">Monitoring &amp; Observability (Planned)<a class="headerlink" href="#monitoring-observability-planned" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Metrics</strong>: Prometheus for time-series data</li>
+<li><strong>Visualization</strong>: Grafana dashboards</li>
+<li><strong>Logging</strong>: ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+<li><strong>Tracing</strong>: Distributed tracing for microservices</li>
+</ul>
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h3 id="event-driven-metadata-extraction">Event-Driven Metadata Extraction<a class="headerlink" href="#event-driven-metadata-extraction" title="Permanent link">&para;</a></h3>
+<p>Content uploads automatically trigger a sophisticated extraction pipeline:</p>
+<ol>
+<li><strong>S3 Event</strong>: Content uploaded to MinIO triggers S3 event</li>
+<li><strong>Kafka Topic</strong>: Event published to metadata-extraction topic</li>
+<li><strong>Orchestrator</strong>: Routes job to appropriate extraction services</li>
+<li><strong>Parallel Processing</strong>: NLP, Vision, and Audio services process simultaneously</li>
+<li><strong>Feature Store</strong>: Results stored with vector embeddings</li>
+<li><strong>Indexing</strong>: Content becomes searchable across all modalities</li>
+</ol>
+<h3 id="semantic-content-discovery">Semantic Content Discovery<a class="headerlink" href="#semantic-content-discovery" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Vector similarity search using CLIP embeddings</li>
+<li>"Find similar videos" based on visual content</li>
+<li>Text-to-video search ("show me videos about technology")</li>
+<li>Audio-based search (speaker identification, topic matching)</li>
+<li>Multi-modal fusion (combine text, visual, and audio signals)</li>
+</ul>
+<h3 id="recommendation-engine">Recommendation Engine<a class="headerlink" href="#recommendation-engine" title="Permanent link">&para;</a></h3>
+<p>Three recommendation strategies:</p>
+<ol>
+<li><strong>Popular Content</strong>: Trending content based on view counts and engagement</li>
+<li><strong>Continue Watching</strong>: Resume watching from last position</li>
+<li><strong>Similar Content</strong>: Vector similarity using content embeddings</li>
+</ol>
+<h3 id="real-time-ott-streaming">Real-Time OTT Streaming<a class="headerlink" href="#real-time-ott-streaming" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Adaptive Bitrate</strong>: Automatically adjusts quality based on bandwidth</li>
+<li><strong>Video Player</strong>: Video.js with custom controls and playlists</li>
+<li><strong>DRM Support</strong>: Content protection (planned)</li>
+<li><strong>Analytics</strong>: Real-time playback telemetry</li>
+<li><strong>Session Management</strong>: User authentication and watch history</li>
+</ul>
+<h3 id="production-grade-infrastructure">Production-Grade Infrastructure<a class="headerlink" href="#production-grade-infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>High Availability</strong>: Redundant services with load balancing</li>
+<li><strong>Scalability</strong>: Horizontal scaling for all stateless services</li>
+<li><strong>Performance</strong>: Redis caching, database connection pooling</li>
+<li><strong>Security</strong>: JWT authentication, input validation, CORS configuration</li>
+<li><strong>Monitoring</strong>: Health checks, metrics collection, alerting</li>
+</ul>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>The project includes extensive documentation (350+ pages):</p>
+<ul>
+<li><strong>Architecture Overview</strong> (95KB): System design and component relationships</li>
+<li><strong>Metadata Extraction Layer</strong> (39KB): Detailed AI/ML pipeline documentation</li>
+<li><strong>Service Specifications</strong>: Individual docs for all 8 microservices</li>
+<li><strong>API Documentation</strong>: OpenAPI 3.0 specifications</li>
+<li><strong>Deployment Guides</strong>: Docker Compose, Kubernetes, Terraform</li>
+<li><strong>Technology Decisions</strong>: Rationale for tech stack choices</li>
+<li><strong>Mermaid Diagrams</strong>: Visual architecture and workflow diagrams</li>
+</ul>
+<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Start infrastructure services
+cd infrastructure
+docker-compose up -d
+
+# Start development servers
+npm run dev
+
+# Or start individual services
+npm run dev:recommendation
+npm run dev:ott-web</code></pre>
+<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Run all tests
+npm run test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run E2E tests
+npm run test:e2e</code></pre>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Docker Compose deployment
+docker-compose -f infrastructure/docker-compose.yml up -d
+
+# Kubernetes deployment
+kubectl apply -f infrastructure/kubernetes/
+
+# Terraform infrastructure
+cd infrastructure/terraform
+terraform init
+terraform plan
+terraform apply</code></pre>
+<h2 id="modules-services">Modules &amp; Services<a class="headerlink" href="#modules-services" title="Permanent link">&para;</a></h2>
+<h3 id="module-0-ott-web-frontend-port-3100">Module 0: OTT Web Frontend (Port 3100)<a class="headerlink" href="#module-0-ott-web-frontend-port-3100" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Next.js 14 streaming platform</li>
+<li>Video.js player with fluid 16:9 aspect ratio</li>
+<li>Responsive grids (2-6 columns)</li>
+<li>My List and search functionality</li>
+</ul>
+<h3 id="module-1-recommendation-service-port-3001">Module 1: Recommendation Service (Port 3001)<a class="headerlink" href="#module-1-recommendation-service-port-3001" title="Permanent link">&para;</a></h3>
+<ul>
+<li>3 recommendation strategies</li>
+<li>Real-time content fetching from Strapi</li>
+<li>Caching layer for performance</li>
+<li>RESTful API with OpenAPI documentation</li>
+</ul>
+<h3 id="module-2-auth-service-port-3002">Module 2: Auth Service (Port 3002)<a class="headerlink" href="#module-2-auth-service-port-3002" title="Permanent link">&para;</a></h3>
+<ul>
+<li>JWT-based authentication</li>
+<li>User session management</li>
+<li>OAuth2/OIDC integration (planned)</li>
+</ul>
+<h3 id="module-3-metadata-extraction-ports-3005-3008">Module 3: Metadata Extraction (Ports 3005-3008)<a class="headerlink" href="#module-3-metadata-extraction-ports-3005-3008" title="Permanent link">&para;</a></h3>
+<ul>
+<li>NLP Service: Text analysis and entity extraction</li>
+<li>Vision Service: Image/video analysis with CLIP</li>
+<li>Audio Service: Transcription and diarization</li>
+<li>Orchestrator: Job scheduling and coordination</li>
+</ul>
+<h3 id="module-4-mam-backend-port-4000">Module 4: MAM Backend (Port 4000)<a class="headerlink" href="#module-4-mam-backend-port-4000" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Media Asset Management API</li>
+<li>AI-powered semantic search</li>
+<li>Asset metadata management</li>
+<li>Version control for media assets</li>
+</ul>
+<h3 id="module-5-mam-frontend-port-3000">Module 5: MAM Frontend (Port 3000)<a class="headerlink" href="#module-5-mam-frontend-port-3000" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Web interface for media management</li>
+<li>Asset browser and search</li>
+<li>Metadata editing</li>
+<li>Preview and playback</li>
+</ul>
+<h3 id="modules-6-9-planned">Modules 6-9 (Planned)<a class="headerlink" href="#modules-6-9-planned" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Content Enrichment Service</li>
+<li>Brand Safety &amp; Compliance</li>
+<li>AdCP Context Builder</li>
+<li>AdCP Gateway</li>
+</ul>
+<h2 id="performance-characteristics">Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>API Response Time</strong>: &lt;100ms for cached requests</li>
+<li><strong>Video Playback Start</strong>: &lt;2s time to first frame</li>
+<li><strong>Metadata Extraction</strong>: 2-5 minutes per video (depending on length)</li>
+<li><strong>Search Query</strong>: &lt;500ms for vector similarity search</li>
+<li><strong>Concurrent Users</strong>: Tested up to 100+ simultaneous streams</li>
+</ul>
+<h2 id="cloud-deployment-google-cloud-platform">Cloud Deployment (Google Cloud Platform)<a class="headerlink" href="#cloud-deployment-google-cloud-platform" title="Permanent link">&para;</a></h2>
+<p>The OTT streaming platform is deployed on <strong>Google Cloud Platform</strong> in a production microservices architecture across multiple GCP services:</p>
+<h3 id="cloud-run-serverless-microservices">Cloud Run — Serverless Microservices<a class="headerlink" href="#cloud-run-serverless-microservices" title="Permanent link">&para;</a></h3>
+<p>5 containerized services deployed as Cloud Run instances in <code>asia-southeast1</code> (Singapore):</p>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Role</th>
+<th>Resources</th>
+<th>Auto-scaling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ott-web</strong></td>
+<td>Next.js OTT frontend with SSR</td>
+<td>1 vCPU, 1Gi RAM</td>
+<td>Up to 3 instances</td>
+</tr>
+<tr>
+<td><strong>auth-service</strong></td>
+<td>JWT authentication and user management</td>
+<td>1 vCPU, 512Mi RAM</td>
+<td>Auto</td>
+</tr>
+<tr>
+<td><strong>rec-service</strong></td>
+<td>ML recommendation engine</td>
+<td>1 vCPU, 1Gi RAM</td>
+<td>Auto</td>
+</tr>
+<tr>
+<td><strong>mam-service</strong></td>
+<td>Media asset management API</td>
+<td>1 vCPU, 512Mi RAM</td>
+<td>Auto</td>
+</tr>
+<tr>
+<td><strong>ml-service</strong></td>
+<td>ML inference and content analysis</td>
+<td>2 vCPU, 2Gi RAM</td>
+<td>Auto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cloud-sql-managed-postgresql">Cloud SQL — Managed PostgreSQL<a class="headerlink" href="#cloud-sql-managed-postgresql" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Engine</strong>: PostgreSQL 16</li>
+<li><strong>Networking</strong>: Private IP (VPC peering) for secure service-to-service communication</li>
+<li><strong>Access</strong>: Only reachable from Cloud Run via VPC connector</li>
+</ul>
+<h3 id="compute-engine-media-streaming-server">Compute Engine — Media Streaming Server<a class="headerlink" href="#compute-engine-media-streaming-server" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Instance</strong>: <code>e2-small</code> VM running MediaMTX</li>
+<li><strong>Purpose</strong>: Live media streaming and transcoding</li>
+<li><strong>Public IP</strong>: Directly accessible for stream ingest</li>
+</ul>
+<h3 id="artifact-registry-container-management">Artifact Registry — Container Management<a class="headerlink" href="#artifact-registry-container-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Repository</strong>: Docker registry in <code>asia-southeast1</code></li>
+<li><strong>Images</strong>: 5 production container images (~3.3GB total)</li>
+<li><strong>Pipeline</strong>: Build locally → Push to Artifact Registry → Deploy to Cloud Run</li>
+</ul>
+<h3 id="secret-manager">Secret Manager<a class="headerlink" href="#secret-manager" title="Permanent link">&para;</a></h3>
+<p>10 managed secrets for secure credential handling:</p>
+<ul>
+<li>Database passwords (auth, MAM, ML, recommendation, Strapi)</li>
+<li>JWT and playback secrets</li>
+<li>Payment gateway keys (Midtrans)</li>
+<li>Email service credentials (Resend API, SMTP)</li>
+</ul>
+<h3 id="gcp-architecture-diagram">GCP Architecture Diagram<a class="headerlink" href="#gcp-architecture-diagram" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code>                        ┌─────────────────────┐
+                        │   Custom Domain      │
+                        │   (Cloud Run Mapping) │
+                        └─────────┬───────────┘
+                                  │
+                    ┌─────────────▼─────────────┐
+                    │     Cloud Run (5 svc)      │
+                    │  ┌───────┐  ┌───────────┐  │
+                    │  │ott-web│  │auth-service│  │
+                    │  └───┬───┘  └─────┬─────┘  │
+                    │  ┌───┴───┐  ┌─────┴─────┐  │
+                    │  │rec-svc│  │ mam-service│  │
+                    │  └───────┘  └───────────┘  │
+                    │  ┌──────────┐               │
+                    │  │ml-service│               │
+                    │  └──────────┘               │
+                    └─────────────┬──────────────┘
+                                  │ VPC Connector
+                    ┌─────────────▼──────────────┐
+                    │      Cloud SQL (PG 16)      │
+                    │      Private IP only        │
+                    └────────────────────────────┘
+
+    ┌────────────────┐    ┌─────────────────────┐
+    │ Compute Engine │    │  Artifact Registry   │
+    │   MediaMTX     │    │  Docker images (5)   │
+    │  (streaming)   │    │  ~3.3GB total        │
+    └────────────────┘    └─────────────────────┘
+
+    ┌─────────────────────────────────────────┐
+    │         Secret Manager (10 secrets)      │
+    │  DB passwords, JWT, API keys, SMTP       │
+    └─────────────────────────────────────────┘</code></pre>
+<h3 id="cloud-skills-demonstrated">Cloud Skills Demonstrated<a class="headerlink" href="#cloud-skills-demonstrated" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Serverless container deployment (Cloud Run)</li>
+<li>Managed database with private networking (Cloud SQL + VPC)</li>
+<li>Container registry management (Artifact Registry)</li>
+<li>Secret management (Secret Manager)</li>
+<li>Domain mapping with managed SSL</li>
+<li>Cost-optimized architecture (serverless auto-scaling)</li>
+</ul>
+<hr />
+<h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Authentication</strong>: JWT tokens with expiration</li>
+<li><strong>Authorization</strong>: Role-based access control (RBAC)</li>
+<li><strong>Input Validation</strong>: class-validator for all inputs</li>
+<li><strong>CORS</strong>: Configured per environment</li>
+<li><strong>Rate Limiting</strong>: Protection against abuse</li>
+<li><strong>SQL Injection</strong>: Parameterized queries with TypeORM</li>
+<li><strong>XSS Protection</strong>: Input sanitization</li>
+<li><strong>Secrets Management</strong>: Environment variables, never committed</li>
+</ul>
+<h2 id="scalability-considerations">Scalability Considerations<a class="headerlink" href="#scalability-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Stateless Services</strong>: Easy horizontal scaling</li>
+<li><strong>Database Connection Pooling</strong>: Efficient resource usage</li>
+<li><strong>Caching Strategy</strong>: Redis for frequently accessed data</li>
+<li><strong>CDN Integration</strong>: Global content delivery</li>
+<li><strong>Async Processing</strong>: Background jobs for heavy tasks</li>
+<li><strong>Microservices</strong>: Independent scaling per service</li>
+<li><strong>Event-Driven</strong>: Decoupled components via Kafka</li>
+</ul>
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Multi-language support for UI</li>
+<li>Advanced personalization with ML models</li>
+<li>Real-time collaborative features</li>
+<li>Enhanced analytics and business intelligence</li>
+<li>Mobile native applications (iOS/Android)</li>
+<li>Voice search and voice commands</li>
+<li>Advanced DRM and watermarking</li>
+<li>Live streaming capabilities</li>
+</ul>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Repository</strong>: Private Company Repository</li>
+<li><strong>Documentation</strong>: 350+ pages including architecture, service specs, and deployment guides</li>
+</ul>
+<p><a href="../">← Back to Projects</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../broadcast-analytics/" class="btn btn-neutral float-left" title="Broadcast Analytics (MLOps)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../gpu-migration/" class="btn btn-neutral float-right" title="AI Service Migration (CPU to GPU)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../broadcast-analytics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../gpu-migration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

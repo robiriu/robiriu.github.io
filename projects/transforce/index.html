@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/transforce/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>TransForce (Particle Transport) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "TransForce (Particle Transport)";
+        var mkdocs_page_input_path = "projects/transforce.md";
+        var mkdocs_page_url = "/projects/transforce/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: AI-Native Applications</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">TransForce (Particle Transport)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-is-hard">Why This Is Hard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#architecture">Architecture</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#the-typed-intermediate-representation">The typed intermediate representation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-two-layer-mcp-insight">The two-layer MCP insight</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-27-simulation-tools">The 27 Simulation Tools</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#paper-reproduction-the-pipeline-that-makes-it-a-research-tool">Paper Reproduction: the pipeline that makes it a research tool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#agent-design-a-blocklist-and-why">Agent Design: a blocklist, and why</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compute-tiers">Compute Tiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#access-and-deployment">Access and Deployment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#current-status-and-direction">Current Status and Direction</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: AI-Native Applications</li>
+      <li class="breadcrumb-item active">TransForce (Particle Transport)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="transforce-ai-native-particle-transport">TransForce - AI-Native Particle Transport<a class="headerlink" href="#transforce-ai-native-particle-transport" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | Deployed and token-gated at transforce.forcex-ai.com</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A web application where you describe a nuclear physics problem in plain language and a headless Claude Code agent builds, runs, analyses, and improves the Monte Carlo radiation-transport simulation behind it, on top of <a href="https://github.com/openmc-dev/openmc">OpenMC</a>.</p>
+<p>Type <em>"model this LWR pin cell and give me k-eff"</em> and the agent constructs the CSG geometry, defines the materials, sets the source and tallies, runs the transport calculation, and reports the multiplication factor with its uncertainty. Point it at a paper and it will ingest the PDF, extract a structured model specification, generate a runnable deck, run it, and produce a computed-versus-experiment table with the k-eff bias in pcm.</p>
+<p>The browser and the agent edit <strong>one shared experiment store</strong>, synced live over WebSocket, so a tool call from the agent updates the dashboard as it happens.</p>
+<p><img alt="TransForce dashboard: an LWR pin cell model and its geometry plot" src="../../images/transforce-dashboard.png" /></p>
+<p><em>The dashboard after building a pin cell: the model summary (UO2 fuel, Zircaloy clad, light water; eigenvalue mode, 1000 particles by 50 batches) and the generated OpenMC geometry slice.</em></p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulation MCP tools</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>~4,900 lines of Python (FastAPI + FastMCP + openmc)</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React + Vite, live WebSocket sync</td>
+</tr>
+<tr>
+<td>Benchmark presets</td>
+<td>4 (pin cell, Godiva bare sphere, fuel assembly, shielding)</td>
+</tr>
+<tr>
+<td>Compute backends</td>
+<td>3 (local, remote VPS, GCP) over one transport interface</td>
+</tr>
+<tr>
+<td>Agent skills</td>
+<td>4 authored Claude skills</td>
+</tr>
+<tr>
+<td>Paper ingestion</td>
+<td>arXiv id, DOI (via Unpaywall), URL, or local PDF</td>
+</tr>
+<tr>
+<td>Cost model</td>
+<td>Runs on a Claude subscription, no Anthropic API key</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Live, token-gated, Docker + nginx + certbot</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="why-this-is-hard">Why This Is Hard<a class="headerlink" href="#why-this-is-hard" title="Permanent link">&para;</a></h2>
+<p>Monte Carlo transport is not a domain where you can let a language model improvise. A reactor physics model is a precise object: surfaces, regions, cell fills, universes, lattices, nuclide fractions, thermal scattering laws, source distributions, tally filters. Get one boundary condition wrong and the answer is quietly, confidently incorrect.</p>
+<p>So the design question is not "can the model write OpenMC code" but <strong>"what is the smallest, most constrained surface through which an agent can drive a physics code correctly?"</strong></p>
+<p>The answer here is a typed intermediate representation plus a tool layer, not code generation.</p>
+<hr />
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    U["Physicist"] --&gt; UI["React + Vite&lt;br/&gt;dashboard, chat, terminal"]
+    UI &lt;--&gt;|"WebSocket"| STORE[("ExperimentStore&lt;br/&gt;single source of truth")]
+    UI --&gt;|"chat"| AG["Headless claude -p&lt;br/&gt;on subscription"]
+    AG --&gt;|"MCP over HTTP /mcp"| SIM["transforce-sim&lt;br/&gt;27 simulation tools"]
+    SIM --&gt; STORE
+    SIM --&gt; DRV["OpenMC driver&lt;br/&gt;ModelSpec to openmc.Model"]
+    DRV --&gt; CMP{"Compute backend"}
+    CMP --&gt;|local| L["Local run dir"]
+    CMP --&gt;|"SSH"| R["Remote VPS / GCP"]
+    L --&gt; SP[("StatePoint&lt;br/&gt;k-eff, tallies")]
+    R --&gt; SP
+    SP --&gt; STORE</code></pre>
+<h3 id="the-typed-intermediate-representation">The typed intermediate representation<a class="headerlink" href="#the-typed-intermediate-representation" title="Permanent link">&para;</a></h3>
+<p>Nothing in the agent's path writes Python. The agent manipulates a <strong>provider-agnostic <code>ModelSpec</code></strong> built from Pydantic models, and a separate driver translates that spec into live <code>openmc</code> objects. The spec layer imports nothing from OpenMC at all.</p>
+<p>That separation is the core safety property. The agent can only express things the schema permits, the translation is deterministic and testable, and an invalid model fails at validation rather than deep inside a physics run.</p>
+<p>The spec covers what real problems need:</p>
+<ul>
+<li><strong>Materials</strong> with nuclide or element fractions (atom or weight), density in four unit systems, thermal scattering tables (<code>c_H_in_H2O</code>), and per-material temperature</li>
+<li><strong>Geometry</strong> as CSG: surfaces with boundary conditions, cells with region expressions (<code>-fuel_or &amp; +clad_or</code>), universes, rectangular and hexagonal lattices, plus a DAGMC path for CAD-based geometry</li>
+<li><strong>Sources</strong> with independent space, energy, and angle distributions (Watt, Maxwell, discrete, tabular, power law, Muir) and sampling constraints</li>
+<li><strong>Tallies</strong> with filters for energy, outgoing energy, time, mu, polar and azimuthal angle, particle type, delayed group, and mesh (regular, rectilinear, cylindrical, spherical)</li>
+<li><strong>Settings</strong> for eigenvalue, fixed source, volume, and plot run modes, with temperature interpolation methods</li>
+</ul>
+<h3 id="the-two-layer-mcp-insight">The two-layer MCP insight<a class="headerlink" href="#the-two-layer-mcp-insight" title="Permanent link">&para;</a></h3>
+<p>OpenMC ships official "agentic tools", and the important discovery was that <strong>they are not simulation tools at all</strong>. They are a local RAG index over OpenMC's own C++ and Python source, built to help an agent contribute to OpenMC.</p>
+<p>TransForce therefore runs two distinct MCP layers:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Purpose</th>
+<th>Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transforce-sim</code></td>
+<td>Build, run, tally, plot, deplete, benchmark, reproduce</td>
+<td>Built here, 27 tools</td>
+</tr>
+<tr>
+<td>OpenMC code RAG</td>
+<td>Semantic search over the ~2M-token OpenMC source when the agent needs to reason about transport internals rather than call the public API</td>
+<td>Reused, vendored as a git submodule</td>
+</tr>
+</tbody>
+</table>
+<p>The simulation layer is where the product lives. The RAG layer is what lets the agent answer "why does this method behave this way" instead of guessing.</p>
+<hr />
+<h2 id="the-27-simulation-tools">The 27 Simulation Tools<a class="headerlink" href="#the-27-simulation-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Experiment</td>
+<td><code>create_experiment</code>, <code>get_experiment</code>, <code>load_preset</code>, <code>set_spec</code></td>
+</tr>
+<tr>
+<td>Execute</td>
+<td><code>build</code>, <code>run</code>, <code>run_depletion</code>, <code>run_volume</code></td>
+</tr>
+<tr>
+<td>Results</td>
+<td><code>get_keff</code>, <code>get_tally</code>, <code>diff_runs</code></td>
+</tr>
+<tr>
+<td>Visualise</td>
+<td><code>plot_geometry</code>, <code>plot_convergence</code>, <code>plot_spectrum</code>, <code>plot_compare</code>, <code>plot_mesh_tally</code></td>
+</tr>
+<tr>
+<td>Advanced physics</td>
+<td><code>generate_weight_windows</code>, <code>generate_mgxs</code></td>
+</tr>
+<tr>
+<td>Literature</td>
+<td><code>web_search</code>, <code>web_fetch</code>, <code>ingest_paper</code>, <code>get_paper</code></td>
+</tr>
+<tr>
+<td>Benchmarking</td>
+<td><code>set_reference</code>, <code>compare_to_reference</code>, <code>list_benchmarks</code></td>
+</tr>
+<tr>
+<td>Improvement</td>
+<td><code>propose_improvements</code></td>
+</tr>
+<tr>
+<td>Reporting</td>
+<td><code>generate_report</code></td>
+</tr>
+</tbody>
+</table>
+<p>This is not a thin wrapper over "run OpenMC". It includes <strong>variance reduction</strong> (weight-window generation for deep-penetration shielding), <strong>multi-group cross-section generation</strong>, <strong>stochastic volume calculation</strong>, and <strong>depletion</strong> with a resolved decay chain, which are the parts of a transport workflow that actually take expertise.</p>
+<hr />
+<h2 id="paper-reproduction-the-pipeline-that-makes-it-a-research-tool">Paper Reproduction: the pipeline that makes it a research tool<a class="headerlink" href="#paper-reproduction-the-pipeline-that-makes-it-a-research-tool" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    A["Paper: arXiv id, DOI, URL or PDF"] --&gt; B["Resolve and fetch&lt;br/&gt;Unpaywall for open access"]
+    B --&gt; C["Agent extracts a structured ModelSpec&lt;br/&gt;geometry, materials, source, settings"]
+    C --&gt; D["Build a runnable OpenMC deck"]
+    D --&gt; E["Run"]
+    E --&gt; F["Compare to reported values&lt;br/&gt;C/E table, k-eff bias in pcm"]
+    F --&gt; G{"Within tolerance?"}
+    G --&gt;|no| H["Agent revises the model&lt;br/&gt;and states its assumptions"]
+    G --&gt;|yes| I["propose_improvements&lt;br/&gt;mesh, convergence, data library"]
+    I --&gt; J["Run the variant, diff against baseline"]
+    J --&gt; K["PDF report"]</code></pre>
+<p>Ingestion accepts an arXiv identifier, a bare DOI (resolved to an open-access PDF through Unpaywall before falling back to doi.org), a URL, or a local file.</p>
+<p>Comparison is quantitative rather than narrative. <code>compare_to_reference</code> builds a computed-versus-experiment table, computes the k-eff bias in <strong>pcm</strong>, combines the uncertainties of both sides, and returns a pass or fail against a configurable tolerance (200 pcm by default). <code>diff_runs</code> then quantifies a change between two runs in pcm, so an "improvement" has to prove itself numerically against the baseline.</p>
+<p><code>propose_improvements</code> reads the comparison and the model together and suggests targeted changes, for example flagging thermal scattering treatment when the moderator looks like water and the bias points that way.</p>
+<p>Everything lands in a <strong>reportlab-generated PDF</strong> with the model, runs, comparison table, and plots. Pure Python, no system dependencies, so the report generates anywhere the app runs.</p>
+<hr />
+<h2 id="agent-design-a-blocklist-and-why">Agent Design: a blocklist, and why<a class="headerlink" href="#agent-design-a-blocklist-and-why" title="Permanent link">&para;</a></h2>
+<p>The chat agent runs as headless <code>claude -p</code> on a <strong>Claude subscription</strong>, with <code>ANTHROPIC_API_KEY</code> explicitly removed from the child environment so it can never silently fall back to metered API billing.</p>
+<p>The interesting decision is how it is constrained. The agent runs with <code>--dangerously-skip-permissions</code> (there is no human to approve each call in a chat loop), so something has to bound it. It is restricted to only the <code>mcp__transforce-sim__*</code> tools by <strong>disallowing</strong> the entire built-in Claude Code toolset: Bash, Read, Write, Edit, Glob, Grep, WebFetch, WebSearch, and the task and monitor tools.</p>
+<p>A blocklist rather than an allowlist, and the reason is specific: the spawned <code>claude</code> inherits the user's <code>settings.json</code>, and <code>--allowedTools</code> only <em>adds</em> approvals, while <code>--disallowedTools</code> takes precedence and removes a tool outright. An allowlist would have left the inherited tools reachable.</p>
+<p>Without that boundary the agent wandered, running the pytest suite through Bash or opening plot PNGs with Read instead of calling the plotting tool. Constraining it to the simulation surface is what makes it behave like a physics copilot rather than a coding agent that happens to be pointed at a physics repo.</p>
+<p>The chat is also given a <strong>lean MCP config</strong> (<code>.mcp.chat.json</code>, simulation tools only). The heavier OpenMC code-RAG server stays wired for the embedded terminal, where deep source navigation is the point, because loading it into chat slowed startup and pulled the agent off task.</p>
+<hr />
+<h2 id="compute-tiers">Compute Tiers<a class="headerlink" href="#compute-tiers" title="Permanent link">&para;</a></h2>
+<p>Transport runs are expensive and a laptop is not always the right machine, so execution sits behind a small <code>Transport</code> interface with two implementations:</p>
+<ul>
+<li><strong><code>LocalTransport</code></strong> runs in a local working directory and exercises the exact same export, run, and retrieve pipeline as the remote path, so the whole flow is testable without SSH</li>
+<li><strong><code>SSHTransport</code></strong> targets a VPS or a GCP instance</li>
+</ul>
+<p>The pipeline is identical either way: export the model to XML locally, push the inputs to the execution host, run OpenMC there, then pull the statepoint file back into the persistent run directory and read k-eff and tallies from it. The cross-section library path is resolved per host.</p>
+<p>Making the local backend implement the same interface rather than short-circuiting it is what keeps the remote path honest, since every test of the local path is also a test of the staging and retrieval logic.</p>
+<hr />
+<h2 id="access-and-deployment">Access and Deployment<a class="headerlink" href="#access-and-deployment" title="Permanent link">&para;</a></h2>
+<p>Deployed behind host nginx with certbot, in a resource-capped Docker container.</p>
+<p>Data routes (<code>/api</code>, <code>/ws*</code>, <code>/plots</code>) are gated by a shared <code>APP_TOKEN</code>. A visitor exchanges the token <strong>once</strong> for an HttpOnly cookie, so the secret never rides in a URL or a log line. This is deliberately a single shared secret for trusted operators rather than multi-user accounts: anyone holding it gets full access including the server terminal, and shares one workspace.</p>
+<p>That boundary is a licensing one as much as a technical one. Driving the agent from a Claude subscription is appropriate for operator-scale use; a public multi-tenant service would need an API key under commercial terms. The deployment is scoped to match.</p>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physics</td>
+<td>OpenMC (continuous-energy Monte Carlo), ENDF/B-VIII.0 data, depletion chains</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Python, FastAPI, FastMCP, Pydantic v2, websockets</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Claude Code headless CLI on subscription, MCP over HTTP, 4 authored skills</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>React, Vite, xterm.js, live WebSocket state sync</td>
+</tr>
+<tr>
+<td>Analysis</td>
+<td>matplotlib, reportlab, numpy</td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>Local and SSH transports (VPS, GCP), ptyprocess</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Docker, nginx, certbot, token gate with HttpOnly cookie</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="current-status-and-direction">Current Status and Direction<a class="headerlink" href="#current-status-and-direction" title="Permanent link">&para;</a></h2>
+<p><strong>Working:</strong> the full build, run, tally, plot, and compare loop; four benchmark presets including the Godiva bare-sphere criticality benchmark; paper ingestion and C/E comparison; depletion; weight windows and MGXS; PDF reporting; live dashboard sync; embedded terminal; deployed and gated.</p>
+<p><strong>In progress:</strong> broadening the reproduced-benchmark set and tightening the agent's spec extraction from papers, which is the step where a wrong assumption is most expensive and most worth surfacing explicitly.</p>
+<p><em>Private repository. Screenshots are from the running application.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../erp-automation-platform/" class="btn btn-neutral float-left" title="Agentic ERP Automation Platform (Live)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cutforce/" class="btn btn-neutral float-right" title="CutForce (Video Editor)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../erp-automation-platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cutforce/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+/* Social embeds (currently the Instagram defence announcement on the education
+   page).
+
+   Instagram serves its embed as a fixed-size iframe that cannot report its own
+   height, so the height is set here. The media scales with the width while the
+   account header and the action bar underneath stay constant, which works out
+   at roughly (width + 210px); Instagram also varies whether it draws the likes
+   and comment rows, so the value is set a little above the tallest variant.
+   Overshooting is free because the surplus is white inside a white card, while
+   undershooting visibly clips the bottom of the post. */
+.social-embed {
+    max-width: 500px;
+    margin: 1.5em auto;
+}
+
+.social-embed iframe {
+    display: block;
+    width: 100%;
+    height: 730px;
+    border: 0;
+    background: #ffffff;
+}
+
+/* Below ~500px the card is narrower than its 500px cap, so its height tracks
+   the viewport instead of being a fixed value. */
+@media (max-width: 500px) {
+    .social-embed iframe { height: calc(100vw + 220px); }
+}

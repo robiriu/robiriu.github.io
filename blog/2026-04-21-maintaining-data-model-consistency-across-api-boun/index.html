@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/blog/2026-04-21-maintaining-data-model-consistency-across-api-boun/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Maintaining Data Model Consistency Across API Boundaries - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Maintaining Data Model Consistency Across API Boundaries";
+        var mkdocs_page_input_path = "blog/2026-04-21-maintaining-data-model-consistency-across-api-boun.md";
+        var mkdocs_page_url = "/blog/2026-04-21-maintaining-data-model-consistency-across-api-boun/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../projects/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../projects/recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Maintaining Data Model Consistency Across API Boundaries</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Maintaining Data Model Consistency Across API Boundaries</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The integrity of data models is fundamental to the reliability and maintainability of distributed systems. Within an application programming interface (API), data structures serve as critical contracts between various components and external consumers. Discrepancies in field names, data types, or structural definitions across these contracts can lead to system failures, data corruption, and significant operational overhead. This discussion explores the principles and practical considerations for ensuring consistent data model definitions throughout the lifecycle of an API-driven system, drawing insights from scenarios where field name mismatches can impede functionality.</p>
+<h2 id="technical-concepts">Technical Concepts<a class="headerlink" href="#technical-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="data-models-and-api-contracts">Data Models and API Contracts<a class="headerlink" href="#data-models-and-api-contracts" title="Permanent link">&para;</a></h3>
+<p>A data model defines the logical structure of data elements and their relationships. In the context of an API, these models dictate the format of data exchanged between a client and a server, forming the API contract. This contract specifies expected inputs (request payloads) and promised outputs (response payloads), including the precise names of fields, their data types, and any constraints. For instance, a data model representing an analytical artifact might include fields such as <code>commit_hash</code> (a string identifier for a code commit) and <code>commit_message</code> (a string detailing the commit's purpose).</p>
+<h3 id="serialization-and-deserialization">Serialization and Deserialization<a class="headerlink" href="#serialization-and-deserialization" title="Permanent link">&para;</a></h3>
+<p>When data is transmitted across a network or stored persistently, it often undergoes serialization—the process of converting a data structure or object into a format that can be stored or transmitted (e.g., JSON, XML, Protocol Buffers). Conversely, deserialization is the process of reconstructing the original data structure from its serialized form. During these operations, the system relies on accurate mapping between the serialized representation and the internal data model. A mismatch in field names between the serialized data and the expected internal data model will result in deserialization failures, leading to unhandled exceptions or partial data processing.</p>
+<h3 id="schema-validation">Schema Validation<a class="headerlink" href="#schema-validation" title="Permanent link">&para;</a></h3>
+<p>Schema validation is the process of verifying that data conforms to a predefined structure and set of rules. This is typically performed at various points in an API's data flow:</p>
+<ul>
+<li><strong>Input Validation</strong>: Upon receiving an incoming request, the API gateway or server validates the payload against the expected input schema. This ensures that only well-formed data enters the system.</li>
+<li><strong>Internal Model Validation</strong>: As data moves between different internal services or layers, it may be transformed or re-validated against specific internal data models relevant to each component's domain.</li>
+<li><strong>Output Validation</strong>: Before sending a response, the API may validate the outgoing data against the defined output schema to ensure compliance with the API contract.</li>
+</ul>
+<p>Consistent field naming is a critical aspect of effective schema validation. If an internal data structure expects a field named <code>commit_hash</code> but the incoming request provides <code>commitHash</code>, validation will fail unless explicit mapping rules are in place.</p>
+<h2 id="approach-and-implementation-patterns">Approach and Implementation Patterns<a class="headerlink" href="#approach-and-implementation-patterns" title="Permanent link">&para;</a></h2>
+<p>Maintaining data model consistency involves a systematic approach to defining, validating, and transforming data throughout a system's architecture.</p>
+<h3 id="centralised-schema-definitions">Centralised Schema Definitions<a class="headerlink" href="#centralised-schema-definitions" title="Permanent link">&para;</a></h3>
+<p>A beneficial practice is to define data schemas in a single, authoritative location. This could be achieved using:</p>
+<ul>
+<li><strong>Schema Definition Languages (SDLs)</strong>: Tools like OpenAPI Specification (for RESTful APIs) or GraphQL Schema Definition Language allow for language-agnostic, human-readable definitions of API contracts. These definitions can then be used to generate client libraries, server stubs, and documentation, ensuring all components adhere to the same contract.</li>
+<li><strong>Shared Libraries</strong>: In a multi-service environment, a common library containing data model definitions (e.g., Pydantic models in Python, Java classes with annotations, Go structs) can be shared across services. This centralisation helps prevent deviations in field names and types.</li>
+</ul>
+<h3 id="data-flow-and-validation-enforcement">Data Flow and Validation Enforcement<a class="headerlink" href="#data-flow-and-validation-enforcement" title="Permanent link">&para;</a></h3>
+<p>Consider a scenario where an API receives data related to a "commit analysis" and stores it. The data flow requires the <code>commit_hash</code> and <code>commit_message</code> fields to be consistent from ingestion to persistence.</p>
+<p><pre class="mermaid"><code>graph TD
+    A[Client Request] --&gt;|Submit Commit Data| B(API Endpoint)
+    B --&gt; C{Input Data Validation}
+    C --&gt;|Valid Schema| D[Request Deserialization]
+    D --&gt; E(Internal Data Model Mapping)
+    E --x|Field Mismatch| F{Error Handling}
+    E --&gt;|Consistent Fields| G[Business Logic Processing]
+    G --&gt; H(Persistence Layer Mapping)
+    H --&gt; I[Data Storage]
+    F --&gt; J[Client Error Response]
+    I --&gt; B
+    B --&gt; K[Client Success Response]
+</code></pre>
+The diagram illustrates how data flows through an API, emphasising the validation and mapping stages. A <code>Field Mismatch</code> at the <code>Internal Data Model Mapping</code> stage, for example, due to an incorrect field name like <code>commitHash</code> instead of <code>commit_hash</code>, would divert the process to <code>Error Handling</code>, preventing incorrect data from proceeding.</p>
+<h3 id="generalised-code-example-data-model-definition-and-validation">Generalised Code Example: Data Model Definition and Validation<a class="headerlink" href="#generalised-code-example-data-model-definition-and-validation" title="Permanent link">&para;</a></h3>
+<p>In a Python application utilising an API framework, data models are frequently defined using classes that provide both structure and validation capabilities.</p>
+<p><pre class="highlight"><code class="language-python">from pydantic import BaseModel, Field
+
+# Define the data model for a CommitAnalysis entry
+class CommitAnalysisData(BaseModel):
+    """
+    Represents the data structure for a commit analysis record.
+    Ensures consistent field naming for 'commit_hash' and 'commit_message'.
+    """
+    commit_hash: str = Field(..., description="The unique identifier for the commit.")
+    commit_message: str = Field(..., description="The descriptive message associated with the commit.")
+    analysis_timestamp: int = Field(..., description="Timestamp of when the analysis was performed (Unix epoch).")
+
+# Example of an API endpoint handler
+def process_commit_analysis(raw_data: dict) -&gt; dict:
+    """
+    Processes incoming raw data, validates it against the CommitAnalysisData model,
+    and returns a processed representation.
+    """
+    try:
+        # Attempt to deserialize and validate the raw input data
+        validated_data = CommitAnalysisData(**raw_data)
+
+        # At this point, validated_data is an instance with guaranteed
+        # correct field names (commit_hash, commit_message) and types.
+        print(f"Validated Commit Hash: {validated_data.commit_hash}")
+        print(f"Validated Commit Message: {validated_data.commit_message}")
+
+        # Further business logic can operate on validated_data
+        # For demonstration, we just return a dictionary representation
+        return validated_data.model_dump()
+    except Exception as e:
+        # Handle validation errors, e.g., incorrect field names or types
+        print(f"Data validation failed: {e}")
+        raise ValueError("Invalid commit analysis data provided.")
+
+# --- Example Usage ---
+# Correct data demonstrating proper field names
+correct_payload = {
+    "commit_hash": "a1b2c3d4e5f67890",
+    "commit_message": "feat: implement initial data processing",
+    "analysis_timestamp": 1678886400
+}
+process_commit_analysis(correct_payload)
+
+# Incorrect data demonstrating a field name mismatch
+incorrect_payload = {
+    "commitHash": "x1y2z3a4b5c6d7e8", # Incorrect field name
+    "commit_message": "fix: resolve data mapping issue",
+    "analysis_timestamp": 1678887000
+}
+try:
+    process_commit_analysis(incorrect_payload)
+except ValueError as e:
+    print(f"Caught expected error: {e}")
+</code></pre>
+This example illustrates how <code>CommitAnalysisData</code> acts as a schema, enforcing that incoming dictionary keys must precisely match <code>commit_hash</code> and <code>commit_message</code>. If <code>commitHash</code> is supplied instead of <code>commit_hash</code>, the <code>Pydantic</code> model will raise a validation error, preventing the malformed data from being processed further. This explicit definition and validation mechanism is a standard practice for maintaining data integrity.</p>
+<h3 id="data-transformation-and-migration">Data Transformation and Migration<a class="headerlink" href="#data-transformation-and-migration" title="Permanent link">&para;</a></h3>
+<p>Over time, data models may evolve. When field names or structures need to change, a strategy for data transformation and migration is required. This typically involves:</p>
+<ul>
+<li><strong>Versioned APIs</strong>: Introducing new API versions (e.g., <code>/v1/commit_analysis</code>, <code>/v2/commit_analysis</code>) to support older clients while new clients adopt updated data models.</li>
+<li><strong>Transformation Layers</strong>: Implementing specific components responsible for mapping data between different versions of a schema or between external and internal representations. This ensures that legacy data can be consumed by new services, and vice versa, without requiring immediate system-wide updates.</li>
+<li><strong>Database Schema Migration Tools</strong>: Utilising tools that manage changes to the persistent storage schema, ensuring that database field names align with the application's data models.</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Consistency is Paramount</strong>: Maintaining identical field names and data types across API contracts, internal data models, and persistence layers is essential for system correctness and operability.</li>
+<li><strong>Schema Validation Prevents Errors</strong>: Implementing rigorous schema validation at API boundaries and internal processing stages helps detect and prevent data model discrepancies early in the data flow.</li>
+<li><strong>Centralised Definitions Improve Governance</strong>: Defining data schemas in a single, accessible location or through shared libraries enhances consistency and simplifies maintenance across multiple services and teams.</li>
+<li><strong>Strategic Evolution Requires Planning</strong>: Data model changes must be managed carefully, potentially through API versioning and explicit transformation layers, to ensure backward compatibility and smooth transitions.</li>
+</ul>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>The careful management of data model definitions, particularly concerning field names, forms a cornerstone of reliable software engineering. Discrepancies, even minor ones like an incorrect casing for a field name, can lead to cascading failures throughout a system. By adopting practices such as centralised schema definitions, comprehensive validation, and planned data model evolution, organisations can significantly enhance the stability, security, and maintainability of their API-driven applications. Adhering to these principles ensures that data flows correctly and predictably, supporting the long-term operational integrity of complex systems.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

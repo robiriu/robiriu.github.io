@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/recommendation-systems-research/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Recommendation Systems - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Recommendation Systems";
+        var mkdocs_page_input_path = "projects/recommendation-systems-research.md";
+        var mkdocs_page_url = "/projects/recommendation-systems-research/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Research</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Recommendation Systems</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#key-achievements">Key Achievements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#research-overview">Research Overview</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#systems-studied">Systems Studied</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#architecture-comparison">Architecture Comparison</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-architectures">System Architectures</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#youtube-two-tower-model">YouTube Two-Tower Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#netflix-foundation-model">Netflix Foundation Model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#hybrid-system">Hybrid System</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#interactive-exploration-apps">Interactive Exploration Apps</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#app-workflow">App Workflow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-generation-features">Data Generation Features</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grid-search-optimization">Grid Search Optimization</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#methodology">Methodology</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#metrics-definition">Metrics Definition</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#test-parameters">Test Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#results">Results</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#best-configurations-summary">Best Configurations Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#performance-visualization">Performance Visualization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#detailed-results-by-system">Detailed Results by System</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-findings">Key Findings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#universal-insights">Universal Insights</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#precision-vs-diversity-trade-off">Precision vs Diversity Trade-off</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#system-selection-guide">System Selection Guide</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#production-recommendations">Production Recommendations</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#recommended-configurations">Recommended Configurations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#implementation-priority">Implementation Priority</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technologies-used">Technologies Used</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#core-stack">Core Stack</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#architecture-components">Architecture Components</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-structure">Project Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-the-project">Running the Project</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#running-apps">Running Apps</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#running-grid-search">Running Grid Search</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-enhancements">Future Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#research-papers">Research Papers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Research</li>
+      <li class="breadcrumb-item active">Recommendation Systems</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="recommendation-systems-research-exploration">Recommendation Systems Research &amp; Exploration<a class="headerlink" href="#recommendation-systems-research-exploration" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Completed | Research &amp; Implementation
+<strong>Repository:</strong> <a href="https://github.com/robiriu/AdCP-media-platform-v2">github.com/robiriu/AdCP-media-platform-v2</a> (services/recommendation/research)</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A comprehensive research and hands-on exploration of recommendation system architectures used by YouTube and Netflix. This project implements three interactive exploration apps to test and compare different approaches, culminating in a systematic Grid Search optimization to find optimal hyperparameters for precision, diversity, and balanced recommendations.</p>
+<h3 id="key-achievements">Key Achievements<a class="headerlink" href="#key-achievements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>3 Fully Functional Recommendation Systems</strong> built from scratch</li>
+<li><strong>108 Hyperparameter Configurations</strong> tested via Grid Search</li>
+<li><strong>0.744 Best Combined Score</strong> achieved with YouTube Two-Tower model</li>
+<li><strong>100% Diversity Score</strong> achieved with Hybrid system</li>
+<li><strong>Enterprise-Grade Data Models</strong> aligned with real OTT platforms</li>
+</ul>
+<hr />
+<h2 id="research-overview">Research Overview<a class="headerlink" href="#research-overview" title="Permanent link">&para;</a></h2>
+<h3 id="systems-studied">Systems Studied<a class="headerlink" href="#systems-studied" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph YouTube["YouTube Two-Tower Model"]
+        YT1["User Tower"] &lt;--&gt; YT2["Item Tower"]
+        YT1 --&gt; YT3["Embedding Space"]
+        YT2 --&gt; YT3
+        YT3 --&gt; YT4["ANN Retrieval"]
+        YT4 --&gt; YT5["Watch Time Ranking"]
+    end
+
+    subgraph Netflix["Netflix Foundation Model"]
+        NF1["User History&lt;br/&gt;(as 'sentence')"] --&gt; NF2["Transformer&lt;br/&gt;Self-Attention"]
+        NF2 --&gt; NF3["Multi-Task Heads"]
+        NF3 --&gt; NF4["Homepage"]
+        NF3 --&gt; NF5["Search"]
+        NF3 --&gt; NF6["Similar"]
+    end
+
+    subgraph Hybrid["Hybrid System"]
+        HY1["Two-Tower&lt;br/&gt;Retrieval"] --&gt; HY2["Transformer&lt;br/&gt;Re-ranking"]
+        HY2 --&gt; HY3["Multi-Task&lt;br/&gt;Scoring"]
+        HY3 --&gt; HY4["CF Ensemble"]
+    end</code></pre>
+<h3 id="architecture-comparison">Architecture Comparison<a class="headerlink" href="#architecture-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>YouTube</th>
+<th>Netflix</th>
+<th>Hybrid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Retrieval</strong></td>
+<td>Two-Tower + ANN</td>
+<td>Foundation Model</td>
+<td>Two-Tower</td>
+</tr>
+<tr>
+<td><strong>User Model</strong></td>
+<td>History avg + MLP</td>
+<td>Transformer</td>
+<td>Transformer + MLP</td>
+</tr>
+<tr>
+<td><strong>Ranking</strong></td>
+<td>Watch time prediction</td>
+<td>Multi-task heads</td>
+<td>Multi-task scoring</td>
+</tr>
+<tr>
+<td><strong>CF Training</strong></td>
+<td>-</td>
+<td>Yes (trainable)</td>
+<td>Yes (trainable)</td>
+</tr>
+<tr>
+<td><strong>Ensemble</strong></td>
+<td>-</td>
+<td>CF blend</td>
+<td>CF blend</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Scale (billions)</td>
+<td>Personalization</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="system-architectures">System Architectures<a class="headerlink" href="#system-architectures" title="Permanent link">&para;</a></h2>
+<h3 id="youtube-two-tower-model">YouTube Two-Tower Model<a class="headerlink" href="#youtube-two-tower-model" title="Permanent link">&para;</a></h3>
+<p>The Two-Tower architecture is designed for massive scale, processing billions of videos efficiently.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph UserTower["User Tower"]
+        U1["User Features&lt;br/&gt;• Watch history&lt;br/&gt;• Demographics&lt;br/&gt;• Device info"]
+        U2["Dense Layers"]
+        U3["User Embedding&lt;br/&gt;(128-dim)"]
+        U1 --&gt; U2 --&gt; U3
+    end
+
+    subgraph ItemTower["Item Tower"]
+        I1["Item Features&lt;br/&gt;• Content metadata&lt;br/&gt;• Genre/tags&lt;br/&gt;• Statistics"]
+        I2["Dense Layers"]
+        I3["Item Embedding&lt;br/&gt;(128-dim)"]
+        I1 --&gt; I2 --&gt; I3
+    end
+
+    subgraph Retrieval["Candidate Retrieval"]
+        R1["Cosine Similarity"]
+        R2["ANN Index&lt;br/&gt;(FAISS)"]
+        R3["Top-K Candidates"]
+    end
+
+    U3 --&gt; R1
+    I3 --&gt; R2
+    R1 --&gt; R2 --&gt; R3
+
+    subgraph Ranking["Final Ranking"]
+        RK1["Watch Time&lt;br/&gt;Prediction"]
+        RK2["Engagement&lt;br/&gt;Scoring"]
+        RK3["Final&lt;br/&gt;Recommendations"]
+    end
+
+    R3 --&gt; RK1 --&gt; RK2 --&gt; RK3</code></pre>
+<p><strong>Key Characteristics:</strong>
+- Pre-computed item embeddings for fast retrieval
+- Approximate Nearest Neighbor (ANN) search for O(log n) complexity
+- Separate training for towers enables offline updates
+- Optimized for watch time prediction</p>
+<h3 id="netflix-foundation-model">Netflix Foundation Model<a class="headerlink" href="#netflix-foundation-model" title="Permanent link">&para;</a></h3>
+<p>Netflix treats user history as a "sentence" where interactions are "tokens", applying LLM-inspired architectures.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Input["Member Interaction History"]
+        IN1["play → browse → rate → search → pause → play → complete"]
+        IN2["(Treated as 'sentence' where interactions are 'tokens')"]
+    end
+
+    subgraph Foundation["Foundation Model"]
+        FM1["Token Embedding&lt;br/&gt;• Heterogeneous types&lt;br/&gt;• Position encoding"]
+        FM2["Transformer Layers&lt;br/&gt;• Self-Attention&lt;br/&gt;• Sparse attention"]
+        FM3["Sequence Representation"]
+        FM1 --&gt; FM2 --&gt; FM3
+    end
+
+    subgraph Output["Multi-Task Outputs"]
+        O1["Embeddings Service&lt;br/&gt;• Member emb&lt;br/&gt;• Title emb"]
+        O2["Predictions&lt;br/&gt;• Homepage&lt;br/&gt;• Search"]
+        O3["Fine-tuning&lt;br/&gt;• Games&lt;br/&gt;• Kids"]
+    end
+
+    Input --&gt; Foundation
+    FM3 --&gt; O1
+    FM3 --&gt; O2
+    FM3 --&gt; O3
+
+    subgraph CF["Collaborative Filtering"]
+        CF1["User-Item Matrix"]
+        CF2["Matrix Factorization"]
+        CF3["CF Scores"]
+        CF1 --&gt; CF2 --&gt; CF3
+    end
+
+    O1 --&gt; Blend["Hybrid Blend"]
+    CF3 --&gt; Blend
+    Blend --&gt; Final["Final Recommendations"]</code></pre>
+<p><strong>Key Characteristics:</strong>
+- Sequential modeling captures temporal patterns
+- Multi-task learning shares representations across surfaces
+- Embeddings-as-a-Service enables organization-wide reuse
+- Hybrid approach combines Foundation with CF</p>
+<h3 id="hybrid-system">Hybrid System<a class="headerlink" href="#hybrid-system" title="Permanent link">&para;</a></h3>
+<p>Combines the best of both approaches for optimal results.</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Stage1["Stage 1: Retrieval"]
+        S1A["Two-Tower Model"]
+        S1B["Generate Candidates&lt;br/&gt;(50-200 items)"]
+        S1A --&gt; S1B
+    end
+
+    subgraph Stage2["Stage 2: Re-ranking"]
+        S2A["Transformer&lt;br/&gt;Sequential Features"]
+        S2B["Multi-Task Scoring&lt;br/&gt;• Relevance&lt;br/&gt;• Engagement"]
+        S2A --&gt; S2B
+    end
+
+    subgraph Stage3["Stage 3: Ensemble"]
+        S3A["CF Component"]
+        S3B["Score Blending&lt;br/&gt;cf_weight parameter"]
+        S3C["Final Top-K"]
+        S3A --&gt; S3B --&gt; S3C
+    end
+
+    Stage1 --&gt; Stage2 --&gt; Stage3</code></pre>
+<hr />
+<h2 id="interactive-exploration-apps">Interactive Exploration Apps<a class="headerlink" href="#interactive-exploration-apps" title="Permanent link">&para;</a></h2>
+<p>Three Gradio-based web applications for hands-on testing:</p>
+<table>
+<thead>
+<tr>
+<th>App</th>
+<th>Port</th>
+<th>Model</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YouTube</td>
+<td>7860</td>
+<td>Two-Tower</td>
+<td>Embedding dims, ANN retrieval, candidate tuning</td>
+</tr>
+<tr>
+<td>Netflix</td>
+<td>7861</td>
+<td>Foundation + CF</td>
+<td>Sequential modeling, Foundation weight tuning</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>7862</td>
+<td>Combined</td>
+<td>Full pipeline, CF weight tuning</td>
+</tr>
+</tbody>
+</table>
+<h3 id="app-workflow">App Workflow<a class="headerlink" href="#app-workflow" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    T1["1. Generate&lt;br/&gt;Data"] --&gt; T2["2. Initialize&lt;br/&gt;Model"]
+    T2 --&gt; T3["3. Train CF&lt;br/&gt;(if applicable)"]
+    T3 --&gt; T4["4. Get&lt;br/&gt;Recommendations"]
+    T4 --&gt; T5["5. Compare&lt;br/&gt;Methods"]
+    T5 --&gt; T6["6. Grid&lt;br/&gt;Search"]</code></pre>
+<h3 id="data-generation-features">Data Generation Features<a class="headerlink" href="#data-generation-features" title="Permanent link">&para;</a></h3>
+<p>All apps include enterprise-grade synthetic data generation:</p>
+<table>
+<thead>
+<tr>
+<th>Feature Category</th>
+<th>Fields</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>User Segments</strong></td>
+<td><code>lifecycle</code>, <code>engagement_tier</code>, <code>subscription_type</code></td>
+<td>new/active/at_risk/churned users</td>
+</tr>
+<tr>
+<td><strong>Device Context</strong></td>
+<td><code>device_type</code>, <code>platform</code>, <code>primary_device</code></td>
+<td>Mobile/tablet/TV/web patterns</td>
+</tr>
+<tr>
+<td><strong>Content Availability</strong></td>
+<td><code>content_tier</code>, <code>available_regions</code></td>
+<td>Regional licensing support</td>
+</tr>
+<tr>
+<td><strong>Series Relationships</strong></td>
+<td><code>series_id</code>, <code>season</code>, <code>episode</code></td>
+<td>Episode-level binge tracking</td>
+</tr>
+<tr>
+<td><strong>A/B Testing</strong></td>
+<td><code>experiment_id</code>, <code>variant</code></td>
+<td>Built-in experimentation</td>
+</tr>
+<tr>
+<td><strong>Playback Quality</strong></td>
+<td><code>bitrate</code>, <code>buffering</code>, <code>quality_switches</code></td>
+<td>QoE metrics</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="grid-search-optimization">Grid Search Optimization<a class="headerlink" href="#grid-search-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="methodology">Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h3>
+<p>Systematic hyperparameter optimization across all three systems to find optimal configurations.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph DataPrep["Data Preparation"]
+        D1["2,000 Content Items"]
+        D2["1,000 Users"]
+        D3["50,000 Interactions"]
+        D4["10% Cold Start Users"]
+    end
+
+    subgraph GridSearch["Grid Search Process"]
+        G1["Define Parameter Grid"]
+        G2["Test All Combinations"]
+        G3["Evaluate Metrics&lt;br/&gt;• Precision&lt;br/&gt;• Diversity&lt;br/&gt;• Combined"]
+        G4["Rank Configurations"]
+        G1 --&gt; G2 --&gt; G3 --&gt; G4
+    end
+
+    subgraph Results["Results Analysis"]
+        R1["Best Precision Config"]
+        R2["Best Diversity Config"]
+        R3["Best Combined Config"]
+    end
+
+    DataPrep --&gt; GridSearch --&gt; Results</code></pre>
+<h3 id="metrics-definition">Metrics Definition<a class="headerlink" href="#metrics-definition" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Formula</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Precision</strong></td>
+<td><code>matched_genres / total_recs</code></td>
+<td>Relevance - genre match rate</td>
+</tr>
+<tr>
+<td><strong>Diversity</strong></td>
+<td><code>unique_genres / possible_genres</code></td>
+<td>Variety - genre spread</td>
+</tr>
+<tr>
+<td><strong>Combined</strong></td>
+<td><code>2 × (P × D) / (P + D)</code></td>
+<td>Harmonic mean for balance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="test-parameters">Test Parameters<a class="headerlink" href="#test-parameters" title="Permanent link">&para;</a></h3>
+<h4 id="youtube-two-tower">YouTube Two-Tower<a class="headerlink" href="#youtube-two-tower" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Values Tested</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding Dimensions</td>
+<td>32, 64, 128, 256</td>
+</tr>
+<tr>
+<td>Candidate Pool Size</td>
+<td>50, 100, 200</td>
+</tr>
+<tr>
+<td>K (Final Results)</td>
+<td>5, 10, 20</td>
+</tr>
+<tr>
+<td><strong>Total Configurations</strong></td>
+<td><strong>36</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="netflix-foundation">Netflix Foundation<a class="headerlink" href="#netflix-foundation" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Values Tested</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding Dimensions</td>
+<td>64, 128</td>
+</tr>
+<tr>
+<td>K (Final Results)</td>
+<td>5, 10, 20</td>
+</tr>
+<tr>
+<td>Foundation Weight</td>
+<td>0.3, 0.5, 0.7, 0.9, 1.0</td>
+</tr>
+<tr>
+<td><strong>Total Configurations</strong></td>
+<td><strong>36</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="hybrid-system_1">Hybrid System<a class="headerlink" href="#hybrid-system_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Values Tested</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Embedding Dimensions</td>
+<td>64, 128</td>
+</tr>
+<tr>
+<td>Candidate Pool Size</td>
+<td>50, 100, 200</td>
+</tr>
+<tr>
+<td>K (Final Results)</td>
+<td>5, 10, 20</td>
+</tr>
+<tr>
+<td>CF Weight</td>
+<td>0.2, 0.4, 0.6, 0.8</td>
+</tr>
+<tr>
+<td><strong>Total Configurations</strong></td>
+<td><strong>36</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h2>
+<h3 id="best-configurations-summary">Best Configurations Summary<a class="headerlink" href="#best-configurations-summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Combined</th>
+<th>Precision</th>
+<th>Diversity</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>YouTube</strong></td>
+<td><strong>0.744</strong></td>
+<td>0.860</td>
+<td>0.655</td>
+<td>Emb: 128, Candidates: 100, K: 5</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>0.688</td>
+<td>0.524</td>
+<td><strong>1.000</strong></td>
+<td>Candidates: 50, K: 5, CF: 0.2</td>
+</tr>
+<tr>
+<td>Netflix</td>
+<td>0.625</td>
+<td>0.542</td>
+<td>0.738</td>
+<td>Emb: 64, K: 5, Foundation: 0.3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-visualization">Performance Visualization<a class="headerlink" href="#performance-visualization" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>xychart-beta
+    title "Combined Score Comparison"
+    x-axis ["YouTube", "Hybrid", "Netflix"]
+    y-axis "Score" 0 --&gt; 1
+    bar [0.744, 0.688, 0.625]</code></pre>
+<h3 id="detailed-results-by-system">Detailed Results by System<a class="headerlink" href="#detailed-results-by-system" title="Permanent link">&para;</a></h3>
+<h4 id="youtube-two-tower-results">YouTube Two-Tower Results<a class="headerlink" href="#youtube-two-tower-results" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Emb Dim</th>
+<th>Candidates</th>
+<th>K</th>
+<th>Precision</th>
+<th>Diversity</th>
+<th>Combined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>128</td>
+<td>100</td>
+<td>5</td>
+<td>0.860</td>
+<td>0.655</td>
+<td><strong>0.744</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>64</td>
+<td>50</td>
+<td>5</td>
+<td>0.671</td>
+<td>0.802</td>
+<td>0.731</td>
+</tr>
+<tr>
+<td>3</td>
+<td>256</td>
+<td>100</td>
+<td>5</td>
+<td><strong>0.931</strong></td>
+<td>0.600</td>
+<td>0.730</td>
+</tr>
+<tr>
+<td>4</td>
+<td>32</td>
+<td>50</td>
+<td>5</td>
+<td>0.485</td>
+<td><strong>0.892</strong></td>
+<td>0.628</td>
+</tr>
+</tbody>
+</table>
+<p><strong>YouTube Insights:</strong>
+- <strong>256-dim achieves highest precision (0.931)</strong> - captures nuanced preferences
+- <strong>32-dim achieves highest diversity (0.892)</strong> - fuzzier matches explore more
+- <strong>128-dim is the sweet spot</strong> - best balance of both
+- <strong>Candidate pool size has NO impact</strong> - 50 = 100 = 200 when K is fixed</p>
+<h4 id="netflix-foundation-results">Netflix Foundation Results<a class="headerlink" href="#netflix-foundation-results" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Emb Dim</th>
+<th>K</th>
+<th>Foundation Wt</th>
+<th>Precision</th>
+<th>Diversity</th>
+<th>Combined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>64</td>
+<td>5</td>
+<td>0.3</td>
+<td><strong>0.542</strong></td>
+<td>0.738</td>
+<td><strong>0.625</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>128</td>
+<td>5</td>
+<td>0.5</td>
+<td>0.492</td>
+<td>0.834</td>
+<td>0.619</td>
+</tr>
+<tr>
+<td>3</td>
+<td>64</td>
+<td>5</td>
+<td>0.7</td>
+<td>0.458</td>
+<td><strong>0.852</strong></td>
+<td>0.596</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Netflix Insights:</strong>
+- <strong>Lower Foundation weight (0.3) wins</strong> - CF improves precision
+- <strong>Higher Foundation weight increases diversity</strong> - explores more
+- <strong>Embedding dimension has minimal impact</strong> - transformer compresses well
+- <strong>Hybrid approach beats pure Foundation</strong></p>
+<h4 id="hybrid-system-results">Hybrid System Results<a class="headerlink" href="#hybrid-system-results" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Candidates</th>
+<th>K</th>
+<th>CF Weight</th>
+<th>Precision</th>
+<th>Diversity</th>
+<th>Combined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>50</td>
+<td>5</td>
+<td>0.2</td>
+<td>0.524</td>
+<td><strong>1.000</strong></td>
+<td><strong>0.688</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>100</td>
+<td>10</td>
+<td>0.2</td>
+<td><strong>0.528</strong></td>
+<td>0.835</td>
+<td>0.647</td>
+</tr>
+<tr>
+<td>3</td>
+<td>50</td>
+<td>20</td>
+<td>0.2</td>
+<td>0.502</td>
+<td>0.611</td>
+<td>0.551</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hybrid Insights:</strong>
+- <strong>Achieves PERFECT diversity (1.000)</strong> at K=5
+- <strong>CF weight has NO impact at K=5</strong> - Two-Tower dominates small K
+- <strong>K is the ONLY parameter that matters</strong>
+- <strong>50 candidates is sufficient</strong></p>
+<hr />
+<h2 id="key-findings">Key Findings<a class="headerlink" href="#key-findings" title="Permanent link">&para;</a></h2>
+<h3 id="universal-insights">Universal Insights<a class="headerlink" href="#universal-insights" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Finding1["Finding 1: K=5 Wins"]
+        F1A["Smaller K = Higher Quality"]
+        F1B["Selection Effect:&lt;br/&gt;Only best items chosen"]
+        F1C["Diversity Paradox:&lt;br/&gt;Easier to maintain variety"]
+    end
+
+    subgraph Finding2["Finding 2: Candidates Don't Matter"]
+        F2A["50 = 100 = 200"]
+        F2B["Bottleneck is embedding quality"]
+        F2C["Use 50 for 4x faster retrieval"]
+    end
+
+    subgraph Finding3["Finding 3: Embedding Trade-off"]
+        F3A["Higher dim → Better precision"]
+        F3B["Lower dim → Better diversity"]
+        F3C["128-dim is the sweet spot"]
+    end</code></pre>
+<h3 id="precision-vs-diversity-trade-off">Precision vs Diversity Trade-off<a class="headerlink" href="#precision-vs-diversity-trade-off" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Precision["Maximize Precision"]
+        P1["YouTube 256-dim: 0.931"]
+        P2["More specific matching"]
+        P3["Narrower recommendations"]
+    end
+
+    subgraph Balance["Best Balance"]
+        B1["YouTube 128-dim: 0.744"]
+        B2["Harmonic mean optimization"]
+        B3["Production recommended"]
+    end
+
+    subgraph Diversity["Maximize Diversity"]
+        D1["Hybrid K=5: 1.000"]
+        D2["Maximum exploration"]
+        D3["All genres represented"]
+    end
+
+    Precision &lt;--&gt; Balance &lt;--&gt; Diversity</code></pre>
+<h3 id="system-selection-guide">System Selection Guide<a class="headerlink" href="#system-selection-guide" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended</th>
+<th>Configuration</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum Relevance</td>
+<td>YouTube</td>
+<td>Emb: 256, K: 5</td>
+<td>Highest precision (0.931)</td>
+</tr>
+<tr>
+<td>Maximum Variety</td>
+<td>Hybrid</td>
+<td>K: 5</td>
+<td>Perfect diversity (1.000)</td>
+</tr>
+<tr>
+<td>Best Balance</td>
+<td>YouTube</td>
+<td>Emb: 128, K: 5</td>
+<td>Highest combined (0.744)</td>
+</tr>
+<tr>
+<td>Sequential Patterns</td>
+<td>Netflix</td>
+<td>Foundation: 0.3</td>
+<td>Captures temporal behavior</td>
+</tr>
+<tr>
+<td>New Users (Cold Start)</td>
+<td>Hybrid</td>
+<td>K: 5, CF: 0.2</td>
+<td>Leverages both approaches</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="production-recommendations">Production Recommendations<a class="headerlink" href="#production-recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="recommended-configurations">Recommended Configurations<a class="headerlink" href="#recommended-configurations" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-python"># YouTube Two-Tower (Best Overall)
+youtube_config = {
+    "embedding_dim": 128,      # Best balance
+    "num_candidates": 100,     # Sufficient for quality
+    "k": 5,                    # Critical parameter
+}
+
+# Netflix Foundation
+netflix_config = {
+    "embedding_dim": 64,       # Efficient
+    "k": 5,                    # Critical
+    "foundation_weight": 0.3,  # More CF influence
+}
+
+# Hybrid System (Maximum Diversity)
+hybrid_config = {
+    "num_candidates": 50,      # Sufficient
+    "k": 5,                    # Critical
+    "cf_weight": 0.2,          # Two-Tower dominant
+}</code></pre>
+<h3 id="implementation-priority">Implementation Priority<a class="headerlink" href="#implementation-priority" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Phase1["Phase 1"]
+        P1A["Embedding Infrastructure"]
+        P1B["EmbeddingStoreService"]
+        P1C["Batch generation pipeline"]
+    end
+
+    subgraph Phase2["Phase 2"]
+        P2A["Two-Tower Model"]
+        P2B["User/Item towers"]
+        P2C["ANN retrieval"]
+    end
+
+    subgraph Phase3["Phase 3"]
+        P3A["Advanced Features"]
+        P3B["Watch time prediction"]
+        P3C["Multi-task ranking"]
+    end
+
+    Phase1 --&gt; Phase2 --&gt; Phase3</code></pre>
+<hr />
+<h2 id="technologies-used">Technologies Used<a class="headerlink" href="#technologies-used" title="Permanent link">&para;</a></h2>
+<h3 id="core-stack">Core Stack<a class="headerlink" href="#core-stack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>Python 3.12</td>
+</tr>
+<tr>
+<td><strong>Deep Learning</strong></td>
+<td>PyTorch</td>
+</tr>
+<tr>
+<td><strong>Vector Search</strong></td>
+<td>FAISS</td>
+</tr>
+<tr>
+<td><strong>Embeddings</strong></td>
+<td>Sentence Transformers</td>
+</tr>
+<tr>
+<td><strong>Web UI</strong></td>
+<td>Gradio</td>
+</tr>
+<tr>
+<td><strong>Data Processing</strong></td>
+<td>Pandas, NumPy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="architecture-components">Architecture Components<a class="headerlink" href="#architecture-components" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph DataLayer["Data Layer"]
+        DL1["Synthetic Data Generator"]
+        DL2["Enterprise-Grade Models"]
+        DL3["CSV Export"]
+    end
+
+    subgraph ModelLayer["Model Layer"]
+        ML1["Two-Tower Networks"]
+        ML2["Transformer Encoder"]
+        ML3["Collaborative Filtering"]
+    end
+
+    subgraph AppLayer["Application Layer"]
+        AL1["Gradio Web UI"]
+        AL2["Grid Search Engine"]
+        AL3["Visualization"]
+    end
+
+    DataLayer --&gt; ModelLayer --&gt; AppLayer</code></pre>
+<hr />
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>research/
+├── docs/                        # Documentation
+│   ├── youtube/                 # YouTube research notes
+│   │   └── code-examples/       # TypeScript implementations
+│   ├── netflix/                 # Netflix research notes
+│   │   └── code-examples/       # TypeScript implementations
+│   ├── comparison/              # Side-by-side analysis
+│   ├── implementation/          # Production recommendations
+│   └── testing-results/         # Grid Search results
+│
+└── explorations/                # Interactive apps
+    ├── youtube/                 # Port 7860
+    │   ├── app.py              # Gradio interface
+    │   ├── data.py             # Data generation
+    │   └── models.py           # Two-Tower model
+    ├── netflix/                 # Port 7861
+    │   ├── app.py              # Gradio interface
+    │   ├── data.py             # Data generation
+    │   └── models.py           # Foundation + CF
+    ├── hybrid/                  # Port 7862
+    │   ├── app.py              # Gradio interface
+    │   ├── data.py             # Data generation
+    │   └── models.py           # Combined approach
+    ├── run_grid_search_tests.py # Automated testing
+    └── grid_search_results.json # Raw results</code></pre>
+<hr />
+<h2 id="running-the-project">Running the Project<a class="headerlink" href="#running-the-project" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Python 3.10+
+python --version
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+.\venv\Scripts\activate   # Windows</code></pre>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">cd services/recommendation/research/explorations
+pip install -r requirements.txt</code></pre>
+<h3 id="running-apps">Running Apps<a class="headerlink" href="#running-apps" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># YouTube Two-Tower (Port 7860)
+cd youtube &amp;&amp; python app.py
+
+# Netflix Foundation (Port 7861)
+cd netflix &amp;&amp; python app.py
+
+# Hybrid System (Port 7862)
+cd hybrid &amp;&amp; python app.py</code></pre>
+<h3 id="running-grid-search">Running Grid Search<a class="headerlink" href="#running-grid-search" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash">cd explorations
+python run_grid_search_tests.py
+# Results saved to grid_search_results.json</code></pre>
+<hr />
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] Real-time A/B testing integration</li>
+<li>[ ] Contextual bandits for exploration</li>
+<li>[ ] Deep learning ranking models</li>
+<li>[ ] User embedding clustering analysis</li>
+<li>[ ] Cold start strategy comparison</li>
+<li>[ ] Multi-objective optimization</li>
+<li>[ ] Production deployment guides</li>
+</ul>
+<hr />
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<h3 id="research-papers">Research Papers<a class="headerlink" href="#research-papers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>YouTube: "Deep Neural Networks for YouTube Recommendations" (2016)</li>
+<li>Netflix: "Foundation Models for Recommendations" (2024)</li>
+<li>Two-Tower: "Sampling-Bias-Corrected Neural Modeling" (2019)</li>
+</ul>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/robiriu/AdCP-media-platform-v2/tree/main/services/recommendation/research/docs/youtube">YouTube Research Notes</a></li>
+<li><a href="https://github.com/robiriu/AdCP-media-platform-v2/tree/main/services/recommendation/research/docs/netflix">Netflix Research Notes</a></li>
+<li><a href="https://github.com/robiriu/AdCP-media-platform-v2/tree/main/services/recommendation/research/docs/testing-results">Grid Search Results</a></li>
+</ul>
+<hr />
+<p><em>Created: January 2026</em></p>
+<p><a href="../">← Back to Projects</a> | <a href="https://github.com/robiriu/AdCP-media-platform-v2">View Repository →</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ai-testing-framework/" class="btn btn-neutral float-left" title="AI Testing Framework (ATP)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../blog/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ai-testing-framework/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../blog/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/broadcast-analytics/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Broadcast Analytics (MLOps) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Broadcast Analytics (MLOps)";
+        var mkdocs_page_input_path = "projects/broadcast-analytics.md";
+        var mkdocs_page_url = "/projects/broadcast-analytics/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >MLOps & Infrastructure</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Broadcast Analytics (MLOps)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-architecture">System Architecture</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-overview">System Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#backend-framework">Backend Framework</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#frontend">Frontend</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#databases">Databases</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#machine-learning-frameworks">Machine Learning Frameworks</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#llm-agent-framework">LLM &amp; Agent Framework</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#optimization">Optimization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#infrastructure-devops">Infrastructure &amp; DevOps</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-features">Core Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#automated-ml-pipeline">Automated ML Pipeline</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#llm-powered-analytics">LLM-Powered Analytics</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#response-caching-system">Response Caching System</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#schedule-optimization">Schedule Optimization</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-endpoints">API Endpoints</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#chat-session-management">Chat &amp; Session Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#models-predictions">Models &amp; Predictions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-export">Data &amp; Export</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#monitoring">Monitoring</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-structure">Project Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-characteristics">Performance Characteristics</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#api-performance">API Performance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#database-performance">Database Performance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cache-performance">Cache Performance</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ml-inference">ML Inference</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#schedule-optimization_1">Schedule Optimization</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monitoring-observability">Monitoring &amp; Observability</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pre-configured-dashboards">Pre-configured Dashboards</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#alert-rules">Alert Rules</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#security-features">Security Features</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#api-security">API Security</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#authentication-authorization">Authentication &amp; Authorization</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-security">Data Security</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#container-security">Container Security</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cost-optimization">Cost Optimization</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#development-free-tier">Development (Free Tier)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#production-estimated">Production (Estimated)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#savings-from-caching">Savings from Caching</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#docker-compose-quick-start">Docker Compose (Quick Start)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#kubernetes-production">Kubernetes (Production)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#unit-tests">Unit Tests</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#integration-tests">Integration Tests</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#end-to-end-tests">End-to-End Tests</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#load-testing">Load Testing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#comprehensive-guides">Comprehensive Guides</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#completed-phases">Completed Phases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#future-enhancements">Future Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#links">Links</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">MLOps & Infrastructure</li>
+      <li class="breadcrumb-item active">Broadcast Analytics (MLOps)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="broadcast-analytics-system-mlops-platform">Broadcast Analytics System - MLOps Platform<a class="headerlink" href="#broadcast-analytics-system-mlops-platform" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Production-Ready (All 6 Phases Complete)
+<strong>Repository:</strong> Private Company Repository
+<strong>Version:</strong> 2.0</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A production-grade enterprise MLOps platform for broadcast analytics combining machine learning, LLM-powered chat, and automated deployment infrastructure. Features 24 trained models, intelligent caching, schedule optimization, and comprehensive monitoring.</p>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph LR
+    subgraph Data["Data Layer"]
+        PG["PostgreSQL 16&lt;br/&gt;ML Registry"]
+        Mongo["MongoDB 7&lt;br/&gt;Chat History"]
+        Redis["Redis 7&lt;br/&gt;LLM Cache"]
+    end
+
+    subgraph ML["ML Pipeline"]
+        Loader["Data&lt;br/&gt;Loader"]
+        Preprocess["Feature&lt;br/&gt;Engineering"]
+        Training["Model&lt;br/&gt;Training"]
+        Evaluation["Model&lt;br/&gt;Evaluation"]
+        Registry["ML&lt;br/&gt;Registry"]
+    end
+
+    subgraph LLM["LLM Agent"]
+        Agent["LangChain&lt;br/&gt;Agent"]
+        LLMPrimary["Groq&lt;br/&gt;Llama 70B"]
+        LLMSecondary["Gemini&lt;br/&gt;2 Flash"]
+        LLMFallback["OpenRouter&lt;br/&gt;Fallback"]
+        Cache["Response&lt;br/&gt;Cache"]
+    end
+
+    subgraph API["API Layer"]
+        APINode["REST API&lt;br/&gt;OpenAPI"]
+        Predictor["Prediction&lt;br/&gt;Service"]
+        Optimizer["Schedule&lt;br/&gt;Optimizer"]
+        Export["Data&lt;br/&gt;Export"]
+    end
+
+    subgraph UI["Frontend"]
+        Dashboard["Monitoring&lt;br/&gt;Dashboard"]
+        Chat["LLM Chat&lt;br/&gt;Interface"]
+        Charts["Interactive&lt;br/&gt;Charts"]
+    end
+
+    subgraph Monitor["CI/CD and Monitoring"]
+        GHA["GitHub&lt;br/&gt;Actions"]
+        Prometheus["Prometheus&lt;br/&gt;Metrics"]
+        Grafana["Grafana&lt;br/&gt;Dashboards"]
+        Alertmanager["Alert&lt;br/&gt;Manager"]
+    end
+
+    Loader --&gt; Preprocess
+    Preprocess --&gt; Training
+    Training --&gt; Evaluation
+    Evaluation --&gt; Registry
+    Registry --&gt; PG
+
+    APINode --&gt; Predictor
+    APINode --&gt; Optimizer
+    APINode --&gt; Export
+    Predictor --&gt; Registry
+
+    Agent --&gt; LLMPrimary
+    LLMPrimary -.-&gt;|Fallback| LLMSecondary
+    LLMSecondary -.-&gt;|Fallback| LLMFallback
+    Agent --&gt; Cache
+    Cache --&gt; Redis
+    Agent --&gt; Mongo
+
+    Dashboard --&gt; APINode
+    Chat --&gt; Agent
+    Charts --&gt; APINode
+
+    APINode --&gt; Prometheus
+    Prometheus --&gt; Grafana
+    Prometheus --&gt; Alertmanager
+
+    classDef dataStyle fill:#FFE0B2,stroke:#E65100,stroke-width:2px
+    classDef mlStyle fill:#E1BEE7,stroke:#4A148C,stroke-width:2px
+    classDef llmStyle fill:#C8E6C9,stroke:#1B5E20,stroke-width:2px
+    classDef apiStyle fill:#BBDEFB,stroke:#0D47A1,stroke-width:2px
+    classDef frontendStyle fill:#F8BBD0,stroke:#880E4F,stroke-width:2px
+    classDef cicdStyle fill:#FFF9C4,stroke:#F57F17,stroke-width:2px
+
+    class PG,Mongo,Redis dataStyle
+    class Loader,Preprocess,Training,Evaluation,Registry mlStyle
+    class Agent,LLMPrimary,LLMSecondary,LLMFallback,Cache llmStyle
+    class API,Predictor,Optimizer,Export apiStyle
+    class Dashboard,Chat,Charts frontendStyle
+    class GHA,Prometheus,Grafana,Alertmanager cicdStyle</code></pre>
+<h2 id="system-overview">System Overview<a class="headerlink" href="#system-overview" title="Permanent link">&para;</a></h2>
+<p>The platform provides:
+- Predictive analytics for broadcast revenue and ratings
+- Natural language query interface with LLM agents
+- Automated ML pipeline with model registry
+- Schedule optimization using genetic algorithms
+- Industrial-grade monitoring stack</p>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<h3 id="backend-framework">Backend Framework<a class="headerlink" href="#backend-framework" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>API</strong>: FastAPI with async support</li>
+<li><strong>Python</strong>: 3.12+ with modern features</li>
+<li><strong>Validation</strong>: Pydantic models</li>
+<li><strong>Server</strong>: Uvicorn ASGI server</li>
+<li><strong>ORM</strong>: SQLAlchemy 2.0 for PostgreSQL</li>
+</ul>
+<h3 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Framework</strong>: React 18</li>
+<li><strong>Visualization</strong>: Chart.js for interactive charts</li>
+<li><strong>HTTP Client</strong>: Axios</li>
+<li><strong>Theme</strong>: Custom enterprise professional theme</li>
+<li><strong>Build</strong>: Create React App</li>
+</ul>
+<h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
+<h4 id="postgresql-16">PostgreSQL 16<a class="headerlink" href="#postgresql-16" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Structured data, ML model registry</li>
+<li><strong>Features</strong>:</li>
+<li>Model versioning and metadata</li>
+<li>Training results and metrics</li>
+<li>Performance tracking</li>
+<li>ACID transactions</li>
+</ul>
+<h4 id="mongodb-70">MongoDB 7.0<a class="headerlink" href="#mongodb-70" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Unstructured data, chat sessions</li>
+<li><strong>Features</strong>:</li>
+<li>Chat history storage</li>
+<li>Session management</li>
+<li>Flexible document schema</li>
+<li>Async access with Motor</li>
+</ul>
+<h4 id="redis-70">Redis 7.0<a class="headerlink" href="#redis-70" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: High-performance caching</li>
+<li><strong>Features</strong>:</li>
+<li>LLM response cache (75%+ hit rate)</li>
+<li>Session data</li>
+<li>Real-time metrics</li>
+<li>Pub/sub messaging</li>
+</ul>
+<h3 id="machine-learning-frameworks">Machine Learning Frameworks<a class="headerlink" href="#machine-learning-frameworks" title="Permanent link">&para;</a></h3>
+<h4 id="scikit-learn">Scikit-learn<a class="headerlink" href="#scikit-learn" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Models</strong>: Random Forest, Gradient Boosting, ElasticNet, MLP</li>
+<li><strong>Purpose</strong>: Classical ML algorithms</li>
+<li><strong>Features</strong>: Feature engineering, preprocessing, evaluation</li>
+</ul>
+<h4 id="xgboost">XGBoost<a class="headerlink" href="#xgboost" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Gradient boosting trees</li>
+<li><strong>Performance</strong>: Fast training, high accuracy</li>
+<li><strong>Features</strong>: GPU support, early stopping, feature importance</li>
+</ul>
+<h4 id="catboost">CatBoost<a class="headerlink" href="#catboost" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Categorical feature handling</li>
+<li><strong>Performance</strong>: State-of-the-art accuracy</li>
+<li><strong>Features</strong>: Built-in categorical encoding, robust to overfitting</li>
+</ul>
+<h3 id="llm-agent-framework">LLM &amp; Agent Framework<a class="headerlink" href="#llm-agent-framework" title="Permanent link">&para;</a></h3>
+<h4 id="langchain">LangChain<a class="headerlink" href="#langchain" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: LLM application framework</li>
+<li><strong>Features</strong>:</li>
+<li>Agent orchestration</li>
+<li>Tool integration</li>
+<li>Memory management</li>
+<li>Chain composition</li>
+</ul>
+<h4 id="llm-providers">LLM Providers<a class="headerlink" href="#llm-providers" title="Permanent link">&para;</a></h4>
+<p><strong>Primary: Groq</strong>
+- Model: Llama 3.3 70B
+- Free Tier: 14.4K TPM
+- Speed: Fastest inference
+- Use Case: Primary generation</p>
+<p><strong>Secondary: Google Gemini</strong>
+- Model: Gemini 2.0 Flash
+- Free Tier: 1.5M tokens/day
+- Speed: Excellent balance
+- Use Case: Fallback provider</p>
+<p><strong>Tertiary: OpenRouter</strong>
+- Model: Various (Llama, Mixtral)
+- Use Case: Final fallback</p>
+<h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
+<h4 id="genetic-algorithm">Genetic Algorithm<a class="headerlink" href="#genetic-algorithm" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Library</strong>: DEAP (Distributed Evolutionary Algorithms)</li>
+<li><strong>Purpose</strong>: Schedule optimization</li>
+<li><strong>Features</strong>:</li>
+<li>Custom fitness functions</li>
+<li>Multi-objective optimization</li>
+<li>Constraint handling</li>
+<li>Population evolution</li>
+</ul>
+<h3 id="infrastructure-devops">Infrastructure &amp; DevOps<a class="headerlink" href="#infrastructure-devops" title="Permanent link">&para;</a></h3>
+<h4 id="containerization">Containerization<a class="headerlink" href="#containerization" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Docker</strong>: Multi-stage builds for efficiency</li>
+<li><strong>Docker Compose</strong>: Full stack orchestration</li>
+<li><strong>Images</strong>: Optimized layer caching</li>
+<li><strong>Networking</strong>: Custom bridge networks</li>
+</ul>
+<h4 id="orchestration">Orchestration<a class="headerlink" href="#orchestration" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Kubernetes</strong>: Production deployment</li>
+<li><strong>Resources</strong>:</li>
+<li>Deployments for stateless services</li>
+<li>StatefulSets for databases</li>
+<li>Services for load balancing</li>
+<li>Ingress for external access</li>
+<li>ConfigMaps for configuration</li>
+<li>Secrets for credentials</li>
+</ul>
+<h4 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Platform</strong>: GitHub Actions</li>
+<li><strong>Pipelines</strong>:</li>
+<li>Automated testing (pytest)</li>
+<li>Code quality (black, ruff, mypy)</li>
+<li>Docker image builds</li>
+<li>Deployment automation</li>
+<li>ML model training pipeline</li>
+</ul>
+<h4 id="monitoring-stack">Monitoring Stack<a class="headerlink" href="#monitoring-stack" title="Permanent link">&para;</a></h4>
+<p><strong>Prometheus 2.48.0</strong>
+- Time-series metrics collection
+- 90-day data retention
+- Alert rule evaluation
+- Service discovery</p>
+<p><strong>Grafana 10.2.2</strong>
+- Professional dashboards
+- Real-time visualization
+- Alert management
+- Data source integration</p>
+<p><strong>Alertmanager</strong>
+- Alert routing
+- Email and Slack notifications
+- Alert grouping and deduplication
+- Silence management</p>
+<p><strong>Loki + Promtail</strong>
+- Log aggregation
+- Log querying
+- Integration with Grafana
+- Distributed tracing (planned)</p>
+<h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
+<h3 id="automated-ml-pipeline">Automated ML Pipeline<a class="headerlink" href="#automated-ml-pipeline" title="Permanent link">&para;</a></h3>
+<h4 id="1-data-loading">1. Data Loading<a class="headerlink" href="#1-data-loading" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ETL from PostgreSQL</li>
+<li>Feature extraction</li>
+<li>Data validation</li>
+<li>Missing value handling</li>
+</ul>
+<h4 id="2-preprocessing">2. Preprocessing<a class="headerlink" href="#2-preprocessing" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Feature engineering</li>
+<li>Categorical encoding</li>
+<li>Numerical scaling</li>
+<li>Train/test splitting</li>
+</ul>
+<h4 id="3-model-training">3. Model Training<a class="headerlink" href="#3-model-training" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>6 Algorithms</strong>:</li>
+<li>Random Forest</li>
+<li>XGBoost</li>
+<li>CatBoost</li>
+<li>Gradient Boosting</li>
+<li>Multi-Layer Perceptron (MLP)</li>
+<li>
+<p>ElasticNet</p>
+</li>
+<li>
+<p><strong>4 Target Variables</strong>:</p>
+</li>
+<li>Rating predictions</li>
+<li>Revenue forecasts</li>
+<li>Audience metrics</li>
+<li>
+<p>Engagement scores</p>
+</li>
+<li>
+<p><strong>Total</strong>: 24 trained models (6 × 4)</p>
+</li>
+</ul>
+<h4 id="4-model-evaluation">4. Model Evaluation<a class="headerlink" href="#4-model-evaluation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>R² score calculation</li>
+<li>MSE, RMSE, MAE metrics</li>
+<li>Feature importance analysis</li>
+<li>Cross-validation</li>
+<li>Model comparison</li>
+</ul>
+<h4 id="5-model-selection">5. Model Selection<a class="headerlink" href="#5-model-selection" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Automatic best model selection (R² &gt; 0.7)</li>
+<li>Versioning and metadata tracking</li>
+<li>A/B testing support</li>
+<li>Rollback capabilities</li>
+</ul>
+<h4 id="6-model-registry">6. Model Registry<a class="headerlink" href="#6-model-registry" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Database-backed storage</li>
+<li>Version control</li>
+<li>Metadata tracking (hyperparameters, metrics, training date)</li>
+<li>Production model tagging</li>
+<li>Model provenance</li>
+</ul>
+<h3 id="llm-powered-analytics">LLM-Powered Analytics<a class="headerlink" href="#llm-powered-analytics" title="Permanent link">&para;</a></h3>
+<h4 id="7-specialized-tools">7 Specialized Tools<a class="headerlink" href="#7-specialized-tools" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>get_programs</strong>: List all available programs</li>
+<li><strong>get_program_details</strong>: Detailed program information</li>
+<li><strong>predict_values</strong>: Generate predictions for specific programs</li>
+<li><strong>get_best_model</strong>: Retrieve best model for target variable</li>
+<li><strong>analyze_trends</strong>: Time-series trend analysis</li>
+<li><strong>export_data</strong>: Export results (JSON/CSV/Excel)</li>
+<li><strong>optimize_schedule</strong>: Run genetic algorithm optimization</li>
+</ol>
+<h4 id="agent-architecture">Agent Architecture<a class="headerlink" href="#agent-architecture" title="Permanent link">&para;</a></h4>
+<pre class="highlight"><code class="language-python">LangChain Agent
+  ├── Chat History (MongoDB)
+  ├── Tool Selection (dynamic)
+  ├── LLM Generation (multi-provider)
+  └── Response Formatting</code></pre>
+<h4 id="natural-language-queries">Natural Language Queries<a class="headerlink" href="#natural-language-queries" title="Permanent link">&para;</a></h4>
+<p>Examples:
+- "What's the predicted revenue for program X?"
+- "Show me the top 5 programs by rating"
+- "Optimize the schedule for prime time"
+- "What factors affect viewership most?"
+- "Export last week's data to Excel"</p>
+<h3 id="response-caching-system">Response Caching System<a class="headerlink" href="#response-caching-system" title="Permanent link">&para;</a></h3>
+<p><strong>Architecture:</strong>
+- Redis-based caching layer
+- Key: hash(query + parameters)
+- TTL: Configurable (default 1 hour)
+- Invalidation: Smart cache invalidation</p>
+<p><strong>Benefits:</strong>
+- <strong>Cost Reduction</strong>: 75%+ reduction in LLM API costs
+- <strong>Latency</strong>: &lt;10ms for cache hits vs 2-5s for misses
+- <strong>Scalability</strong>: Reduces backend load
+- <strong>Consistency</strong>: Same query returns same answer</p>
+<p><strong>Metrics:</strong>
+- Cache hit rate monitoring
+- Cost savings tracking
+- Performance analytics</p>
+<h3 id="schedule-optimization">Schedule Optimization<a class="headerlink" href="#schedule-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="genetic-algorithm-optimizer">Genetic Algorithm Optimizer<a class="headerlink" href="#genetic-algorithm-optimizer" title="Permanent link">&para;</a></h4>
+<p><strong>Components:</strong>
+1. <strong>Chromosome</strong>: Schedule representation
+2. <strong>Fitness Function</strong>: Multi-objective scoring
+   - Maximize total revenue
+   - Maximize audience reach
+   - Balance genre distribution
+   - Respect time slot constraints
+3. <strong>Genetic Operators</strong>:
+   - Selection (tournament, roulette)
+   - Crossover (single-point, uniform)
+   - Mutation (swap, shuffle)
+4. <strong>Evolution</strong>: 100+ generations
+5. <strong>Convergence</strong>: Early stopping on plateau</p>
+<p><strong>Constraints:</strong>
+- Time slot availability
+- Content ratings (G, PG, R)
+- Minimum/maximum program length
+- Genre diversity requirements
+- Advertiser preferences</p>
+<p><strong>Output:</strong>
+- Optimized schedule
+- Predicted performance metrics
+- Visualization of improvements
+- Alternative schedules (top-K)</p>
+<h2 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="chat-session-management">Chat &amp; Session Management<a class="headerlink" href="#chat-session-management" title="Permanent link">&para;</a></h3>
+<h4 id="post-apiv1chat">POST /api/v1/chat<a class="headerlink" href="#post-apiv1chat" title="Permanent link">&para;</a></h4>
+<p>Send message to LLM agent.</p>
+<p><strong>Request:</strong>
+<pre class="highlight"><code class="language-json">{
+  "message": "Predict revenue for program XYZ",
+  "session_id": "uuid-..."
+}</code></pre></p>
+<p><strong>Response:</strong>
+<pre class="highlight"><code class="language-json">{
+  "response": "Based on historical data...",
+  "session_id": "uuid-...",
+  "metadata": {
+    "model_used": "groq-llama-70b",
+    "cache_hit": false,
+    "tokens_used": 450,
+    "latency_ms": 1850
+  }
+}</code></pre></p>
+<h4 id="post-apiv1sessionscreate">POST /api/v1/sessions/create<a class="headerlink" href="#post-apiv1sessionscreate" title="Permanent link">&para;</a></h4>
+<p>Create new chat session.</p>
+<h4 id="post-apiv1chathistory">POST /api/v1/chat/history<a class="headerlink" href="#post-apiv1chathistory" title="Permanent link">&para;</a></h4>
+<p>Get conversation history.</p>
+<h3 id="models-predictions">Models &amp; Predictions<a class="headerlink" href="#models-predictions" title="Permanent link">&para;</a></h3>
+<h4 id="get-apiv1modelsproduction">GET /api/v1/models/production<a class="headerlink" href="#get-apiv1modelsproduction" title="Permanent link">&para;</a></h4>
+<p>List all production models.</p>
+<h4 id="post-apiv1predict">POST /api/v1/predict<a class="headerlink" href="#post-apiv1predict" title="Permanent link">&para;</a></h4>
+<p>Generate predictions.</p>
+<p><strong>Request:</strong>
+<pre class="highlight"><code class="language-json">{
+  "program_id": "ABC123",
+  "target": "revenue",
+  "features": {...}
+}</code></pre></p>
+<h4 id="get-apiv1modelstargetbest">GET /api/v1/models/{target}/best<a class="headerlink" href="#get-apiv1modelstargetbest" title="Permanent link">&para;</a></h4>
+<p>Get best model for target variable.</p>
+<h3 id="data-export">Data &amp; Export<a class="headerlink" href="#data-export" title="Permanent link">&para;</a></h3>
+<h4 id="post-apiv1export">POST /api/v1/export<a class="headerlink" href="#post-apiv1export" title="Permanent link">&para;</a></h4>
+<p>Export data in various formats.</p>
+<p><strong>Formats:</strong> JSON, CSV, Excel</p>
+<h4 id="get-apiv1programs">GET /api/v1/programs<a class="headerlink" href="#get-apiv1programs" title="Permanent link">&para;</a></h4>
+<p>List all programs with metadata.</p>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<h4 id="get-health">GET /health<a class="headerlink" href="#get-health" title="Permanent link">&para;</a></h4>
+<p>Basic health check.</p>
+<h4 id="get-healthdeep">GET /health/deep<a class="headerlink" href="#get-healthdeep" title="Permanent link">&para;</a></h4>
+<p>Detailed system health:
+- Database connections
+- Redis status
+- LLM provider status
+- Disk space
+- Memory usage</p>
+<h4 id="get-apiv1llmcachestats">GET /api/v1/llm/cache/stats<a class="headerlink" href="#get-apiv1llmcachestats" title="Permanent link">&para;</a></h4>
+<p>Cache performance statistics:
+<pre class="highlight"><code class="language-json">{
+  "hit_rate": 0.78,
+  "total_requests": 10000,
+  "cache_hits": 7800,
+  "cache_misses": 2200,
+  "cost_savings": "$375",
+  "avg_latency_cached_ms": 8,
+  "avg_latency_uncached_ms": 2100
+}</code></pre></p>
+<h4 id="get-apiv1llmtokensusage">GET /api/v1/llm/tokens/usage<a class="headerlink" href="#get-apiv1llmtokensusage" title="Permanent link">&para;</a></h4>
+<p>Token usage tracking per model.</p>
+<h4 id="get-metrics">GET /metrics<a class="headerlink" href="#get-metrics" title="Permanent link">&para;</a></h4>
+<p>Prometheus metrics endpoint.</p>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<pre class="highlight"><code>v2/
+├── src/                           # Source code
+│   ├── core/                      # Core application
+│   │   ├── server.py              # FastAPI server
+│   │   ├── agent_service.py       # LangChain agent
+│   │   ├── agent_service_cached.py # Cached wrapper
+│   │   ├── llm_cache.py           # Redis caching
+│   │   ├── llm_ab_testing.py      # A/B testing
+│   │   └── config.py              # Configuration
+│   │
+│   └── ml/                        # ML Pipeline
+│       ├── EDA.py                 # Exploratory analysis
+│       ├── preprocess.py          # Feature engineering
+│       ├── modeling.py            # Model training
+│       ├── predictor.py           # Predictions
+│       ├── optimizer.py           # Schedule optimization
+│       └── data_Loader.py         # Data loading
+│
+├── db/                            # Database layer
+│   ├── postgres_manager.py        # PostgreSQL
+│   ├── mongo_manager.py           # MongoDB
+│   ├── ml_registry.py             # Model registry
+│   ├── models.py                  # SQLAlchemy models
+│   ├── migrations/                # SQL migrations
+│   └── schemas/                   # Pydantic schemas
+│
+├── dashboard/                     # Frontend
+│   └── src/
+│       ├── Chat.js                # Chat interface
+│       ├── MonitoringDashboard.js # Monitoring UI
+│       ├── ChartComponent.js      # Visualizations
+│       └── App.js                 # Main app
+│
+├── infrastructure/                # Deployment
+│   ├── docker/
+│   │   ├── docker-compose.yml     # Full stack
+│   │   ├── Dockerfile.api         # API image
+│   │   └── .env.example           # Environment template
+│   ├── k8s/                       # Kubernetes
+│   │   ├── base/                  # Base manifests
+│   │   └── README.md              # K8s guide
+│   ├── monitoring/                # Monitoring
+│   │   ├── prometheus.yml         # Prometheus config
+│   │   └── alerts.yml             # Alert rules
+│   └── deploy.sh                  # Deployment script
+│
+├── scripts/                       # Automation
+│   ├── deploy_databases.sh        # DB deployment
+│   ├── train_models.py            # Automated training
+│   └── monitor_models.py          # Performance monitoring
+│
+├── tests/                         # Test suite
+│   ├── unit/                      # Unit tests
+│   ├── integration/               # Integration tests
+│   └── conftest.py                # Pytest fixtures
+│
+├── .github/workflows/             # CI/CD
+│   ├── ci.yml                     # Continuous Integration
+│   ├── cd.yml                     # Continuous Deployment
+│   └── ml-pipeline.yml            # ML automation
+│
+└── docs/                          # Documentation
+    ├── getting-started/           # Quick start guides
+    ├── development/               # Development docs
+    ├── production/                # Production guides
+    └── reference/                 # Technical reference</code></pre>
+<h2 id="performance-characteristics">Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Permanent link">&para;</a></h2>
+<h3 id="api-performance">API Performance<a class="headerlink" href="#api-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Average Latency</strong>: 200-500ms</li>
+<li><strong>P95 Latency</strong>: &lt;2s</li>
+<li><strong>P99 Latency</strong>: &lt;5s</li>
+<li><strong>Throughput</strong>: 1000+ requests/minute</li>
+</ul>
+<h3 id="database-performance">Database Performance<a class="headerlink" href="#database-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Query Latency</strong>: &lt;100ms average</li>
+<li><strong>Connection Pool</strong>: 10-50 connections</li>
+<li><strong>Transaction Rate</strong>: 5000+ TPS</li>
+</ul>
+<h3 id="cache-performance">Cache Performance<a class="headerlink" href="#cache-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hit Rate</strong>: 75-80% in production</li>
+<li><strong>Latency</strong>: &lt;10ms for hits</li>
+<li><strong>Memory Usage</strong>: ~500MB for 10K cached responses</li>
+</ul>
+<h3 id="ml-inference">ML Inference<a class="headerlink" href="#ml-inference" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Single Prediction</strong>: 50-100ms</li>
+<li><strong>Batch (100)</strong>: 500ms</li>
+<li><strong>Model Loading</strong>: &lt;1s on startup</li>
+</ul>
+<h3 id="schedule-optimization_1">Schedule Optimization<a class="headerlink" href="#schedule-optimization_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Small Schedule (50 slots)</strong>: 2-3 seconds</li>
+<li><strong>Large Schedule (200 slots)</strong>: 5-10 seconds</li>
+<li><strong>Genetic Algorithm</strong>: 100-500 generations</li>
+</ul>
+<h2 id="monitoring-observability">Monitoring &amp; Observability<a class="headerlink" href="#monitoring-observability" title="Permanent link">&para;</a></h2>
+<h3 id="pre-configured-dashboards">Pre-configured Dashboards<a class="headerlink" href="#pre-configured-dashboards" title="Permanent link">&para;</a></h3>
+<p><strong>System Metrics:</strong>
+- CPU usage per service
+- Memory utilization
+- Disk I/O and space
+- Network throughput</p>
+<p><strong>Application Metrics:</strong>
+- API request rate and latency
+- Error rates by endpoint
+- Cache hit/miss rates
+- LLM token usage</p>
+<p><strong>Database Metrics:</strong>
+- Query performance
+- Connection pool status
+- Database size and growth
+- Slow query log</p>
+<p><strong>ML Metrics:</strong>
+- Model accuracy drift
+- Prediction latency
+- Feature distribution
+- Training job status</p>
+<h3 id="alert-rules">Alert Rules<a class="headerlink" href="#alert-rules" title="Permanent link">&para;</a></h3>
+<p><strong>Critical Alerts:</strong>
+- Database down (immediate)
+- API error rate &gt;5% (immediate)
+- Disk space &lt;10% (15 min)
+- Memory usage &gt;90% (5 min)</p>
+<p><strong>Warning Alerts:</strong>
+- High latency (P95 &gt;3s) (30 min)
+- Cache hit rate &lt;50% (1 hour)
+- Model accuracy drift &gt;10% (daily)</p>
+<p><strong>Notification Channels:</strong>
+- Email for critical alerts
+- Slack for all alerts
+- PagerDuty integration (optional)</p>
+<h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
+<h3 id="api-security">API Security<a class="headerlink" href="#api-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Input Validation</strong>: Pydantic models enforce schemas</li>
+<li><strong>SQL Injection</strong>: Parameterized queries only</li>
+<li><strong>XSS Protection</strong>: Input sanitization</li>
+<li><strong>Rate Limiting</strong>: Per-IP and per-user limits</li>
+<li><strong>CORS</strong>: Configured per environment</li>
+</ul>
+<h3 id="authentication-authorization">Authentication &amp; Authorization<a class="headerlink" href="#authentication-authorization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>JWT Tokens</strong>: Stateless authentication</li>
+<li><strong>Token Expiration</strong>: Configurable TTL</li>
+<li><strong>Role-Based Access</strong>: Admin, user, read-only roles</li>
+<li><strong>API Keys</strong>: For service-to-service communication</li>
+</ul>
+<h3 id="data-security">Data Security<a class="headerlink" href="#data-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Encryption at Rest</strong>: Database encryption</li>
+<li><strong>Encryption in Transit</strong>: TLS/SSL for all connections</li>
+<li><strong>Secrets Management</strong>: Kubernetes Secrets, environment variables</li>
+<li><strong>Audit Logging</strong>: All sensitive operations logged</li>
+</ul>
+<h3 id="container-security">Container Security<a class="headerlink" href="#container-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Image Scanning</strong>: Trivy for vulnerability scanning</li>
+<li><strong>Non-root User</strong>: Containers run as unprivileged user</li>
+<li><strong>Read-only Filesystem</strong>: Where possible</li>
+<li><strong>Network Policies</strong>: Kubernetes network isolation</li>
+</ul>
+<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="development-free-tier">Development (Free Tier)<a class="headerlink" href="#development-free-tier" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Databases</strong>: Local Docker containers</li>
+<li><strong>LLMs</strong>: 100% free-tier APIs</li>
+<li><strong>Hosting</strong>: Local machine</li>
+<li><strong>Total</strong>: $0/month</li>
+</ul>
+<h3 id="production-estimated">Production (Estimated)<a class="headerlink" href="#production-estimated" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Infrastructure</strong>: $100-200/month</li>
+<li>Kubernetes cluster (3 nodes)</li>
+<li>Load balancer</li>
+<li>Storage (100GB)</li>
+<li><strong>Databases</strong>: $100/month</li>
+<li>Managed PostgreSQL</li>
+<li>Managed MongoDB</li>
+<li>Managed Redis</li>
+<li><strong>LLM (with caching)</strong>: $50-100/month</li>
+<li>Free tier covers most queries</li>
+<li>Paid tier for overflow</li>
+<li><strong>Monitoring</strong>: Included (open source)</li>
+<li><strong>Total</strong>: $300-500/month</li>
+</ul>
+<h3 id="savings-from-caching">Savings from Caching<a class="headerlink" href="#savings-from-caching" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Without Cache</strong>: ~$500/month in LLM costs</li>
+<li><strong>With Cache</strong> (75% hit rate): ~$125/month</li>
+<li><strong>Savings</strong>: $375/month (75% reduction)</li>
+</ul>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<h3 id="docker-compose-quick-start">Docker Compose (Quick Start)<a class="headerlink" href="#docker-compose-quick-start" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Start all services
+docker-compose up -d
+
+# Services include:
+# - PostgreSQL 16
+# - MongoDB 7.0
+# - Redis 7.0
+# - FastAPI backend (port 5000)
+# - React frontend (port 3000)</code></pre>
+<h3 id="kubernetes-production">Kubernetes (Production)<a class="headerlink" href="#kubernetes-production" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Deploy to production
+bash deploy.sh kubernetes production
+
+# Verify deployment
+kubectl get pods -n bms
+kubectl get services -n bms
+
+# View logs
+kubectl logs -f deployment/api -n bms</code></pre>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<h3 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Run all unit tests
+pytest tests/unit/ -v
+
+# With coverage
+pytest tests/unit/ --cov=. --cov-report=html</code></pre>
+<h3 id="integration-tests">Integration Tests<a class="headerlink" href="#integration-tests" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Run integration tests
+pytest tests/integration/ -v
+
+# Requires running services (databases, Redis)</code></pre>
+<h3 id="end-to-end-tests">End-to-End Tests<a class="headerlink" href="#end-to-end-tests" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Run E2E tests
+pytest tests/e2e/ -v
+
+# Tests full workflows</code></pre>
+<h3 id="load-testing">Load Testing<a class="headerlink" href="#load-testing" title="Permanent link">&para;</a></h3>
+<pre class="highlight"><code class="language-bash"># Using locust
+locust -f tests/load/locustfile.py
+
+# Simulates 100+ concurrent users</code></pre>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h3 id="comprehensive-guides">Comprehensive Guides<a class="headerlink" href="#comprehensive-guides" title="Permanent link">&para;</a></h3>
+<p><strong>Getting Started:</strong>
+- Installation guide
+- Quick start (5-minute setup)
+- Project overview
+- Architecture introduction</p>
+<p><strong>Development:</strong>
+- Setup guide for developers
+- ML pipeline documentation
+- LLM agent development
+- API reference
+- Database schema</p>
+<p><strong>Production:</strong>
+- Database deployment and scaling
+- Application deployment
+- Infrastructure setup (Docker, K8s)
+- MLOps best practices
+- Monitoring setup</p>
+<p><strong>Reference:</strong>
+- Project structure
+- ML pipeline technical details
+- Further reading on algorithms</p>
+<h2 id="completed-phases">Completed Phases<a class="headerlink" href="#completed-phases" title="Permanent link">&para;</a></h2>
+<h2 id="future-enhancements">Future Enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h2>
+<p><strong>Planned Features:</strong>
+- Real-time streaming predictions
+- Advanced visualization (D3.js)
+- Mobile app (React Native)
+- Multi-tenant support
+- Advanced anomaly detection
+- AutoML for hyperparameter tuning</p>
+<p><strong>Infrastructure:</strong>
+- Multi-region deployment
+- Advanced caching (CDN)
+- Read replicas for databases
+- Service mesh (Istio)
+- Advanced tracing (Jaeger)</p>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Repository</strong>: Private Company Repository</li>
+<li><strong>Documentation</strong>: Comprehensive guides for development, production, and MLOps</li>
+</ul>
+<p><a href="../">← Back to Projects</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../leadflow-crm/" class="btn btn-neutral float-left" title="LeadFlow (Sales & Lead CRM)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../media-platform/" class="btn btn-neutral float-right" title="Media Platform (AdCP)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../leadflow-crm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../media-platform/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

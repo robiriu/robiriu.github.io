@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/cutforce/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>CutForce (Video Editor) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "CutForce (Video Editor)";
+        var mkdocs_page_input_path = "projects/cutforce.md";
+        var mkdocs_page_url = "/projects/cutforce/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: AI-Native Applications</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">CutForce (Video Editor)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-idea-one-state-two-editors">The Core Idea: one state, two editors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-43-mcp-tools">The 43 MCP Tools</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-export-engine">The Export Engine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#agent-design-sandboxed-by-the-operating-system-not-by-the-toolset">Agent Design: sandboxed by the operating system, not by the toolset</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#streaming-the-agents-work-into-a-chat-ui">Streaming the agent's work into a chat UI</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#seven-authored-skills">Seven authored skills</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generative-media-as-timeline-elements">Generative Media as Timeline Elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#current-status-and-direction">Current Status and Direction</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: AI-Native Applications</li>
+      <li class="breadcrumb-item active">CutForce (Video Editor)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cutforce-ai-native-video-editor">CutForce - AI-Native Video Editor<a class="headerlink" href="#cutforce-ai-native-video-editor" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | Deployed and token-gated at cutforce.forcex-ai.com</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A browser-based video editor where a human and an AI agent edit <strong>the same timeline at the same time</strong>. The human drags clips in the UI; the agent edits through an MCP server with 43 tools; both mutate one shared project state that is broadcast over WebSocket, so every change appears instantly on the other side.</p>
+<p>It also ships an <strong>embedded terminal</strong> running inside the editor, pre-wired to the editor's own MCP endpoint, so Claude Code can be launched right next to the timeline it is editing.</p>
+<p>The renderer is a real ffmpeg pipeline, not a toy: keyframe animation compiled into ffmpeg expressions, colour grading, chroma keying, shape masks, blend modes, audio effects, transitions, and speed changes, all resolved into a single <code>filter_complex</code> graph.</p>
+<p><img alt="CutForce editor with a graded timeline, rendered title, and the clip inspector" src="../../images/cutforce-editor.png" /></p>
+<p><em>The running editor: AI chat panel on the left, media bin, live preview showing a rendered title over a graded clip, a three-track timeline with filmstrip thumbnails, and the clip inspector showing the Cinematic grade at 85% strength with its nine underlying colour controls.</em></p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MCP tools</td>
+<td>43</td>
+</tr>
+<tr>
+<td>Agent skills</td>
+<td>7 authored editing workflows</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>~7,600 lines of TypeScript across 3 workspaces</td>
+</tr>
+<tr>
+<td>Colour grade presets</td>
+<td>12, each expressed as the same parameters a human can hand-tune</td>
+</tr>
+<tr>
+<td>Undo history</td>
+<td>50 snapshots, with redo</td>
+</tr>
+<tr>
+<td>AI generation providers</td>
+<td>3 (Google Gemini, Google Vertex, fal.ai)</td>
+</tr>
+<tr>
+<td>Stock media providers</td>
+<td>3 (Pexels, Pixabay, Jamendo)</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>Runs anywhere Node and ffmpeg run, versus the macOS-only project that inspired it</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Live, token-gated, Docker + nginx + TLS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-core-idea-one-state-two-editors">The Core Idea: one state, two editors<a class="headerlink" href="#the-core-idea-one-state-two-editors" title="Permanent link">&para;</a></h2>
+<p>Most "AI video editing" is a one-way pipeline: describe what you want, get a file back, start over if it is wrong. CutForce is built the other way round. The AI is a <strong>second cursor on a live document</strong>.</p>
+<pre class="mermaid"><code>flowchart TB
+    H["Human&lt;br/&gt;browser UI"] --&gt;|"REST"| S["ProjectStore&lt;br/&gt;single source of truth"]
+    A["Claude Code agent&lt;br/&gt;chat panel or embedded terminal"] --&gt;|"MCP, 43 tools"| S
+    S --&gt;|"WebSocket broadcast"| H
+    S --&gt;|"version bump + persist"| D[("Project JSON")]
+    S --&gt; P["Preview&lt;br/&gt;CSS approximation"]
+    S --&gt; E["Export&lt;br/&gt;ffmpeg filter_complex"]</code></pre>
+<p>Every mutation, whether it came from a mouse or a tool call, goes through one <code>commit</code> path that applies the change, bumps a version number, recomputes the project duration, pushes an undo snapshot, persists, and notifies every subscriber. The browser REST routes and the MCP tools are deliberately two faces of the same store rather than two code paths.</p>
+<p>That single funnel is what makes the collaboration coherent: <strong>undo works across both editors</strong>, because the agent's edits are ordinary entries in the same history stack the human's edits go into.</p>
+<hr />
+<h2 id="the-43-mcp-tools">The 43 MCP Tools<a class="headerlink" href="#the-43-mcp-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read</td>
+<td><code>get_timeline</code>, <code>list_media</code>, <code>get_frame</code>, <code>measure_loudness</code></td>
+</tr>
+<tr>
+<td>Projects</td>
+<td><code>list_projects</code>, <code>new_project</code>, <code>open_project</code>, <code>rename_project</code>, <code>duplicate_project</code>, <code>delete_project</code></td>
+</tr>
+<tr>
+<td>Media</td>
+<td><code>search_media</code>, <code>search_stock</code>, <code>import_media</code></td>
+</tr>
+<tr>
+<td>Build</td>
+<td><code>add_track</code>, <code>add_clip</code>, <code>add_text_overlay</code>, <code>add_shape</code>, <code>add_sticker</code></td>
+</tr>
+<tr>
+<td>Cut</td>
+<td><code>move_clip</code>, <code>trim_clip</code>, <code>split_clip</code>, <code>delete_clip</code>, <code>ripple_delete_clip</code>, <code>duplicate_clip</code></td>
+</tr>
+<tr>
+<td>Style</td>
+<td><code>set_clip_properties</code>, <code>set_clip_color</code>, <code>set_chroma_key</code>, <code>set_clip_audio</code>, <code>set_clip_mask</code>, <code>set_blend_mode</code>, <code>set_clip_speed</code></td>
+</tr>
+<tr>
+<td>Motion</td>
+<td><code>add_keyframe</code>, <code>clear_keyframes</code>, <code>add_transition</code></td>
+</tr>
+<tr>
+<td>Generate</td>
+<td><code>generate_video</code>, <code>generate_image</code>, <code>render_animation</code></td>
+</tr>
+<tr>
+<td>Project</td>
+<td><code>set_project_settings</code>, <code>detach_audio</code></td>
+</tr>
+<tr>
+<td>History</td>
+<td><code>undo</code>, <code>redo</code></td>
+</tr>
+<tr>
+<td>Deliver</td>
+<td><code>export_video</code>, <code>get_export_status</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>get_frame</code> matters more than it looks: it lets the agent <strong>see the current frame</strong> rather than reasoning blind about a timeline it can only read as JSON. <code>measure_loudness</code> gives it the same for audio.</p>
+<hr />
+<h2 id="the-export-engine">The Export Engine<a class="headerlink" href="#the-export-engine" title="Permanent link">&para;</a></h2>
+<p>The export path compiles a whole timeline into a single ffmpeg invocation, and this is where most of the real engineering sits.</p>
+<p><strong>Keyframes become ffmpeg expressions.</strong> A list of <code>{t, value}</code> keyframes on x, y, opacity, volume, scale, or rotation is compiled into a nested piecewise-linear <code>if(lt(...))</code> expression in the filter's own time variable, offset so that local clip time maps onto timeline time. Values hold before the first keyframe and after the last.</p>
+<p><strong>Speed changes chain correctly.</strong> ffmpeg's <code>atempo</code> only accepts 0.5 to 2.0, so an arbitrary speed is decomposed into a chain of in-range stages that multiply out to the requested rate.</p>
+<p><strong>One grade, two renderers.</strong> A "filter" is not a separate code path; it is a named set of the same <code>ColorAdjust</code> deltas a user can set by hand. Preview applies them approximately via CSS for interactivity, export applies them accurately via ffmpeg, and both derive from <strong>the same merged numbers</strong>, with intensity scaling the preset. So <code>Cinematic</code> at 85% means one thing, and what you see is what renders.</p>
+<p>The graph also handles a background colour canvas, video and image overlays with trim, scale, position, opacity and time gating, <code>drawtext</code> titles, alpha-expression shape masks, transition reveals, per-clip audio effects and fades, and the final audio mix.</p>
+<p><strong>It degrades honestly.</strong> At startup the server probes ffmpeg's capabilities, and if the binary lacks <code>drawtext</code> it logs that text overlays will be skipped on export rather than failing silently or crashing mid-render.</p>
+<hr />
+<h2 id="agent-design-sandboxed-by-the-operating-system-not-by-the-toolset">Agent Design: sandboxed by the operating system, not by the toolset<a class="headerlink" href="#agent-design-sandboxed-by-the-operating-system-not-by-the-toolset" title="Permanent link">&para;</a></h2>
+<p>This is the decision that most distinguishes CutForce from my other agent work, and it is a deliberate inversion.</p>
+<p>The chat agent runs the <strong>full</strong> Claude Code toolset, including Bash, file access, and web tools, plus the CutForce MCP server, with <code>--dangerously-skip-permissions</code>. That is intentional: a video editor genuinely benefits from an agent that can drop to a shell and run a custom ffmpeg command or a batch operation the 43 tools do not cover.</p>
+<p>Since the toolset is not the boundary, the boundary is elsewhere:</p>
+<ul>
+<li>The agent runs as a <strong>non-root <code>coder</code> user</strong> in a <strong>container</strong>, in an <strong>ephemeral workspace directory</strong>, never as root. Claude Code refuses <code>--dangerously-skip-permissions</code> as root, and rather than working around that, the design leans into it.</li>
+<li>The workspace is <strong>re-seeded from the image on every boot</strong> with a <code>CLAUDE.md</code> operating manual and a skills library, so the agent's brain ships with the deployment and cannot drift.</li>
+<li><code>ANTHROPIC_API_KEY</code> is stripped from the child environment so a subscription login can never silently fall back to metered API billing.</li>
+<li>Session continuity uses <code>--resume</code> with a captured session id, so one conversation persists across turns without re-sending history.</li>
+</ul>
+<p>Compare that with <a href="../transforce/">TransForce</a>, where the same underlying <code>claude -p</code> pattern is locked down to MCP tools only via a blocklist, and with my ERP automation work, where the agent gets <strong>zero</strong> tools and is pure reasoning. Three projects, three different answers, each driven by what the blast radius of a wrong action actually is: a bad shell command in a disposable editor container is recoverable, a bad write to a live financial system is not.</p>
+<h3 id="streaming-the-agents-work-into-a-chat-ui">Streaming the agent's work into a chat UI<a class="headerlink" href="#streaming-the-agents-work-into-a-chat-ui" title="Permanent link">&para;</a></h3>
+<p>The raw <code>claude -p --output-format stream-json</code> event stream is parsed line by line and turned into a friendly UI: text deltas stream in as they arrive, and each tool call is surfaced as a readable activity label, with <code>mcp__cutforce__add_text_overlay</code> rendered as "Add text overlay". Errors are translated too, so a missing login becomes "Open the Terminal and run <code>claude</code> then <code>/login</code> once" rather than a stack trace.</p>
+<p>The system prompt injected on every turn also enforces house style, no em dashes and no emoji, which is the same writing standard I hold my own work to.</p>
+<h3 id="seven-authored-skills">Seven authored skills<a class="headerlink" href="#seven-authored-skills" title="Permanent link">&para;</a></h3>
+<p>The agent ships with editing workflows rather than just tools: <code>captions</code>, <code>color-grade</code>, <code>audio-mix</code>, <code>b-roll</code> (sourcing licence-clear footage and music from Pexels, Pixabay, and Jamendo, and cutting to the beat), <code>titles-motion</code>, <code>social-repurpose</code> (turning a 16:9 edit into a 9:16 or 1:1 cut with a strong hook), and <code>export-delivery</code> (per-platform settings with a pre-flight check).</p>
+<p>The distinction matters. A tool is <code>set_clip_color</code>. A skill is knowing what "cinematic" means, which clips to apply it to, and how subtle to keep the finish.</p>
+<hr />
+<h2 id="generative-media-as-timeline-elements">Generative Media as Timeline Elements<a class="headerlink" href="#generative-media-as-timeline-elements" title="Permanent link">&para;</a></h2>
+<p>Generated clips are first-class media assets, not a separate mode. Three providers sit behind one interface: <strong>Google Gemini</strong> (Veo 3, Veo 3 Fast, Veo 2 for video; Imagen 3 for stills), <strong>Google Vertex AI</strong> for the same models under service-account credentials, and <strong>fal.ai</strong> (Kling for video, FLUX for images).</p>
+<p>Because paid generation costs real money per call, the UI carries a <strong>budget module</strong> that shows an estimated cost before the call, visible as the cost estimate in the screenshot above, alongside an AI safety and budget panel. An editor should not be able to spend money by accident.</p>
+<p>Free paths exist alongside the paid ones: stock search across three providers, plus a local animation renderer for titles and motion graphics that costs nothing.</p>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>TypeScript, Express, <code>ws</code>, npm workspaces</td>
+</tr>
+<tr>
+<td>Agent</td>
+<td>Claude Code headless CLI on subscription, <code>@modelcontextprotocol/sdk</code>, node-pty</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>React, Vite, zustand, xterm.js</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>ffmpeg (<code>filter_complex</code> compilation), ffprobe, yt-dlp</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>Google Gemini (Veo, Imagen), Google Vertex AI, fal.ai (Kling, FLUX)</td>
+</tr>
+<tr>
+<td>Stock</td>
+<td>Pexels, Pixabay, Jamendo</td>
+</tr>
+<tr>
+<td>Shared</td>
+<td>One typed data model consumed by server, MCP tools, and client</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Docker, nginx, certbot, token gate with HttpOnly cookie</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="current-status-and-direction">Current Status and Direction<a class="headerlink" href="#current-status-and-direction" title="Permanent link">&para;</a></h2>
+<p><strong>Working:</strong> the full edit loop (import, cut, trim, split, ripple delete, transitions, keyframes, grading, chroma key, masks, blend modes, speed, audio effects); multi-project management; undo and redo across both editors; the AI chat panel; the embedded terminal; generation across three providers with cost estimation; stock search; export with progress polling; deployed and gated.</p>
+<p><strong>In progress:</strong> closing the remaining gaps against a mainstream consumer editor's feature set, tracked as an explicit parity list in the repository.</p>
+<p><em>Private repository, GPL-3.0, inspired by the macOS-only Palmier Pro. Screenshot is from the running application.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../transforce/" class="btn btn-neutral float-left" title="TransForce (Particle Transport)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../energylm-finetune/" class="btn btn-neutral float-right" title="EnergyLM-7B (In Progress)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../transforce/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../energylm-finetune/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
