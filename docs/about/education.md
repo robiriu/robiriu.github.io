@@ -7,6 +7,12 @@
 
 ![Doctoral Defense](../images/doctoral-defense.jpg)
 
+<div class="social-embed">
+  <iframe src="https://www.instagram.com/p/C-1UypJSAfL/embed/"
+          title="ITB Graduate School announcement of the doctoral defense"
+          loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+</div>
+
 - **Program**: Doctoral Program in Physics
 - **Institution**: Faculty of Mathematics and Natural Sciences, Bandung Institute of Technology
 - **Dissertation**: Optimasi Desain Freeze Valve untuk Sistem Keselamatan Pasif pada Molten Salt Reactor
