@@ -4,6 +4,22 @@ A portfolio of production-grade AI systems, from physics-informed energy platfor
 
 ---
 
+## Ongoing: Enterprise AI Automation
+
+### [Agentic ERP Automation Platform](erp-automation-platform.md) `LIVE IN PRODUCTION`
+
+An agentic automation platform layered on a live commercial cloud ERP, running the full procure-to-pay chain for a multi-entity food manufacturing group. Automated reorder proposals and purchase orders, AI vision extraction of vendor invoices, statistical matching of invoices to their goods receipts, purchase invoice creation in the ERP, a three-gate payment approval flow with enforced separation of duties that executes real bank transfers, bank statement reconciliation, and guarded payment write-back into the ERP.
+
+Built with no ERP sandbox and no test tenant, so every safety property had to be engineered: a GET-only nightly mirror for all reads, a seven-layer write-guard with idempotency and read-back verification, dry-run shadow mode by default, and per-capability feature flags canaried one document at a time.
+
+**Technologies:** FastAPI, Next.js, PostgreSQL, Claude (headless CLI + vision), MCP, Docker Compose, Alembic, Nginx
+
+**Highlights:** 4 operational pillars, 87 API endpoints, 43 read-only AI tools, 5 guarded ERP write capabilities, 15 containerized services, 34 tables, live and moving real money
+
+[View Project ->](erp-automation-platform.md)
+
+---
+
 ## Flagship — ForceX AI
 
 ### [ForceX AI — AI-for-Energy Platform](forcex-ai.md)
