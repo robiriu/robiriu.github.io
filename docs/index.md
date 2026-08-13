@@ -57,6 +57,18 @@ The engineering constraint that shaped everything: **no ERP sandbox and no test 
 
 [View Project →](projects/erp-automation-platform.md)
 
+### AI-Native Applications — TransForce & CutForce
+
+**[TransForce](projects/transforce.md)** | **[CutForce](projects/cutforce.md)** | both deployed
+
+Two applications on one architectural bet: **a human and an AI agent editing the same live state**, through an MCP tool layer rather than code generation, driven by a headless Claude Code agent on a subscription.
+
+**TransForce** does chat-driven Monte Carlo radiation transport on OpenMC: describe a reactor problem, and the agent builds the CSG geometry, materials, source and tallies, runs it, and reports k-eff with uncertainty. It reproduces published papers end to end and reports the bias in **pcm**. The agent never writes Python, only a typed `ModelSpec` that a deterministic driver translates. **27 simulation tools**, depletion, weight-window variance reduction, MGXS.
+
+**CutForce** is a browser video editor where the agent is a second cursor on the timeline: **43 MCP tools**, live WebSocket sync, undo that works across both editors, an embedded terminal, and an ffmpeg export engine that compiles keyframes into ffmpeg expressions.
+
+[TransForce →](projects/transforce.md) | [CutForce →](projects/cutforce.md)
+
 ### Flagship — ForceX AI
 
 **[ForceX AI — AI-for-Energy Platform](projects/forcex-ai.md)** | [forcex-ai.com](https://forcex-ai.com)

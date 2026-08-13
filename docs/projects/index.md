@@ -20,6 +20,38 @@ Built with no ERP sandbox and no test tenant, so every safety property had to be
 
 ---
 
+## Ongoing: AI-Native Applications
+
+Two applications built on the same architectural idea: **one shared live state edited by both a human and an AI agent**, an MCP tool layer instead of code generation, and a headless Claude Code agent running on a subscription.
+
+### [TransForce - AI-Native Particle Transport](transforce.md) `DEPLOYED`
+
+Chat-driven Monte Carlo radiation transport on OpenMC. Describe a reactor physics problem in plain language and an agent builds the CSG geometry, materials, source and tallies, runs the transport calculation, and reports k-eff with uncertainty. Ingests a paper from an arXiv id, DOI, URL or PDF, extracts a structured model spec, reproduces it, and reports the bias in pcm against the published values.
+
+The agent never writes Python: it manipulates a typed, provider-agnostic `ModelSpec`, and a deterministic driver translates that into live OpenMC objects. Includes depletion, weight-window variance reduction, MGXS generation, and PDF reporting.
+
+**Technologies:** Python, FastAPI, FastMCP, OpenMC, Pydantic, React, Vite, matplotlib, reportlab, Docker
+
+**Highlights:** 27 simulation MCP tools, 4 benchmark presets including Godiva, 3 compute backends (local/VPS/GCP), C/E comparison in pcm, runs on a Claude subscription with no API key
+
+[View Project ->](transforce.md)
+
+---
+
+### [CutForce - AI-Native Video Editor](cutforce.md) `DEPLOYED`
+
+A browser video editor where a human and an AI agent edit the same timeline simultaneously, over 43 MCP tools and a live WebSocket-synced store, with an embedded terminal wired to the editor's own MCP endpoint. Undo works across both editors because every mutation funnels through one commit path.
+
+The export engine compiles the timeline into a single ffmpeg `filter_complex`: keyframes become piecewise-linear ffmpeg expressions, speed changes chain `atempo` stages, and colour grades resolve from the same numbers in both the CSS preview and the ffmpeg render.
+
+**Technologies:** TypeScript, Express, MCP SDK, React, Vite, zustand, xterm.js, ffmpeg, node-pty, Veo/Imagen/FLUX, Docker
+
+**Highlights:** 43 MCP tools, 7 authored agent skills, 12 grade presets, cross-editor undo, generative clips with cost estimation, runs anywhere Node and ffmpeg run
+
+[View Project ->](cutforce.md)
+
+---
+
 ## Flagship — ForceX AI
 
 ### [ForceX AI — AI-for-Energy Platform](forcex-ai.md)
