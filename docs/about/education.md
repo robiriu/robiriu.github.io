@@ -11,6 +11,7 @@
 - **Institution**: Faculty of Mathematics and Natural Sciences, Bandung Institute of Technology
 - **Dissertation**: Optimasi Desain Freeze Valve untuk Sistem Keselamatan Pasif pada Molten Salt Reactor
 - **Research Focus**: Passive safety systems for Generation IV Molten Salt Reactors, combining CFD simulation with deep learning for freeze valve design optimization
+- **Defense**: 16 August 2024, announced by [ITB Graduate School on Instagram](https://www.instagram.com/p/C-1UypJSAfL/)
 - **Link**: [ITB Digital Library](https://digilib.itb.ac.id/gdl/view_data/optimasi-desain-freeze-valve-untuk-sistem-keselamatan-pasif-pada-molten-salt-reactor/robi-dany-riupassa)
 
 ---
