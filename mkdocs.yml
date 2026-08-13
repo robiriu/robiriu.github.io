@@ -25,6 +25,8 @@ nav:
       - Publications: about/publications.md
   - Projects:
       - Overview: projects/index.md
+      - "Ongoing: Enterprise AI Automation":
+          - "Agentic ERP Automation Platform (Live)": projects/erp-automation-platform.md
       - "LLM Fine-Tuning & Alignment":
           - "EnergyLM-7B (In Progress)": projects/energylm-finetune.md
       - "Flagship — ForceX AI":

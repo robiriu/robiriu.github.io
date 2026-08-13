@@ -14,6 +14,9 @@
 
 
 
+!!! success "Now Live in Production"
+    **[Agentic ERP Automation Platform](projects/erp-automation-platform.md)** (ongoing) - An agentic automation layer on a **live commercial cloud ERP**, running the full procure-to-pay chain for a multi-entity manufacturing group: AI vision extraction of vendor invoices, statistical invoice-to-receipt matching, automated purchase orders and purchase invoices written into the ERP, and a three-gate payment flow with enforced separation of duties that **executes real bank transfers**. Built with no ERP sandbox, so every safety property is engineered: GET-only mirror for all reads, a seven-layer write-guard with idempotency and read-back verification, dry-run by default, canaried one document at a time. **43 read-only AI tools** on an in-app assistant. [Read the deep dive ->](projects/erp-automation-platform.md)
+
 !!! tip "In Progress"
     **[EnergyLM-7B — LLM Fine-Tuning & Alignment](projects/energylm-finetune.md)** — End-to-end LLM fine-tuning pipeline: QLoRA SFT on Qwen2.5-7B, DPO vs ORPO alignment comparison, CoT distillation, 10-benchmark evaluation, AWQ/GGUF quantization. 20K synthetic energy-domain dataset. $0 budget — 100% free compute. [View project →](projects/energylm-finetune.md)
 
@@ -28,6 +31,7 @@ I am **Robi Dany Riupassa**, a software engineer and AI specialist building prod
 
 My work spans:
 
+- **Agentic Enterprise Automation** - Production ERP integration, guarded and idempotent write-back into live financial systems, human-in-the-loop approval flows, AI document extraction, MCP tool servers
 - **LLM Fine-Tuning & Alignment** — QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, synthetic data generation, AWQ/GGUF quantization, lm-evaluation-harness
 - **Agentic AI & RAG** — LangGraph multi-agent orchestration, self-reflective retrieval, hybrid search, multi-provider LLM fallback chains
 - **Physics-Informed ML** — PINNs, CNN surrogates, GNNs for energy sector simulation (ForceX AI, 12 products)
@@ -40,6 +44,18 @@ My work spans:
 ---
 
 ## Featured Projects
+
+### Now Live — Agentic ERP Automation Platform
+
+**[Agentic ERP Automation Platform](projects/erp-automation-platform.md)** | Ongoing, live in production
+
+An agentic automation platform layered on a live commercial cloud **ERP platform**, automating the full procure-to-pay chain for a multi-entity food manufacturing and hospitality group. Four connected pillars (purchasing, production, sales, payment), **87 API endpoints**, **43 read-only AI tools**, **15 containerized services**, and **5 guarded ERP write capabilities** that create purchase orders, goods receipts, purchase invoices, vendor masters, and payments in a live financial system.
+
+The engineering constraint that shaped everything: **no ERP sandbox and no test tenant**, with real company money behind every write. The answer was a GET-only nightly mirror serving all reads, a **seven-layer write-guard** (host guard, mirror refusal, per-capability flag, dry-run shadow mode, deterministic idempotency codes, pre-check with sanity caps, read-back verification), and a rollout that canaried each capability on a single real document before enabling it. The AI proposes; a human commits; the execution layer holds every safeguard.
+
+**Stack:** FastAPI · Next.js · PostgreSQL · Claude (headless CLI + vision) · MCP · Docker Compose · Alembic · Nginx
+
+[View Project →](projects/erp-automation-platform.md)
 
 ### Flagship — ForceX AI
 
@@ -98,6 +114,10 @@ Full-stack AI-powered HR platform that turns raw employee and attendance data in
 **Developer & Researcher — [ForceX AI](https://forcex-ai.com)** | Current
 
 Building Indonesia's first AI-for-energy platform — 12 physics-informed AI products, GeoForce deployed, models published on HuggingFace.
+
+**AI Engineer (Enterprise Automation) — A Multi-Entity Manufacturing & Hospitality Group** | Current
+
+Sole engineer on a production agentic automation platform integrated with the group's live cloud ERP: procure-to-pay automation, AI document extraction, guarded ERP write-back, and a multi-gate payment approval flow executing real vendor transfers.
 
 **Software Developer & AI Specialist — A Leading ICT Solutions Provider** | Current
 
