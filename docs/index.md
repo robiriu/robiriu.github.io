@@ -38,6 +38,7 @@ My work spans:
 - **MLOps & Model Deployment** — Automated training pipelines, model registry, 24 production models, CI/CD with GitHub Actions
 - **GPU Computing** — NVIDIA CUDA, PyTorch cu128, Docker GPU passthrough, VRAM budgeting, Blackwell sm_120 compatibility
 - **Cloud & Infrastructure** — Google Cloud Platform (Cloud Run, Cloud SQL, Secret Manager), Docker, Kubernetes, Kafka, Terraform
+- **Computer Vision & Video Analytics** - Detection and multi-object tracking (YOLO11, ByteTrack), behavioural event modelling from trajectories, zone geometry design, CPU-only reproducible pipelines
 - **Multimodal AI** — NLP (spaCy, Transformers), Vision (CLIP, YOLOv8), Audio (Whisper), Vector Search (pgvector)
 - **Published Work** — Models and datasets on HuggingFace, AI testing framework on npm (@robi-atp/cli)
 
@@ -94,6 +95,18 @@ Full-stack AI-powered HR platform that turns raw employee and attendance data in
 **Stack:** Next.js 16 · React 19 · FastAPI · PostgreSQL · Gemini 2.5 Flash · Recharts · Tailwind CSS 4
 
 [View Project →](projects/agentic-hr-platform.md)
+
+### Computer Vision - Retail Video Analytics
+
+**[Retail Video Analytics: Customer Behaviour from CCTV](projects/retail-video-analytics.md)**
+
+Two retail CCTV cameras turned into behavioural metrics: store interest and walk-in conversion, per-shelf engagement events, and staff-to-customer interaction sessions. YOLO11m detection with ByteTrack identity persistence, running entirely on CPU and reproducible from one Docker command.
+
+The work sits above the detector. Perception is cached so behavioural thresholds can be tuned interactively rather than at 80 CPU-minutes per pass; speeds are normalised by body height so one threshold holds across the frame; shelf assignment uses the torso after an audit showed browsing customers' feet never leave the aisle. An apron-colour staff classifier was built, measured, and rejected for a spatial rule that actually separates the classes.
+
+**Stack:** Python · YOLO11m (Ultralytics) · ByteTrack · PyTorch CPU · OpenCV · pandas · Docker
+
+[View Project →](projects/retail-video-analytics.md)
 
 ### Enterprise Systems (Private Company)
 
