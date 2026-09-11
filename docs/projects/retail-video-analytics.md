@@ -46,9 +46,9 @@ flowchart LR
     C --> S2
     Z["zones.yaml<br/>scene geometry"] --> S2
     subgraph S2["Stage 2: event logic, iterate freely"]
-        T1["Task 1<br/>store interest"]
-        T2["Task 2<br/>shelf interest"]
-        T3["Task 3<br/>staff interaction"]
+        T1["store interest<br/>and conversion"]
+        T2["per-shelf<br/>engagement"]
+        T3["staff-customer<br/>interaction"]
     end
     S2 --> M["metric CSVs"]
     S2 --> R["annotated videos"]
@@ -117,11 +117,11 @@ display tables, and the cash-desk surroundings generating false shelf events,
 because seated customers, checkout queues, and counter staff all snap to the
 nearest shelf footprint otherwise.
 
-## Task 1: Store Interest and Conversion
+## Store Interest and Walk-In Conversion
 
-Candidates are tracks that appear in the corridor before any store presence, so
-people already inside, staff, and store-to-corridor exits are never counted as
-passers-by. Staff tracks are excluded entirely.
+Only a track that appears in the corridor before any store presence is scored
+as a passer-by, so people already inside, staff, and store-to-corridor exits
+never enter the count. Staff tracks are excluded entirely.
 
 **Interest** fires on any of three cues, all normalised by bounding-box height
 so that mall perspective cancels out. Normal walking measures 1.5 to 2.5 body
@@ -146,10 +146,10 @@ spending 8 s or more inside the store polygon. Entering implies interest.
 | Interested, entered     | 3     |
 | Interested, passed by   | 5     |
 
-## Task 2: Per-Shelf Customer Interest
+## Per-Shelf Engagement
 
 **Assignment uses the torso point, not the feet.** Each customer is assigned to
-the nearest designated shelf by bounding-box centre-x at 25% height, within a
+the nearest shelf by bounding-box centre-x at 25% height, within a
 reach of 0.35 body heights. The torso point replaced the foot point after a
 visual audit: a browsing customer's feet stay in the shared aisle while their
 upper body leans into the fixture they are actually engaged with. In one
@@ -171,7 +171,7 @@ the previous event's grace window, so quick shelf switches are not lost.
 | C     | Back gondola           | 5               |
 | D     | Right wall shelf run   | 4               |
 
-## Task 3: Staff-Customer Interaction
+## Staff-Customer Interaction
 
 ### Staff identification: the approach that was measured and discarded
 

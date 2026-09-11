@@ -152,7 +152,7 @@ The engineering is in the layer above the detector. Perception is cached so that
 
 **Technologies:** Python, YOLO11m (Ultralytics), ByteTrack, PyTorch CPU, OpenCV, pandas, YAML, Docker
 
-**Highlights:** 2 cameras, 3 behavioural tasks, 10 fps effective inference on CPU, zone geometry validated against plotted real tracks, interpolation guard that stopped a phantom interaction, documented misses
+**Highlights:** 2 cameras, 3 behavioural metrics, 10 fps effective inference on CPU, zone geometry validated against plotted real tracks, interpolation guard that stopped a phantom interaction, documented misses
 
 [View Project ->](retail-video-analytics.md)
 
