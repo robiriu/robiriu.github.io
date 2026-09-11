@@ -40,6 +40,8 @@ nav:
           - Agentic HR Intelligence: projects/agentic-hr-platform.md
           - AI Help & QnA (RAG): projects/ai-help-qna.md
           - Porto Agent: projects/porto-agent.md
+      - Computer Vision & Video Analytics:
+          - "Retail Video Analytics (CCTV)": projects/retail-video-analytics.md
       - AI Applications:
           - AI Sales & Lead-Gen Chatbot: projects/ai-sales-chatbot.md
           - LinkedIn Carousel RAG: projects/linkedin-carousel-rag.md

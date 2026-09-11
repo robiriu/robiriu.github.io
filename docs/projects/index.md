@@ -142,6 +142,22 @@ AI-powered platform that generates technical blog posts and LinkedIn content fro
 
 ---
 
+## Computer Vision & Video Analytics
+
+### [Retail Video Analytics - Customer Behaviour from CCTV](retail-video-analytics.md) `COMPLETED`
+
+An end-to-end pipeline that turns two retail CCTV cameras into behavioural metrics: store interest and walk-in conversion, per-shelf engagement events, and genuine staff-to-customer interaction sessions. YOLO11m detection with ByteTrack identity persistence, entirely on CPU, reproducible from one Docker command.
+
+The engineering is in the layer above the detector. Perception is cached so that behavioural thresholds can be tuned interactively instead of at 80 CPU-minutes per iteration. Speeds and distances are normalised by body height so a single threshold holds across the depth of the frame. Shelf assignment uses the torso rather than the feet, after an audit showed browsing customers' feet stay in the aisle while their upper body leans into the fixture. An apron-colour staff classifier was built, measured, and rejected in favour of a spatial rule that actually separates the classes.
+
+**Technologies:** Python, YOLO11m (Ultralytics), ByteTrack, PyTorch CPU, OpenCV, pandas, YAML, Docker
+
+**Highlights:** 2 cameras, 3 behavioural tasks, 10 fps effective inference on CPU, zone geometry validated against plotted real tracks, interpolation guard that stopped a phantom interaction, documented misses
+
+[View Project ->](retail-video-analytics.md)
+
+---
+
 ## AI Applications
 
 Deployable AI product builds, each a live, working demo grounded on Gemini 2.5 Flash (Vertex AI), built with Next.js and deployed on a VPS with automatic HTTPS.
