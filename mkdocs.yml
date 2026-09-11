@@ -108,5 +108,10 @@ extra_css:
 
 # Extra JavaScript for Mermaid
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  # Mermaid is vendored rather than pulled from a CDN. When cdn.jsdelivr.net is
+  # blocked or slow (ad blockers and some corporate networks block it), the
+  # library never arrives and every diagram on the site degrades silently to raw
+  # mermaid source text in a box. Pinned to 10.9.8, the version the previous
+  # floating "@10" range resolved to, so upgrades are deliberate.
+  - javascripts/mermaid.min.js
   - javascripts/mermaid-init.js

@@ -35,6 +35,11 @@ build/
 *.min.js
 *.min.css
 
+# ...except the vendored mermaid bundle, which is a site asset rather than a
+# build output. It must be committed: the pages load it locally so diagrams do
+# not depend on a CDN being reachable.
+!docs/javascripts/mermaid.min.js
+
 # MkDocs
 site/
 venv/
