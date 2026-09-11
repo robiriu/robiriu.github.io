@@ -146,6 +146,17 @@ spending 8 s or more inside the store polygon. Entering implies interest.
 | Interested, entered     | 3     |
 | Interested, passed by   | 5     |
 
+<video class="clip" controls muted playsinline preload="metadata"
+       poster="../../videos/retail-entrance-poster.jpg">
+  <source src="../../videos/retail-entrance-clip.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+
+<p class="clip-caption">Entrance camera, 25 s excerpt of the annotated output. Green boxes mark
+people classified as having entered, the coloured lines are tracked trajectories, and the running
+counters top-left update as events fire. Every detected person is pixelated; the boxes, labels and
+trajectories are the pipeline's own output and are untouched.</p>
+
 ## Per-Shelf Engagement
 
 **Assignment uses the torso point, not the feet.** Each customer is assigned to
@@ -170,6 +181,16 @@ the previous event's grace window, so quick shelf switches are not lost.
 | B     | Centre gondola         | 5               |
 | C     | Back gondola           | 5               |
 | D     | Right wall shelf run   | 4               |
+
+<video class="clip" controls muted playsinline preload="metadata"
+       poster="../../videos/retail-interior-poster.jpg">
+  <source src="../../videos/retail-interior-clip.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+
+<p class="clip-caption">Interior camera, 25 s excerpt. Shelf footprints are drawn in the same
+colours as the geometry diagram above; a customer's box turns that shelf's colour once an
+engagement event opens, with the running dwell time beside it.</p>
 
 ## Staff-Customer Interaction
 
@@ -212,7 +233,9 @@ a dropout longer than 1 s**. That guard exists because interpolating across a
 | Staff 3670     | 0                    |
 | **Average**    | **0.50**             |
 
-The two counted sessions are a verified shoe-fitting episode at the sofa area.
+The two counted sessions are a verified shoe-fitting episode at the sofa area,
+visible in the entrance clip above, where the session counters sit under the
+store-interest block.
 One known miss is documented rather than papered over: the family's checkout at
 the desk is uncounted because the staff member was fully occluded below the
 frame edge for that window, so there is no visual evidence to score.
@@ -296,9 +319,14 @@ measurement:
 
 ---
 
-*Source footage is not published. It is third-party retail CCTV containing
-identifiable members of the public, and it is excluded from version control by
-design. The diagrams above are rendered from the project's own geometry
-configuration and contain no frames from the recordings.*
+*The clips above are short excerpts published with the footage owner's
+permission. Because the source is retail CCTV containing members of the public,
+every detected person is pixelated before encoding, using the bounding boxes
+already held in the pipeline's own track cache: each box is inset first so the
+rectangle, its label and the trajectory lines survive intact, and what the clip
+shows is the analytics output rather than the people it was computed from. The
+full recordings are not published and remain excluded from version control. The
+geometry diagrams are rendered from the project's configuration alone and
+contain no frames from the footage.*
 
 [← Back to Projects](index.md)
