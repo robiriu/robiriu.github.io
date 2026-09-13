@@ -26,6 +26,4 @@ The dedup-against-history step and keeping every slide traceable to a source chu
 
 An MVP - feedback welcome.
 
-Live demo: https://linkedin.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/linkedin-carousel-rag/

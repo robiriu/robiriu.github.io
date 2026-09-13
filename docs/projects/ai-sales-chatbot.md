@@ -1,7 +1,6 @@
 # AI Sales & Lead-Gen Chatbot (WhatsApp / Instagram)
 
-**Status:** Live demo
-**Demo:** [mathbot.robiriu-dev.my.id](https://mathbot.robiriu-dev.my.id) (admin at `/admin`)
+**Status:** Completed
 
 ![AI Sales & Lead-Gen Chatbot](../images/ai-sales-chatbot.png)
 

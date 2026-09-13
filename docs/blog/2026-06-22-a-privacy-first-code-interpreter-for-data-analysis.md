@@ -22,6 +22,4 @@ Every number comes from executed code rather than the model's opinion - that aud
 
 An MVP; ships as a one-command Docker image. Feedback welcome.
 
-Live demo: https://datapilot.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/datapilot/

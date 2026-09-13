@@ -1,7 +1,6 @@
 # AI Assistant Embedded on a Portfolio Site
 
-**Status:** Live demo
-**Demo:** [portfolio.robiriu-dev.my.id](https://portfolio.robiriu-dev.my.id)
+**Status:** Completed
 
 ![Portfolio AI Assistant](../images/portfolio-assistant.png)
 

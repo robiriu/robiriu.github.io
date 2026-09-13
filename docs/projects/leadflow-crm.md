@@ -1,7 +1,6 @@
 # LeadFlow -- Sales & Lead Management System
 
-**Status:** Live demo
-**Demo:** [crm.robiriu-dev.my.id](https://crm.robiriu-dev.my.id) (capture form at `/capture`)
+**Status:** Completed
 
 ![LeadFlow Sales & Lead Management](../images/leadflow-crm.png)
 

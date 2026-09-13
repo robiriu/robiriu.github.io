@@ -170,7 +170,7 @@ A 24/7 sales assistant that answers pricing/schedule questions, handles objectio
 
 **Highlights:** Two-call architecture (reply + structured lead extraction), status classification, live admin dashboard
 
-[View Project →](ai-sales-chatbot.md) | [Live demo →](https://mathbot.robiriu-dev.my.id)
+[View Project →](ai-sales-chatbot.md)
 
 ---
 
@@ -182,7 +182,7 @@ Upload documents and a RAG pipeline writes a fresh 8-10 slide LinkedIn carousel 
 
 **Highlights:** Grounded slide generation, topic dedup, native carousel rendering (no Canva API), isolated PDF parsing
 
-[View Project →](linkedin-carousel-rag.md) | [Live demo →](https://linkedin.robiriu-dev.my.id)
+[View Project →](linkedin-carousel-rag.md)
 
 ---
 
@@ -194,7 +194,7 @@ A supervisor-worker LangGraph agent that extracts invoice data, validates the ar
 
 **Highlights:** Real StateGraph with conditional self-correction loop, deterministic validation, per-run token/latency/loop evaluation
 
-[View Project →](agentic-doc-pipeline.md) | [Live demo →](https://agentic.robiriu-dev.my.id)
+[View Project →](agentic-doc-pipeline.md)
 
 ---
 
@@ -206,7 +206,7 @@ A floating AI chatbot embedded on a personal site that answers visitors' free-fo
 
 **Highlights:** Anti-hallucination grounding, hire-intent nudging, drops into any existing site
 
-[View Project →](portfolio-assistant.md) | [Live demo →](https://portfolio.robiriu-dev.my.id)
+[View Project →](portfolio-assistant.md)
 
 ---
 
@@ -218,7 +218,7 @@ An always-on WhatsApp assistant for studio rentals that answers questions, sends
 
 **Highlights:** Text-plus-photos via model-emitted tokens, grounded answers, lead capture and status
 
-[View Project →](whatsapp-realestate-bot.md) | [Live demo →](https://studiobot.robiriu-dev.my.id)
+[View Project →](whatsapp-realestate-bot.md)
 
 ---
 
@@ -230,7 +230,7 @@ A WhatsApp chatbot for an automotive electronics business: KB-grounded answers, 
 
 **Highlights:** Model-aware product recommendation, deterministic premium-brand handoff, editable knowledge base and rules
 
-[View Project →](automotive-chatbot.md) | [Live demo →](https://autobot.robiriu-dev.my.id)
+[View Project →](automotive-chatbot.md)
 
 ---
 
@@ -242,7 +242,7 @@ Upload a CSV and the workspace auto-builds a dashboard: KPIs, anomaly detection 
 
 **Highlights:** IQR anomaly detection, grounded AI insights and Q&A (no hallucinated numbers), BI-style workspace UI
 
-[View Project →](ai-analytics.md) | [Live demo →](https://analytics.robiriu-dev.my.id)
+[View Project →](ai-analytics.md)
 
 ---
 
@@ -254,7 +254,7 @@ A market-intelligence SaaS: live crypto prices, technical indicators (SMA, RSI, 
 
 **Highlights:** Live data, technical analysis in code, grounded AI analysis + Q&A (no hallucinated numbers), signal generation
 
-[View Project →](marketmind.md) | [Live demo →](https://market.robiriu-dev.my.id)
+[View Project →](marketmind.md)
 
 ---
 
@@ -266,7 +266,7 @@ A self-hostable "code interpreter": describe an analysis in plain English, the A
 
 **Highlights:** Live streaming code-gen, self-correction loop, switchable cloud/local model, sandboxed execution, fully on-premise/air-gappable
 
-[View Project →](datapilot.md) | [Live demo →](https://datapilot.robiriu-dev.my.id)
+[View Project →](datapilot.md)
 
 ---
 
@@ -278,7 +278,7 @@ A self-hostable web app that turns routine clinical values into an explained ML 
 
 **Highlights:** Two-model ensemble per condition, explainable factor breakdown, history dashboard, admin console, light/dark, production-deployed
 
-[View Project →](healthpredict.md) | [Live demo →](https://health.robiriu-dev.my.id)
+[View Project →](healthpredict.md)
 
 ---
 
@@ -292,7 +292,7 @@ A full-stack CRM: multi-source lead capture, a visual deal pipeline (New -> Cont
 
 **Highlights:** Kanban pipeline, multi-source capture form, follow-up reminders, funnel + value-by-stage analytics
 
-[View Project →](leadflow-crm.md) | [Live demo →](https://crm.robiriu-dev.my.id)
+[View Project →](leadflow-crm.md)
 
 ---
 

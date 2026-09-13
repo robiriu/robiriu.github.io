@@ -22,6 +22,4 @@ Drawing a hard line - deterministic indicators produce the signal, the LLM never
 
 An MVP; feedback welcome.
 
-Live demo: https://market.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/marketmind/

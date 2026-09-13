@@ -1,7 +1,6 @@
 # WhatsApp AI Chatbot with Product Compatibility (Automotive)
 
-**Status:** Live demo
-**Demo:** [autobot.robiriu-dev.my.id](https://autobot.robiriu-dev.my.id) (dashboard at `/admin`)
+**Status:** Completed
 
 ![Automotive WhatsApp Chatbot](../images/automotive-chatbot.png)
 

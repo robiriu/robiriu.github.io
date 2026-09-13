@@ -22,6 +22,4 @@ Deciding when to fire the photo gallery - reading intent rather than waiting for
 
 An MVP; feedback welcome.
 
-Live demo: https://studiobot.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/whatsapp-realestate-bot/
