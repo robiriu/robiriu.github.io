@@ -1,7 +1,6 @@
 # Automated LinkedIn Carousel Generator (RAG)
 
-**Status:** Live demo
-**Demo:** [linkedin.robiriu-dev.my.id](https://linkedin.robiriu-dev.my.id)
+**Status:** Completed
 
 ![LinkedIn Carousel RAG](../images/linkedin-carousel-rag.png)
 

@@ -22,6 +22,4 @@ Pulling clean, structured lead data out of messy free text - and not nagging for
 
 It's an MVP and I'd love feedback.
 
-Live demo: https://mathbot.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/ai-sales-chatbot/

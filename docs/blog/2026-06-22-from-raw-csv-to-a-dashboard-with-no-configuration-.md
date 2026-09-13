@@ -22,6 +22,4 @@ Deciding what's worth charting, and flagging anomalies across every metric witho
 
 An MVP - feedback welcome.
 
-Live demo: https://analytics.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/ai-analytics/

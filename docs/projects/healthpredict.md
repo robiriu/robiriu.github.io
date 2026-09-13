@@ -1,7 +1,6 @@
 # HealthPredict -- Clinical Risk Prediction Web App
 
-**Status:** Live demo
-**Demo:** [health.robiriu-dev.my.id](https://health.robiriu-dev.my.id) (demo login: `demo@healthpredict.demo` / `demo1234`)
+**Status:** Completed
 
 ![HealthPredict clinical risk prediction](../images/healthpredict.png)
 

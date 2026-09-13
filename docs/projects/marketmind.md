@@ -1,7 +1,6 @@
 # MarketMind -- AI Crypto & Stock Market Intelligence
 
-**Status:** Live demo
-**Demo:** [market.robiriu-dev.my.id](https://market.robiriu-dev.my.id)
+**Status:** Completed
 
 ![MarketMind AI Market Intelligence](../images/marketmind.png)
 

@@ -1,7 +1,6 @@
 # DataPilot -- Private AI Data Analyst
 
-**Status:** Live demo
-**Demo:** [datapilot.robiriu-dev.my.id](https://datapilot.robiriu-dev.my.id) ([Docs](https://datapilot.robiriu-dev.my.id/docs))
+**Status:** Completed
 
 ![DataPilot Private AI Data Analyst](../images/datapilot.png)
 

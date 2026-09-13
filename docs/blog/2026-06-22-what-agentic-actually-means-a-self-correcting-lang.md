@@ -22,6 +22,4 @@ The deterministic validation feeding the self-correction loop - and the cap that
 
 A prototype; thoughts welcome.
 
-Live demo: https://agentic.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/agentic-doc-pipeline/

@@ -1,7 +1,6 @@
 # WhatsApp Lead Bot with Photo-on-Demand (Real Estate)
 
-**Status:** Live demo
-**Demo:** [studiobot.robiriu-dev.my.id](https://studiobot.robiriu-dev.my.id) (admin at `/admin`)
+**Status:** Completed
 
 ![WhatsApp Real-Estate Lead Bot](../images/whatsapp-realestate-bot.png)
 

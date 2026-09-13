@@ -1,7 +1,6 @@
 # Self-Correcting Document Pipeline (LangGraph)
 
-**Status:** Live demo
-**Demo:** [agentic.robiriu-dev.my.id](https://agentic.robiriu-dev.my.id)
+**Status:** Completed
 
 ![Agentic Document Pipeline](../images/agentic-doc-pipeline.png)
 

@@ -22,6 +22,4 @@ The interesting constraint was refusal: getting it to say "that's not on the sit
 
 An MVP - feedback welcome.
 
-Live demo: https://portfolio.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/portfolio-assistant/

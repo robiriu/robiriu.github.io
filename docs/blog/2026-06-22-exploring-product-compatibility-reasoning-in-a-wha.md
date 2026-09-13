@@ -22,6 +22,4 @@ The compatibility-by-car-model matching, and knowing when to escalate to a human
 
 An MVP - thoughts welcome.
 
-Live demo: https://autobot.robiriu-dev.my.id
-
 Project page: https://robiriu.github.io/projects/automotive-chatbot/

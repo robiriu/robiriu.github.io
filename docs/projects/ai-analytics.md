@@ -1,7 +1,6 @@
 # InsightFlow -- AI Analytics Workspace
 
-**Status:** Live demo
-**Demo:** [analytics.robiriu-dev.my.id](https://analytics.robiriu-dev.my.id)
+**Status:** Completed
 
 ![InsightFlow AI Analytics Workspace](../images/ai-analytics.png)
 
