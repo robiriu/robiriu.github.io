@@ -400,6 +400,8 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 
 | Category | Projects | Key Skills |
 |----------|----------|------------|
+| **Mobile & Kiosk Apps** | Face-Attendance App + Outlet Kiosk | Flutter, Dart, ML Kit on-device liveness, camera, geolocation, offline sync queue, kiosk mode, out-of-store releases |
+| **Enterprise Automation** | Agentic ERP Platform, HR & Face-Attendance Platform | FastAPI, Next.js, guarded ERP write-back, MCP tool servers, RBAC and audit, Docker Compose |
 | **LLM Fine-Tuning** | EnergyLM-7B | QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, quantization |
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
 | **GenAI & LLM** | Agentic RAG, HR Intelligence, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, agentic tool calling, LLM fallback chains |
