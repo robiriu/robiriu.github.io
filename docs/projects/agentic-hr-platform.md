@@ -2,6 +2,9 @@
 
 **Status:** Completed | Deployed on VPS (Nginx + Ubuntu)
 
+!!! info "Successor"
+    This prototype became the requirements source for a production system. See the [HR & Face-Attendance Platform](hr-attendance-platform.md), where every feature below is re-implemented on a native data model, with attendance captured by face recognition on a mobile app and outlet kiosk tablets instead of imported from spreadsheets.
+
 ## Executive Summary
 
 A full-stack, AI-powered Human Resource management platform that transforms raw HR data into actionable workforce intelligence. The system ingests employee master data from PDF and attendance records from Excel, then provides an **agentic AI chat interface** with 5 specialized tools, interactive analytics dashboards, and AI-driven insights including turnover risk scoring, anomaly detection, and contract renewal recommendations.
