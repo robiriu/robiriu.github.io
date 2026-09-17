@@ -242,4 +242,4 @@ Biometric templates and precise location are specific personal data under UU PDP
 
 ---
 
-*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout: the screenshots are taken from the running system with brands rendered as "Brand A" to "Brand D", entity codes as "UNA" to "UNF", and every personal name replaced with a generated one. Architecture, engineering decisions and metrics are described as built.*
+*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout: the screenshots are taken from the running system with brands rendered as "Brand A" to "Brand D", outlet districts as "Lokasi 01" onward, entity codes as "UNA" to "UNF", employee numbers renumbered, and every personal name replaced with a generated one. No name, number or location shown belongs to a real person or a real store. Architecture, engineering decisions and metrics are described as built.*

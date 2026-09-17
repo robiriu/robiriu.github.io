@@ -20,6 +20,22 @@ Built with no ERP sandbox and no test tenant, so every safety property had to be
 
 ---
 
+## Mobile & Kiosk Apps
+
+### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `PILOT`
+
+One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session, bound to one work site.
+
+Built for store floors rather than for a demo: a server-issued head-turn liveness challenge with a three-frame burst verified server-side (nothing the app claims about liveness is trusted), **no face embedding ever computed on the device**, a file-backed offline clock queue replayed with its original timestamp and flagged as late-synced, device binding through a fingerprint in secure storage, and self-updating outside the Play Store from a published manifest with a non-dismissible floor for releases nobody may skip.
+
+**Technologies:** Flutter, Dart, Riverpod, go_router, dio, Google ML Kit face detection, camera, geolocator, drift/SQLite, flutter_secure_storage, wakelock_plus
+
+**Highlights:** 2 run modes from one binary, ~4,000 lines of Dart, offline-first clock-in, roster-scoped kiosk matching with a NIK fallback, per-architecture release handling
+
+[View Project ->](face-attendance-mobile-kiosk.md)
+
+---
+
 ## Ongoing: Workforce Platforms
 
 ### [HR & Face-Attendance Platform](hr-attendance-platform.md) `STAGING, PILOT`
