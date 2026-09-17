@@ -17,6 +17,9 @@
 !!! success "Now Live in Production"
     **[Agentic ERP Automation Platform](projects/erp-automation-platform.md)** (ongoing) - An agentic automation layer on a **live commercial cloud ERP**, running the full procure-to-pay chain for a multi-entity manufacturing group: AI vision extraction of vendor invoices, statistical invoice-to-receipt matching, automated purchase orders and purchase invoices written into the ERP, and a three-gate payment flow with enforced separation of duties that **executes real bank transfers**. Built with no ERP sandbox, so every safety property is engineered: GET-only mirror for all reads, a seven-layer write-guard with idempotency and read-back verification, dry-run by default, canaried one document at a time. **43 read-only AI tools** on an in-app assistant. [Read the deep dive ->](projects/erp-automation-platform.md)
 
+!!! info "In Pilot"
+    **[HR & Face-Attendance Platform](projects/hr-attendance-platform.md)** (ongoing) - A company-owned HR platform for a multi-entity food and beverage group across roughly 45 outlets, on three surfaces over one backend: an **Android app** where employees clock in by **face verification inside a geofence**, the **same app as a shared kiosk tablet** in each outlet (no login, matched only against that outlet's roster), and an **HR web dashboard** for attendance, contracts, incidents, salary and payroll. Server-side face recognition on CPU, an active liveness challenge on the device, a rule engine behind every contract recommendation, and **9 read-only AI tools** on an in-app assistant. Biometric handling designed against Indonesia's UU PDP No. 27/2022. [Read the deep dive ->](projects/hr-attendance-platform.md)
+
 !!! tip "In Progress"
     **[EnergyLM-7B — LLM Fine-Tuning & Alignment](projects/energylm-finetune.md)** — End-to-end LLM fine-tuning pipeline: QLoRA SFT on Qwen2.5-7B, DPO vs ORPO alignment comparison, CoT distillation, 10-benchmark evaluation, AWQ/GGUF quantization. 20K synthetic energy-domain dataset. $0 budget — 100% free compute. [View project →](projects/energylm-finetune.md)
 
@@ -57,6 +60,18 @@ The engineering constraint that shaped everything: **no ERP sandbox and no test 
 **Stack:** FastAPI · Next.js · PostgreSQL · Claude (headless CLI + vision) · MCP · Docker Compose · Alembic · Nginx
 
 [View Project →](projects/erp-automation-platform.md)
+
+### In Pilot - HR & Face-Attendance Platform
+
+**[HR & Face-Attendance Platform](projects/hr-attendance-platform.md)** | Ongoing, staging live with the real workforce
+
+One backend, three surfaces: a **Flutter Android app** for employees, the **same binary running as a shared kiosk tablet** in each of roughly 45 outlets, and a **Next.js HR dashboard** covering attendance, contracts, incidents, salary progression and payroll. **136 API endpoints**, **42 tables** on PostgreSQL with PostGIS, **9 read-only AI tools**.
+
+Attendance is a face verification inside a geofence: an active liveness challenge and a three-frame burst on the device, **InsightFace ArcFace on CPU** server-side, and a deliberate review band between the accept and reject thresholds so an uncertain match becomes an HR decision instead of a guess. The kiosk matches only against one outlet's roster for one day, which is a privacy control and an accuracy control at once. Contract renewals come from a **rule engine with its evidence shown**; the model writes the sentence and never the number. Biometric templates are encrypted, have no export endpoint, and follow documented retention under **UU PDP No. 27/2022**.
+
+**Stack:** FastAPI · PostgreSQL + PostGIS · Next.js · Flutter · InsightFace + onnxruntime · Claude (headless CLI) · MCP · Docker Compose
+
+[View Project →](projects/hr-attendance-platform.md)
 
 ### AI-Native Applications — TransForce & CutForce
 

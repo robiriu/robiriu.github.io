@@ -20,6 +20,22 @@ Built with no ERP sandbox and no test tenant, so every safety property had to be
 
 ---
 
+## Ongoing: Workforce Platforms
+
+### [HR & Face-Attendance Platform](hr-attendance-platform.md) `STAGING, PILOT`
+
+A company-owned HR platform for a multi-entity food and beverage group of roughly 45 outlets, built on three surfaces over one backend: an Android app where employees clock in by face inside a geofence, the same app running as a shared kiosk tablet in each outlet, and an HR web dashboard for attendance, contracts, incidents, salary progression and payroll.
+
+Face verification runs server-side on CPU (InsightFace ArcFace) with an active liveness challenge on the device, a review band instead of a guess between the accept and reject thresholds, and a kiosk that matches only against one outlet's roster for one day. Contract renewal recommendations come from a rule engine with the evidence shown next to them; the model writes the narrative and never produces a number. Biometric handling is designed against Indonesia's UU PDP No. 27/2022: encrypted templates, no export endpoint, explicit consent, and documented retention.
+
+**Technologies:** FastAPI, PostgreSQL + PostGIS, Next.js, Flutter, InsightFace + onnxruntime, Claude (headless CLI), MCP, Docker Compose
+
+**Highlights:** 3 surfaces, 136 API endpoints, 42 tables, 9 read-only AI tools, 326 employees and 45 work sites on staging, payroll engine pending a parallel run
+
+[View Project ->](hr-attendance-platform.md)
+
+---
+
 ## Ongoing: AI-Native Applications
 
 Two applications built on the same architectural idea: **one shared live state edited by both a human and an AI agent**, an MCP tool layer instead of code generation, and a headless Claude Code agent running on a subscription.
