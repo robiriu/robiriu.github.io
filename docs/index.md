@@ -41,6 +41,7 @@ My work spans:
 - **MLOps & Model Deployment** — Automated training pipelines, model registry, 24 production models, CI/CD with GitHub Actions
 - **GPU Computing** — NVIDIA CUDA, PyTorch cu128, Docker GPU passthrough, VRAM budgeting, Blackwell sm_120 compatibility
 - **Cloud & Infrastructure** — Google Cloud Platform (Cloud Run, Cloud SQL, Secret Manager), Docker, Kubernetes, Kafka, Terraform
+- **Mobile & Kiosk Applications** - Flutter Android apps, on-device ML Kit liveness, offline-first sync queues, device binding, and shared-tablet kiosk mode with out-of-store release management
 - **Computer Vision & Video Analytics** - Detection and multi-object tracking (YOLO11, ByteTrack), behavioural event modelling from trajectories, zone geometry design, CPU-only reproducible pipelines
 - **Multimodal AI** — NLP (spaCy, Transformers), Vision (CLIP, YOLOv8), Audio (Whisper), Vector Search (pgvector)
 - **Published Work** — Models and datasets on HuggingFace, AI testing framework on npm (@robi-atp/cli)
