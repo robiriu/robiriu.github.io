@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/retail-video-analytics/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Retail Video Analytics (CCTV) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Retail Video Analytics (CCTV)";
+        var mkdocs_page_input_path = "projects/retail-video-analytics.md";
+        var mkdocs_page_url = "/projects/retail-video-analytics/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Mobile & Kiosk Apps</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../face-attendance-mobile-kiosk/">Face-Attendance Android App + Outlet Kiosk (Flutter)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Workforce Platforms</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../hr-attendance-platform/">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Computer Vision & Video Analytics</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Retail Video Analytics (CCTV)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem">The Problem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#architecture">Architecture</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#model-selection">Model selection</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#temporal-sampling">Temporal sampling</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scene-geometry">Scene Geometry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#store-interest-and-walk-in-conversion">Store Interest and Walk-In Conversion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#per-shelf-engagement">Per-Shelf Engagement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#staff-customer-interaction">Staff-Customer Interaction</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#staff-identification-the-approach-that-was-measured-and-discarded">Staff identification: the approach that was measured and discarded</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sessions">Sessions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology">Technology</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assumptions-and-limitations">Assumptions and Limitations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skills-demonstrated">Skills Demonstrated</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Computer Vision & Video Analytics</li>
+      <li class="breadcrumb-item active">Retail Video Analytics (CCTV)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="retail-video-analytics-customer-behaviour-from-cctv">Retail Video Analytics: Customer Behaviour from CCTV<a class="headerlink" href="#retail-video-analytics-customer-behaviour-from-cctv" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Completed | <strong>Repository:</strong> Private | <strong>Runtime:</strong> CPU-only, Dockerised</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>An end-to-end video analytics pipeline that turns two retail CCTV cameras into
+behavioural metrics: how many passers-by show interest in a store and how many
+of them actually walk in, which shelves customers engage with and how often, and
+how many genuine staff-to-customer interactions take place.</p>
+<p>Everything runs locally on CPU. No cloud inference, no footage leaving the
+machine, and the whole pipeline reproduces from a single Docker command.</p>
+<p>The interesting part of this project is not the detector. It is everything
+between a bounding box and a defensible number: what counts as interest, where
+the store actually begins, which detections must be thrown away, and how to tell
+a customer browsing a shelf apart from a customer walking past one.</p>
+<h2 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>Person detection on retail CCTV is close to solved. Turning detections into
+business metrics is not, because every metric hides a definition question:</p>
+<ul>
+<li>A shopper slows down at the window and walks on. Interested, or just walking?</li>
+<li>A shopper steps into the display band at the entrance, picks up a sandal, and
+  leaves. Entered, or not?</li>
+<li>A customer stands between two gondolas. Which shelf are they engaging with?</li>
+<li>A staff member and a customer are two metres apart for ten seconds. Service
+  interaction, or coincidence?</li>
+</ul>
+<p>Each of these was resolved against the footage and then written down, because a
+number without its definition cannot be audited.</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<p>The pipeline splits at the expensive boundary:</p>
+<pre class="mermaid"><code>flowchart LR
+    V["raw video&lt;br/&gt;2 cameras, 1280x720, 30 fps"] --&gt; D
+    subgraph S1["Stage 1: perception, run once"]
+        D["YOLO11m detection&lt;br/&gt;person class, imgsz 1280, conf 0.20"] --&gt; T["ByteTrack&lt;br/&gt;ID persistence"]
+        T --&gt; C[("track cache&lt;br/&gt;one row per frame x track&lt;br/&gt;gzip CSV + JSON sidecar")]
+    end
+    C --&gt; S2
+    Z["zones.yaml&lt;br/&gt;scene geometry"] --&gt; S2
+    subgraph S2["Stage 2: event logic, iterate freely"]
+        T1["store interest&lt;br/&gt;and conversion"]
+        T2["per-shelf&lt;br/&gt;engagement"]
+        T3["staff-customer&lt;br/&gt;interaction"]
+    end
+    S2 --&gt; M["metric CSVs"]
+    S2 --&gt; R["annotated videos"]</code></pre>
+<p>Stage 1 costs roughly 80 to 90 CPU-minutes across both videos. Stage 2 costs
+seconds. That split exists for one reason: behavioural thresholds need dozens of
+tuning iterations against the footage, and re-running inference for each one
+would have made the tuning impossible on CPU. Caching perception turned a
+multi-hour loop into a multi-second one.</p>
+<h3 id="model-selection">Model selection<a class="headerlink" href="#model-selection" title="Permanent link">&para;</a></h3>
+<p>Person detection was spot-checked across the YOLO11 family on frames from both
+cameras, COCO-pretrained, person class only, <code>imgsz=1280</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>ms/frame (CPU)</th>
+<th>Scene behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yolo11n</td>
+<td>~107</td>
+<td>Misses partially occluded and back-turned people</td>
+</tr>
+<tr>
+<td>yolo11s</td>
+<td>~225</td>
+<td>Missed a clearly visible back-turned customer</td>
+</tr>
+<tr>
+<td>yolo11m</td>
+<td>~520 to 600</td>
+<td>Detected everyone in spot-checks, including occluded</td>
+</tr>
+</tbody>
+</table>
+<p><strong>yolo11m</strong> was chosen as the smallest model with adequate recall on this
+footage. An OpenVINO export was benchmarked as a potential CPU speedup and came
+out <strong>slower</strong> than PyTorch on the development CPU, 660 versus 521 ms/frame, so
+PyTorch inference was kept. Detection confidence sits at <strong>0.20</strong>, deliberately
+low, because ByteTrack's two-stage association handles low-confidence boxes well
+and the hard cases (back-turned browsers) scored 0.3 to 0.5 in spot-checks.</p>
+<h3 id="temporal-sampling">Temporal sampling<a class="headerlink" href="#temporal-sampling" title="Permanent link">&para;</a></h3>
+<p>Video is 30 fps; every third frame is processed, for 10 fps effective. A mall
+walker takes at least four seconds to cross the view, so a crossing still yields
+40 or more tracked samples. This keeps tracking reliable while cutting CPU cost
+by 3x. Cache frame indices stay native (0, 3, 6, ...) so the output videos still
+render at full 30 fps with annotations interpolated between processed frames.</p>
+<h2 id="scene-geometry">Scene Geometry<a class="headerlink" href="#scene-geometry" title="Permanent link">&para;</a></h2>
+<p>All zones are pixel polygons in the native 1280x720 frame, drawn against
+reference frames and then validated by plotting 90 seconds of real tracked
+foot-point paths over the scene.</p>
+<p><img alt="Entrance camera zone geometry" src="../../images/retail-zones-entrance.png" /></p>
+<p>The entrance camera looks from inside the store, across the open storefront,
+onto a mall corridor that rings an atrium void. Three decisions matter here:</p>
+<ul>
+<li><strong>The corridor polygon is the near side only.</strong> Its upper edge follows the
+  atrium balustrade, which removes two confounders that are plainly visible in
+  frame: people walking the far side of the void, and the lower mall level seen
+  through it. Attention from across a void is not store interest.</li>
+<li><strong>The threshold was traced from the footage, not from the furniture.</strong>
+  Pedestrians squeeze tightly behind the threshold displays, so the line follows
+  the observed walk-lane lower envelope. A naive furniture-based line
+  misclassified through-walkers as entering.</li>
+<li><strong>A second inner line</strong> sits past the threshold display band. The band between
+  the two lines is exactly where corridor browsers linger without meaningfully
+  entering, which is what makes "interested but did not enter" measurable.</li>
+</ul>
+<p><img alt="Interior camera shelf footprints" src="../../images/retail-zones-interior.png" /></p>
+<p>The interior camera covers four fixtures. The exclusion zones are the
+interesting part: a first full-video pass showed the fitting poufs, the entrance
+display tables, and the cash-desk surroundings generating false shelf events,
+because seated customers, checkout queues, and counter staff all snap to the
+nearest shelf footprint otherwise.</p>
+<h2 id="store-interest-and-walk-in-conversion">Store Interest and Walk-In Conversion<a class="headerlink" href="#store-interest-and-walk-in-conversion" title="Permanent link">&para;</a></h2>
+<p>Only a track that appears in the corridor before any store presence is scored
+as a passer-by, so people already inside, staff, and store-to-corridor exits
+never enter the count. Staff tracks are excluded entirely.</p>
+<p><strong>Interest</strong> fires on any of three cues, all normalised by bounding-box height
+so that mall perspective cancels out. Normal walking measures 1.5 to 2.5 body
+heights per second in this footage:</p>
+<ol>
+<li><strong>Slowdown</strong>: speed below 0.45 h/s sustained 1.5 s within 140 px of the
+   threshold.</li>
+<li><strong>Approach</strong>: distance to the threshold drops by at least 0.6 body heights
+   over 1.5 s, ending inside the 140 px band, with the person in the corridor
+   for most of the window.</li>
+<li><strong>Threshold browsing</strong>: lingering below 0.45 h/s for at least 1.2 s inside
+   the display band. The speed condition is what stops a walker whose path
+   merely clips the band from counting.</li>
+</ol>
+<p><strong>Entered</strong> means crossing past the inner boundary for a sustained 0.6 s, or
+spending 8 s or more inside the store polygon. Entering implies interest.
+<strong>Passed by</strong> means interested and never entered.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total interested</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Interested, entered</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Interested, passed by</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<video class="clip" controls muted playsinline preload="metadata"
+       poster="../../videos/retail-entrance-poster.jpg">
+  <source src="../../videos/retail-entrance-clip.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+
+<p class="clip-caption">Entrance camera, 25 s excerpt of the annotated output. Green boxes mark
+people classified as having entered, the coloured lines are tracked trajectories, and the running
+counters top-left update as events fire. Every detected person is pixelated; the boxes, labels and
+trajectories are the pipeline's own output and are untouched.</p>
+
+<h2 id="per-shelf-engagement">Per-Shelf Engagement<a class="headerlink" href="#per-shelf-engagement" title="Permanent link">&para;</a></h2>
+<p><strong>Assignment uses the torso point, not the feet.</strong> Each customer is assigned to
+the nearest shelf by bounding-box centre-x at 25% height, within a
+reach of 0.35 body heights. The torso point replaced the foot point after a
+visual audit: a browsing customer's feet stay in the shared aisle while their
+upper body leans into the fixture they are actually engaged with. In one
+verified case, two customers shifted from browsing shelf B to shelf C without
+their feet ever leaving B's reach. This is also the working answer to "which
+shelf does a customer standing between two shelves belong to".</p>
+<p><strong>Events</strong> open when one shelf's assignment persists for 2.0 s with median speed
+below 0.35 h/s, which is well under walking pace. An event continues while the
+shelf stays assigned at any speed, bridging dropouts of up to 3.0 s for
+occlusion or a step back to look. Absence beyond 3.0 s closes it, and a later
+return to the same shelf is a new event. Dwell on a new shelf accumulates during
+the previous event's grace window, so quick shelf switches are not lost.</p>
+<table>
+<thead>
+<tr>
+<th>Shelf</th>
+<th>Fixture</th>
+<th>Interest events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Tiered display table</td>
+<td>3</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Centre gondola</td>
+<td>5</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Back gondola</td>
+<td>5</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Right wall shelf run</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<video class="clip" controls muted playsinline preload="metadata"
+       poster="../../videos/retail-interior-poster.jpg">
+  <source src="../../videos/retail-interior-clip.mp4" type="video/mp4">
+  Your browser does not support embedded video.
+</video>
+
+<p class="clip-caption">Interior camera, 25 s excerpt. Shelf footprints are drawn in the same
+colours as the geometry diagram above; a customer's box turns that shelf's colour once an
+engagement event opens, with the running dwell time beside it.</p>
+
+<h2 id="staff-customer-interaction">Staff-Customer Interaction<a class="headerlink" href="#staff-customer-interaction" title="Permanent link">&para;</a></h2>
+<h3 id="staff-identification-the-approach-that-was-measured-and-discarded">Staff identification: the approach that was measured and discarded<a class="headerlink" href="#staff-identification-the-approach-that-was-measured-and-discarded" title="Permanent link">&para;</a></h3>
+<p>An apron-colour classifier using torso HSV voting was built first, then retired
+after measurement. Under this footage's warm lighting, customer clothing and
+skin tones overlap the apron hue range, so colour could not separate the classes
+reliably. Building it was not wasted: it established that the obvious signal
+does not work here, which is what justified the spatial rule that replaced it.</p>
+<p><strong>The deployed rule is spatial.</strong> Only staff go behind the cash desk, and the
+desk clips their feet to the bottom frame edge, which gives a clean separation:
+staff foot y sits at 656 to 720, while customers approaching the desk front sit
+at 490 to 650. Two seconds or more in the anchor zone means staff. A small
+auditable override file covers documented exceptions, such as an apron-wearing
+server who appears for 1.4 s at the end of the video and never reaches the desk.</p>
+<p>Because the desk also occludes staff entirely for stretches, a second
+track-stitching tier merges deep-store stationary reappearances. Without it, one
+staff member fragmented into seven separate instances.</p>
+<h3 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Permanent link">&para;</a></h3>
+<p>A session is mutual proximity below 1.3 mean body heights, both parties inside
+the store, sustained for 4 s or more. Dropouts up to 4 s bridge into the same
+session, longer separation closes it, and a reunion counts as a new session.
+Sessions are per (staff, customer) pair, so one staff member serving two
+customers at once holds two concurrent sessions.</p>
+<p>Positions are compared on a common 10 Hz grid, and <strong>interpolation never bridges
+a dropout longer than 1 s</strong>. That guard exists because interpolating across a
+40 s dropout was observed to fabricate a phantom session before it was added.</p>
+<table>
+<thead>
+<tr>
+<th>Staff instance</th>
+<th>Interaction sessions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Staff 2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Staff 1409</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Staff 1830</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Staff 3670</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Average</strong></td>
+<td><strong>0.50</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The two counted sessions are a verified shoe-fitting episode at the sofa area,
+visible in the entrance clip above, where the session counters sit under the
+store-interest block.
+One known miss is documented rather than papered over: the family's checkout at
+the desk is uncounted because the staff member was fully occluded below the
+frame edge for that window, so there is no visual evidence to score.</p>
+<h2 id="technology">Technology<a class="headerlink" href="#technology" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Choice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detection</td>
+<td>YOLO11m (Ultralytics 8.4)</td>
+<td>Smallest model with adequate recall here</td>
+</tr>
+<tr>
+<td>Tracking</td>
+<td>ByteTrack (via Ultralytics)</td>
+<td>Strong ID persistence, handles low-conf boxes</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td>PyTorch CPU</td>
+<td>Faster than OpenVINO on this CPU (measured)</td>
+</tr>
+<tr>
+<td>Video I/O</td>
+<td>OpenCV</td>
+<td>Bundled codecs, no system ffmpeg dependency</td>
+</tr>
+<tr>
+<td>Data handling</td>
+<td>pandas + gzip CSV caches</td>
+<td>~100k rows, portable, diffable schema</td>
+</tr>
+<tr>
+<td>Config</td>
+<td>YAML</td>
+<td>Human-editable scene geometry</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Docker</td>
+<td>Containerised run reproduces the CSVs exactly</td>
+</tr>
+</tbody>
+</table>
+<p>The Docker image was build- and run-verified on Docker Engine 29.1 under
+WSL2/Ubuntu 24.04: the containerised pipeline reproduces the committed metric
+CSVs byte for byte, and model weights download inside the container on first run.</p>
+<h2 id="assumptions-and-limitations">Assumptions and Limitations<a class="headerlink" href="#assumptions-and-limitations" title="Permanent link">&para;</a></h2>
+<p>Stated plainly, because a behavioural metric without its failure modes is not a
+measurement:</p>
+<ul>
+<li>Identity persistence is per-video and per-appearance. Re-entry after leaving
+  the view creates a new track.</li>
+<li>Head pose and gaze are not estimated. At CCTV distance and resolution, gaze
+  estimation is unreliable, so interest is inferred from trajectory evidence
+  (dwell, slowdown, approach, position relative to the storefront), which is
+  both robust and explainable. This was a scope decision, not an omission.</li>
+<li>Effective detection runs at 10 fps, so sub-100 ms events are not resolvable.</li>
+<li>Heavy occlusion can fragment tracks; event logic uses debounce gaps to bridge
+  short fragmentation, but a long fragmentation is a real miss.</li>
+<li>ByteTrack identity switches can blend two adjacent people into one track. One
+  such case was observed and documented. Counts are per-track, so an undetected
+  switch merges two people's behaviour.</li>
+<li>Staff-customer interactions are only countable while both parties are
+  detectable. The cash desk fully occludes crouching staff, and one real
+  interaction is missed for exactly that reason.</li>
+</ul>
+<h2 id="skills-demonstrated">Skills Demonstrated<a class="headerlink" href="#skills-demonstrated" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Detection and tracking under real conditions</strong>: model family benchmarking on
+  the actual footage rather than on a public benchmark, low-confidence detection
+  paired with two-stage association, occlusion-aware track stitching</li>
+<li><strong>Behavioural event modelling</strong>: turning trajectories into auditable events
+  with explicit thresholds, debounce windows, and open/close semantics</li>
+<li><strong>Scene geometry design</strong>: polygon ROIs validated against plotted real tracks,
+  exclusion zones derived from observed false positives</li>
+<li><strong>Perspective normalisation</strong>: speeds and distances in body-height units so a
+  single threshold holds across the depth of the frame</li>
+<li><strong>Measuring before committing</strong>: the apron-colour classifier and the OpenVINO
+  export were both built, benchmarked, and rejected on evidence</li>
+<li><strong>Reproducible CPU pipelines</strong>: cached perception stage, Dockerised execution,
+  byte-identical outputs, no GPU required</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Cache the expensive stage.</strong> Separating perception from event logic turned
+   an impossible tuning loop into an interactive one. The architecture decision
+   mattered more than any model choice.</p>
+</li>
+<li>
+<p><strong>Trace boundaries from behaviour, not from furniture.</strong> The storefront line
+   that matched where people actually walk beat the line that matched where the
+   shop physically starts.</p>
+</li>
+<li>
+<p><strong>Normalise by body height.</strong> One threshold then works across the whole frame
+   depth, with no per-region tuning and no camera calibration.</p>
+</li>
+<li>
+<p><strong>The torso leads the feet.</strong> Assigning shelf engagement by foot position is
+   the obvious choice and the wrong one, and only a frame-by-frame audit surfaces
+   that.</p>
+</li>
+<li>
+<p><strong>Guard your interpolation.</strong> Filling a 40-second tracking gap invented an
+   interaction that never happened. Interpolation is a claim about unobserved
+   time and needs a limit.</p>
+</li>
+<li>
+<p><strong>Document the misses.</strong> The one uncounted checkout is in the write-up
+   because a metric you cannot challenge is not a metric.</p>
+</li>
+</ol>
+<hr />
+<p><em>The clips above are short excerpts published with the footage owner's
+permission. Because the source is retail CCTV containing members of the public,
+every detected person is pixelated before encoding, using the bounding boxes
+already held in the pipeline's own track cache: each box is inset first so the
+rectangle, its label and the trajectory lines survive intact, and what the clip
+shows is the analytics output rather than the people it was computed from. The
+full recordings are not published and remain excluded from version control. The
+geometry diagrams are rendered from the project's configuration alone and
+contain no frames from the footage.</em></p>
+<p><a href="../">← Back to Projects</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../porto-agent/" class="btn btn-neutral float-left" title="Porto Agent"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ai-sales-chatbot/" class="btn btn-neutral float-right" title="AI Sales & Lead-Gen Chatbot">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../porto-agent/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ai-sales-chatbot/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

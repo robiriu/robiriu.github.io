@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/face-attendance-mobile-kiosk/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Face-Attendance Android App + Outlet Kiosk (Flutter) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Face-Attendance Android App + Outlet Kiosk (Flutter)";
+        var mkdocs_page_input_path = "projects/face-attendance-mobile-kiosk.md";
+        var mkdocs_page_url = "/projects/face-attendance-mobile-kiosk/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Mobile & Kiosk Apps</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Face-Attendance Android App + Outlet Kiosk (Flutter)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-phone-app">The Phone App</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-a-clock-in-actually-works-on-the-device">How a Clock-In Actually Works on the Device</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#offline-is-the-normal-case">Offline Is the Normal Case</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kiosk-mode-the-same-app-as-a-shared-store-clock">Kiosk Mode: the Same App as a Shared Store Clock</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#shipping-without-the-play-store">Shipping Without the Play Store</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#status">Status</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Workforce Platforms</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../hr-attendance-platform/">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computer Vision & Video Analytics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../retail-video-analytics/">Retail Video Analytics (CCTV)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Mobile & Kiosk Apps</li>
+      <li class="breadcrumb-item active">Face-Attendance Android App + Outlet Kiosk (Flutter)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="face-attendance-android-app-and-outlet-kiosk-flutter">Face-Attendance Android App and Outlet Kiosk (Flutter)<a class="headerlink" href="#face-attendance-android-app-and-outlet-kiosk-flutter" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | Android app and store tablets in pilot, distributed outside the Play Store</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>One Flutter codebase that ships as <strong>two different products</strong>:</p>
+<ul>
+<li>an <strong>employee phone app</strong>, where clocking in is a face verification inside a geofence, plus schedule, leave, incident notes and payslips;</li>
+<li>the <strong>same binary in kiosk mode on an outlet tablet</strong>, a shared clock-in station bound to one work site, with no login and no session, so a whole crew clocks by face on a device nobody owns.</li>
+</ul>
+<p>It is built for kitchens and store floors rather than for a demo: bad signal is expected and queued, a tablet mid-service is never forced to update, no biometric computation happens on the device, and nothing the app claims about liveness is trusted by the server.</p>
+<p>This is the employee-facing half of the <a href="../hr-attendance-platform/">HR &amp; Face-Attendance Platform</a>, which covers the backend, the HR dashboard and the compliance model.</p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codebase</td>
+<td>~4,000 lines of Dart, one app, two run modes</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>Flutter 3.35 (Dart SDK 3.5+), Android first</td>
+</tr>
+<tr>
+<td>Phone screens</td>
+<td>login, home, clock in/out, face enrollment, history, corrections, leave, incidents, payslip, profile</td>
+</tr>
+<tr>
+<td>Kiosk screens</td>
+<td>pairing, home clock, clock in/out, face enrollment for that site</td>
+</tr>
+<tr>
+<td>Liveness</td>
+<td>server-issued head-turn challenge, 3-frame burst, verified server-side</td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>file-backed clock queue, replayed in order with the original client timestamp</td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td>self-update from a published manifest, one build per CPU architecture</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-phone-app">The Phone App<a class="headerlink" href="#the-phone-app" title="Permanent link">&para;</a></h2>
+<div style="display:flex;gap:1.5em;flex-wrap:wrap;align-items:flex-start;">
+<img src="../../images/hrp-mobile-home.png" alt="Employee app home screen" width="300">
+<img src="../../images/hrp-mobile-history.png" alt="Attendance history in the app" width="300">
+</div>
+
+<p>The home screen answers the only question a crew member has at the start of a shift: am I clocked in, what shift am I on, and is my face enrolled yet. Everything else (history, leave, incidents, payslip) sits behind the tab bar as their own copy of their record.</p>
+<p>Employees sign in with phone number and OTP, and the account is then <strong>bound to that device</strong>. The fingerprint is a stable per-install value kept in secure storage rather than the Android ID alone, which is not stable enough across a factory reset, and re-binding a person to a new phone is deliberately an explicit HR action rather than something the app can do quietly.</p>
+<hr />
+<h2 id="how-a-clock-in-actually-works-on-the-device">How a Clock-In Actually Works on the Device<a class="headerlink" href="#how-a-clock-in-actually-works-on-the-device" title="Permanent link">&para;</a></h2>
+<p>The device is treated as hostile, because an attendance record is a payroll input.</p>
+<p><strong>1. The server issues the challenge.</strong> The app asks for a liveness challenge and gets back which head turn this attempt must prove and how many frames to send. The app does not choose it and cannot replay an old one.</p>
+<p><strong>2. The app coaches, ML Kit measures.</strong> Google ML Kit face detection runs on the camera stream to check framing, and a small state machine walks the user through neutral, turn, neutral, telling them when each still is being taken. Its job is to help the person succeed, not to decide anything.</p>
+<p><strong>3. A three-frame burst goes up, not a single photo.</strong> The server verifies the turn actually happened across the frames, checks replay hashes so a burst captured once cannot be sent twice, scores texture for passive anti-spoofing, and only then compares the face against the enrolled template. The comment in the app's own liveness module says it plainly: nothing the app claims about liveness is trusted any more.</p>
+<p><strong>4. Location and device metadata ride along.</strong> A GPS fix with its accuracy, the mock-location flag, the device fingerprint and the client timestamp are all part of the submission, and the backend decides the geofence verdict.</p>
+<p><strong>No embedding is ever computed on the phone.</strong> The face template lives only on the server, encrypted, which is what lets thresholds be retuned without shipping an app release and keeps biometric data out of an APK that anyone can pull off a device.</p>
+<hr />
+<h2 id="offline-is-the-normal-case">Offline Is the Normal Case<a class="headerlink" href="#offline-is-the-normal-case" title="Permanent link">&para;</a></h2>
+<p>Kitchens and back-of-house corridors do not have signal, so an offline clock is a first-class path rather than an error state.</p>
+<p>A clock captured without connectivity is written to a <strong>file-backed queue</strong>: the photo alongside a JSON record carrying the event type, coordinates, accuracy, mock-location flag, device fingerprint and the original client timestamp. On reconnect the queue is replayed in order, still carrying that original timestamp, so the server records when the person actually clocked and flags the event as <strong>late-synced</strong>, with no live challenge behind it. HR sees that distinction on the dashboard instead of an offline clock silently pretending to be a normal one.</p>
+<hr />
+<h2 id="kiosk-mode-the-same-app-as-a-shared-store-clock">Kiosk Mode: the Same App as a Shared Store Clock<a class="headerlink" href="#kiosk-mode-the-same-app-as-a-shared-store-clock" title="Permanent link">&para;</a></h2>
+<p><img alt="Kiosk home screen on the outlet tablet" src="../../images/hrp-kiosk-home.png" /></p>
+<p>High turnover and staff who would rather not install a work app on their own phone make the shared tablet the realistic clock for an outlet. The same binary becomes one when it is paired.</p>
+<p><img alt="Pairing a tablet to a work site" src="../../images/hrp-kiosk-pairing.png" /></p>
+<p>HR generates a six-character pairing code per site. The tablet consumes it once and stores a long-lived kiosk token, and from then on it only ever shows kiosk screens. The code is single-use and expires; HR can issue a fresh one or revoke the tablet, and the old token dies immediately.</p>
+<p>What changes in kiosk mode, beyond the layout:</p>
+<ul>
+<li><strong>No session at all.</strong> The tablet holds no employee login and no templates. Every clock is a fresh identification request.</li>
+<li><strong>Liveness carries the whole weight.</strong> Without a login there is no second factor, so the head-turn challenge and the server-side burst verification are the only thing between a photograph and a payroll record.</li>
+<li><strong>Matching is scoped to the site roster</strong> for that day, never company-wide, which is both a privacy control and an accuracy one. A borderline match, or a best match that fails to beat the runner-up by a margin, makes the tablet ask for the employee's NIK and re-check one to one instead of guessing.</li>
+<li><strong>It behaves like an appliance.</strong> The screen is kept awake, it works in portrait and landscape, and it returns to the home clock automatically a few seconds after showing a result, ready for the next person in the queue. Android screen pinning is enabled by the installer so the app cannot be closed at the outlet.</li>
+</ul>
+<hr />
+<h2 id="shipping-without-the-play-store">Shipping Without the Play Store<a class="headerlink" href="#shipping-without-the-play-store" title="Permanent link">&para;</a></h2>
+<p>The app is distributed directly while it is in pilot, which means updates had to be solved rather than assumed.</p>
+<p>The server publishes a small version manifest next to the APK. The app compares its own build number against it and offers to download and install the new one. A <code>min_build</code> field is the escape hatch for a release nobody may skip, such as a changed API contract or a security fix: below that number the notice stops being dismissible. Everything else stays a suggestion the person can defer to the end of a shift, which matters on a tablet that is mid-service.</p>
+<p>One detail that had to be discovered the hard way: Flutter rewrites <code>versionCode</code> when building per CPU architecture, so an arm64 build reports 2006 where the real build is 6. Compared raw against the published number, every device would look permanently newer than any release and no update would ever be offered again. The app normalises the code and the publish script refuses build numbers at or above 1000, so the two can never be ambiguous.</p>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td>Flutter 3.35, Dart SDK 3.5+, Android</td>
+</tr>
+<tr>
+<td>State and routing</td>
+<td>Riverpod, go_router</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>dio, with a typed API client and rotating refresh tokens</td>
+</tr>
+<tr>
+<td>Face and liveness</td>
+<td>Google ML Kit face detection on device, server-side ArcFace verification</td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>camera plugin, three-frame burst capture</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>geolocator with accuracy and mock-location reporting</td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>file-backed clock queue (drift/SQLite for the background sync worker next)</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>flutter_secure_storage for the device fingerprint and tokens</td>
+</tr>
+<tr>
+<td>Kiosk</td>
+<td>wakelock_plus, single-site kiosk token, Android screen pinning</td>
+</tr>
+<tr>
+<td>Release</td>
+<td>self-update from a published manifest, per-architecture builds, <code>flutter analyze</code> clean in CI</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="status">Status<a class="headerlink" href="#status" title="Permanent link">&para;</a></h2>
+<p>The app compiles clean, runs against the staging backend, and is installed on pilot devices from a fixed download link. Kiosk mode was verified end to end on an Android tablet against staging. The remaining work before a wide rollout is the WhatsApp gateway for OTP delivery and threshold tuning from real pilot clock-ins at the first outlets.</p>
+<p>For the backend, the HR dashboard, the contract and turnover intelligence and the personal-data model behind all of this, see the <a href="../hr-attendance-platform/">HR &amp; Face-Attendance Platform</a>.</p>
+<hr />
+<p><em>Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout. The app screenshots come from a test account on a test outlet, not from a real employee or a real store.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../erp-automation-platform/" class="btn btn-neutral float-left" title="Agentic ERP Automation Platform (Live)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hr-attendance-platform/" class="btn btn-neutral float-right" title="HR & Face-Attendance Platform (Mobile, Kiosk, Web)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../erp-automation-platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hr-attendance-platform/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

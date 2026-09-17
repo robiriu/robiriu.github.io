@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/hr-attendance-platform/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>HR & Face-Attendance Platform (Mobile, Kiosk, Web) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "HR \u0026 Face-Attendance Platform (Mobile, Kiosk, Web)";
+        var mkdocs_page_input_path = "projects/hr-attendance-platform.md";
+        var mkdocs_page_url = "/projects/hr-attendance-platform/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Mobile & Kiosk Apps</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../face-attendance-mobile-kiosk/">Face-Attendance Android App + Outlet Kiosk (Flutter)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: Workforce Platforms</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem">The Problem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#three-surfaces-one-backend">Three Surfaces, One Backend</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-hr-dashboard">The HR Dashboard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#attendance-face-verification-inside-a-geofence">Attendance: Face Verification Inside a Geofence</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-store-tablet-kiosk-mode">The Store Tablet: Kiosk Mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-employee-app">The Employee App</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#people-records-contracts-incidents-salary">People Records: Contracts, Incidents, Salary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#payroll">Payroll</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-ai-layer">The AI Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#privacy-and-compliance">Privacy and Compliance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reliability-and-operations">Reliability and Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#current-status-and-roadmap">Current Status and Roadmap</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computer Vision & Video Analytics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../retail-video-analytics/">Retail Video Analytics (CCTV)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: Workforce Platforms</li>
+      <li class="breadcrumb-item active">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="hr-face-attendance-platform-mobile-kiosk-web">HR &amp; Face-Attendance Platform (Mobile, Kiosk, Web)<a class="headerlink" href="#hr-face-attendance-platform-mobile-kiosk-web" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | Staging live on the company VPS with the real workforce imported, Android app and store tablets in pilot</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>A company-owned HR platform for a multi-entity food and beverage group that runs roughly 45 outlets and a central kitchen across Jakarta, Tangerang, Bandung and Surabaya. It replaces a fingerprint machine plus a stack of spreadsheets with three surfaces on one backend:</p>
+<ul>
+<li>an <strong>Android app for employees</strong>, where attendance is a face verification inside a geofence, plus schedule, leave, incidents and payslip;</li>
+<li>the <strong>same app in kiosk mode on a store tablet</strong>, a shared clock-in station for one outlet where staff clock by face with no login at all;</li>
+<li>a <strong>web dashboard for HR</strong>, covering the employee master, attendance and corrections, contracts and renewal recommendations, incidents and warnings, salary progression, payroll, and a read-only AI assistant.</li>
+</ul>
+<p>The interesting engineering is not the CRUD. It is that <strong>biometric attendance is money data and sensitive personal data at the same time</strong>: every clock-in feeds payroll, and every face template falls under Indonesia's personal data law (UU PDP No. 27/2022). That pair of constraints drove the whole design, from where the face embedding is computed to how long a photograph is allowed to exist.</p>
+<div class="admonition note">
+<p class="admonition-title">Where it came from</p>
+<p>An earlier prototype, the <a href="../agentic-hr-platform/">Agentic HR Intelligence Platform</a>, established the feature set from imported PDF and spreadsheet exports. This platform re-implements all of it on a native data model, where attendance is captured at the source instead of imported, and adds kiosk tablets, payroll and the compliance work below.</p>
+</div>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surfaces</td>
+<td>3 (employee phone, outlet kiosk tablet, HR web dashboard)</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>~12,500 lines of Python (FastAPI)</td>
+</tr>
+<tr>
+<td>Web dashboard</td>
+<td>~4,600 lines of TypeScript (Next.js), 24 pages</td>
+</tr>
+<tr>
+<td>Mobile app</td>
+<td>~4,000 lines of Dart (Flutter, Android)</td>
+</tr>
+<tr>
+<td>REST endpoints</td>
+<td>136 across 14 routers</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>42 tables, PostgreSQL + PostGIS, 15 Alembic migrations</td>
+</tr>
+<tr>
+<td>Read-only AI tools</td>
+<td>9 (MCP), permission-scoped per user</td>
+</tr>
+<tr>
+<td>Workforce on staging</td>
+<td>326 employees, 45 work sites, 5 legal entities</td>
+</tr>
+<tr>
+<td>Backend test suite</td>
+<td>18 test modules, run on PostGIS in CI</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>92 commits from the first commit on 8 September 2026, single engineer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h2>
+<p>Attendance ran on shared fingerprint machines and monthly exports. Everything downstream of it was manual:</p>
+<ul>
+<li>The monthly recap arrived as spreadsheets that HR re-keyed before payroll.</li>
+<li>Contract renewals were tracked by hand, so PKWT contracts routinely ran past their end date before anyone decided. On the first import, <strong>50 contracts were already past their end date</strong> with no decision recorded.</li>
+<li>Incidents, warnings and salary raises lived in separate files, so nobody could see one employee's story in one place.</li>
+<li>There was no audit trail. Who edited a clock-in, and why, was not a question the old setup could answer.</li>
+</ul>
+<p>A fingerprint machine also fails exactly where this company operates: wet hands in a kitchen, high turnover, and staff who move between outlets.</p>
+<hr />
+<h2 id="three-surfaces-one-backend">Three Surfaces, One Backend<a class="headerlink" href="#three-surfaces-one-backend" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart TB
+    EMP["Employee phone&lt;br/&gt;Flutter app"]
+    KIOSK["Outlet tablet&lt;br/&gt;same app, kiosk mode"]
+    HRW["HR dashboard&lt;br/&gt;Next.js, 24 pages"]
+
+    EMP --&gt; API["FastAPI backend&lt;br/&gt;136 endpoints, RBAC + append-only audit"]
+    KIOSK --&gt; API
+    HRW --&gt; API
+
+    API --&gt; DB[("PostgreSQL + PostGIS&lt;br/&gt;42 tables")]
+    API --&gt; OBJ[("Object store&lt;br/&gt;photos, documents")]
+    API --&gt; WORK["Face worker&lt;br/&gt;InsightFace ArcFace on CPU"]
+    API --&gt; AI["Claude, headless CLI on subscription&lt;br/&gt;9 read-only MCP tools"]
+
+    WORK --&gt; DB
+    AI -.-&gt;|"reads only"| DB</code></pre>
+<p>Two design rules run through all of it:</p>
+<ol>
+<li><strong>The numbers never depend on the model.</strong> Every figure on every page is computed in SQL. The AI writes narratives and answers questions; it never produces a number that a human then acts on without the query behind it.</li>
+<li><strong>Biometrics never leave the server.</strong> The phone detects a face and proves liveness; it never computes an embedding. Templates are encrypted at rest and have no export endpoint at all.</li>
+</ol>
+<hr />
+<h2 id="the-hr-dashboard">The HR Dashboard<a class="headerlink" href="#the-hr-dashboard" title="Permanent link">&para;</a></h2>
+<p>The home page is a single operational answer to "what needs me today": attendance now, the queue of things awaiting a decision, headcount per unit, contracts about to expire, and a written briefing that names the specific employees behind each item.</p>
+<p><img alt="HR dashboard with the daily briefing" src="../../images/hrp-dashboard.png" /></p>
+<p>Attendance today lists the full scheduled roster, not only the people who clocked, so an absence is visible as an absence rather than as a missing row. Anything HR changes here goes through a correction with a reason and lands in the audit log.</p>
+<p><img alt="Attendance for the day across every outlet" src="../../images/hrp-attendance-today.png" /></p>
+<p>The employee master carries the contract stage (PKWT 1 to 6, then permanent), placement, and the contract end date with how far past due it is.</p>
+<p><img alt="Employee master across all units" src="../../images/hrp-employees.png" /></p>
+<hr />
+<h2 id="attendance-face-verification-inside-a-geofence">Attendance: Face Verification Inside a Geofence<a class="headerlink" href="#attendance-face-verification-inside-a-geofence" title="Permanent link">&para;</a></h2>
+<p>A clock-in has to satisfy four independent checks before it becomes a record.</p>
+<p><strong>1. Liveness, on the device.</strong> The app runs an active challenge issued by the server (blink, smile or turn) with ML Kit face detection, and uploads a three-frame burst rather than a single still. Replay hashes and a texture score are checked server-side, so a burst that was captured once cannot be replayed later.</p>
+<p><strong>2. Face verification, on the server.</strong> InsightFace ArcFace (buffalo_l) runs through onnxruntime on CPU inside the worker container, because the company has no GPU and 1:1 verification costs tens of milliseconds. Cosine similarity against the employee's stored template accepts at 0.55 or above, rejects below 0.40, and <strong>flags the band in between for HR review</strong> instead of guessing. Keeping the embedding server-side means thresholds can be retuned without shipping an app release.</p>
+<p><strong>3. Geofence.</strong> Each work site has a point and a radius in PostGIS, and the clock carries its distance. Sites are placed by pasting a Google Maps link, searching the name, or clicking the map, and a site supervisor can set it from the phone while standing in the outlet.</p>
+<p><img alt="Work sites with the geofence radius on the map" src="../../images/hrp-geofence.png" /></p>
+<p><strong>4. Device and metadata.</strong> Accounts are bound to a device, and mock location, rooted devices and clock skew are checked. Bad signal in a kitchen is expected, so an offline clock is queued locally and accepted on sync, flagged as late-synced and without a live challenge, which is a state HR can see rather than a silent equivalence.</p>
+<hr />
+<h2 id="the-store-tablet-kiosk-mode">The Store Tablet: Kiosk Mode<a class="headerlink" href="#the-store-tablet-kiosk-mode" title="Permanent link">&para;</a></h2>
+<p>Not every employee has a phone they want to use for work, and crew turnover is high. The same Flutter binary therefore also runs as a <strong>shared outlet clock</strong>: one tablet, pinned to one work site, no login and no session.</p>
+<p><img alt="Kiosk home screen on the outlet tablet" src="../../images/hrp-kiosk-home.png" /></p>
+<p>HR registers a tablet in the dashboard and gets a six-character pairing code. The tablet takes the code once and stores a long-lived kiosk token. From then on it only ever shows the kiosk screens.</p>
+<p><img alt="Pairing a tablet to a work site" src="../../images/hrp-kiosk-pairing.png" /></p>
+<p>Three properties make the kiosk safe rather than merely convenient:</p>
+<ul>
+<li><strong>The roster is the scope.</strong> A kiosk compares a face only against approved templates of employees placed or scheduled at that tablet's site that day, never company-wide. That is a privacy control and an accuracy control at once, since the candidate set is dozens of people rather than hundreds.</li>
+<li><strong>Ambiguity falls back to a name.</strong> One-to-many matching accepts at 0.60, reviews at 0.50, and the best match must beat the runner-up by a configured margin. If it does not, the tablet asks for the employee's NIK and re-checks one to one.</li>
+<li><strong>Revocation is instant.</strong> HR can issue a fresh pairing code or revoke the tablet, and the old token dies immediately. Codes are single-use and expire.</li>
+</ul>
+<p>HR manages the fleet from the dashboard, with pairing codes generated for every outlet at once at rollout time.</p>
+<p><img alt="Kiosk device management in the dashboard" src="../../images/hrp-kiosk-devices.png" /></p>
+<hr />
+<h2 id="the-employee-app">The Employee App<a class="headerlink" href="#the-employee-app" title="Permanent link">&para;</a></h2>
+<p>The phone app is the employee's own copy of their record: today's shift and clock state, attendance history, leave requests, incident notes, payslips, and face enrollment with an explicit consent step.</p>
+<div style="display:flex;gap:1.5em;flex-wrap:wrap;align-items:flex-start;">
+<img src="../../images/hrp-mobile-home.png" alt="Employee app home screen" width="300">
+<img src="../../images/hrp-mobile-history.png" alt="Attendance history in the app" width="300">
+</div>
+
+<p>Enrollment does not trust itself: an employee submits photos, the server builds the template, and <strong>HR approves it</strong> before it can verify anything. Raw enrollment photos are deleted once the template is approved.</p>
+<hr />
+<h2 id="people-records-contracts-incidents-salary">People Records: Contracts, Incidents, Salary<a class="headerlink" href="#people-records-contracts-incidents-salary" title="Permanent link">&para;</a></h2>
+<p>With 326 employees on rolling fixed-term contracts, the expensive mistake is a contract that quietly lapses.</p>
+<p>A rule engine scans contracts 90, 60 and 30 days out and produces a recommendation (extend, make permanent, do not extend, review) from attendance rate, lateness, alpha days, active warnings, incidents, tenure and the statutory five-year PKWT cap. <strong>The rules decide; the model only writes the sentence.</strong> HR sees the recommendation next to the raw numbers that produced it, makes the call, and the next contract is created in the same step.</p>
+<p><img alt="Contract expiry timeline and turnover analytics" src="../../images/hrp-contracts.png" /></p>
+<p>Alongside it sits a turnover risk score, 0 to 100, built from contract stage, lateness and alpha over 90 days, active warnings, serious incidents, and time since the last raise. Every row shows the factors that produced the score, so it reads as evidence rather than as an oracle.</p>
+<p><img alt="Turnover risk scoring with the factors behind each score" src="../../images/hrp-turnover-risk.png" /></p>
+<p>Incidents carry SP1 to SP3 warning validity windows and a manager sign-off. Salary raises run through two gates, with the proposer never approving their own proposal and direksi approval required above a percentage or rupiah threshold. Everything an employee has been through is also rendered as one timeline on their record.</p>
+<hr />
+<h2 id="payroll">Payroll<a class="headerlink" href="#payroll" title="Permanent link">&para;</a></h2>
+<p>The payroll engine computes per entity, per month, on a 26th-to-25th cut-off matching the attendance recap: effective salary, pro-rata for joiners and leavers, alpha deductions, overtime under PP 35/2021, incident deductions, BPJS Kesehatan and Ketenagakerjaan with their caps, and PPh 21 by the TER method with a December annual reconciliation. It produces payslip PDFs, a multi-bank transfer spreadsheet and a journal CSV, behind a compute, approve and pay workflow with separation of duties.</p>
+<p>It is deliberately <strong>not live yet</strong>. The TER tables were transcribed by hand and are pending verification against PMK 168/2023, and the plan is a parallel run against the current payroll for one month before anything is paid from it. Payroll that is merely probably right is worse than payroll that is honest about being unverified.</p>
+<hr />
+<h2 id="the-ai-layer">The AI Layer<a class="headerlink" href="#the-ai-layer" title="Permanent link">&para;</a></h2>
+<p>Two uses, both narrow.</p>
+<p><strong>A daily briefing</strong> on the home page, written from figures the backend already computed, naming the employees and contracts behind each point so it can be acted on directly.</p>
+<p><strong>A read-only assistant</strong> over nine MCP tools: employees, employee detail, attendance, contract alerts, pattern analysis, incidents, salary status, payroll summary and turnover risk. Every tool is read-only and scoped to the asking user's permissions and entity, so salary and payroll tools simply refuse for a user without that right. Each answer shows the tool calls that produced it, and every exchange is logged.</p>
+<p><img alt="The read-only HR assistant, showing the tool it used" src="../../images/hrp-assistant.png" /></p>
+<p>It runs the <strong>headless Claude CLI on the company's existing subscription</strong>, with <code>ANTHROPIC_API_KEY</code> stripped from the child environment so it can never silently fall back to metered billing, and with every built-in agent tool disallowed. The only tools that exist in that process are the HR data tools. One subscription is one slot, so calls are serialised behind a process lock and the dashboard polls an async job.</p>
+<p>When the model is unavailable, the platform degrades rather than invents: the briefing falls back to rule-written text, recommendation narratives are left empty instead of faked, and every number on every page stays correct because none of them came from the model in the first place.</p>
+<hr />
+<h2 id="privacy-and-compliance">Privacy and Compliance<a class="headerlink" href="#privacy-and-compliance" title="Permanent link">&para;</a></h2>
+<p>Biometric templates and precise location are specific personal data under UU PDP No. 27/2022, so the platform carries a working data protection note as part of the repository, not as an afterthought.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consent</td>
+<td>Collected in the app at first login, versioned Indonesian text, stored with a timestamp; withdrawal switches the employee to supervisor-witnessed clock-in</td>
+</tr>
+<tr>
+<td>Template storage</td>
+<td>512-dimension vector, encrypted at rest with an application key, <strong>no export endpoint</strong>, readable only by the backend worker</td>
+</tr>
+<tr>
+<td>Retention</td>
+<td>Enrollment photos deleted 30 days after approval; clock-in photos kept 90 days, then only the score; templates deleted 30 days after exit</td>
+</tr>
+<tr>
+<td>Minimisation</td>
+<td>A kiosk matches against one site's roster for one day, never the whole company</td>
+</tr>
+<tr>
+<td>Access</td>
+<td>RBAC by role, entity and site, so HR for one entity cannot see another</td>
+</tr>
+<tr>
+<td>Accountability</td>
+<td>Append-only audit log of every correction, approval, decision and device action</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reliability-and-operations">Reliability and Operations<a class="headerlink" href="#reliability-and-operations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Append-only audit log</strong> across attendance corrections, approvals, contract decisions, salary gates and device actions: who, when, from which device, and why.</li>
+<li><strong>RBAC by role, entity and site</strong>, with an in-app user administration page and mandatory contact details.</li>
+<li><strong>Rotating refresh tokens</strong> with device binding, and phone plus OTP login for employees.</li>
+<li><strong>Isolated staging on the company VPS</strong> behind its own TLS listener, with its own database and object store, running with the real imported workforce.</li>
+<li><strong>CI on GitHub Actions</strong>: backend tests against a PostGIS service container, web lint and build.</li>
+<li>Docker Compose on a single VPS, chosen over Kubernetes for a team of one and recorded as an architecture decision record.</li>
+<li>An Indonesian user manual for HR, outlet supervisors and employees, built and served alongside the platform, because a system this team cannot operate without asking is not finished.</li>
+</ul>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backend</td>
+<td>Python, FastAPI, SQLAlchemy, Alembic, Pydantic</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>PostgreSQL with PostGIS (geofencing), 42 tables</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>Next.js, React, TypeScript, Leaflet</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Flutter (Android), ML Kit face detection, offline queue</td>
+</tr>
+<tr>
+<td>Face</td>
+<td>InsightFace ArcFace (buffalo_l) via onnxruntime on CPU, passive anti-spoof, active liveness challenge</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>Claude via headless CLI on a subscription, custom MCP stdio server, 9 read-only tools</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Object store for photos and documents, private buckets with signed URLs</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Docker Compose, Nginx, Ubuntu VPS, isolated staging, GitHub Actions CI</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="current-status-and-roadmap">Current Status and Roadmap<a class="headerlink" href="#current-status-and-roadmap" title="Permanent link">&para;</a></h2>
+<p><strong>Working on staging with the real workforce imported:</strong></p>
+<ul>
+<li>Attendance end to end: enrollment with HR approval, face verification, geofence, liveness, offline queue, corrections, schedules, monthly recap and analytics</li>
+<li>Kiosk tablets: pairing, roster-scoped one-to-many matching, NIK fallback, revocation</li>
+<li>People records: contracts and recommendations, incidents with warning validity, salary gates, employee timeline, turnover risk</li>
+<li>The read-only assistant and the daily briefing, verified against real data</li>
+<li>Payroll engine, computed but not yet paid from</li>
+</ul>
+<p><strong>Next:</strong></p>
+<ul>
+<li>WhatsApp gateway credentials so employee OTP login leaves the manual path</li>
+<li>TER table verification against PMK 168/2023 and a one-month parallel payroll run</li>
+<li>Threshold tuning from pilot data at the first outlets, before a wider rollout</li>
+</ul>
+<hr />
+<p><em>Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout: the screenshots are taken from the running system with brands rendered as "Brand A" to "Brand D", outlet districts as "Lokasi 01" onward, entity codes as "UNA" to "UNF", employee numbers renumbered, and every personal name replaced with a generated one. No name, number or location shown belongs to a real person or a real store. Architecture, engineering decisions and metrics are described as built.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../face-attendance-mobile-kiosk/" class="btn btn-neutral float-left" title="Face-Attendance Android App + Outlet Kiosk (Flutter)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../transforce/" class="btn btn-neutral float-right" title="TransForce (Particle Transport)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../face-attendance-mobile-kiosk/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../transforce/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
