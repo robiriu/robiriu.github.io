@@ -9,11 +9,12 @@ Complete list of professional activities, presentations, and training programs.
 ### Webinar: Deep Learning for Medical Image Analysis
 **November 2024**
 
-![Robi Dany Riupassa, speaker at the webinar](../images/webinar-dlmia-speaker.jpg)
+![Presenting SegFormer for medical image segmentation during the live webinar](../images/webinar-dlmia-live.jpg)
 
 **Topic:** Advanced techniques in medical image analysis using deep learning
 
 **Focus Areas:**
+
 - Diagnostic applications
 - Healthcare innovation
 - Deep learning architectures for medical imaging
@@ -31,6 +32,7 @@ Complete list of professional activities, presentations, and training programs.
 **Topic:** Oxygen saturation and heart rate monitoring using computer vision
 
 **Covered:**
+
 - Computer vision techniques for health monitoring
 - Real-time sensor data processing
 - Practical demonstrations
@@ -48,6 +50,7 @@ Complete list of professional activities, presentations, and training programs.
 **Topic:** Introduction to microcontroller programming and instrumentation
 
 **Activities:**
+
 - Arduino basics and setup
 - Sensor integration
 - Hands-on projects
