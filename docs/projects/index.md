@@ -8,13 +8,13 @@ A portfolio of production-grade AI systems, from physics-informed energy platfor
 
 ### [Agentic ERP Automation Platform](erp-automation-platform.md) `LIVE IN PRODUCTION`
 
-An agentic automation platform layered on a live commercial cloud ERP, running the full procure-to-pay chain for a multi-entity food manufacturing group. Automated reorder proposals and purchase orders, AI vision extraction of vendor invoices, statistical matching of invoices to their goods receipts, purchase invoice creation in the ERP, a three-gate payment approval flow with enforced separation of duties that executes real bank transfers, bank statement reconciliation, and guarded payment write-back into the ERP.
+An agentic automation platform layered on a live commercial cloud ERP, running the whole supply chain of a multi-entity food manufacturing group: buy, receive, make, sell to the group's own outlets, and pay. Purchase orders, partial goods receipts, AI vision extraction of vendor invoices matched to their receipts, production and work orders from the real bill of materials, an inter-company sales flow from outlet spreadsheet to settlement, stock opname and transfers from a Flutter Android app, and a three-gate payment flow with enforced separation of duties that executes real bank transfers and writes payments back into the ERP.
 
-Built with no ERP sandbox and no test tenant, so every safety property had to be engineered: a GET-only nightly mirror for all reads, a seven-layer write-guard with idempotency and read-back verification, dry-run shadow mode by default, and per-capability feature flags canaried one document at a time.
+Built with no ERP sandbox and a hard daily API quota, so every safety property had to be engineered: a GET-only mirror for reads, a seven-layer write-guard with idempotency and read-back verification, timeouts treated as unknown outcomes rather than failures, a shared quota guard across 20 services, and per-capability feature flags canaried one document at a time.
 
-**Technologies:** FastAPI, Next.js, PostgreSQL, Claude (headless CLI + vision), MCP, Docker Compose, Alembic, Nginx
+**Technologies:** Python, FastAPI, Next.js, TypeScript, Flutter, PostgreSQL, Claude (headless CLI, vision, MCP), Docker Compose, Prometheus/Grafana, GitHub Actions
 
-**Highlights:** 4 operational pillars, 87 API endpoints, 43 read-only AI tools, 5 guarded ERP write capabilities, 15 containerized services, 34 tables, live and moving real money
+**Highlights:** 5 operational pillars, 12 guarded ERP write capabilities, ~310 API endpoints, 61 read-only AI tools, 620 automated tests, 75 tables, 1,485 commits, live and moving real money
 
 [View Project ->](erp-automation-platform.md)
 
@@ -401,7 +401,7 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 | Category | Projects | Key Skills |
 |----------|----------|------------|
 | **Mobile & Kiosk Apps** | Face-Attendance App + Outlet Kiosk | Flutter, Dart, ML Kit on-device liveness, camera, geolocation, offline sync queue, kiosk mode, out-of-store releases |
-| **Enterprise Automation** | Agentic ERP Platform, HR & Face-Attendance Platform | FastAPI, Next.js, guarded ERP write-back, MCP tool servers, RBAC and audit, Docker Compose |
+| **Enterprise Automation** | Agentic ERP Platform, HR & Face-Attendance Platform | FastAPI, Next.js, Flutter, guarded ERP write-back, MCP tool servers, RBAC and audit, Docker Compose |
 | **LLM Fine-Tuning** | EnergyLM-7B | QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, quantization |
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |
 | **GenAI & LLM** | Agentic RAG, HR Intelligence, Help QnA, Porto Agent | LangGraph, RAG, multi-agent, agentic tool calling, LLM fallback chains |
