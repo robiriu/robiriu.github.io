@@ -22,15 +22,15 @@ Built with no ERP sandbox and a hard daily API quota, so every safety property h
 
 ## Mobile & Kiosk Apps
 
-### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `PILOT`
+### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `LIVE`
 
-One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session, bound to one work site.
+One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session. The company's official attendance clock since 2 October 2026, with about 70 employees clocking in on it every day.
 
-Built for store floors rather than for a demo: a server-issued head-turn liveness challenge with a three-frame burst verified server-side (nothing the app claims about liveness is trusted), **no face embedding ever computed on the device**, a file-backed offline clock queue replayed with its original timestamp and flagged as late-synced, device binding through a fingerprint in secure storage, and self-updating outside the Play Store from a published manifest with a non-dismissible floor for releases nobody may skip.
+Built for store floors rather than for a demo: a server-issued liveness challenge with server-tuned coaching limits and a three-frame burst verified server-side, **no face embedding ever computed on the device**, an offline clock queue replayed with its original timestamp, and NIK + PIN sign-in with no per-login message cost. The kiosk is locked down by a native Kotlin layer (launcher alias, lock task, device owner) that replaced a paid kiosk app, installs its own updates silently, and reopens itself after an update or a power cut, including the Android 15 overlay workaround.
 
-**Technologies:** Flutter, Dart, Riverpod, go_router, dio, Google ML Kit face detection, camera, geolocator, drift/SQLite, flutter_secure_storage, wakelock_plus
+**Technologies:** Flutter, Dart, Kotlin, Riverpod, go_router, dio, Google ML Kit face detection, camera, geolocator, flutter_secure_storage, video_player, wakelock_plus
 
-**Highlights:** 2 run modes from one binary, ~4,000 lines of Dart, offline-first clock-in, roster-scoped kiosk matching with a NIK fallback, per-architecture release handling
+**Highlights:** in daily production use, ~7,600 lines of Dart, over 35 over-the-air releases in the first month, tablet clock cut from about a minute to seconds, self-recovering kiosk tablets, roster-scoped matching with a NIK fallback
 
 [View Project ->](face-attendance-mobile-kiosk.md)
 
@@ -400,7 +400,7 @@ Comprehensive comparison of YouTube Two-Tower, Netflix Foundation, and Hybrid re
 
 | Category | Projects | Key Skills |
 |----------|----------|------------|
-| **Mobile & Kiosk Apps** | Face-Attendance App + Outlet Kiosk | Flutter, Dart, ML Kit on-device liveness, camera, geolocation, offline sync queue, kiosk mode, out-of-store releases |
+| **Mobile & Kiosk Apps** | Face-Attendance App + Outlet Kiosk | Flutter, Dart, Kotlin, ML Kit face detection, camera, geolocation, offline sync queue, device-owner kiosk lock, out-of-store releases |
 | **Enterprise Automation** | Agentic ERP Platform, HR & Face-Attendance Platform | FastAPI, Next.js, Flutter, guarded ERP write-back, MCP tool servers, RBAC and audit, Docker Compose |
 | **LLM Fine-Tuning** | EnergyLM-7B | QLoRA SFT, DPO, ORPO, CoT distillation, reward modeling, quantization |
 | **Physics-Informed ML** | ForceX AI, GeoForce | PINNs, CNN surrogates, simulation, HuggingFace |

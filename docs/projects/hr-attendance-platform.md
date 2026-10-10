@@ -21,7 +21,7 @@ The interesting engineering is not the CRUD. It is that **biometric attendance i
 
 | Metric | Value |
 |--------|-------|
-| In production | Official attendance since 2 Oct 2026, ~70 employees clocking daily on shared tablets, 2 outlets live |
+| In production | Official attendance since 2 Oct 2026, ~70 employees clocking daily on 2 shared tablets |
 | Workforce on the platform | ~800 employees, 46 work sites, several legal entities |
 | Face match quality after adaptive templates | Median similarity 0.77 to ~0.85, first-try success 72% to 90%, zero wrong-person matches |
 | Backend | ~19,900 lines of Python (FastAPI), 26 routers |
