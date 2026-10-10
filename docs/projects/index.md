@@ -38,15 +38,15 @@ Built for store floors rather than for a demo: a server-issued head-turn livenes
 
 ## Ongoing: Workforce Platforms
 
-### [HR & Face-Attendance Platform](hr-attendance-platform.md) `STAGING, PILOT`
+### [HR & Face-Attendance Platform](hr-attendance-platform.md) `LIVE`
 
-A company-owned HR platform for a multi-entity food and beverage group of roughly 45 outlets, built on three surfaces over one backend: an Android app where employees clock in by face inside a geofence, the same app running as a shared kiosk tablet in each outlet, and an HR web dashboard for attendance, contracts, incidents, salary progression and payroll.
+A company-owned HR platform for a multi-entity food and beverage group of roughly 45 outlets, built on three surfaces over one backend: an Android app where employees clock in by face inside a geofence, the same app running as a locked-down kiosk tablet in the outlets, and an HR web dashboard for attendance, contracts, incidents, salary, recruitment with psychological tests, reimbursement and cash advances, and payroll. The company's official attendance system since 2 October 2026.
 
-Face verification runs server-side on CPU (InsightFace ArcFace) with an active liveness challenge on the device, a review band instead of a guess between the accept and reject thresholds, and a kiosk that matches only against one outlet's roster for one day. Contract renewal recommendations come from a rule engine with the evidence shown next to them; the model writes the narrative and never produces a number. Biometric handling is designed against Indonesia's UU PDP No. 27/2022: encrypted templates, no export endpoint, explicit consent, and documented retention.
+Face verification runs server-side on CPU (InsightFace ArcFace) with a review band instead of a guess between the accept and reject thresholds, a kiosk that matches only against its own sites' roster for the day, and adaptive templates learned only from unambiguous matches. An attendance rules engine handles night shifts across midnight, breaks, overtime and staff who move between branches. Contract recommendations come from a rule engine with the evidence shown; the model writes the narrative and never produces a number. Biometric handling is designed against Indonesia's UU PDP No. 27/2022.
 
-**Technologies:** FastAPI, PostgreSQL + PostGIS, Next.js, Flutter, InsightFace + onnxruntime, Claude (headless CLI), MCP, Docker Compose
+**Technologies:** FastAPI, PostgreSQL + PostGIS, Next.js, Flutter, InsightFace + onnxruntime, Claude (headless CLI), MCP, Docker Compose, Prometheus, GitHub Actions
 
-**Highlights:** 3 surfaces, 136 API endpoints, 42 tables, 9 read-only AI tools, 326 employees and 45 work sites on staging, payroll engine pending a parallel run
+**Highlights:** ~70 employees clocking by face daily, first-try match 72% to 90% after adaptive templates, ~320 API endpoints, 71 tables, 22 read-only AI tools, 225 backend tests, ~800 employees and 46 sites on the platform, payroll pending a parallel run
 
 [View Project ->](hr-attendance-platform.md)
 
