@@ -1,6 +1,6 @@
 # HR & Face-Attendance Platform (Mobile, Kiosk, Web)
 
-**Status:** Ongoing | The company's official attendance system since 2 October 2026: about 70 employees clock in by face every day on outlet tablets, with the whole workforce of roughly 800 people on the platform
+**Status:** Ongoing | The company's official attendance system since 2 October 2026: dozens of employees clock in by face every day on outlet tablets, with the whole workforce of several hundred people on the platform
 
 ## Executive Summary
 
@@ -21,8 +21,8 @@ The interesting engineering is not the CRUD. It is that **biometric attendance i
 
 | Metric | Value |
 |--------|-------|
-| In production | Official attendance since 2 Oct 2026, ~70 employees clocking daily on 2 shared tablets |
-| Workforce on the platform | ~800 employees, 46 work sites, several legal entities |
+| In production | Official attendance since 2 Oct 2026, dozens of employees clocking daily on shared tablets |
+| Workforce on the platform | several hundred employees, dozens of work sites, several legal entities |
 | Face match quality after adaptive templates | Median similarity 0.77 to ~0.85, first-try success 72% to 90%, zero wrong-person matches |
 | Backend | ~19,900 lines of Python (FastAPI), 26 routers |
 | Web dashboard | ~12,500 lines of TypeScript (Next.js), 41 pages |
@@ -145,7 +145,7 @@ The dashboard shows tablet readiness per site, so a rollout is a list of rows wi
 
 ## Going Live: What the Floor Taught Us
 
-The platform became the official attendance system on 2 October. About 60 people clocked on day one, and it has settled at roughly 70 a day on the main tablet. A second outlet tablet followed on 7 October. The first weeks were spent turning measurements into fixes:
+The platform became the official attendance system on 2 October. Dozens of people clocked in on day one, and daily use has held steady since. A second outlet tablet followed on 7 October. The first weeks were spent turning measurements into fixes:
 
 - **A one-minute clock became a few seconds.** Server inference for the whole burst took about 0.9 seconds, so the delay was on the tablet. Three causes:
     - a frontal-pose gate that a tablet's viewing angle could never satisfy;

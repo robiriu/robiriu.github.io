@@ -9,7 +9,7 @@ One Flutter codebase that ships as **two different products**:
 - an **employee phone app**, covering face attendance inside a geofence, plus schedule, leave, overtime, corrections, notifications, personal data requests, claims, issue reporting and payslips;
 - the **same binary in kiosk mode on an outlet tablet**, a shared clock-in station with no login and no session. It is locked down like an appliance, so a whole crew clocks by face on a device nobody owns.
 
-It is built for kitchens and store floors rather than for a demo: bad signal is expected and queued, a tablet mid-service is never forced to update, no biometric computation happens on the device, and nothing the app claims about liveness is trusted by the server. Since going live, about 70 employees clock in on it every day.
+It is built for kitchens and store floors rather than for a demo: bad signal is expected and queued, a tablet mid-service is never forced to update, no biometric computation happens on the device, and nothing the app claims about liveness is trusted by the server. Since going live, dozens of employees clock in on it every day.
 
 This is the employee-facing half of the [HR & Face-Attendance Platform](hr-attendance-platform.md), which covers the backend, the HR dashboard and the compliance model.
 
@@ -19,7 +19,7 @@ This is the employee-facing half of the [HR & Face-Attendance Platform](hr-atten
 
 | Metric | Value |
 |--------|-------|
-| Production use | Official attendance clock since 2 Oct 2026, ~70 employees clocking daily on outlet tablets |
+| Production use | Official attendance clock since 2 Oct 2026, dozens of employees clocking daily on outlet tablets |
 | Codebase | ~7,600 lines of Dart plus a small native Kotlin layer for the kiosk lock |
 | Releases | Over 35 builds shipped over the air in the first month, from 0.2.5 to 0.2.41 |
 | Phone screens | sign-in and activation, home, clock in/out, enrollment, history, corrections, schedule, leave, overtime, notifications, my data, claims, issue reporting, team requests, payslip, profile |
@@ -154,7 +154,7 @@ Two details that had to be discovered the hard way:
 
 ## Status
 
-The app is the company's official attendance clock. Two shared tablets are live, about 70 employees clock in every day, and the phone app is enabled per person by HR. Next:
+The app is the company's official attendance clock. Shared tablets are live, dozens of employees clock in every day, and the phone app is enabled per person by HR. Next:
 
 - more outlet tablets;
 - face enrollment for the remaining staff at each site;
