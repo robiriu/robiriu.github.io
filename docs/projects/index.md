@@ -24,7 +24,7 @@ Built with no ERP sandbox and a hard daily API quota, so every safety property h
 
 ### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `LIVE`
 
-One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session. The company's official attendance clock since 2 October 2026, with about 70 employees clocking in on it every day.
+One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session. The company's official attendance clock since 2 October 2026, with dozens of employees clocking in on it every day.
 
 Built for store floors rather than for a demo: a server-issued liveness challenge with server-tuned coaching limits and a three-frame burst verified server-side, **no face embedding ever computed on the device**, an offline clock queue replayed with its original timestamp, and NIK + PIN sign-in with no per-login message cost. The kiosk is locked down by a native Kotlin layer (launcher alias, lock task, device owner) that replaced a paid kiosk app, installs its own updates silently, and reopens itself after an update or a power cut, including the Android 15 overlay workaround.
 
@@ -46,7 +46,7 @@ Face verification runs server-side on CPU (InsightFace ArcFace) with a review ba
 
 **Technologies:** FastAPI, PostgreSQL + PostGIS, Next.js, Flutter, InsightFace + onnxruntime, Claude (headless CLI), MCP, Docker Compose, Prometheus, GitHub Actions
 
-**Highlights:** ~70 employees clocking by face daily, first-try match 72% to 90% after adaptive templates, ~320 API endpoints, 71 tables, 22 read-only AI tools, 225 backend tests, ~800 employees and 46 sites on the platform, payroll pending a parallel run
+**Highlights:** dozens of employees clocking by face daily, first-try match 72% to 90% after adaptive templates, ~320 API endpoints, 71 tables, 22 read-only AI tools, 225 backend tests, several hundred employees and dozens of sites on the platform, payroll pending a parallel run
 
 [View Project ->](hr-attendance-platform.md)
 
@@ -162,13 +162,13 @@ Production-ready RAG system with hybrid retrieval (dense + BM25 + RRF fusion), m
 
 ---
 
-### [Porto Agent — AI Content Marketing Platform](porto-agent.md)
+### [Porto Agent: LinkedIn Drafts From Real Work](porto-agent.md)
 
-AI-powered platform that generates technical blog posts and LinkedIn content from git commit history. LangGraph orchestration with human-in-the-loop approval via dashboard and Telegram.
+Turns real engineering work into first-person LinkedIn drafts, then refuses to post any of them until I say so. Stories come from anonymised portfolio pages and short notes, not commits; Claude (headless CLI, tools disabled) writes one concrete moment per post in text, diagram or carousel format; a content guard fixes or blocks every draft; and publishing is a separate, manual, server-gated step.
 
-**Technologies:** Gemini 2.5 Flash, LangGraph, FastAPI, Next.js, PostgreSQL, Telegram Bot API
+**Technologies:** Claude (headless CLI), FastAPI, Next.js, PostgreSQL, LinkedIn Posts API, ReportLab, nginx auth_request, Firebase Auth
 
-**Highlights:** Auto-generates blog + LinkedIn posts from commits, human-in-the-loop approval workflow
+**Highlights:** honest evaluation of AI-sounding drafts and the fixes, a guard that blocks private terms and invented details, publishing that cannot happen by accident
 
 [View Project →](porto-agent.md)
 
