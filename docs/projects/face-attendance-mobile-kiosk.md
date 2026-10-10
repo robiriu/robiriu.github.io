@@ -164,4 +164,4 @@ For the backend, the HR dashboard, the attendance rules, the contract and turnov
 
 ---
 
-*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout. The app screenshots come from a test account on a test outlet, not from a real employee or a real store.*
+*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout. The app screenshots are taken from the running app with the employee name, initials and work site replaced.*
