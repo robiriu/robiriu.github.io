@@ -18,6 +18,18 @@ Built with no ERP sandbox and a hard daily API quota, so every safety property h
 
 [View Project ->](erp-automation-platform.md)
 
+### [AI Drawing Platform for Architecture and Interior Design](ai-drawing-platform.md) `IN USE`
+
+An internal platform that turns a designer's chat into exact working drawings: floor, finish, ceiling and lighting, electrical and plumbing plans, sections and elevations, a door and window schedule and a quantity take-off, plus a 3D model and a browser walkthrough of the same space. The model never draws: Claude edits a validated JSON spec and deterministic engines render every sheet to exact scale, so every output agrees with every other.
+
+Proved on a real outlet's 15-page drawing set, transcribed and checked by its own clash checker. Sections are cut from the stacked 3D model and re-cut when a floor changes; electrical, plumbing, finish and ceiling sheets are live views of their floor; door and window codes stay stable across revisions.
+
+**Technologies:** Python, ezdxf, trimesh, FastAPI, three.js, Claude (headless CLI, vision), Blender Cycles, Docker Compose
+
+**Highlights:** one spec drives every sheet, the quantities and the 3D walkthrough; ~9 s chat edits; PDF import in ~16 s; clash checking fed back to the model
+
+[View Project ->](ai-drawing-platform.md)
+
 ---
 
 ## Mobile & Kiosk Apps
