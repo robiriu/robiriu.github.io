@@ -1,10 +1,10 @@
 # HR & Face-Attendance Platform (Mobile, Kiosk, Web)
 
-**Status:** Ongoing | The company's official attendance system since 2 October 2026: dozens of employees clock in by face every day on outlet tablets, with the whole workforce of several hundred people on the platform
+**Status:** Ongoing | In production as the company's attendance system since October 2026, used every day on shared outlet tablets
 
 ## Executive Summary
 
-A company-owned HR platform for a multi-entity food and beverage group that runs roughly 45 outlets, a central kitchen, a catering unit and a head office. It replaces a fingerprint machine plus a stack of spreadsheets with three surfaces on one backend:
+A company-owned HR platform for a multi-site food and beverage business. It replaces a fingerprint machine plus a stack of spreadsheets with three surfaces on one backend:
 
 - an **Android app for employees**, covering face attendance inside a geofence, schedule, leave, overtime, corrections, personal data requests, announcements, warning letters and payslips;
 - the **same app in kiosk mode on a store tablet**, a shared clock-in station where staff clock by face with no login at all, locked down so it behaves like an appliance;
@@ -21,8 +21,8 @@ The interesting engineering is not the CRUD. It is that **biometric attendance i
 
 | Metric | Value |
 |--------|-------|
-| In production | Official attendance since 2 Oct 2026, dozens of employees clocking daily on shared tablets |
-| Workforce on the platform | several hundred employees, dozens of work sites, several legal entities |
+| In production | Attendance system of record since October 2026, used daily on shared tablets |
+| Workforce on the platform | the whole workforce, across many work sites and several legal entities |
 | Face match quality after adaptive templates | Median similarity 0.77 to ~0.85, first-try success 72% to 90%, zero wrong-person matches |
 | Backend | ~19,900 lines of Python (FastAPI), 26 routers |
 | Web dashboard | ~12,500 lines of TypeScript (Next.js), 41 pages |
@@ -40,7 +40,7 @@ The interesting engineering is not the CRUD. It is that **biometric attendance i
 Attendance ran on shared fingerprint machines and monthly exports. Everything downstream of it was manual:
 
 - The monthly recap arrived as spreadsheets that HR re-keyed before payroll.
-- Contract renewals were tracked by hand, so PKWT contracts routinely ran past their end date before anyone decided. On the first import, **50 contracts were already past their end date** with no decision recorded.
+- Contract renewals were tracked by hand, so a timely decision depended on someone remembering.
 - Hiring, incidents, warnings, salary raises and cash advances lived in separate files and chat threads, so nobody could see one employee's story in one place.
 - There was no audit trail. Who edited a clock-in, and why, was not a question the old setup could answer.
 
@@ -63,7 +63,7 @@ flowchart TB
     API --> DB[("PostgreSQL + PostGIS<br/>71 tables")]
     API --> OBJ[("Object store<br/>photos, documents")]
     API --> WORK["Face worker<br/>InsightFace ArcFace on CPU"]
-    API --> AI["Claude, headless CLI on subscription<br/>22 read-only MCP tools"]
+    API --> AI["Claude, headless CLI<br/>22 read-only MCP tools"]
     API --> JOBS["Jobs sidecar<br/>close-day, corrections, tablet watch"]
 
     WORK --> DB
@@ -80,17 +80,13 @@ Two design rules run through all of it:
 
 ## The HR Dashboard
 
-The home page answers "what needs me today": who is present right now, the queue of things awaiting a decision (contracts, corrections, salary proposals, stalled candidates), a 14-day attendance chart, and the recruitment pipeline with the week's interview agenda.
+*The platform is internal to the company, so this page describes it in words and diagrams rather than screenshots.*
 
-![HR dashboard home](../images/hrp-dashboard.png)
+The home page answers "what needs me today": who is present right now, the queue of things awaiting a decision (contracts, corrections, salary proposals, stalled candidates), a 14-day attendance chart, and the recruitment pipeline with the week's interview agenda.
 
 Attendance today lists the full scheduled roster, not only the people who clocked, so an absence is visible as an absence rather than as a missing row. Anything HR changes here goes through a correction with a reason and lands in the audit log.
 
-![Attendance for the day across every outlet](../images/hrp-attendance-today.png)
-
 The employee master covers the whole workforce with server-side sorting on every column, filters by entity, brand, site and contract expiry, bulk activation codes, and Excel import.
-
-![Employee master across all units](../images/hrp-employees.png)
 
 ---
 
@@ -98,13 +94,11 @@ The employee master covers the whole workforce with server-side sorting on every
 
 A clock-in has to satisfy four independent checks before it becomes a record.
 
-**1. Liveness and capture, on the device.** The app captures a three-frame burst with ML Kit face detection rather than a single still, coaches the person on distance and angle, and the server checks replay hashes and a texture score. Two liveness modes exist. The original head-turn challenge is the stronger one. A straight-on mode is about three times faster, and HR chose it for the shift-change rush. The trade-off is documented rather than hidden; see the section on going live below.
+**1. Liveness and capture, on the device.** The app captures a three-frame burst with ML Kit face detection rather than a single still, coaches the person on distance and angle, and the server checks replay hashes and a texture score. Two liveness modes exist: a head-turn challenge, and a straight-on mode about three times faster for the shift-change rush. Which one runs is a server setting, so the balance between speed and strength can change without an app release.
 
 **2. Face verification, on the server.** InsightFace ArcFace (buffalo_l) runs through onnxruntime on CPU inside the worker container, because the company has no GPU and verification costs tens of milliseconds. Cosine similarity against the employee's templates accepts above a threshold, rejects below a lower one, and **flags the band in between for HR review** instead of guessing. Keeping the embedding server-side means thresholds, coaching limits and liveness mode can be retuned without shipping an app release.
 
 **3. Geofence.** Each work site has a point and a radius in PostGIS, and the clock carries its distance. Sites are placed by pasting a Google Maps link, searching the name, or clicking the map, and a site supervisor can set it from the phone while standing in the outlet.
-
-![Work sites with the geofence radius on the map](../images/hrp-geofence.png)
 
 **4. Device and permission.** Accounts are bound to a device; mock location, rooted devices and clock skew are checked. Clocking from a personal phone is **off by default and granted per employee by HR**, and the server enforces it, including for queued offline clocks and older app builds that do not know the rule exists.
 
@@ -125,11 +119,7 @@ Real shifts broke the simple model within days, so the rules became an engine of
 
 Not every employee has a phone they want to use for work, and crew turnover is high. The same Flutter binary therefore also runs as a **shared outlet clock**: one tablet, pinned to one or more work sites, no login and no session.
 
-![Kiosk home screen on the outlet tablet](../images/hrp-kiosk-home.png)
-
 HR creates a tablet in the dashboard and gets a six-character pairing code. The tablet takes the code once and stores a long-lived kiosk token. Codes are single-use and expire, and revoking a tablet kills its token immediately.
-
-![Pairing a tablet to a work site](../images/hrp-kiosk-pairing.png)
 
 - **The roster is the scope.** A kiosk compares a face only against employees placed or scheduled at its sites that day, never company-wide. That is a privacy control and an accuracy control at once.
 - **Ambiguity falls back to a name.** The best match must beat the runner-up by a margin. Every frame of the burst must pick the same person. If either check fails, the tablet asks for the employee's NIK and re-checks one to one.
@@ -139,19 +129,17 @@ HR creates a tablet in the dashboard and gets a six-character pairing code. The 
 
 The dashboard shows tablet readiness per site, so a rollout is a list of rows with a "create tablet" button rather than a project plan.
 
-![Tablet readiness per site in the dashboard](../images/hrp-kiosk-devices.png)
-
 ---
 
 ## Going Live: What the Floor Taught Us
 
-The platform became the official attendance system on 2 October. Dozens of people clocked in on day one, and daily use has held steady since. A second outlet tablet followed on 7 October. The first weeks were spent turning measurements into fixes:
+The first weeks in production were spent turning measurements into fixes:
 
 - **A one-minute clock became a few seconds.** Server inference for the whole burst took about 0.9 seconds, so the delay was on the tablet. Three causes:
     - a frontal-pose gate that a tablet's viewing angle could never satisfy;
     - head-turn measured against an absolute pose instead of the person's own neutral pose;
     - a hard-coded frame rotation that was wrong on tablets.
-- **Liveness, honestly.** Before relying on a passive anti-spoof model, the free models were evaluated on attack samples. They let through 82% of 3D-mask frames and 43% of printed-photo frames, so they were rejected rather than shipped as security theatre. The straight-on mode HR chose is documented as not stopping a photo held up to the lens. The controls in front of it are the stronger head-turn mode, roster scoping, same-person-in-every-frame, and HR review.
+- **Liveness, honestly.** Before relying on a passive anti-spoof model, the free models were evaluated on attack samples. Too many spoofed frames got through, so they were rejected rather than shipped as security theatre. Liveness rests instead on the server-issued challenge, roster scoping, the same person in every frame, and HR review of borderline matches.
 - **Adaptive templates.** When a tablet clock identifies someone clearly (a wide margin over everyone else on the roster), the face is kept as one of up to five encrypted learned templates for that employee. Templates are never learned from a NIK fallback, and HR can reset them per person. Measured effect:
     - median match from 0.77 to about 0.85;
     - first-try success from 72% to 90%;
@@ -163,11 +151,6 @@ The platform became the official attendance system on 2 October. Dozens of peopl
 
 The phone app is the employee's own copy of their record: today's shift and clock state, attendance history with a date picker, schedule, leave and overtime requests, corrections started from the day in question, notifications, announcements, signed warning letters, payslips, and requests to change personal data that go to an HR queue. Face enrollment has an explicit consent step.
 
-<div style="display:flex;gap:1.5em;flex-wrap:wrap;align-items:flex-start;">
-<img src="../../images/hrp-mobile-home.png" alt="Employee app home screen" width="300">
-<img src="../../images/hrp-mobile-history.png" alt="Attendance history in the app" width="300">
-</div>
-
 Enrollment does not trust itself: an employee submits photos, the server builds the template, and **HR approves it** before it can verify anything. Raw enrollment photos are deleted once the template is approved. Releases ship outside the Play Store from a published manifest, with a non-dismissible floor for builds nobody may skip. More than thirty-five releases went out this way in the first month.
 
 ---
@@ -178,11 +161,7 @@ With hundreds of employees on rolling fixed-term contracts, the expensive mistak
 
 A rule engine scans contracts 90, 60 and 30 days out and produces a recommendation (extend, make permanent, do not extend, review) from attendance rate, lateness, alpha days, active warnings, incidents, tenure and the statutory five-year PKWT cap. **The rules decide; the model only writes the sentence.** Thirty days before the end, the direct manager gets an in-app and email link to an assessment form, with a reminder a week later. HR sees the recommendation next to the raw numbers and the manager's assessment, makes the call, and the next contract is created in the same step.
 
-![Contract recommendations with the facts behind each one](../images/hrp-contracts.png)
-
 Alongside it sits a turnover risk score, 0 to 100, built from contract stage, lateness and alpha over 90 days, active warnings, serious incidents, and time since the last raise. Every row shows the factors that produced the score, so it reads as evidence rather than as an oracle.
-
-![Turnover risk scoring with the factors behind each score](../images/hrp-turnover-risk.png)
 
 Incidents carry SP1 to SP3 warning validity windows and a manager sign-off. Salary raises run through two gates, with the proposer never approving their own proposal and board approval required above a threshold. Everything an employee has been through is rendered as one timeline on their record.
 
@@ -228,9 +207,7 @@ Three uses, all narrow.
 
 **A read-only assistant** over **22 MCP tools**: employees, attendance, contracts, incidents, salary status, payroll, turnover risk, leave, overtime, the org structure, face enrollment status, site readiness, claims, vacancies, candidates and onboarding. A platform-guide tool answers "how do I…" questions from the user manual. Every tool is read-only and scoped to the asking user's permissions and entity, so salary and payroll tools simply refuse for a user without that right. Each answer shows the tool calls that produced it, and every exchange is logged.
 
-![The read-only HR assistant, showing the tool it used](../images/hrp-assistant.png)
-
-It runs the **headless Claude CLI on the company's existing subscription**, with `ANTHROPIC_API_KEY` stripped from the child environment so it can never silently fall back to metered billing, and with every built-in agent tool disallowed. Tools are loaded up front, up to three answers run at once, the page shows progress while it works, and conversations persist across pages.
+It runs Claude through its headless CLI with every built-in agent tool disallowed, so the read-only tools above are the only things it can reach. Tools are loaded up front, up to three answers run at once, the page shows progress while it works, and conversations persist across pages.
 
 **CV reading** in recruitment, scored criterion by criterion against the vacancy, with a human making the decision.
 
@@ -275,7 +252,7 @@ Biometric templates and precise location are specific personal data under UU PDP
 | Web | Next.js, React, TypeScript, Leaflet |
 | Mobile | Flutter (Android), ML Kit face detection, offline queue, kiosk lock (device owner, Lock Task) |
 | Face | InsightFace ArcFace (buffalo_l) via onnxruntime on CPU, adaptive templates, liveness challenge, burst identity check |
-| AI | Claude via headless CLI on a subscription, custom MCP stdio server, 22 read-only tools |
+| AI | Claude via headless CLI, custom MCP stdio server, 22 read-only tools |
 | Storage | Object store for photos and documents, private buckets with signed URLs |
 | Infrastructure | Docker Compose, Nginx, Ubuntu VPS, jobs sidecar, Prometheus metrics, GitHub Actions CI |
 
@@ -302,4 +279,4 @@ Biometric templates and precise location are specific personal data under UU PDP
 
 ---
 
-*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout. The screenshots are taken from the running system with the following replacements: brands shown as "Brand A" onward, outlet districts as "Lokasi 01" onward, entity codes as "UNA" onward, employee numbers renumbered, and every personal name replaced with a generated one. No name, number or location shown belongs to a real person or a real store. Architecture, engineering decisions and metrics are described as built.*
+*Built for a private client. The platform is internal, so it is described without screenshots, and the company name, brands, sites and employee data are omitted throughout. Architecture, engineering decisions and metrics are described as built.*

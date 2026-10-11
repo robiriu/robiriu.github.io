@@ -48,7 +48,7 @@ The company runs a central production kitchen that supplies several subsidiary r
 - Deciding what to reorder by eyeballing stock against buffer levels kept in a spreadsheet
 - Assembling payment batches in a workbook, emailing them around for approval, then re-typing them into the bank's corporate transfer portal
 - Taking outlet orders by chat and spreadsheet, then re-entering them as sales orders, shipments and invoices
-- Reconciling the bank statement against the payment list manually, if at all
+- Reconciling the bank statement against the payment list by hand
 
 Two failure modes dominated: **transcription errors** (an invoice typed wrong is a wrong payment) and **no audit trail** (nobody could reconstruct who approved what, when, or whether a transfer actually cleared).
 
@@ -258,9 +258,7 @@ Three distinct uses of AI, each scoped tightly to what it is allowed to touch.
 
 ### 1. A decision agent with zero tools
 
-The agent runs as a **headless CLI on a subscription**, not through an API key, with the API key environment variable deliberately unset so it can never silently fall back to metered billing.
-
-More importantly, **every tool is disallowed**. The agent cannot read files, run commands, reach the network, or touch the ERP. It receives context assembled by Python and returns structured reasoning. Python stays in control of every side effect: *the model proposes, the execution layer disposes*, and the execution layer is where the approval queue, idempotency, append-only audit log, and read-back verification live. For document extraction the agent is granted exactly one capability, reading the single uploaded file, scoped to that file's directory.
+The agent runs through a headless CLI, and **every tool is disallowed**. The agent cannot read files, run commands, reach the network, or touch the ERP. It receives context assembled by Python and returns structured reasoning. Python stays in control of every side effect: *the model proposes, the execution layer disposes*, and the execution layer is where the approval queue, idempotency, append-only audit log, and read-back verification live. For document extraction the agent is granted exactly one capability, reading the single uploaded file, scoped to that file's directory.
 
 ### 2. A read-only conversational data layer
 
@@ -314,7 +312,7 @@ Covered above. The extraction schema was reverse-engineered from the ERP's API r
 | Web frontend | Next.js, React, TypeScript |
 | Mobile | Flutter (Android), kiosk mode, push notifications, QR labels |
 | Database | PostgreSQL (production), SQLite (local dev and mirror store) |
-| AI | Claude via headless CLI on subscription, vision extraction, MCP tool server (61 read-only tools) |
+| AI | Claude via headless CLI, vision extraction, MCP tool server (61 read-only tools) |
 | Integration | REST adapters behind a common interface, guarded write client, shared quota guard, GET-only mirror service, xlsx/CSV ingestion |
 | Documents | PDF and image generation, eSCL/AirScan network scanning, spreadsheet import and export |
 | Infrastructure | Docker Compose (20 services), Nginx, Ubuntu VPS, isolated staging, Prometheus and Grafana, automated local and offsite backups |

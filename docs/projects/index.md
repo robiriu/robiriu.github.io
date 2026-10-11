@@ -24,7 +24,7 @@ Built with no ERP sandbox and a hard daily API quota, so every safety property h
 
 ### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `LIVE`
 
-One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session. The company's official attendance clock since 2 October 2026, with dozens of employees clocking in on it every day.
+One Flutter codebase shipping as two products: an employee phone app where clocking in is a face verification inside a geofence, and the same binary running as a **shared outlet kiosk tablet** with no login and no session. The company's attendance clock since October 2026, used every day on outlet tablets.
 
 Built for store floors rather than for a demo: a server-issued liveness challenge with server-tuned coaching limits and a three-frame burst verified server-side, **no face embedding ever computed on the device**, an offline clock queue replayed with its original timestamp, and NIK + PIN sign-in with no per-login message cost. The kiosk is locked down by a native Kotlin layer (launcher alias, lock task, device owner) that replaced a paid kiosk app, installs its own updates silently, and reopens itself after an update or a power cut, including the Android 15 overlay workaround.
 
@@ -40,7 +40,7 @@ Built for store floors rather than for a demo: a server-issued liveness challeng
 
 ### [HR & Face-Attendance Platform](hr-attendance-platform.md) `LIVE`
 
-A company-owned HR platform for a multi-entity food and beverage group of roughly 45 outlets, built on three surfaces over one backend: an Android app where employees clock in by face inside a geofence, the same app running as a locked-down kiosk tablet in the outlets, and an HR web dashboard for attendance, contracts, incidents, salary, recruitment with psychological tests, reimbursement and cash advances, and payroll. The company's official attendance system since 2 October 2026.
+A company-owned HR platform for a multi-site food and beverage business, built on three surfaces over one backend: an Android app where employees clock in by face inside a geofence, the same app running as a locked-down kiosk tablet in the outlets, and an HR web dashboard for attendance, contracts, incidents, salary, recruitment with psychological tests, reimbursement and cash advances, and payroll. The company's attendance system since October 2026.
 
 Face verification runs server-side on CPU (InsightFace ArcFace) with a review band instead of a guess between the accept and reject thresholds, a kiosk that matches only against its own sites' roster for the day, and adaptive templates learned only from unambiguous matches. An attendance rules engine handles night shifts across midnight, breaks, overtime and staff who move between branches. Contract recommendations come from a rule engine with the evidence shown; the model writes the narrative and never produces a number. Biometric handling is designed against Indonesia's UU PDP No. 27/2022.
 

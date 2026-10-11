@@ -1,6 +1,6 @@
 # Face-Attendance Android App and Outlet Kiosk (Flutter)
 
-**Status:** Ongoing | In daily production use since 2 October 2026 as the company's official attendance clock, distributed outside the Play Store
+**Status:** Ongoing | In daily production use since October 2026 as the company's attendance clock, distributed outside the Play Store
 
 ## Executive Summary
 
@@ -19,7 +19,7 @@ This is the employee-facing half of the [HR & Face-Attendance Platform](hr-atten
 
 | Metric | Value |
 |--------|-------|
-| Production use | Official attendance clock since 2 Oct 2026, dozens of employees clocking daily on outlet tablets |
+| Production use | Attendance clock of record since October 2026, used daily on outlet tablets |
 | Codebase | ~7,600 lines of Dart plus a small native Kotlin layer for the kiosk lock |
 | Releases | Over 35 builds shipped over the air in the first month, from 0.2.5 to 0.2.41 |
 | Phone screens | sign-in and activation, home, clock in/out, enrollment, history, corrections, schedule, leave, overtime, notifications, my data, claims, issue reporting, team requests, payslip, profile |
@@ -32,10 +32,7 @@ This is the employee-facing half of the [HR & Face-Attendance Platform](hr-atten
 
 ## The Phone App
 
-<div style="display:flex;gap:1.5em;flex-wrap:wrap;align-items:flex-start;">
-<img src="../../images/hrp-mobile-home.png" alt="Employee app home screen" width="300">
-<img src="../../images/hrp-mobile-history.png" alt="Attendance history in the app" width="300">
-</div>
+*The app is internal to the company, so this page describes it without screenshots.*
 
 The home screen answers the only question a crew member has at the start of a shift: am I clocked in, what shift am I on, and is my face enrolled yet. Everything else sits behind the tab bar as their own copy of their record:
 
@@ -73,7 +70,7 @@ The first tablet clocks took about a minute. Server inference for the whole burs
 - head-turn measured against an absolute pose instead of the person's own neutral pose, which is how the server measures it;
 - a hard-coded 270-degree frame rotation that was correct on phones and wrong on tablets.
 
-A faster straight-on capture mode, about three times quicker, was then added for the shift-change rush. The server picks the mode, and the trade-off is documented on the platform page.
+A faster straight-on capture mode, about three times quicker, was then added for the shift-change rush. The server picks the mode.
 
 ---
 
@@ -87,13 +84,9 @@ A clock captured without connectivity is written to a **file-backed queue**: the
 
 ## Kiosk Mode: the Same App as a Shared Store Clock
 
-![Kiosk home screen on the outlet tablet](../images/hrp-kiosk-home.png)
-
 High turnover and staff who would rather not install a work app on their own phone make the shared tablet the realistic clock for an outlet. The same binary becomes one when it is paired.
 
-![Pairing a tablet to a work site](../images/hrp-kiosk-pairing.png)
-
-HR creates a tablet in the dashboard and gets a six-character pairing code. The tablet consumes it once and stores a long-lived kiosk token, and from then on it only ever shows kiosk screens. The code is single-use and expires; revoking the tablet kills the old token immediately. One tablet can serve several sites, for example a central kitchen, office and catering unit that share an entrance.
+HR creates a tablet in the dashboard and gets a six-character pairing code. The tablet consumes it once and stores a long-lived kiosk token, and from then on it only ever shows kiosk screens. The code is single-use and expires; revoking the tablet kills the old token immediately. One tablet can serve several sites, for example units that share an entrance.
 
 What changes in kiosk mode, beyond the layout:
 
@@ -158,10 +151,9 @@ The app is the company's official attendance clock. Shared tablets are live, doz
 
 - more outlet tablets;
 - face enrollment for the remaining staff at each site;
-- switching the kiosk lock on for the main tablet, a decision that sits with HR.
 
 For the backend, the HR dashboard, the attendance rules, the contract and turnover intelligence and the personal-data model behind all of this, see the [HR & Face-Attendance Platform](hr-attendance-platform.md).
 
 ---
 
-*Built for a private client. Company name, brands, outlets and employee data are omitted or replaced throughout. The app screenshots are taken from the running app with the employee name, initials and work site replaced.*
+*Built for a private client. The app is internal, so it is described without screenshots, and the company name, brands, sites and employee data are omitted throughout.*
