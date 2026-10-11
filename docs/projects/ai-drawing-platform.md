@@ -43,6 +43,36 @@ flowchart LR
 
 ---
 
+## From the Working Drawing to 3D
+
+*A sample project made for this page, not a client design. Every image below comes from one spec.*
+
+**1. The working drawing.** Structural grid and columns, walls with hosted doors and windows, dimension chains, room labels with floor levels, furniture, a section marker, north arrow and title block, at 1:60.
+
+![Floor plan sheet generated from the spec](../images/adp-plan.jpg)
+
+**2. The section, cut from the model.** Nobody drew it: the engine cut the stacked 3D model along the marker on the plan and added level datums, grid and dimensions.
+
+![Section A-A cut automatically from the model](../images/adp-section.jpg)
+
+**3. The platform.** The designer works in chat (or edits the spec directly); every edit is a version with its history.
+
+![The platform showing the plan sheet next to the chat](../images/adp-app.jpg)
+
+**4. The same plan in 3D.** A dollhouse view in the browser, with the room list and a live mini-map.
+
+![Dollhouse view of the 3D model](../images/adp-dollhouse.jpg)
+
+**5. Walking inside.** First-person at eye height, with wall and furniture collision; it also runs on a phone.
+
+![Walking inside the 3D model](../images/adp-walk.jpg)
+
+**6. A photoreal render.** Blender Cycles rendering the same model on a workstation, about two minutes on a laptop GPU.
+
+![Photoreal render of the dining room](../images/adp-render.jpg)
+
+---
+
 ## Engineering Decisions
 
 ### Keep the model's output small
@@ -110,4 +140,4 @@ The same rule extends to more disciplines, each owning a section of the spec:
 
 ---
 
-*Built for a private client. The platform is internal, so it is described without screenshots, and the company name, brands, outlets and locations are omitted throughout. Architecture, engineering decisions and metrics are described as built.*
+*Built for a private client. The images show a sample project made for this page, not a client design; the company name, brands, outlets and locations are omitted throughout. Architecture, engineering decisions and metrics are described as built.*
