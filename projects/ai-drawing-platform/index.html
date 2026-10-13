@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/ai-drawing-platform/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>AI Drawing Platform (Architecture & Interior) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "AI Drawing Platform (Architecture \u0026 Interior)";
+        var mkdocs_page_input_path = "projects/ai-drawing-platform.md";
+        var mkdocs_page_url = "/projects/ai-drawing-platform/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: Enterprise AI Automation</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">AI Drawing Platform (Architecture & Interior)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-working-drawing-to-3d">From the Working Drawing to 3D</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-model-explains-itself">The Model Explains Itself</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#engineering-decisions">Engineering Decisions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#keep-the-models-output-small">Keep the model's output small</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#a-clash-checker-the-model-has-to-satisfy">A clash checker the model has to satisfy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sections-are-cut-not-drawn">Sections are cut, not drawn</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#views-that-follow-their-floor">Views that follow their floor</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#stable-codes-for-doors-and-windows">Stable codes for doors and windows</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#proved-on-a-real-drawing-set">Proved on a real drawing set</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3d-and-renders">3D and Renders</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generative-ai-concepts-only">Generative AI: Concepts Only</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#roadmap">Roadmap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technology-stack">Technology Stack</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Mobile & Kiosk Apps</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../face-attendance-mobile-kiosk/">Face-Attendance Android App + Outlet Kiosk (Flutter)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Workforce Platforms</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../hr-attendance-platform/">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent (LinkedIn drafts)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computer Vision & Video Analytics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../retail-video-analytics/">Retail Video Analytics (CCTV)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: Enterprise AI Automation</li>
+      <li class="breadcrumb-item active">AI Drawing Platform (Architecture & Interior)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ai-drawing-platform-for-architecture-and-interior-design">AI Drawing Platform for Architecture and Interior Design<a class="headerlink" href="#ai-drawing-platform-for-architecture-and-interior-design" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | In use by a company's internal design team since July 2026: chat-driven working drawings, quantities and 3D walkthroughs from one spec</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>An internal platform that produces <strong>working drawings</strong> (gambar kerja) for a design team that fits out food and beverage outlets. A designer describes what they want in chat; the platform returns exact, scaled sheets in the team's own title block as DXF, PDF and PNG, plus the quantities and a 3D walkthrough of the same space.</p>
+<p>The rule that shapes everything: <strong>the model reasons, engines draw.</strong> Claude never draws a line. It reads the request and edits a structured JSON spec of the sheet. Deterministic engines then render every plan, section, schedule and 3D model from that spec, so scale and dimensions are always exact and every output agrees with every other.</p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sheet types</td>
+<td>floor plan, finish plan, ceiling and lighting plan, electrical and plumbing points, section and elevation, interior wall elevation, door and window schedule, quantity take-off, drawing list</td>
+</tr>
+<tr>
+<td>Real drawing set reproduced</td>
+<td>all 15 A3 pages of a real outlet's set, transcribed and checked</td>
+</tr>
+<tr>
+<td>Chat edit round trip</td>
+<td>about 9 seconds on the server, about 17 seconds locally</td>
+</tr>
+<tr>
+<td>PDF import</td>
+<td>a real drawing page to an editable spec in about 16 seconds</td>
+</tr>
+<tr>
+<td>3D</td>
+<td>glTF model per floor, stacked building view, browser walkthrough on a phone, click-to-inspect parts, section plane, export to GLB, OBJ, STL 1:100 and USDZ</td>
+</tr>
+<tr>
+<td>Parametric furniture</td>
+<td>19 symbol types in 2D, detailed parametric 3D versions, models under ~700 KB</td>
+</tr>
+<tr>
+<td>Codebase</td>
+<td>~6,800 lines of Python and JavaScript, 31 API routes, 29 sample specs, single engineer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    U["Designer in chat"] --&gt; C["Claude edits the spec&lt;br/&gt;(validated, errors fed back)"]
+    C --&gt; S[("Project spec&lt;br/&gt;one per floor")]
+    S --&gt; D["2D engine&lt;br/&gt;plans, sections, schedules"]
+    S --&gt; M["3D engine&lt;br/&gt;glTF model"]
+    S --&gt; Q["Take-off&lt;br/&gt;quantities for the RAB"]
+    M --&gt; W["Browser walkthrough"]
+    M --&gt; R["Photoreal renders&lt;br/&gt;on a workstation"]</code></pre>
+<ul>
+<li><strong>The spec is the single source of truth.</strong> Walls are centrelines with hosted doors and windows that break the wall where they sit, plus the grid, rooms with floor levels, furniture, finishes, ceiling heights, electrical and plumbing points and brand panels.</li>
+<li><strong>Every edit is validated.</strong> If the model's edit breaks the schema, the errors go back to it once and it retries. Every edit becomes a version with an author and an audit trail, and can be restored. Issued revisions are written into the title block.</li>
+<li><strong>One AI worker, queued.</strong> Chat and import run as background jobs with real progress stages (queued, editing, validating, retrying, rendering) shown live in the interface.</li>
+</ul>
+<hr />
+<h2 id="from-the-working-drawing-to-3d">From the Working Drawing to 3D<a class="headerlink" href="#from-the-working-drawing-to-3d" title="Permanent link">&para;</a></h2>
+<p><em>A sample project made for this page, not a client design. Every image below comes from one spec.</em></p>
+<p><strong>1. The working drawing.</strong> Structural grid and columns, walls with hosted doors and windows, dimension chains, room labels with floor levels, furniture, a section marker, north arrow and title block, at 1:60.</p>
+<p><img alt="Floor plan sheet generated from the spec" src="../../images/adp-plan.jpg" /></p>
+<p><strong>2. The section, cut from the model.</strong> Nobody drew it: the engine cut the stacked 3D model along the marker on the plan and added level datums, grid and dimensions.</p>
+<p><img alt="Section A-A cut automatically from the model" src="../../images/adp-section.jpg" /></p>
+<p><strong>3. The platform.</strong> The designer works in chat (or edits the spec directly); every edit is a version with its history.</p>
+<p><img alt="The platform showing the plan sheet next to the chat" src="../../images/adp-app.jpg" /></p>
+<p><strong>4. The same plan in 3D.</strong> A dollhouse view in the browser, with the room list and a live mini-map.</p>
+<p><img alt="Dollhouse view of the 3D model" src="../../images/adp-dollhouse.jpg" /></p>
+<p><strong>5. Walking inside.</strong> First-person at eye height, with wall and furniture collision; it also runs on a phone.</p>
+<p><img alt="Walking inside the 3D model" src="../../images/adp-walk.jpg" /></p>
+<p><strong>6. A photoreal render.</strong> Blender Cycles rendering the same model on a workstation, about two minutes on a laptop GPU.</p>
+<p><img alt="Photoreal render of the dining room" src="../../images/adp-render.jpg" /></p>
+<hr />
+<h2 id="the-model-explains-itself">The Model Explains Itself<a class="headerlink" href="#the-model-explains-itself" title="Permanent link">&para;</a></h2>
+<p>A 3D view is easy to admire and hard to use: a client asks "how high is that bench?" and the answer is on a sheet nobody has open. So every element in the model knows what it is. The engine tags each piece of geometry with its part (a bar, a booth, a door, a column, a wall, a floor finish) and its real dimensions in millimetres, taken from the same spec as the drawings.</p>
+<p><strong>1. Click any part.</strong> The card shows its code, sizes and, for built-in furniture, the build-up: the same numbers the 1:10 detail sheet uses, read from one shared table, so the model and the detail cannot disagree. The buttons open the sheets that draw it: the floor plan, its detail and the quantities. Doors and windows carry their schedule codes (P1, J2) and columns their structural codes (K1 to K6); <strong>Labels</strong> puts all of them in the model.</p>
+<p><img alt="Clicking the booth opens a card with its build-up and links to its detail sheet" src="../../images/adp-inspect.jpg" /></p>
+<p><strong>2. Cut it anywhere.</strong> A section plane moves with a slider across the plan, along it or through the height, so a section can be explained in 3D before anyone reads the 2D sheet.</p>
+<p><img alt="A section plane cutting the model along the dining room" src="../../images/adp-section3d.jpg" /></p>
+<p><strong>3. See the structure.</strong> X-ray makes the walls see-through and keeps the columns solid, which shows at a glance whether the furniture layout works around the structure. Clay mode turns everything white to judge the massing.</p>
+<p><img alt="X-ray view with column, door and window codes" src="../../images/adp-xray.jpg" /></p>
+<p><strong>4. Take it anywhere.</strong> The model exports in the browser as GLB (Blender, SketchUp, Unity), OBJ, STL at 1:100 in millimetres for a 3D-printed presentation model, and USDZ to place it in the real room with AR on an iPhone. Camera presets give a top view and the four elevations for consistent presentation shots.</p>
+<p><img alt="Clay view with the export menu open" src="../../images/adp-export.jpg" /></p>
+<hr />
+<h2 id="engineering-decisions">Engineering Decisions<a class="headerlink" href="#engineering-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="keep-the-models-output-small">Keep the model's output small<a class="headerlink" href="#keep-the-models-output-small" title="Permanent link">&para;</a></h3>
+<p>The first PDF import asked the vision call to read a drawing and also estimate coordinates for every room. That call hung for more than 300 seconds. Asking only for names returned in about 20 seconds. The import now has two steps: a bounded vision call (limited turns, read access to that one file) extracts a compact summary (title block, size, grid, room names and levels), and plain Python maps it to a spec and places the rooms on the grid for the designer to refine.</p>
+<h3 id="a-clash-checker-the-model-has-to-satisfy">A clash checker the model has to satisfy<a class="headerlink" href="#a-clash-checker-the-model-has-to-satisfy" title="Permanent link">&para;</a></h3>
+<p>An early chat edit put a bar counter on the wrong wall and added seven duplicate stools. Now every furniture footprint, built from the same shapes as the 3D model, is tested against walls, columns, doorways, door swings, other furniture and the building outline. Clashes are fed back to the model for up to three attempts, and anything left is returned as a visible warning, never silently. The instructions state the orientation, the rotation per wall and the walkway rules.</p>
+<h3 id="sections-are-cut-not-drawn">Sections are cut, not drawn<a class="headerlink" href="#sections-are-cut-not-drawn" title="Permanent link">&para;</a></h3>
+<p>Each floor sheet carries its level, and the floors stack into one building. A section or elevation stores only where to cut. The engine intersects the model with that plane for the cut faces, projects what lies beyond with a distance tint, and adds level datums, grids and dimensions. When a floor changes, every section re-cuts itself.</p>
+<h3 id="views-that-follow-their-floor">Views that follow their floor<a class="headerlink" href="#views-that-follow-their-floor" title="Permanent link">&para;</a></h3>
+<p>Finish, ceiling, electrical and plumbing sheets are views of a floor sheet, not copies, so they redraw whenever the floor changes. Electrical and plumbing points (16 types, each with a default mounting height) live on the floor sheet itself, and the quantity take-off counts the same points.</p>
+<h3 id="stable-codes-for-doors-and-windows">Stable codes for doors and windows<a class="headerlink" href="#stable-codes-for-doors-and-windows" title="Permanent link">&para;</a></h3>
+<p>Every door, window and open passage is grouped by type and given a code (P, J, B) kept in a per-project register, so a new size never renumbers codes already on issued drawings. Plans show the codes beside each opening and the quantities list openings by the same codes. Building this exposed a double count in the take-off, where a mezzanine sheet repeated its storey's openings; it was fixed at the source.</p>
+<h3 id="proved-on-a-real-drawing-set">Proved on a real drawing set<a class="headerlink" href="#proved-on-a-real-drawing-set" title="Permanent link">&para;</a></h3>
+<p>A real outlet's 15-page set was transcribed: its plan linework was an embedded picture, so positions were calibrated on the vector grid at 1:60 and read from the dimension chains to about 5 cm. The clash checker then found seven transcription errors. After fixing them, every page of the set was reproduced from specs.</p>
+<hr />
+<h2 id="3d-and-renders">3D and Renders<a class="headerlink" href="#3d-and-renders" title="Permanent link">&para;</a></h2>
+<p>Every floor plan also becomes a 3D model: walls extruded with real openings, lintels and sills, glass, door leaves matching the plan swing, floors textured per finish, columns, ceilings and parametric furniture. The browser viewer (three.js, no build step) offers a dollhouse view, first-person walking with collision, room-by-room jumps, a mini-map, a measure tool and a full-screen link that works on a phone. It also inspects any part, cuts the model with a movable section plane, switches between real, clay and x-ray styles, explodes the floors and the roof apart, and exports GLB, OBJ, STL and USDZ on the viewer's own device, so the shared server does no extra work.</p>
+<p>Photoreal renders come from Blender Cycles rendering the same model. Measured on a laptop, a 1080p frame at 128 samples took 628 seconds on the CPU and 91 seconds on the integrated GPU. Rendering is deliberately kept off the shared company server, which runs business-critical systems; the server only serves the walkthrough, which runs on the viewer's own device.</p>
+<hr />
+<h2 id="generative-ai-concepts-only">Generative AI: Concepts Only<a class="headerlink" href="#generative-ai-concepts-only" title="Permanent link">&para;</a></h2>
+<p>Image and video generators make convincing rooms but invent the geometry, so they cannot represent a design that someone will build. In this platform they are limited to optional, clearly labelled concept visuals made from the exact renders. Brand artwork is never generated: designers upload the real files, the spec references them by name, and a missing file shows as a grey board with a warning.</p>
+<hr />
+<h2 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<p>The same rule extends to more disciplines, each owning a section of the spec:</p>
+<ol>
+<li><strong>Architecture and interior set:</strong> detail sheets at 1:5 and 1:10, unit prices on the quantities, width and egress checks, IFC export.</li>
+<li><strong>Graphic design:</strong> signage and menus as print-ready artwork at real size, placed in the model and on elevations at that size.</li>
+<li><strong>Cinematography:</strong> walkthrough films rendered from the exact model, with labelled concept clips on top.</li>
+<li><strong>Structural pre-design:</strong> structural plans and preliminary checks, marked preliminary until a licensed structural engineer signs them.</li>
+</ol>
+<hr />
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI</td>
+<td>Claude via headless CLI, vision import, schema-validated spec edits</td>
+</tr>
+<tr>
+<td>2D engine</td>
+<td>Python, ezdxf, matplotlib (DXF, PDF, PNG)</td>
+</tr>
+<tr>
+<td>3D engine</td>
+<td>trimesh, shapely, glTF export</td>
+</tr>
+<tr>
+<td>Viewer</td>
+<td>three.js (no build step), vanilla JavaScript</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>FastAPI, background job queue, versioned file store with audit log</td>
+</tr>
+<tr>
+<td>Renders</td>
+<td>Blender Cycles on a workstation</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Docker Compose</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Built for a private client. The images show a sample project made for this page, not a client design; the company name, brands, outlets and locations are omitted throughout. Architecture, engineering decisions and metrics are described as built.</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../erp-automation-platform/" class="btn btn-neutral float-left" title="Agentic ERP Automation Platform (Live)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../face-attendance-mobile-kiosk/" class="btn btn-neutral float-right" title="Face-Attendance Android App + Outlet Kiosk (Flutter)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../erp-automation-platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../face-attendance-mobile-kiosk/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
