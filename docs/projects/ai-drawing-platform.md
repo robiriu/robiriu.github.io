@@ -18,7 +18,7 @@ The rule that shapes everything: **the model reasons, engines draw.** Claude nev
 | Real drawing set reproduced | all 15 A3 pages of a real outlet's set, transcribed and checked |
 | Chat edit round trip | about 9 seconds on the server, about 17 seconds locally |
 | PDF import | a real drawing page to an editable spec in about 16 seconds |
-| 3D | glTF model per floor, stacked building view, browser walkthrough on a phone |
+| 3D | glTF model per floor, stacked building view, browser walkthrough on a phone, click-to-inspect parts, section plane, export to GLB, OBJ, STL 1:100 and USDZ |
 | Parametric furniture | 19 symbol types in 2D, detailed parametric 3D versions, models under ~700 KB |
 | Codebase | ~6,800 lines of Python and JavaScript, 31 API routes, 29 sample specs, single engineer |
 
@@ -73,6 +73,28 @@ flowchart LR
 
 ---
 
+## The Model Explains Itself
+
+A 3D view is easy to admire and hard to use: a client asks "how high is that bench?" and the answer is on a sheet nobody has open. So every element in the model knows what it is. The engine tags each piece of geometry with its part (a bar, a booth, a door, a column, a wall, a floor finish) and its real dimensions in millimetres, taken from the same spec as the drawings.
+
+**1. Click any part.** The card shows its code, sizes and, for built-in furniture, the build-up: the same numbers the 1:10 detail sheet uses, read from one shared table, so the model and the detail cannot disagree. The buttons open the sheets that draw it: the floor plan, its detail and the quantities. Doors and windows carry their schedule codes (P1, J2) and columns their structural codes (K1 to K6); **Labels** puts all of them in the model.
+
+![Clicking the booth opens a card with its build-up and links to its detail sheet](../images/adp-inspect.jpg)
+
+**2. Cut it anywhere.** A section plane moves with a slider across the plan, along it or through the height, so a section can be explained in 3D before anyone reads the 2D sheet.
+
+![A section plane cutting the model along the dining room](../images/adp-section3d.jpg)
+
+**3. See the structure.** X-ray makes the walls see-through and keeps the columns solid, which shows at a glance whether the furniture layout works around the structure. Clay mode turns everything white to judge the massing.
+
+![X-ray view with column, door and window codes](../images/adp-xray.jpg)
+
+**4. Take it anywhere.** The model exports in the browser as GLB (Blender, SketchUp, Unity), OBJ, STL at 1:100 in millimetres for a 3D-printed presentation model, and USDZ to place it in the real room with AR on an iPhone. Camera presets give a top view and the four elevations for consistent presentation shots.
+
+![Clay view with the export menu open](../images/adp-export.jpg)
+
+---
+
 ## Engineering Decisions
 
 ### Keep the model's output small
@@ -103,7 +125,7 @@ A real outlet's 15-page set was transcribed: its plan linework was an embedded p
 
 ## 3D and Renders
 
-Every floor plan also becomes a 3D model: walls extruded with real openings, lintels and sills, glass, door leaves matching the plan swing, floors textured per finish, columns, ceilings and parametric furniture. The browser viewer (three.js, no build step) offers a dollhouse view, first-person walking with collision, room-by-room jumps, a mini-map, a measure tool and a full-screen link that works on a phone.
+Every floor plan also becomes a 3D model: walls extruded with real openings, lintels and sills, glass, door leaves matching the plan swing, floors textured per finish, columns, ceilings and parametric furniture. The browser viewer (three.js, no build step) offers a dollhouse view, first-person walking with collision, room-by-room jumps, a mini-map, a measure tool and a full-screen link that works on a phone. It also inspects any part, cuts the model with a movable section plane, switches between real, clay and x-ray styles, explodes the floors and the roof apart, and exports GLB, OBJ, STL and USDZ on the viewer's own device, so the shared server does no extra work.
 
 Photoreal renders come from Blender Cycles rendering the same model. Measured on a laptop, a 1080p frame at 128 samples took 628 seconds on the CPU and 91 seconds on the integrated GPU. Rendering is deliberately kept off the shared company server, which runs business-critical systems; the server only serves the walkthrough, which runs on the viewer's own device.
 
