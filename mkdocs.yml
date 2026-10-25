@@ -28,6 +28,8 @@ nav:
       - "Ongoing: Enterprise AI Automation":
           - "Agentic ERP Automation Platform (Live)": projects/erp-automation-platform.md
           - "AI Drawing Platform (Architecture & Interior)": projects/ai-drawing-platform.md
+      - "Ongoing: AI Game Studio":
+          - "AI Game Studio Automation (Mimio Entertainment)": projects/ai-game-studio-mimio.md
       - "Mobile & Kiosk Apps":
           - "Face-Attendance Android App + Outlet Kiosk (Flutter)": projects/face-attendance-mobile-kiosk.md
       - "Ongoing: Workforce Platforms":

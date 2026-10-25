@@ -50,3 +50,20 @@
     line-height: 1.45;
     color: #666;
 }
+
+/* A row of screenshot cards (game thumbnails): three across, one per row on phones. */
+.shot-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 1.4em 0;
+}
+.shot-row img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+@media (max-width: 760px) {
+    .shot-row { grid-template-columns: 1fr; }
+}

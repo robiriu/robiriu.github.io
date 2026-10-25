@@ -32,6 +32,22 @@ Proved on a real outlet's 15-page drawing set, transcribed and checked by its ow
 
 ---
 
+## Ongoing: AI Game Studio
+
+### [AI Game Studio Automation for Mimio Entertainment](ai-game-studio-mimio.md) `ONGOING`
+
+An AI automation system that runs a small Roblox game studio from research to publishing. Twelve role agents on headless Claude (research, compliance, design, art direction, Roblox and Unity builders, QA, store, marketing, content, analytics) work through an 18-step launch pipeline; the developer approves or sends work back with notes, and builds the game in Roblox Studio through the Studio MCP. Roblox Open Cloud handles game passes, data checks and live-server tests; a web dashboard and an Obsidian vault show every step.
+
+The first game, Wisteria Hollow, ships with saved progress and a cross-server session lock, Bahasa Indonesia and English, touch controls and four fair game passes, and was renamed and reworked after an AI review flagged names too close to an existing anime.
+
+**Technologies:** Claude (headless CLI, Opus), Roblox Studio MCP, Luau, Roblox Open Cloud, Python, FastAPI, Docker Compose, YouTube Data API, Obsidian, ffmpeg
+
+**Highlights:** 12 agents, 18-step pipeline with approval gates, game built and published on Roblox, store art and a YouTube Short produced by the pipeline, engine-agnostic for Unity
+
+[View Project ->](ai-game-studio-mimio.md)
+
+---
+
 ## Mobile & Kiosk Apps
 
 ### [Face-Attendance Android App + Outlet Kiosk](face-attendance-mobile-kiosk.md) `FLUTTER` `LIVE`
