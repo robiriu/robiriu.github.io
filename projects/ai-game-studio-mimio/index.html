@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Robi Dany Riupassa" /><link rel="canonical" href="https://robiriu.github.io/projects/ai-game-studio-mimio/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>AI Game Studio Automation (Mimio Entertainment) - Robiriu Labs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/mermaid-custom.css" rel="stylesheet" />
+        <link href="../../stylesheets/embeds.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "AI Game Studio Automation (Mimio Entertainment)";
+        var mkdocs_page_input_path = "projects/ai-game-studio-mimio.md";
+        var mkdocs_page_url = "/projects/ai-game-studio-mimio/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Robiriu Labs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/education/">Education</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/experience/">Experience</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/publications/">Publications</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projects</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Enterprise AI Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../erp-automation-platform/">Agentic ERP Automation Platform (Live)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-drawing-platform/">AI Drawing Platform (Architecture & Interior)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Ongoing: AI Game Studio</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">AI Game Studio Automation (Mimio Entertainment)</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#executive-summary">Executive Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-results">Key Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-game-wisteria-hollow">The Game: Wisteria Hollow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#technologies">Technologies</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Mobile & Kiosk Apps</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../face-attendance-mobile-kiosk/">Face-Attendance Android App + Outlet Kiosk (Flutter)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: Workforce Platforms</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../hr-attendance-platform/">HR & Face-Attendance Platform (Mobile, Kiosk, Web)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Ongoing: AI-Native Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../transforce/">TransForce (Particle Transport)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cutforce/">CutForce (Video Editor)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >LLM Fine-Tuning & Alignment</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../energylm-finetune/">EnergyLM-7B (In Progress)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Flagship — ForceX AI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../forcex-ai/">ForceX AI Platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../geoforce/">GeoForce (CNN Surrogate)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GenAI & LLM Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../enterprise-agentic-rag/">Enterprise Agentic RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-hr-platform/">Agentic HR Intelligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-help-qna/">AI Help & QnA (RAG)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../porto-agent/">Porto Agent (LinkedIn drafts)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Computer Vision & Video Analytics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../retail-video-analytics/">Retail Video Analytics (CCTV)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >AI Applications</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-sales-chatbot/">AI Sales & Lead-Gen Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../linkedin-carousel-rag/">LinkedIn Carousel RAG</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../agentic-doc-pipeline/">Agentic Doc Pipeline (LangGraph)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../portfolio-assistant/">Portfolio AI Assistant</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../whatsapp-realestate-bot/">WhatsApp Real-Estate Bot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../automotive-chatbot/">Automotive Chatbot</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-analytics/">AI Analytics Workspace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../marketmind/">MarketMind (Crypto & Stocks)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../datapilot/">DataPilot (Private AI Analyst)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../healthpredict/">HealthPredict (Clinical Risk ML)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Web & Business Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../leadflow-crm/">LeadFlow (Sales & Lead CRM)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >MLOps & Infrastructure</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../broadcast-analytics/">Broadcast Analytics (MLOps)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../media-platform/">Media Platform (AdCP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >GPU Computing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../gpu-migration/">AI Service Migration (CPU to GPU)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Developer Tools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ai-testing-framework/">AI Testing Framework (ATP)</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Research</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../recommendation-systems-research/">Recommendation Systems</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Blog</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-privacy-first-code-interpreter-for-data-analysis/">A privacy-first code interpreter for data analysis (local...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-from-raw-csv-to-a-dashboard-with-no-configuration-/">From raw CSV to a dashboard with no configuration: an ana...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-strictly-grounded-portfolio-assistant-that-wont-/">A strictly-grounded portfolio assistant that won't invent...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-whatsapp-assistant-that-sends-property-photos-at/">A WhatsApp assistant that sends property photos at the ri...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-product-compatibility-reasoning-in-a-wha/">Exploring product-compatibility reasoning in a WhatsApp c...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-exploring-an-llm-sales-assistant-that-captures-and/">Exploring an LLM sales assistant that captures and classi...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-numbers-decide-the-signal-the-llm-only-explains-a-/">Numbers decide the signal, the LLM only explains: a marke...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-what-agentic-actually-means-a-self-correcting-lang/">What 'agentic' actually means: a self-correcting LangGrap...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-06-22-a-rag-experiment-can-a-knowledge-base-write-its-ow/">A RAG experiment: can a knowledge base write its own Link...</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../blog/2026-05-24-managing-asynchronous-database-sessions-and-module/">Managing Asynchronous Database Sessions and Module Depend...</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Activities</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../activities/events/">Workshops & Webinars</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../contact/">Contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Robiriu Labs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Projects</li>
+          <li class="breadcrumb-item">Ongoing: AI Game Studio</li>
+      <li class="breadcrumb-item active">AI Game Studio Automation (Mimio Entertainment)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ai-game-studio-automation-for-mimio-entertainment">AI Game Studio Automation for Mimio Entertainment<a class="headerlink" href="#ai-game-studio-automation-for-mimio-entertainment" title="Permanent link">&para;</a></h1>
+<p><strong>Status:</strong> Ongoing | First game, Wisteria Hollow, published on Roblox (private test, public release scheduled); first YouTube Short live</p>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>An AI automation system that runs a small game studio end to end: market research, compliance, game design, building the game in Roblox Studio, QA, store listing, marketing and publishing. A team of AI agents drafts every step, the developer approves what matters, and the same pipeline is built to take Unity or any other engine later.</p>
+<p>Built for <strong>Mimio Entertainment</strong>, an independent Roblox game studio from Indonesia. The first game it produced is <strong>Wisteria Hollow</strong>, an original anime-style slayer adventure with six areas, seven fighting styles, saved progress, Bahasa Indonesia and English, touch controls and four game passes.</p>
+<div class="shot-row">
+  <img src="../../images/mimio-wisteria-village.jpg" alt="Wisteria Hollow: the village at dusk">
+  <img src="../../images/mimio-wisteria-lantern-district.jpg" alt="Wisteria Hollow: the Lantern District">
+  <img src="../../images/mimio-wisteria-endless-fortress.jpg" alt="Wisteria Hollow: the Endless Fortress">
+</div>
+
+<p><em>Store thumbnails generated from real in-game captures taken by the pipeline in Roblox Studio.</em></p>
+<hr />
+<h2 id="key-results">Key Results<a class="headerlink" href="#key-results" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent team</td>
+<td>12 role agents (research, compliance, design, art direction, Roblox and Unity builders, QA, store, marketing, content, analytics, producer) on headless Claude Opus</td>
+</tr>
+<tr>
+<td>Launch pipeline</td>
+<td>18 steps from research to post-launch review, with approval gates and human steps</td>
+</tr>
+<tr>
+<td>Game built through the pipeline</td>
+<td>saving with a session lock, levels 1 to 15 with area gates, two languages, mobile controls, a cosmetics shop and 4 game passes</td>
+</tr>
+<tr>
+<td>Roblox integration</td>
+<td>Open Cloud: experience status, game passes created with icons, data store checks and test scripts run on live Roblox servers</td>
+</tr>
+<tr>
+<td>Marketing output</td>
+<td>brand kit and store art generated from code; a 31-second Short recorded, edited, voiced and uploaded to YouTube from the dashboard</td>
+</tr>
+<tr>
+<td>Engine scope</td>
+<td>engine-agnostic: a new engine is one config entry plus one builder agent, no pipeline change</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    G["Goal for a game"] --&gt; A["Agent team&lt;br/&gt;(headless Claude)"]
+    A --&gt; S["Steps: research, compliance,&lt;br/&gt;design, art, build brief, QA"]
+    S --&gt; H["Developer approves&lt;br/&gt;or sends back with notes"]
+    H --&gt; B["Build in Roblox Studio&lt;br/&gt;via the Studio MCP"]
+    B --&gt; R["Roblox Open Cloud&lt;br/&gt;passes, data, live checks"]
+    S --&gt; P["Publishing queue&lt;br/&gt;YouTube, TikTok, Instagram, Facebook"]
+    S --&gt; V["Obsidian vault&lt;br/&gt;notes and status maps"]</code></pre>
+<ul>
+<li><strong>Agents draft, the developer decides.</strong> Each pipeline step is either an agent step (one call at a time, capped per day), a human step (building, playtesting, account setup) or an approval. Sending a step back reruns the agent with the developer's notes.</li>
+<li><strong>The game is built for real, not described.</strong> The build runs in Roblox Studio through its MCP server: scripts are written, play sessions started, kills, travel and purchases tested on the server and the client, and the place published under the studio's Roblox community.</li>
+<li><strong>Nothing reaches the outside world without approval.</strong> Roblox changes (new game passes, publishes) and social posts are requests on the dashboard that only run after the developer approves them; a post is never re-sent after an unclear result.</li>
+<li><strong>Everything is visible.</strong> A web dashboard shows runs, approvals, posts and live Roblox status, and an Obsidian vault mirrors every step as notes and a canvas map coloured by status.</li>
+</ul>
+<hr />
+<h2 id="the-game-wisteria-hollow">The Game: Wisteria Hollow<a class="headerlink" href="#the-game-wisteria-hollow" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Progression and saving:</strong> a profile per player in Roblox data stores with retries, a session lock across servers, autosave and save on leave or shutdown; verified by playing, leaving and rejoining.</li>
+<li><strong>Two languages:</strong> every text in the game, from dialogue to signs and prompts, in Bahasa Indonesia and English, following the player's Roblox language with an in-game switch.</li>
+<li><strong>Mobile first:</strong> a large attack button and skill buttons laid out around Roblox's own jump button, checked in the device simulator.</li>
+<li><strong>Fair monetization:</strong> coins buy looks only, and the four game passes give cosmetics or convenience, never power.</li>
+<li><strong>Original IP:</strong> an AI review of the design flagged names that sat too close to an existing anime; the styles and the finisher were renamed and reworked before release.</li>
+</ul>
+<hr />
+<h2 id="technologies">Technologies<a class="headerlink" href="#technologies" title="Permanent link">&para;</a></h2>
+<p>Claude (headless CLI, Opus), Roblox Studio MCP, Luau, Roblox Open Cloud, Python, FastAPI, SQLite, Docker Compose, YouTube Data API, Obsidian, Playwright, ffmpeg, Pillow</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ai-drawing-platform/" class="btn btn-neutral float-left" title="AI Drawing Platform (Architecture & Interior)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../face-attendance-mobile-kiosk/" class="btn btn-neutral float-right" title="Face-Attendance Android App + Outlet Kiosk (Flutter)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2022 - 2026 Robi Dany Riupassa</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ai-drawing-platform/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../face-attendance-mobile-kiosk/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../javascripts/mermaid.min.js"></script>
+      <script src="../../javascripts/mermaid-init.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
